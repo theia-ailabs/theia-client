@@ -1,7 +1,5 @@
 import { defineStore } from "pinia";
-import { State, History, MoveCursor, CursorCmd } from "../types";
-import { formatNumber } from "../utils";
-
+import { State } from "../../interfaces";
 const useStore = defineStore("main", {
   state: (): State => {
     return {
