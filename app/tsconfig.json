@@ -14,11 +14,14 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "node"
+      "node",
+      "src/types/*",
+      "node_modules/@types/*"
+
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "src/*",
       ]
     },
     "lib": [
