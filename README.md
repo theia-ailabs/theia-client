@@ -1,2 +1,2 @@
 # theia-client
-Vue Client for Theia AI Assistant
+Vue client for Theia AI Assistant
