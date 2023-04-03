@@ -1,4 +1,6 @@
 export interface State {
+  // user mood
+  mood: string;
   // web3 login
   connected: false;
   pubkey: "";
@@ -13,6 +15,12 @@ export interface State {
   age: "";
   phone: "";
   topics: string[];
+  created: string;
+  verified: boolean;
+  // clock
+  gmt: number;
+  timezone: string;
+  alarm: string;
   // messages
   chat: ChatRecord[];
   // ui config
@@ -20,7 +28,8 @@ export interface State {
   sound: true;
   primaryColor: "blue-500";
   secondaryColor: "blue-500";
-  heart: "💙";
+  heart: string;
+  emoji: string;
 }
 
 export interface ChatRecord {

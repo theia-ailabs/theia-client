@@ -3,6 +3,8 @@ import { State } from "../../interfaces";
 const useStore = defineStore("main", {
   state: (): State => {
     return {
+      // user mood
+      mood: "curious",
       // web3 login
       connected: false,
       pubkey: "",
@@ -17,6 +19,12 @@ const useStore = defineStore("main", {
       age: "",
       phone: "",
       topics: [],
+      created: "",
+      verified: false,
+      // clock
+      gmt: 0,
+      timezone: "",
+      alarm: "",
       // messages
       chat: [],
       // ui config
@@ -25,6 +33,7 @@ const useStore = defineStore("main", {
       primaryColor: "blue-500",
       secondaryColor: "blue-500",
       heart: "💙",
+      emoji: "",
     };
   },
   actions: {
