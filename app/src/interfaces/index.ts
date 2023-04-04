@@ -11,6 +11,7 @@ export interface State {
   email: string;
   name: string;
   // user info
+  username: string;
   country: string;
   gender: string;
   age: string;
@@ -36,6 +37,7 @@ export interface State {
 export interface ChatRecord {
   user: UserMessage;
   theia: TheiaMessage;
+  datetime: string;
 }
 
 export interface UserMessage {

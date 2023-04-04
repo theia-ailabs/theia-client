@@ -15,6 +15,7 @@ const useStore = defineStore("main", {
       email: "",
       name: "",
       // user info
+      username: "",
       country: "",
       gender: "",
       age: "",
@@ -39,6 +40,9 @@ const useStore = defineStore("main", {
   },
   actions: {
     connect(): void {
+      this.connected = true;
+    },
+    inputMessage(): void {
       this.connected = true;
     },
   },
