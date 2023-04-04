@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { State } from "../../interfaces";
+import { State } from "../interfaces";
 const useStore = defineStore("main", {
   state: (): State => {
     return {
@@ -8,7 +8,8 @@ const useStore = defineStore("main", {
       // web3 login
       connected: false,
       pubkey: "",
-      balance: "0",
+      balance: 0,
+      ccy: "SOL",
       // web2 login
       login: false,
       email: "",
@@ -37,8 +38,8 @@ const useStore = defineStore("main", {
     };
   },
   actions: {
-    foo(): void {
-      return;
+    connect(): void {
+      this.connected = true;
     },
   },
 });

@@ -2,18 +2,19 @@ export interface State {
   // user mood
   mood: string;
   // web3 login
-  connected: false;
-  pubkey: "";
-  balance: "0";
+  connected: boolean;
+  pubkey: string;
+  balance: number;
+  ccy: string;
   // web2 login
-  login: false;
-  email: "";
-  name: "";
+  login: boolean;
+  email: string;
+  name: string;
   // user info
-  country: "";
-  gender: "";
-  age: "";
-  phone: "";
+  country: string;
+  gender: string;
+  age: string;
+  phone: string;
   topics: string[];
   created: string;
   verified: boolean;
@@ -24,10 +25,10 @@ export interface State {
   // messages
   chat: ChatRecord[];
   // ui config
-  dark: true;
-  sound: true;
-  primaryColor: "blue-500";
-  secondaryColor: "blue-500";
+  dark: boolean;
+  sound: boolean;
+  primaryColor: string;
+  secondaryColor: string;
   heart: string;
   emoji: string;
 }

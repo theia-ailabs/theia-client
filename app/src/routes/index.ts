@@ -1,21 +1,34 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import MainScreen from "../screens/MainScreen.vue";
+import WelcomeView from "../views/WelcomeView.vue";
+import MainView from "../views/MainView.vue";
+import LegalView from "../views/LegalView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/chat",
+    path: "/",
+    name: "welcome",
+    component: WelcomeView,
+  },
+  {
+    path: "/theia",
     name: "main",
-    component: MainScreen,
+    component: MainView,
   },
   {
     path: "/legal",
     name: "legal",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/WelcomeScreen.vue"),
+    component: LegalView,
   },
+
+  // {
+  //   path: "/profile",
+  //   name: "profile",
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () =>
+  //     import(/* webpackChunkName: "about" */ "../views/ProfileScreen.vue"),
+  // },
 ];
 
 const router = createRouter({

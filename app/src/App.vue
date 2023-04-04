@@ -1,11 +1,6 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/chat"></router-link>
-  </nav>
   <router-view />
 </template>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -14,17 +9,30 @@
   text-align: center;
   color: #2c3e50;
 }
-
-nav {
-  padding: 30px;
+html body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  background-color: transparent !important;
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+::-webkit-scrollbar-track {
+  background-color: rgba(179, 179, 179, 0.692) !important;
+  border-radius: 1rem;
+  margin: 0.4rem;
+  margin-top: 0.4rem;
+  border-left: 1px solid rgba(211, 211, 211, 0) !important;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: linear-gradient(
+    30deg,
+    rgba(140, 208, 11, 0.83),
+    #cf0ccfbe
+  ) !important;
+  box-shadow: inset 0 0 6px rgb(206, 9, 212) !important;
 }
 </style>

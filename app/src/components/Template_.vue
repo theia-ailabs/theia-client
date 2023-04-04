@@ -4,15 +4,23 @@ import useStore from "../services/store";
 export default defineComponent({
   setup() {
     const store = useStore();
+    function connect(): void {
+      store.connect();
+    }
     return {
       store,
+      connect,
     };
   },
 });
 </script>
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/chat"></router-link>
-  </nav>
+  <div class="flex" :class="store.dark ? 'bg-black' : 'bg-white'">
+    <button :on-click="connect">Connect</button>
+  </div>
 </template>
+<style scoped>
+h1 {
+  font-size: 40px;
+}
+</style>
