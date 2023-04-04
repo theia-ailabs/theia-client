@@ -9,6 +9,7 @@ import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
+
 export default defineComponent({
   setup() {
     let SCENE: any;
@@ -32,10 +33,9 @@ export default defineComponent({
       initComposer();
       initControls();
       initEventListeners();
-
       createObjects();
-      const container = document.querySelector(".ai-talk") as HTMLElement;
-      container.appendChild(RENDERER.domElement);
+      // const container = document.querySelector(".ai-talk") as HTMLElement;
+      // container.appendChild(RENDERER.domElement);
     }
 
     function initScene() {

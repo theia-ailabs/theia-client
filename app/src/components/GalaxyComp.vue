@@ -9,6 +9,7 @@
 import { defineComponent } from "vue";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
 export default defineComponent({
   setup() {
     const onBeforeCompile = (shader: any) => {
@@ -67,8 +68,8 @@ export default defineComponent({
     camera.position.set(-20, 0, 40);
     let renderer = new THREE.WebGLRenderer();
     renderer.setSize(innerWidth, innerHeight);
-    const container = document.querySelector(".galaxy") as HTMLElement;
-    container.appendChild(renderer.domElement);
+    // const container = document.querySelector(".galaxy") as HTMLElement;
+    // container.appendChild(renderer.domElement);
     window.addEventListener("resize", () => {
       camera.aspect = innerWidth / innerHeight;
       camera.updateProjectionMatrix();
