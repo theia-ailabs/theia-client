@@ -3,14 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@metaplex-foundation/js": "^0.18.3",
+    "@solana/wallet-adapter-wallets": "^0.19.16",
+    "@solana/web3.js": "^1.75.0",
+    "@vueuse/core": "^9.13.0",
     "core-js": "^3.8.3",
     "pinia": "^2.0.33",
     "register-service-worker": "^1.7.2",
+    "socket.io-client": "^4.6.1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },
