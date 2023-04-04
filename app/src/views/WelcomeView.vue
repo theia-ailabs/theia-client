@@ -6,9 +6,9 @@ import GalaxyComp from "../components/GalaxyComp.vue";
   <!-- Welcome Title -->
   <div class="mt-20">
     <h1 class="welcome-title relative z-50 top-[20%] w-full text-center flex flex-wrap
-                                  justify-center">
-      <div class="fx text-center flex flex-wrap
                                     justify-center">
+      <div class="fx text-center flex flex-wrap
+                                      justify-center">
         <div class="text-center">
           <span class="silver">T</span>
           <span class="silver">H</span>
@@ -27,7 +27,7 @@ import GalaxyComp from "../components/GalaxyComp.vue";
 
   </div>
 
-  <div id="faux-terminal">
+  <div id="faux-terminal" class="w-full h-full z-40 fixed top-0 left-0 min-h-[51px]">
     <div class="layer"></div>
     <div class="overlay"></div>
   </div>
@@ -157,16 +157,7 @@ h1:hover {
   }
 }
 
-
 #faux-terminal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 51px;
-  z-index: 4000;
   pointer-events: none;
 }
 
