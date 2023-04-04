@@ -19,7 +19,6 @@ const routes: Array<RouteRecordRaw> = [
     name: "legal",
     component: LegalView,
   },
-
   // {
   //   path: "/profile",
   //   name: "profile",
