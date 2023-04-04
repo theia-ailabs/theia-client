@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { State } from "../interfaces";
+
 const useStore = defineStore("main", {
   state: (): State => {
     return {
