@@ -38,7 +38,7 @@ export default defineComponent({
         <img
           class="rounded-full opacity-60"
           width="180"
-          src="./../assets/img/gif/loading.gif"
+          src="../assets/img/gif/loader.gif"
         />
       </div>
     </div>
@@ -59,7 +59,7 @@ export default defineComponent({
 }
 h1 {
   font-family: "Cubic" !important;
-  src: url(../../../assets/fonts/cubic.ttf) !important;
+  src: url(../assets/fonts/cubic.ttf) !important;
   font-size: 2.5rem;
   margin: 0;
   padding-bottom: 0.5rem;
