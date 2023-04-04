@@ -4,7 +4,6 @@ import NavbarComp from "../components/NavbarComp.vue";
 <template>
   <div class="home">
     <NavbarComp />
-    <img alt="Vue logo" src="../assets/logo.png" />
     <p>This is the main page</p>
   </div>
 </template>
