@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
+    "@types/three": "^0.150.1",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
