@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import NavbarComp from "../components/NavbarComp.vue";
-import IABodyComp from "@/components/IABodyComp.vue";
-import ChatComp from "@/components/ChatComp.vue";
+import IABodyComp from "/components/IABodyComp.vue";
+import ChatComp from "/components/ChatComp.vue";
 </script>
 <template>
   <div class="home w-full h-screen">
