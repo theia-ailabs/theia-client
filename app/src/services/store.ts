@@ -45,6 +45,9 @@ const useStore = defineStore("main", {
     inputMessage(): void {
       this.connected = true;
     },
+    scrollTop(): void {
+      window.scrollTo(document.body.scrollHeight, 0);
+    },
   },
 });
 
