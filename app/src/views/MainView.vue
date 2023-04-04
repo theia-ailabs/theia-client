@@ -16,3 +16,4 @@ import ChatComp from "/components/ChatComp.vue";
     </div>
   </div>
 </template>
+<style scoped></style>
