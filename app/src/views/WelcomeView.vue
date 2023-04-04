@@ -6,9 +6,9 @@ import GalaxyComp from "../components/GalaxyComp.vue";
   <!-- Welcome Title -->
   <div class="mt-20">
     <h1 class="welcome-title relative z-50 top-[20%] w-full text-center flex flex-wrap
-                                justify-center">
-      <div class="fx text-center flex flex-wrap
                                   justify-center">
+      <div class="fx text-center flex flex-wrap
+                                    justify-center">
         <div class="text-center">
           <span class="silver">T</span>
           <span class="silver">H</span>
@@ -22,7 +22,7 @@ import GalaxyComp from "../components/GalaxyComp.vue";
   <!-- Loader -->
   <div class="front relative z-50">
     <div id="loader-ai" class="loader-ai fixed top-[50%] left-[50%]">
-      <img class="rounded-full opacity-60" width="180" src="../../assets/gif/loading.gif" />
+      <img class="rounded-full opacity-60" width="180" src="./../assets/img/gif/loading.gif" />
     </div>
 
   </div>
