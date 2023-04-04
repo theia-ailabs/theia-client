@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" setup>
 import * as THREE from 'three';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';

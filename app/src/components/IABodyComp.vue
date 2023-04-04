@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" setup>
 import BaseIAComp from "components/BaseIAComp.vue";
 import TalkIAComp from "components/TalkIAComp.vue";
 
