@@ -3,6 +3,7 @@ import { defineComponent, ref, Ref } from "vue";
 import useStore from "../services/store";
 import LiquidBody from "../modules/avatars/liquid/LiquidBody.vue";
 import LiquidTalk from "../modules/avatars/liquid/LiquidTalk.vue";
+
 export default defineComponent({
   components: { LiquidBody, LiquidTalk },
   setup() {
