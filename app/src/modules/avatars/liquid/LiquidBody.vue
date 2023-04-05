@@ -34,7 +34,7 @@ export default defineComponent({
       initControls();
       initEventListeners();
       createObjects();
-      // Redner 3D
+      // Render 3D
       onMounted(() => {
         const container = document.querySelector(".ai-talk") as HTMLElement;
         if (container) {
