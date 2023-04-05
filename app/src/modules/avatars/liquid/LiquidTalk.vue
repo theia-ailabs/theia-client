@@ -34,8 +34,8 @@ export default defineComponent({
       initControls();
       initEventListeners();
       createObjects();
-      // const container = document.querySelector(".ai-talk") as HTMLElement;
-      // container.appendChild(RENDERER.domElement);
+      const container = document.querySelector(".ai-talk") as HTMLElement;
+      container.appendChild(RENDERER.domElement);
     }
 
     function initScene() {

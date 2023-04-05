@@ -34,8 +34,8 @@ export default defineComponent({
       initControls();
       initEventListeners();
       createObjects();
-      // const container = document.querySelector(".ai-container") as HTMLElement;
-      // container.appendChild(RENDERER.domElement);
+      const container = document.querySelector(".ai-container") as HTMLElement;
+      container.appendChild(RENDERER.domElement);
     }
 
     function initScene() {

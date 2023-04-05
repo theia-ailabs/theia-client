@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="galaxy"
-    class="w-screen h-screen absolute top-0 left-0 bg-transparent"
-  ></div>
+  <div id="galaxy" class="w-screen h-screen absolute top-0 left-0 bg-transparent"></div>
 </template>
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script lang="ts">
@@ -68,8 +65,8 @@ export default defineComponent({
     camera.position.set(-20, 0, 40);
     let renderer = new THREE.WebGLRenderer();
     renderer.setSize(innerWidth, innerHeight);
-    // const container = document.querySelector(".galaxy") as HTMLElement;
-    // container.appendChild(renderer.domElement);
+    const container = document.querySelector(".galaxy") as HTMLElement;
+    container.appendChild(renderer.domElement);
     window.addEventListener("resize", () => {
       camera.aspect = innerWidth / innerHeight;
       camera.updateProjectionMatrix();
