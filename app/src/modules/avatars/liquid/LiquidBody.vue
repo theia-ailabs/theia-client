@@ -158,7 +158,6 @@ export default defineComponent({
 							void main() {
 								vec3 color1 = red;
 								vec3 color2 = yellow;
-								
 								gl_FragColor = vec4(mix(color1, color2, vNormal.z), 0.5);
 							}
 						`,
