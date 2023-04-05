@@ -34,7 +34,7 @@ export default defineComponent({
       initControls();
       initEventListeners();
       createObjects();
-      // Redner 3D
+      // Render 3D
       onMounted(() => {
         const container = document.querySelector(".ai-body") as HTMLElement;
         if (container) {
@@ -77,10 +77,8 @@ export default defineComponent({
     function initComposer() {
       COMPOSER = new EffectComposer(RENDERER);
       COMPOSER.setSize(window.innerWidth, window.innerHeight);
-
       const renderPass = new RenderPass(SCENE, CAMERA);
       COMPOSER.addPass(renderPass);
-
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
         1.5,
@@ -101,14 +99,12 @@ export default defineComponent({
 
     function initEventListeners() {
       window.addEventListener("resize", onWindowResize);
-
       onWindowResize();
     }
 
     function onWindowResize() {
       CAMERA.aspect = window.innerWidth / window.innerHeight;
       CAMERA.updateProjectionMatrix();
-
       RENDERER.setSize(window.innerWidth, window.innerHeight);
       COMPOSER.setSize(window.innerWidth, window.innerHeight);
     }
@@ -147,38 +143,26 @@ export default defineComponent({
         transparent: true,
         side: THREE.DoubleSide,
         vertexShader: `
-            uniform float uTime;
-        
+            uniform float uTime;     
             varying vec3 vNormal;
-            
-        
             void main() {
                 vNormal = normal;
-                
                 vec3 delta = 10.0 * normal * sin(normal.x + normal.y * 10.0 + normal.z + uTime * 10.0);
-                
                 vec3 newPosition = position + delta;
-        
                 gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
             }
             `,
         fragmentShader: `
               uniform float uTime;
-          
               varying vec3 vNormal;
-              
-              
               void main() {
                 vec3 color1 = vec3(194.0/255.0, 0.0, 255.0/255.0);
                 vec3 color2 = vec3(227.0/255.0, 155.0/255.0, 0.0);
-                
                 gl_FragColor = vec4(mix(color1, color2, vNormal.z), 0.5);
               }
             `,
       });
-
       const sphere = new THREE.Mesh(geometry, shaderMaterial);
-
       SCENE.add(sphere);
     }
   },
