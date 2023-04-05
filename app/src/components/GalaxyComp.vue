@@ -1,5 +1,8 @@
 <template>
-  <div id="galaxy" class="w-screen h-screen absolute top-0 left-0 bg-transparent"></div>
+  <div
+    id="galaxy"
+    class="w-screen h-screen absolute top-0 left-0 bg-transparent"
+  ></div>
 </template>
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script lang="ts">
