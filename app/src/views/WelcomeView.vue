@@ -2,9 +2,10 @@
 import { defineComponent } from "vue";
 import GalaxyComp from "../components/GalaxyComp.vue";
 import useStore from "../services/store";
+import TerminalComp from "../components/TerminalComp.vue";
 
 export default defineComponent({
-  components: { GalaxyComp },
+  components: { GalaxyComp, TerminalComp },
   setup() {
     const store = useStore();
     return {
