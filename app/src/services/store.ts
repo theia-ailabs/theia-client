@@ -49,6 +49,21 @@ const useStore = defineStore("main", {
     scrollTop(): void {
       window.scrollTo(document.body.scrollHeight, 0);
     },
+    switchDark(): void {
+      this.dark = !this.dark;
+    },
+    switchSound(): void {
+      this.sound = !this.sound;
+    },
+    setPrimaryColor(color: string): void {
+      this.primaryColor = color;
+    },
+    setSecondaryColor(color: string): void {
+      this.secondaryColor = color;
+    },
+    setHeart(heart: string): void {
+      this.heart = heart;
+    },
   },
 });
 

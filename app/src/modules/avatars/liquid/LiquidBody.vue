@@ -1,9 +1,9 @@
 <template>
-  <div class="ai-container z-0 bg-transparent border-none fixed top-0"></div>
+  <div class="ai-talk bg-transparent border-none fixed top-0"></div>
 </template>
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import * as THREE from "three";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
@@ -26,7 +26,7 @@ export default defineComponent({
       animate();
     }
 
-    function init(): void {
+    function init() {
       initScene();
       initCamera();
       initRenderer();
@@ -34,12 +34,18 @@ export default defineComponent({
       initControls();
       initEventListeners();
       createObjects();
-      const container = document.querySelector(".ai-container") as HTMLElement;
-      container.appendChild(RENDERER.domElement);
+      // Redner 3D
+      onMounted(() => {
+        const container = document.querySelector(".ai-talk") as HTMLElement;
+        if (container) {
+          container.appendChild(RENDERER.domElement);
+        }
+      });
     }
 
     function initScene() {
       SCENE = new THREE.Scene();
+
       initLights();
     }
 
@@ -134,7 +140,7 @@ export default defineComponent({
     }
 
     function createObjects() {
-      let geometry = new THREE.SphereGeometry(23, 300, 300);
+      let geometry = new THREE.SphereGeometry(26, 160, 10);
       const shaderMaterial = new THREE.ShaderMaterial({
         uniforms: {
           uTime: { value: TIME },
@@ -142,34 +148,34 @@ export default defineComponent({
         transparent: true,
         side: THREE.DoubleSide,
         vertexShader: `
-            uniform float uTime;
-        
-            varying vec3 vNormal;
-            
-        
-            void main() {
-                vNormal = normal;
-                
-                vec3 delta = 10.0 * normal * sin(normal.x + normal.y * 10.0 + normal.z + uTime * 10.0);
-                
-                vec3 newPosition = position + delta;
-        
-                gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-            }
-            `,
+						uniform float uTime;
+				
+						varying vec3 vNormal;
+						
+				
+						void main() {
+								vNormal = normal;
+								
+								vec3 delta = 10.0 * normal * sin(normal.x + normal.y * 10.0 + normal.z + uTime * 10.0);
+								
+								vec3 newPosition = position + delta;
+				
+								gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+						}
+						`,
         fragmentShader: `
-              uniform float uTime;
-          
-              varying vec3 vNormal;
-              
-              
-              void main() {
-                vec3 color1 = vec3(194.0/255.0, 0.0, 255.0/255.0);
-                vec3 color2 = vec3(227.0/255.0, 155.0/255.0, 0.0);
-                
-                gl_FragColor = vec4(mix(color1, color2, vNormal.z), 0.5);
-              }
-            `,
+							uniform float uTime;
+					
+							varying vec3 vNormal;
+							
+							
+							void main() {
+								vec3 color1 = vec3(194.0/255.0, 0.0, 255.0/255.0);
+								vec3 color2 = vec3(227.0/255.0, 155.0/255.0, 0.0);
+								
+								gl_FragColor = vec4(mix(color1, color2, vNormal.z), 0.5);
+							}
+						`,
       });
 
       const sphere = new THREE.Mesh(geometry, shaderMaterial);

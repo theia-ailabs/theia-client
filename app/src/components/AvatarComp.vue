@@ -1,3 +1,17 @@
+<template>
+  <div class="z-0 fixed bg-transparent">
+    <div v-if="listening">
+      <button :click="toTalk()">
+        <LiquidBody />
+      </button>
+    </div>
+    <div v-if="talking">
+      <button :click="toListen()">
+        <LiquidTalk />
+      </button>
+    </div>
+  </div>
+</template>
 <script lang="ts">
 import { defineComponent, ref, Ref } from "vue";
 import useStore from "../services/store";
@@ -8,8 +22,8 @@ export default defineComponent({
   components: { LiquidBody, LiquidTalk },
   setup() {
     const store = useStore();
-    const talking: Ref<boolean> = ref(false);
     const listening: Ref<boolean> = ref(true);
+    const talking: Ref<boolean> = ref(false);
     function toListen(): void {
       listening.value = true;
       talking.value = false;
@@ -28,17 +42,3 @@ export default defineComponent({
   },
 });
 </script>
-<template>
-  <div class="bg-transparent z-0 relative h-screen">
-    <div v-if="listening">
-      <button :click="toTalk()">
-        <LiquidBody />
-      </button>
-    </div>
-    <div v-if="talking">
-      <button :click="toListen()">
-        <LiquidTalk />
-      </button>
-    </div>
-  </div>
-</template>
