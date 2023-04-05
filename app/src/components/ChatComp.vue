@@ -13,31 +13,27 @@ export default defineComponent({
 </script>
 <template>
   <div>
-    <div class="flex z-50 relative justify-center w-full">
+    <div class="flex relative justify-center w-full">
       <span
         id="span_input"
-        class="z-50 fixed top-28 py-2 hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner-sm shadow-yellow-400 min-h-12 p-1 my-2 w-64 rounded-xl"
+        class="fixed top-28 py-2 hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner-sm shadow-yellow-400 min-h-12 p-1 my-2 w-64 rounded-xl"
         autofocus
         contenteditable
       >
       </span>
-      <button
-        class="bg-white z-50 send"
-        type="button"
-        :click="store.inputMessage()"
-      >
+      <button class="bg-white send" type="button" :click="store.inputMessage()">
         &nbsp;
       </button>
     </div>
-    <div class="z-20 relative p-2 pt-4 h-screen w-screen">
+    <div class="relative p-2 pt-4 h-screen w-screen">
       <div
-        class="z-30 relative flex align-top top-0"
+        class="relative flex align-top top-0"
         v-for="x in store.chat"
         :key="x.datetime"
       >
         <div
           id="Theia"
-          class="z-50 relative align-top flex justify-start w-full -mb-4"
+          class="relative align-top flex justify-start w-full -mb-4"
         >
           <div>
             <div
