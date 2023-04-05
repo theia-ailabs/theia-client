@@ -35,27 +35,11 @@ export default {
     "
   >
     <settings-buttons class="mt-4" />
-    <div
-      class="flex flex-wrap justify-center items-center rounded-xl min-w-full"
-    >
-      <!-- UTC date -->
-      <div class="text-xs tracking-widest justify-center mr-4">
-        {{ date }}
-      </div>
-      <!-- UTC time -->
-      <div class="text-xs tracking-widest justify-center ml-4">
-        {{ time }}<span class="text-xs"> UTC</span>
-      </div>
+    <!-- UTC datetime -->
+    <div class="text-xs tracking-widest justify-center mr-4">
+      {{ date }} {{ time }}<span class="text-xs"> UTC</span>
     </div>
     <!-- Credits -->
-    <div class="py-4 -mb-2">
-      Made with {{ store.heart }} by Theia Labs <br />April 2023 ©
-      <a
-        href="https://github.com/quantium-rock/innocv-calculator/"
-        target="_blank"
-        class="underline"
-        >Free rights of use.</a
-      >
-    </div>
+    <div class="py-4 -mb-2">Made with {{ store.heart }} by Theia Labs</div>
   </div>
 </template>
