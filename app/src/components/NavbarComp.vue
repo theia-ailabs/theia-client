@@ -12,7 +12,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <nav class="fixed pt-4 flex bg-transparent justify-center w-full top-0">
+  <nav class="z-50 fixed pt-4 flex bg-transparent justify-center w-full top-0">
     <button
       :click="store.scrollTop()"
       class="relative flex bg-transparent justify-center items-center py-4"

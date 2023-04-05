@@ -17,12 +17,10 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="home w-full h-screen">
-    <NavbarComp class="z-50 fixed w-full bg-black" />
-    <div id="main-display" class="bg-black">
-      <AvatarComp class="h-screen" />
-      <ChatComp />
-      <FooterComp />
-    </div>
+  <div class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
+    <NavbarComp />
+    <AvatarComp />
+    <ChatComp />
+    <FooterComp />
   </div>
 </template>
