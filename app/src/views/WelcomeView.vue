@@ -49,7 +49,7 @@ export default defineComponent({
       <div class="layer"></div>
       <div class="overlay"></div>
     </div>
-    <!-- <app-text-loader /> -->
+    <TerminalComp />
   </div>
 </template>
 

@@ -1,4 +1,8 @@
-<script lang="ts" setup>
+<script lang="ts">
+import {defineComponent} from "vue";
+
+export default defineComponent({
+    setup() {
     let i = 1;
     const intervalId = setInterval(() => {
       const div = document.getElementById(`appear${i}`);
@@ -9,6 +13,9 @@
         clearInterval(intervalId);
       }
     }, 3000);
+    }
+})
+
 </script>
 <template>
 <div class="workspace border-none w-full absolute top-[75%] flex justify-center align-middle text-center z-50 my-0 mx-auto bg-transparent ">
