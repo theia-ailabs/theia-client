@@ -1,6 +1,17 @@
-<script></script>
+<script lang="ts" setup>
+    let i = 1;
+    const intervalId = setInterval(() => {
+      const div = document.getElementById(`appear${i}`);
+      if (div) {
+        div.style.display = 'block';
+        i++;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 3000);
+</script>
 <template>
-    <div class="workspace w-full">
+<div class="workspace border-none w-full absolute top-[75%] flex justify-center align-middle text-center z-50 my-0 mx-auto bg-transparent ">
     <!-- <app-svg-spacetravel /> -->
     <div class="container-text w-full">
         <div id="appear1" style="display:none;">
@@ -15,4 +26,10 @@
     </div>
 </div>
 </template>
-<style scoped></style>
+<style scoped>
+.workspace {
+    font-family: 'Orbitron', monospace;
+    font-size: small;
+    box-shadow: none !important;
+}
+</style>
