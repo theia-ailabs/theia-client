@@ -20,7 +20,8 @@
     "three": "^0.151.3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
-    "wavesurfer.js": "^6.6.3"
+    "wavesurfer.js": "^6.6.3",
+    "wavesurfer.js-vue": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
