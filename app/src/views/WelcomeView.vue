@@ -55,6 +55,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 import GalaxyComp from "../components/GalaxyComp.vue";
 import useStore from "../services/store";
 import TerminalComp from "../components/TerminalComp.vue";
@@ -65,6 +66,7 @@ export default defineComponent({
     const store = useStore();
     const isLoadingDone = ref(false);
     const isDisplayVisible = ref(false);
+    const router = useRouter();
 
     onMounted(() => {
       setTimeout(() => {
@@ -74,6 +76,7 @@ export default defineComponent({
 
     function connect() {
       isDisplayVisible.value = true;
+      router.push({ name: "main" });
     }
 
     return {
