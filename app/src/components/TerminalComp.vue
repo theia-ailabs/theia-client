@@ -18,7 +18,7 @@ export default defineComponent({
 </script>
 <template>
   <div
-    class="workspace border-none w-full absolute top-[75%] flex justify-center align-middle text-center my-0 mx-auto bg-transparent"
+    class="workspace border-none text-white w-full absolute top-[75%] flex z-40 justify-center align-middle text-center my-0 mx-auto bg-transparent"
   >
     <!-- <app-svg-spacetravel /> -->
     <div class="container-text w-full">
@@ -43,6 +43,29 @@ export default defineComponent({
   font-family: "Orbitron", monospace;
   font-size: small;
   box-shadow: none !important;
-  z-index: 9000 !important;
+}
+a {
+    color: #fff;
+    opacity: 1 !important;
+    position: relative;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+a span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    background: #000;
+    border-left: .5em solid;
+    box-sizing: border-box;
+    -webkit-animation: typing 3s steps(13, end), blink-caret 1s step-end infinite;
+    animation: typing 3s steps(13, end), blink-caret 1s step-end infinite;
 }
 </style>
