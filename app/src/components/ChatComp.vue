@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useStore from "../services/store";
+import AudioWaveComp from "./AudioWaveComp.vue";
 
 export default defineComponent({
   setup() {
@@ -46,7 +47,7 @@ export default defineComponent({
               <div
                 class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-sm shadow-purple-400 border border-yellow-400/30"
               >
-                <app-audio-wave class="h-4 max-h-12" />
+                <AudioWaveComp class="h-4 max-h-12" />
                 <div class="p-4">
                   {{ x.theia.text }}
                 </div>
@@ -78,7 +79,7 @@ export default defineComponent({
             <div
               class="p-2 px-8 my-2 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[280px] lg:w-[440px] shadow-inner shadow-yellow-400"
             >
-              <app-audio-wave class="h-4 max-h-12" />
+              <AudioWaveComp class="h-4 max-h-12" />
               {{ x.user.text }}
             </div>
             <div class="flex justify-end text-xs mb-4 pl-4">
