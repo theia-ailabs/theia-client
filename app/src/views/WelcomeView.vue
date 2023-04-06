@@ -10,30 +10,27 @@ export default defineComponent({
     return {
       isLoadingDone: false,
       isDisplayVisible: false,
-      timer: null
     };
   },
   setup() {
     const store = useStore();
+    setTimeout(() => {
+      true;
+    }, 12000);
     return {
       store,
     };
-  },
-  mounted() {
-    setTimeout(() => {
-      this.isLoadingDone = true;
-    }, 12000);
   },
   methods: {
     connect() {
       this.isDisplayVisible = true;
     },
-  }
+  },
 });
 </script>
 <template>
   <div :class="{ hidden: isDisplayVisible }">
-    <GalaxyComp/>
+    <GalaxyComp />
     <!-- Welcome Title -->
     <div class="mt-20">
       <h1
@@ -52,7 +49,11 @@ export default defineComponent({
     </div>
     <!-- Loader -->
     <div class="front relative z-50">
-      <div id="loader-ai" class="loader-ai fixed top-[50%] left-[50%]">
+      <div
+        id="loader-ai"
+        class="loader-ai fixed top-[50%] left-[50%]"
+        :class="{ hidden: isLoadingDone }"
+      >
         <img
           class="rounded-full opacity-60"
           width="180"
@@ -61,8 +62,9 @@ export default defineComponent({
       </div>
       <button
         id="connect-btn"
-        :class="{ hidden: !isLoadingDone }" @click="connect"
-        class="animate-bounce connect-btn mt-6 hidden border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-sm p-2 px-4 uppercase rounded-xl"
+        :class="{ hidden: !isLoadingDone }"
+        @click="connect"
+        class="animate-bounce connect-btn mt-6 hidden border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-sm p-2 px-4 uppercase rounded-xl z-50"
       >
         <h1
           class="text-[8px] pl-2 hover:text-white hover:font-bold hover:translate-x-2"
