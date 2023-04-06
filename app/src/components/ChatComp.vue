@@ -16,12 +16,16 @@ export default defineComponent({
     <div class="flex relative justify-center w-full">
       <span
         id="span_input"
-        class="fixed top-28 py-2 hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner-sm shadow-yellow-400 min-h-12 p-1 my-2 w-64 rounded-xl"
+        class="fixed top-28 py-2 hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner-sm shadow-yellow-400 min-h-12 p-1 my-2 w-64 rounded-xl z-50"
         autofocus
         contenteditable
       >
       </span>
-      <button class="bg-white send" type="button" :click="store.inputMessage()">
+      <button
+        class="bg-white send z-50"
+        type="button"
+        @click="store.inputMessage()"
+      >
         &nbsp;
       </button>
     </div>
