@@ -1,30 +1,32 @@
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 import GalaxyComp from "../components/GalaxyComp.vue";
 import useStore from "../services/store";
 import TerminalComp from "../components/TerminalComp.vue";
 
 export default defineComponent({
   components: { GalaxyComp, TerminalComp },
-  data() {
-    return {
-      isLoadingDone: false,
-      isDisplayVisible: false,
-    };
-  },
   setup() {
     const store = useStore();
-    setTimeout(() => {
-      true;
-    }, 12000);
+    const isLoadingDone = ref(false);
+    const isDisplayVisible = ref(false);
+
+    onMounted(() => {
+      setTimeout(() => {
+        isLoadingDone.value = true;
+      }, 12000);
+    });
+
+    function connect() {
+      isDisplayVisible.value = true;
+    }
+
     return {
       store,
+      isLoadingDone,
+      isDisplayVisible,
+      connect,
     };
-  },
-  methods: {
-    connect() {
-      this.isDisplayVisible = true;
-    },
   },
 });
 </script>
@@ -64,7 +66,7 @@ export default defineComponent({
         id="connect-btn"
         :class="{ hidden: !isLoadingDone }"
         @click="connect"
-        class="animate-bounce connect-btn mt-6 hidden border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-sm p-2 px-4 uppercase rounded-xl z-50"
+        class="animate-bounce connect-btn mt-6 border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-sm p-2 px-4 uppercase rounded-xl z-50"
       >
         <h1
           class="text-[8px] pl-2 hover:text-white hover:font-bold hover:translate-x-2"
