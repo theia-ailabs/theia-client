@@ -396,4 +396,84 @@ h1:hover {
   height: 38px !important;
   position: absolute;
 }
+#connect-btn {
+  z-index: 9999 !important;
+  position: absolute !important;
+  top: 42vh;
+  left: calc(50% - 35px);
+}
+
+@property --d {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+button {
+  width: 70px;
+  height: 70px;
+  aspect-ratio: 1;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  position: relative;
+  z-index: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  padding: 8px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from var(--d, 0deg),
+    #ae0ff7,
+    #0000 30deg 120deg,
+    yellow 150deg 180deg,
+    #0000 210deg 300deg,
+    #ae0ff7 330deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: intersect;
+}
+
+button:after {
+  content: "";
+  position: absolute;
+  inset: -100px;
+  background: radial-gradient(80px at left 150px top 120px, #ae0ff7 98%, #0000),
+    radial-gradient(80px at right 150px bottom 120px, yellow 98%, #0000);
+  filter: blur(60px);
+  opacity: 0.5;
+}
+
+button:before,
+button:after {
+  transition: 0.5s, 99999s 99999s transform, 99999s 99999s --d;
+}
+
+button:hover {
+  box-shadow: 0 0 0 1px #666;
+}
+
+button:hover:after {
+  transform: rotate(3600deg);
+  transition: 0.5s, 60s linear transform;
+}
+
+button:hover:before {
+  --d: 3600deg;
+  transition: 0.5s, 60s linear --d;
+}
+
+button:hover:before {
+  background-color: #222;
+}
 </style>
