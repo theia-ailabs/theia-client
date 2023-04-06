@@ -385,4 +385,9 @@ h1:hover {
     transform: scale(1.001, 1);
   }
 }
+.connect-btn:hover {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
 </style>
