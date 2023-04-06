@@ -1,22 +1,39 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import GalaxyComp from "../components/GalaxyComp.vue";
 import useStore from "../services/store";
 import TerminalComp from "../components/TerminalComp.vue";
 
 export default defineComponent({
   components: { GalaxyComp, TerminalComp },
+  data() {
+    return {
+      isLoadingDone: false,
+      isDisplayVisible: false,
+      timer: null
+    };
+  },
   setup() {
     const store = useStore();
     return {
       store,
     };
   },
+  mounted() {
+    setTimeout(() => {
+      this.isLoadingDone = true;
+    }, 12000);
+  },
+  methods: {
+    connect() {
+      this.isDisplayVisible = true;
+    },
+  }
 });
 </script>
 <template>
-  <div>
-    <GalaxyComp />
+  <div :class="{ hidden: isDisplayVisible }">
+    <GalaxyComp/>
     <!-- Welcome Title -->
     <div class="mt-20">
       <h1
@@ -42,6 +59,17 @@ export default defineComponent({
           src="../assets/img/gif/loader.gif"
         />
       </div>
+      <button
+        id="connect-btn"
+        :class="{ hidden: !isLoadingDone }" @click="connect"
+        class="animate-bounce connect-btn mt-6 hidden border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-sm p-2 px-4 uppercase rounded-xl"
+      >
+        <h1
+          class="text-[8px] pl-2 hover:text-white hover:font-bold hover:translate-x-2"
+        >
+          Connect
+        </h1>
+      </button>
     </div>
     <div
       id="faux-terminal"
@@ -304,53 +332,53 @@ h1:hover {
   min-height: 51px;
 }
 @keyframes vline {
-    0% {
-        top: 0px;
-    }
+  0% {
+    top: 0px;
+  }
 
-    100% {
-        top: 100%;
-    }
+  100% {
+    top: 100%;
+  }
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1.001);
-        opacity: .14;
-    }
+  0% {
+    transform: scale(1.001);
+    opacity: 0.14;
+  }
 
-    8% {
-        transform: scale(1);
-        opacity: .13;
-    }
+  8% {
+    transform: scale(1);
+    opacity: 0.13;
+  }
 
-    15% {
-        transform: scale(1.004);
-        opacity: .14;
-    }
+  15% {
+    transform: scale(1.004);
+    opacity: 0.14;
+  }
 
-    30% {
-        transform: scale(1.002);
-        opacity: .11;
-    }
+  30% {
+    transform: scale(1.002);
+    opacity: 0.11;
+  }
 
-    100% {
-        transform: scale(1);
-        opacity: .14;
-    }
+  100% {
+    transform: scale(1);
+    opacity: 0.14;
+  }
 }
 
 @keyframes glitch {
-    0% {
-        transform: scale(1, 1.002);
-    }
+  0% {
+    transform: scale(1, 1.002);
+  }
 
-    50% {
-        transform: scale(1, 1.0001);
-    }
+  50% {
+    transform: scale(1, 1.0001);
+  }
 
-    100% {
-        transform: scale(1.001, 1);
-    }
+  100% {
+    transform: scale(1.001, 1);
+  }
 }
 </style>
