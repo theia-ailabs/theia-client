@@ -1,35 +1,3 @@
-<script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
-import GalaxyComp from "../components/GalaxyComp.vue";
-import useStore from "../services/store";
-import TerminalComp from "../components/TerminalComp.vue";
-
-export default defineComponent({
-  components: { GalaxyComp, TerminalComp },
-  setup() {
-    const store = useStore();
-    const isLoadingDone = ref(false);
-    const isDisplayVisible = ref(false);
-
-    onMounted(() => {
-      setTimeout(() => {
-        isLoadingDone.value = true;
-      }, 12000);
-    });
-
-    function connect() {
-      isDisplayVisible.value = true;
-    }
-
-    return {
-      store,
-      isLoadingDone,
-      isDisplayVisible,
-      connect,
-    };
-  },
-});
-</script>
 <template>
   <div :class="{ hidden: isDisplayVisible }">
     <GalaxyComp />
@@ -85,7 +53,38 @@ export default defineComponent({
     <TerminalComp />
   </div>
 </template>
+<script lang="ts">
+import { defineComponent, onMounted, ref } from "vue";
+import GalaxyComp from "../components/GalaxyComp.vue";
+import useStore from "../services/store";
+import TerminalComp from "../components/TerminalComp.vue";
 
+export default defineComponent({
+  components: { GalaxyComp, TerminalComp },
+  setup() {
+    const store = useStore();
+    const isLoadingDone = ref(false);
+    const isDisplayVisible = ref(false);
+
+    onMounted(() => {
+      setTimeout(() => {
+        isLoadingDone.value = true;
+      }, 12000);
+    });
+
+    function connect() {
+      isDisplayVisible.value = true;
+    }
+
+    return {
+      store,
+      isLoadingDone,
+      isDisplayVisible,
+      connect,
+    };
+  },
+});
+</script>
 <style scoped>
 .loader-ai {
   transform: translate(-50%, -50%);
@@ -386,8 +385,12 @@ h1:hover {
   }
 }
 .connect-btn:hover {
-    background-color: transparent !important;
-    background: transparent !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
-
+.connect-btn {
+  z-index: 9999 !important;
+  height: 38px !important;
+  position: absolute;
+}
 </style>

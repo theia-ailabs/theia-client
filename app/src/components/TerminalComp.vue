@@ -1,21 +1,3 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  setup() {
-    let i = 1;
-    const intervalId = setInterval(() => {
-      const div = document.getElementById(`appear${i}`);
-      if (div) {
-        div.style.display = "block";
-        i++;
-      } else {
-        clearInterval(intervalId);
-      }
-    }, 3000);
-  },
-});
-</script>
 <template>
   <div
     class="workspace border-none text-white w-full absolute top-[75%] flex z-40 justify-center align-middle text-center my-0 mx-auto bg-transparent"
@@ -34,6 +16,24 @@ export default defineComponent({
     </div>
   </div>
 </template>
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  setup() {
+    let i = 1;
+    const intervalId = setInterval(() => {
+      const div = document.getElementById(`appear${i}`);
+      if (div) {
+        div.style.display = "block";
+        i++;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 3000);
+  },
+});
+</script>
 <style scoped>
 @keyframes blink-caret {
   from,
