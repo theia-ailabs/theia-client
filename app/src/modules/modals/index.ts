@@ -1,2 +1,2 @@
 // TODO
-declare module 'wavesurfer.js';
+declare module "wavesurfer.js";
