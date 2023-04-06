@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ hidden: isDisplayVisible }">
+  <div>
     <GalaxyComp />
     <!-- Welcome Title -->
     <div class="mt-20">
@@ -63,7 +63,6 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const isLoadingDone = ref(false);
-    const isDisplayVisible = ref(false);
     const router = useRouter();
 
     onMounted(() => {
@@ -73,14 +72,12 @@ export default defineComponent({
     });
 
     function connect() {
-      isDisplayVisible.value = true;
       router.push({ name: "main" });
     }
 
     return {
       store,
       isLoadingDone,
-      isDisplayVisible,
       connect,
     };
   },
