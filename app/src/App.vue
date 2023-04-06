@@ -44,24 +44,8 @@ html body {
     font-size: xx-small !important;
   }
 
-  .vertical-centered-box {
-    display: block;
-    position: relative;
-    top: 25vh !important;
-  }
-
-  .loader {
-    font-size: small;
-    position: absolute;
-    margin-bottom: 15px !important;
-  }
-
-  .loader-head {
-    top: 20% !important;
-  }
-
   #faux-terminal .overlay {
-    top: 80% !important;
+    top: 70% !important;
   }
 }
 

@@ -288,12 +288,12 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   margin: auto;
-  top: 80%;
+  top: 70%;
   left: 20%;
   right: 20%;
   width: 20%;
   min-width: 170px;
-  height: 65px;
+  height: 100px;
   min-height: 51px;
   z-index: 6000;
   background-color: transparent;
