@@ -36,7 +36,9 @@
         @click="connect"
         class="connect-btn mt-6 border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-xs p-2 px-4 uppercase rounded-xl z-50"
       >
-        <h1 class="text-xs pl-2 hover:text-white hover:font-bold">Connect</h1>
+        <h1 class="relative right-2 hover:text-white hover:font-bold">
+          Connect
+        </h1>
       </button>
     </div>
     <div
@@ -389,8 +391,8 @@ export default defineComponent({
   position: absolute;
   top: 20vh;
   left: calc(50% - 35px);
-  font-family: "Poppins", monospace;
-  font-size: x-small;
+  font-family: "Orbitron", monospace;
+  font-size: x-small !important;
 }
 
 @property --d {
