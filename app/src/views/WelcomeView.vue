@@ -303,4 +303,54 @@ h1:hover {
   height: 51px;
   min-height: 51px;
 }
+@keyframes vline {
+    0% {
+        top: 0px;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1.001);
+        opacity: .14;
+    }
+
+    8% {
+        transform: scale(1);
+        opacity: .13;
+    }
+
+    15% {
+        transform: scale(1.004);
+        opacity: .14;
+    }
+
+    30% {
+        transform: scale(1.002);
+        opacity: .11;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: .14;
+    }
+}
+
+@keyframes glitch {
+    0% {
+        transform: scale(1, 1.002);
+    }
+
+    50% {
+        transform: scale(1, 1.0001);
+    }
+
+    100% {
+        transform: scale(1.001, 1);
+    }
+}
 </style>
