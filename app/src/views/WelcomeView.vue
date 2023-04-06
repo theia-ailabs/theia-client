@@ -34,13 +34,9 @@
         id="connect-btn"
         :class="{ hidden: !isLoadingDone }"
         @click="connect"
-        class="animate-bounce connect-btn mt-6 border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-sm p-2 px-4 uppercase rounded-xl z-50"
+        class="connect-btn mt-6 border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-xs p-2 px-4 uppercase rounded-xl z-50"
       >
-        <h1
-          class="text-[8px] pl-2 hover:text-white hover:font-bold hover:translate-x-2"
-        >
-          Connect
-        </h1>
+        <h1 class="text-xs pl-2 hover:text-white hover:font-bold">Connect</h1>
       </button>
     </div>
     <div
@@ -92,7 +88,7 @@ export default defineComponent({
 .loader-ai {
   transform: translate(-50%, -50%);
 }
-h1 {
+.welcome-title {
   font-family: "Cubic" !important;
   src: url(../assets/fonts/cubic.ttf) !important;
   font-size: 2.5rem;
@@ -103,7 +99,7 @@ h1 {
   transition: all 0.3s ease;
   z-index: 3;
 }
-h1:hover {
+.welcome-title:hover {
   transform: translate3d(0, -10px, 22px);
   color: yellow;
 }
@@ -387,20 +383,14 @@ h1:hover {
     transform: scale(1.001, 1);
   }
 }
-.connect-btn:hover {
-  background-color: transparent !important;
-  background: transparent !important;
-}
-.connect-btn {
-  z-index: 9999 !important;
-  height: 38px !important;
-  position: absolute;
-}
+
 #connect-btn {
   z-index: 9999 !important;
-  position: absolute !important;
-  top: 42vh;
+  position: absolute;
+  top: 20vh;
   left: calc(50% - 35px);
+  font-family: "Poppins", monospace;
+  font-size: x-small;
 }
 
 @property --d {
@@ -475,5 +465,9 @@ button:hover:before {
 
 button:hover:before {
   background-color: #222;
+}
+.connect-btn:hover {
+  background-color: transparent !important;
+  background: transparent !important;
 }
 </style>
