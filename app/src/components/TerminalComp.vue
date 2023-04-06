@@ -45,27 +45,27 @@ export default defineComponent({
   box-shadow: none !important;
 }
 a {
-    color: #fff;
-    opacity: 1 !important;
-    position: relative;
-    text-decoration: none;
+  color: #fff;
+  opacity: 1 !important;
+  position: relative;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 a span {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    background: #000;
-    border-left: .5em solid;
-    box-sizing: border-box;
-    -webkit-animation: typing 3s steps(13, end), blink-caret 1s step-end infinite;
-    animation: typing 3s steps(13, end), blink-caret 1s step-end infinite;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  background: #000;
+  border-left: 0.5em solid;
+  box-sizing: border-box;
+  -webkit-animation: typing 3s steps(13, end), blink-caret 1s step-end infinite;
+  animation: typing 3s steps(13, end), blink-caret 1s step-end infinite;
 }
 </style>
