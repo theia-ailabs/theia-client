@@ -39,6 +39,27 @@ export default defineComponent({
   </div>
 </template>
 <style scoped>
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #fff;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0;
+  }
+}
+
 .workspace {
   font-family: "Orbitron", monospace;
   font-size: small;
