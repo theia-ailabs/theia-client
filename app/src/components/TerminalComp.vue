@@ -23,17 +23,13 @@ export default defineComponent({
     <!-- <app-svg-spacetravel /> -->
     <div class="container-text w-full">
       <div id="appear1" style="display: none">
-        <a href="/"
-          >Connecting to Theia Systems...&nbsp;&nbsp;<span>&nbsp;</span></a
-        >
+        <a href="/">Connecting to Theia Systems...<span>&nbsp;</span></a>
       </div>
       <div id="appear2" style="display: none">
-        <a href="/"
-          >Confirming human identity...&nbsp;&nbsp;<span>&nbsp;</span></a
-        >
+        <a href="/">Confirming human identity...<span>&nbsp;</span></a>
       </div>
       <div id="appear3" style="display: none">
-        <a href="/">Connected!&nbsp;&nbsp;<span>&nbsp;</span></a>
+        <a href="/">Connected!<span>&nbsp;</span></a>
       </div>
     </div>
   </div>
