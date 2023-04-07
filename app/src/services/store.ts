@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
-import { State } from "../interfaces";
+import { State, ChatRecord, UserMessage, TheiaMessage } from "../interfaces";
+import { getDate, getTime } from "../utils";
 
 const useStore = defineStore("main", {
   state: (): State => {
@@ -29,6 +30,7 @@ const useStore = defineStore("main", {
       timezone: "",
       alarm: "",
       // messages
+      input: "",
       chat: [],
       // ui config
       dark: true,
@@ -44,7 +46,18 @@ const useStore = defineStore("main", {
       this.connected = true;
     },
     inputMessage(): void {
-      this.connected = true;
+      const userMsg: UserMessage = {
+        text: this.input,
+        audio: "",
+        datetime: `${getDate()} ${getTime()}`,
+        timestamp: BigInt(Date.now()),
+      };
+      const chatRec: ChatRecord = {
+        user: userMsg,
+        theia: {} as TheiaMessage,
+        timestamp: BigInt(Date.now()),
+      };
+      this.chat.push(chatRec);
     },
     scrollTop(): void {
       window.scrollTo(document.body.scrollHeight, 0);

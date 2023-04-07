@@ -24,6 +24,7 @@ export interface State {
   timezone: string;
   alarm: string;
   // messages
+  input: string;
   chat: ChatRecord[];
   // ui config
   dark: boolean;
@@ -37,7 +38,7 @@ export interface State {
 export interface ChatRecord {
   user: UserMessage;
   theia: TheiaMessage;
-  datetime: string;
+  timestamp: bigint;
 }
 
 export interface UserMessage {
