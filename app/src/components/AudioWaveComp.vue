@@ -50,13 +50,13 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
-import WaveSurfer from "wavesurfer.js";
+import WaveSurferVue from "wavesurfer.js-vue";
 import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js";
+
 
 export default defineComponent({
   setup() {
-    const url = "../../assets/sounds/Welcome.mp3";
-    const audio = new Audio(url);
+    const url = "../assets/sounds/voice-1.mp3";
     const isPlaying = ref(false);
     const ms = 3000;
 
@@ -73,7 +73,6 @@ export default defineComponent({
         }),
       ],
     });
-
     onMounted(async () => {
       await wave.load(url);
     });
