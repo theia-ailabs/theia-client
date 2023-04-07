@@ -1,6 +1,43 @@
+<script lang="ts">
+import { defineComponent, onMounted, ref } from "vue";
+// import { useRouter } from "vue-router";
+import GalaxyComp from "../components/GalaxyComp.vue";
+import useStore from "../services/store";
+import TerminalComp from "../components/TerminalComp.vue";
+import Signup from "../modules/modals/SignupModal.vue";
+
+export default defineComponent({
+  components: { GalaxyComp, TerminalComp, Signup },
+  setup() {
+    const store = useStore();
+    const isLoadingDone = ref(false);
+    // const router = useRouter();
+
+    onMounted(() => {
+      setTimeout(() => {
+        isLoadingDone.value = true;
+      }, 12000);
+    });
+
+    function connect() {
+      store.signup = true;
+      // router.push({ name: "main" });
+    }
+
+    return {
+      store,
+      isLoadingDone,
+      connect,
+    };
+  },
+});
+</script>
 <template>
   <div>
     <GalaxyComp />
+    <div v-if="store.signup">
+      <Signup />
+    </div>
     <!-- Welcome Title -->
     <div class="mt-20">
       <h1
@@ -51,38 +88,6 @@
     <TerminalComp />
   </div>
 </template>
-<script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
-import GalaxyComp from "../components/GalaxyComp.vue";
-import useStore from "../services/store";
-import TerminalComp from "../components/TerminalComp.vue";
-
-export default defineComponent({
-  components: { GalaxyComp, TerminalComp },
-  setup() {
-    const store = useStore();
-    const isLoadingDone = ref(false);
-    const router = useRouter();
-
-    onMounted(() => {
-      setTimeout(() => {
-        isLoadingDone.value = true;
-      }, 12000);
-    });
-
-    function connect() {
-      router.push({ name: "main" });
-    }
-
-    return {
-      store,
-      isLoadingDone,
-      connect,
-    };
-  },
-});
-</script>
 <style scoped>
 .loader-ai {
   transform: translate(-50%, -50%);
