@@ -1,5 +1,7 @@
 <template>
-  <div class="ai-talk bg-transparent border-none fixed top-0"></div>
+  <div class="bg-white">
+    <div class="ai-body bg-white border-none"></div>
+  </div>
 </template>
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script lang="ts">
@@ -12,12 +14,12 @@ import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPa
 
 export default defineComponent({
   setup() {
-    let SCENE: any;
-    let CAMERA: any;
-    let RENDERER: any;
-    let CONTROLS: any;
-    let COMPOSER: any;
-    let TIME = 10; // Let it be non zero at start
+    let SCENE: THREE.Scene;
+    let CAMERA: THREE.PerspectiveCamera;
+    let RENDERER: THREE.WebGLRenderer;
+    let CONTROLS: OrbitControls;
+    let COMPOSER: EffectComposer;
+    let TIME = 10; // Let it be non zero at star
 
     main();
 
@@ -36,7 +38,7 @@ export default defineComponent({
       createObjects();
       // Render 3D
       onMounted(() => {
-        const container = document.querySelector(".ai-talk") as HTMLElement;
+        const container = document.querySelector(".ai-body") as HTMLElement;
         if (container) {
           container.appendChild(RENDERER.domElement);
         }
@@ -69,9 +71,9 @@ export default defineComponent({
       RENDERER = new THREE.WebGLRenderer({ alpha: true });
       RENDERER.setPixelRatio(window.devicePixelRatio);
       RENDERER.setSize(window.innerWidth, window.innerHeight);
-      RENDERER.shadowMap.enabled = true;
-      RENDERER.shadowMapSort = true;
-      RENDERER.setClearColor(0x000055, 0);
+      // RENDERER.shadowMap.enabled = true;
+      // RENDERER.shadowMapSort = true;
+      RENDERER.setClearColor(0xffffff, 0); // set background color to black with alpha 0
     }
 
     function initComposer() {
@@ -131,11 +133,11 @@ export default defineComponent({
 
     function render() {
       CAMERA.lookAt(SCENE.position);
-      COMPOSER.render(SCENE, CAMERA);
+      COMPOSER.render();
     }
 
     function createObjects() {
-      let geometry = new THREE.SphereGeometry(26, 160, 10);
+      let geometry = new THREE.SphereGeometry(23, 300, 300);
       const shaderMaterial = new THREE.ShaderMaterial({
         uniforms: {
           uTime: { value: TIME },
@@ -143,24 +145,24 @@ export default defineComponent({
         transparent: true,
         side: THREE.DoubleSide,
         vertexShader: `
-						uniform float uTime;		
-						varying vec3 vNormal;
-						void main() {
-								vNormal = normal;
-								vec3 delta = 10.0 * normal * sin(normal.x + normal.y * 10.0 + normal.z + uTime * 10.0);
-								vec3 newPosition = position + delta;
-								gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-						}
-						`,
+            uniform float uTime;     
+            varying vec3 vNormal;
+            void main() {
+                vNormal = normal;
+                vec3 delta = 10.0 * normal * sin(normal.x + normal.y * 10.0 + normal.z + uTime * 10.0);
+                vec3 newPosition = position + delta;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+            }
+            `,
         fragmentShader: `
-							uniform float uTime;	
-							varying vec3 vNormal;
-							void main() {
-								vec3 color1 = red;
-								vec3 color2 = yellow;
-								gl_FragColor = vec4(mix(color1, color2, vNormal.z), 0.5);
-							}
-						`,
+              uniform float uTime;
+              varying vec3 vNormal;
+              void main() {
+                vec3 color1 = vec3(194.0/255.0, 0.0, 255.0/255.0);
+                vec3 color2 = vec3(120.0/255.0, 25.0/255.0, 0.0);
+                gl_FragColor = vec4(mix(color1, color2, vNormal.z), 0.5);
+              }
+            `,
       });
       const sphere = new THREE.Mesh(geometry, shaderMaterial);
       SCENE.add(sphere);
@@ -168,3 +170,13 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped>
+.ai-body {
+  background-color: #fff !important;
+  background: #fff !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999 !important;
+}
+</style>
