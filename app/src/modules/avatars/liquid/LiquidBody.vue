@@ -47,6 +47,7 @@ export default defineComponent({
 
     function initScene() {
       SCENE = new THREE.Scene();
+      SCENE.background = new THREE.Color(0x000);
       initLights();
     }
 
@@ -71,9 +72,10 @@ export default defineComponent({
       RENDERER = new THREE.WebGLRenderer({ alpha: true });
       RENDERER.setPixelRatio(window.devicePixelRatio);
       RENDERER.setSize(window.innerWidth, window.innerHeight);
-      // RENDERER.shadowMap.enabled = true;
-      // RENDERER.shadowMapSort = true;
-      RENDERER.setClearColor(0xffffff, 0); // set background color to black with alpha 0
+      RENDERER.shadowMap.enabled = true;
+      // RENDERER.shadowMap = true;
+      // const bgColor = 0xffffff;
+      // RENDERER.setClearColor(bgColor, 0); // set background color to black with alpha 0
     }
 
     function initComposer() {
@@ -158,8 +160,8 @@ export default defineComponent({
               uniform float uTime;
               varying vec3 vNormal;
               void main() {
-                vec3 color1 = vec3(194.0/255.0, 0.0, 255.0/255.0);
-                vec3 color2 = vec3(120.0/255.0, 25.0/255.0, 0.0);
+                vec3 color1 = vec3(194.0/255.0, 0.5, 255.0/255.0);
+                vec3 color2 = vec3(120.0/255.0, 25.0/255.0, 0.5);
                 gl_FragColor = vec4(mix(color1, color2, vNormal.z), 0.5);
               }
             `,
