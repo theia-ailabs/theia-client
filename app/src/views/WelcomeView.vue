@@ -384,10 +384,10 @@ export default defineComponent({
 }
 
 #connect-btn {
-  z-index: 9999 !important;
-  position: absolute;
-  top: 20vh;
+  position: fixed;
+  top: calc(50% - 65px);
   left: calc(50% - 35px);
+  z-index: 9999 !important;
   font-family: "Orbitron", monospace;
   font-size: x-small !important;
 }
