@@ -60,7 +60,7 @@ export default defineComponent({
     const isPlaying = ref(false);
     const ms = 3000;
 
-    const wave = WaveSurfer.create({
+    const wave = WaveSurferVue.create({
       container: "#waveform",
       waveColor: "violet",
       progressColor: "purple",
