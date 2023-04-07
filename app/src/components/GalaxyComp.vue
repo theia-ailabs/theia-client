@@ -18,6 +18,9 @@ export default defineComponent({
       if (container) {
         container.appendChild(renderer.domElement);
       }
+
+
+
     });
 
     const onBeforeCompile = (shader: any) => {
