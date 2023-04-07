@@ -55,7 +55,7 @@ import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js
 
 export default defineComponent({
   setup() {
-    const url = "../assets/sounds/voice-1.mp3";
+    const url = "sounds/voice-1.mp3";
     const isPlaying = ref(false);
     const ms = 3000;
     const wave: Ref<WaveSurfer | null> = ref(null);
