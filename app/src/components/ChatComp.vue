@@ -4,7 +4,7 @@ import useStore from "../services/store";
 import AudioWaveComp from "./AudioWaveComp.vue";
 
 export default defineComponent({
-  components: { AudioWaveComp },
+  //components: { AudioWaveComp },
   setup() {
     const store = useStore();
     return {
@@ -15,27 +15,29 @@ export default defineComponent({
 </script>
 <template>
   <div>
-    <div class="flex relative justify-center w-full">
-      <span
+    <form id="input-chat" class="flex relative justify-center w-full">
+      <textarea
+        v-model="store.input"
         id="span_input"
         class="fixed top-28 py-2 hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner-sm shadow-yellow-400 min-h-12 p-1 my-2 w-64 rounded-xl z-50"
         autofocus
         contenteditable
       >
-      </span>
+      </textarea>
       <button
+        form="input-chat"
         class="bg-white send z-50"
         type="button"
         @click="store.inputMessage()"
       >
         &nbsp;
       </button>
-    </div>
+    </form>
     <div class="relative p-2 pt-4 h-screen w-screen">
       <div
         class="relative flex align-top top-0"
         v-for="x in store.chat"
-        :key="x.datetime"
+        :key="x.user.datetime || x.theia.datetime"
       >
         <div
           id="Theia"
@@ -48,7 +50,7 @@ export default defineComponent({
               <div
                 class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-sm shadow-purple-400 border border-yellow-400/30"
               >
-                <AudioWaveComp class="h-4 max-h-12" />
+                <!-- <AudioWaveComp class="h-4 max-h-12" /> -->
                 <div class="p-4">
                   {{ x.theia.text }}
                 </div>
@@ -80,12 +82,12 @@ export default defineComponent({
             <div
               class="p-2 px-8 my-2 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[280px] lg:w-[440px] shadow-inner shadow-yellow-400"
             >
-              <AudioWaveComp class="h-4 max-h-12" />
+              <!--<AudioWaveComp class="h-4 max-h-12" /> -->
               {{ x.user.text }}
             </div>
             <div class="flex justify-end text-xs mb-4 pl-4">
               <div class="mr-4 text-gray-500">
-                {{ x.datetime }}
+                {{ x.user.datetime }}
               </div>
               <div
                 class="text-right pr-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"

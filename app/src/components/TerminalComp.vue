@@ -5,13 +5,17 @@
     <!-- <app-svg-spacetravel /> -->
     <div class="container-text w-full">
       <div id="appear1" style="display: none">
-        <a href="/">Connecting to Theia Systems...<span>&nbsp;</span></a>
+        <a href="/"
+          >Connecting to Theia Systems...&nbsp;&nbsp;<span>&nbsp;</span></a
+        >
       </div>
       <div id="appear2" style="display: none">
-        <a href="/">Confirming human identity...<span>&nbsp;</span></a>
+        <a href="/"
+          >Confirming human identity...&nbsp;&nbsp;<span>&nbsp;</span></a
+        >
       </div>
       <div id="appear3" style="display: none">
-        <a href="/">Connected!<span>&nbsp;</span></a>
+        <a href="/">Connected!&nbsp;&nbsp;<span>&nbsp;</span></a>
       </div>
     </div>
   </div>
@@ -79,7 +83,7 @@ a span {
   bottom: 0;
   right: 0;
   width: 0;
-  background: #000;
+  background: black;
   border-left: 0.5em solid;
   box-sizing: border-box;
   -webkit-animation: typing 3s steps(13, end), blink-caret 1s step-end infinite;
