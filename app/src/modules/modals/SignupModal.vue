@@ -13,7 +13,6 @@ export default {
     };
   },
   setup() {
-    let usernameAv = ref(false);
     const store = useStore();
     const { notify } = useNotification();
 
@@ -28,11 +27,11 @@ export default {
       searchUsersSocket(usernameFiltered);
       username.value = usernameFiltered;
       if (username.value.length < 3) {
-        usernameAv.value = true;
+        store.usernameAv = true;
       }
     }
     async function signUp() {
-      if (usernameAv) {
+      if (store.usernameAv) {
         createUserSocket(username.value);
       } else {
         notify({
@@ -45,7 +44,6 @@ export default {
     return {
       store,
       username,
-      usernameAv,
       goBack,
       searchUser,
       signUp,
@@ -120,12 +118,12 @@ export default {
               v-model="username"
               v-on="searchUser()"
               class="mt-4 text-lg py-1 text-center px-4 sm:px-8 mx-16 sm:mx-32 tracking-widest font-semibold rounded-3xl mx-22 border border-green-500 inner shadow-inner-xl bg-transparent text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-yellow-400"
-              :class="usernameAv ? 'text-transparent' : 'text-red-500'
+              :class="store.usernameAv ? 'text-transparent' : 'text-red-500'
               "
             />
             <div v-if="username">
               <p
-                v-if="usernameAv"
+                v-if="store.usernameAv"
                 class="mt-4 px-8 uppercase text-xs tracking-widest text-green-500"
               >
                 IS AVAILABLE
