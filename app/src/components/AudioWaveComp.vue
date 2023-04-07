@@ -49,19 +49,34 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, ref, Ref } from "vue";
+import { defineComponent, onMounted, ref, Ref, toRefs } from "vue";
 import WaveSurfer from "wavesurfer.js";
 import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js";
 
 export default defineComponent({
-  setup() {
-    const url = "../assets/sounds/voice-1.mp3";
+  name: "AudioWave",
+  props: {
+    audioUrl: {
+      type: String,
+      default: "",
+    },
+    audioBuffer: {
+      type: AudioBuffer,
+      default: null,
+    },
+  },
+  setup(props) {
+    console.log(props.audioUrl);
+    let cxt = toRefs(props);
+    let audio: Ref<string | AudioBuffer>;
     const isPlaying = ref(false);
-    const ms = 3000;
     const wave: Ref<WaveSurfer | null> = ref(null);
+    const ms = 3000;
 
     onMounted(async () => {
-      wave.value = WaveSurfer.create({
+      if (cxt.audioUrl && !cxt.audioBuffer) audio = cxt.audioUrl as Ref<string>;
+      else audio = cxt.audioBuffer as Ref<AudioBuffer>;
+      const wave = WaveSurfer.create({
         container: "#waveform",
         waveColor: "violet",
         progressColor: "purple",
@@ -74,10 +89,7 @@ export default defineComponent({
           }),
         ],
       });
-
-      if (wave.value) {
-        await wave.value.load(url);
-      }
+      await wave.load(audio);
     });
 
     async function onPlay() {

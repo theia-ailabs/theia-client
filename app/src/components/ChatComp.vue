@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import useStore from "../services/store";
 import AudioWaveComp from "./AudioWaveComp.vue";
 
@@ -38,7 +38,7 @@ export default defineComponent({
       <div
         class="relative flex align-top top-0"
         v-for="x in store.chat"
-        :key="x.user.datetime || x.theia.datetime"
+        :key="Number(x.timestamp)"
       >
         <div
           id="Theia"
@@ -51,7 +51,7 @@ export default defineComponent({
               <div
                 class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-sm shadow-purple-400 border border-yellow-400/30"
               >
-                <AudioWaveComp />
+                <AudioWaveComp v-bind:audioUrl="'sounds/voice-1.mp3'" />
                 <div class="p-4">
                   {{
                     !x.theia.text || x.theia.text === ""
@@ -87,7 +87,7 @@ export default defineComponent({
             <div
               class="p-2 px-8 my-2 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[280px] lg:w-[440px] shadow-inner shadow-yellow-400"
             >
-              <AudioWaveComp />
+              <AudioWaveComp v-bind:audioUrl="'../assets/sounds/voice-1.mp3'" />
               {{ x.user.text }}
             </div>
             <div class="flex justify-end text-xs mb-4 pl-4">
