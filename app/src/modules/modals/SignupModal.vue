@@ -6,16 +6,9 @@ import { searchUsersSocket, createUserSocket } from "../../services/sockets/user
 import { sqlFilter } from "../../utils";
 
 export default {
-  data() {
-    return {
-      fireworks: require("../../../assets/gif/fireworks.gif"),
-      countdown_date: "2023/01/01",
-    };
-  },
   setup() {
     const store = useStore();
     const { notify } = useNotification();
-
     const username = ref("");
 
     function goBack() {
@@ -65,10 +58,6 @@ export default {
             : 'bg-gray-900 text-gray-700'
         "
       >
-        <img
-          :src="fireworks"
-          class="absolute mt-12 inset-0 m-auto opacity-30"
-        />
         <div
           class="z-22 flex items-center justify-center min-h-screen text-center"
         >
@@ -90,15 +79,6 @@ export default {
                 <p class="uppercase text-3xl my-4 tracking-widestfont-semibold">
                   🎁 GET A FREE $BEEN! 🎉
                 </p>
-                <p
-                  class="uppercase text-xl tracking-widest text-gray-400 font-semibold"
-                >
-                  PROMOTION ENDS FEBRUARY 1ST 2023
-                </p>
-                <CountDown
-                  :target_date="countdown_date"
-                  class="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-yellow-400"
-                />
               </div>
             </div>
             <p
