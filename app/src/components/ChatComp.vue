@@ -18,11 +18,12 @@ export default defineComponent({
     <form id="input-chat" class="flex relative justify-center w-full">
       <textarea
         v-model="store.input"
-        id="span_input"
-        class="fixed top-28 py-2 hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner-sm shadow-yellow-400 min-h-12 p-1 my-2 w-64 rounded-xl z-50"
-        autofocus
-        contenteditable
+        class="fixed top-28 py-2 resize hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner-sm shadow-yellow-400 min-h-12 p-1 my-2 w-64 rounded-xl z-50"
       >
+      <span 
+      id="span_input"
+      autofocus
+        contenteditable></span>
       </textarea>
       <button
         form="input-chat"
@@ -50,9 +51,13 @@ export default defineComponent({
               <div
                 class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-sm shadow-purple-400 border border-yellow-400/30"
               >
-                <!-- <AudioWaveComp class="h-4 max-h-12" /> -->
+                <AudioWaveComp class="h-4 max-h-12" />
                 <div class="p-4">
-                  {{ x.theia.text }}
+                  {{
+                    !x.theia.text || x.theia.text === ""
+                      ? "Hello, Im Theia your AI assistant. Im here to help you in anything you need. Im a advance trained NLP model with also access to google, wikipedia, youtube, spotify, gmail, calendar, and much more. I can make your life easier. How can I help you?"
+                      : x.theia.text
+                  }}
                 </div>
               </div>
             </div>
@@ -82,7 +87,7 @@ export default defineComponent({
             <div
               class="p-2 px-8 my-2 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[280px] lg:w-[440px] shadow-inner shadow-yellow-400"
             >
-              <!--<AudioWaveComp class="h-4 max-h-12" /> -->
+              <AudioWaveComp class="h-4 max-h-12" />
               {{ x.user.text }}
             </div>
             <div class="flex justify-end text-xs mb-4 pl-4">

@@ -57,7 +57,7 @@ const useStore = defineStore("main", {
         theia: {} as TheiaMessage,
         timestamp: BigInt(Date.now()),
       };
-      console.log(userMsg);
+      console.log(chatRec);
       this.chat.push(chatRec);
     },
     scrollTop(): void {
