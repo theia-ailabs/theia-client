@@ -53,7 +53,6 @@ import { defineComponent, onMounted, ref } from "vue";
 import WaveSurferVue from "wavesurfer.js-vue";
 import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js";
 
-
 export default defineComponent({
   setup() {
     const url = "../assets/sounds/voice-1.mp3";
