@@ -51,7 +51,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
 import WaveSurfer from "wavesurfer.js";
-import TimelinePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js';
+import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js";
 
 export default defineComponent({
   setup() {
