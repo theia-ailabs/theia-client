@@ -49,36 +49,40 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
-import WaveSurferVue from "wavesurfer.js-vue";
+import { defineComponent, onMounted, ref, Ref } from "vue";
+import WaveSurfer from "wavesurfer.js";
 import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js";
 
 export default defineComponent({
   setup() {
-    const url = "../assets/sounds/voice-1.mp3";
+    const url = "";
     const isPlaying = ref(false);
     const ms = 3000;
+    const wave: Ref<WaveSurfer | null> = ref(null);
 
-    const wave = WaveSurferVue.create({
-      container: "#waveform",
-      waveColor: "violet",
-      progressColor: "purple",
-      height: "30",
-      barGap: "10",
-      barHeight: "20",
-      plugins: [
-        TimelinePlugin.create({
-          container: "#wave-timeline",
-        }),
-      ],
-    });
     onMounted(async () => {
-      await wave.load(url);
+      wave.value = WaveSurfer.create({
+        container: "#waveform",
+        waveColor: "violet",
+        progressColor: "purple",
+        height: "30",
+        barGap: "10",
+        barHeight: "20",
+        plugins: [
+          TimelinePlugin.create({
+            container: "#wave-timeline",
+          }),
+        ],
+      });
+
+      if (wave.value) {
+        await wave.value.load(url);
+      }
     });
 
     async function onPlay() {
       isPlaying.value = true;
-      wave.play();
+      wave.value.play();
 
       setTimeout(() => {
         onStop();
@@ -87,7 +91,7 @@ export default defineComponent({
 
     function onStop() {
       isPlaying.value = false;
-      wave.stop();
+      wave.value.stop();
     }
 
     return {
