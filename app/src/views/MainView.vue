@@ -17,7 +17,10 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
+  <div
+    class="w-full h-screen bg-white"
+    :class="store.dark ? 'bg-black' : 'bg-white'"
+  >
     <NavbarComp />
     <AvatarComp />
     <ChatComp />

@@ -1,22 +1,22 @@
 <template>
-  <div class="z-0 fixed bg-transparent">
-    <div v-if="listening">
-      <button :click="toTalk()">
-        <LiquidBody />
+  <div class="z-0 fixed bg-white">
+    <div v-if="listening" class="bg-white">
+      <button class="z-50 w-screen h-screen bg-white" @click="toTalk">
+        <LiquidBody />Hi
       </button>
     </div>
     <div v-if="talking">
-      <button :click="toListen()">
-        <LiquidTalk />
+      <button class="z-10 cursor-pointer" @click="toListen">
+        <LiquidTalk />Hellooooo
       </button>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, ref, Ref } from "vue";
-import useStore from "../services/store";
 import LiquidBody from "../modules/avatars/liquid/LiquidBody.vue";
 import LiquidTalk from "../modules/avatars/liquid/LiquidTalk.vue";
+import useStore from "../services/store";
 
 export default defineComponent({
   components: { LiquidBody, LiquidTalk },
@@ -29,6 +29,7 @@ export default defineComponent({
       talking.value = false;
     }
     function toTalk(): void {
+      console.log("talking");
       talking.value = true;
       listening.value = false;
     }
