@@ -19,10 +19,13 @@
     "core-js": "^3.8.3",
     "crypto": "^1.0.1",
     "crypto-browserify": "^3.12.0",
+    "fs": "^0.0.1-security",
     "https-browserify": "^1.0.0",
     "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
     "pinia": "^2.0.33",
     "register-service-worker": "^1.7.2",
+    "sass-loader": "^13.2.2",
     "socket.io-client": "^4.6.1",
     "stream": "^0.0.2",
     "stream-browserify": "^3.0.0",
@@ -33,7 +36,8 @@
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "wavesurfer.js": "^6.6.3",
-    "wavesurfer.js-vue": "^1.0.0"
+    "wavesurfer.js-vue": "^1.0.0",
+    "webpack": "^5.78.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
