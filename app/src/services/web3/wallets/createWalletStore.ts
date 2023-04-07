@@ -285,7 +285,7 @@ export const createWalletStore = ({
     try {
       connecting.value = true;
       await wallet.value.adapter.connect();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       name.value = null;
       // Don't throw error, but handleError will still be called.

@@ -1,18 +1,3 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import GalaxyComp from "../components/GalaxyComp.vue";
-import useStore from "../services/store";
-
-export default defineComponent({
-  components: { GalaxyComp },
-  setup() {
-    const store = useStore();
-    return {
-      store,
-    };
-  },
-});
-</script>
 <template>
   <div>
     <GalaxyComp />
@@ -34,13 +19,27 @@ export default defineComponent({
     </div>
     <!-- Loader -->
     <div class="front relative z-50">
-      <div id="loader-ai" class="loader-ai fixed top-[50%] left-[50%]">
+      <div
+        id="loader-ai"
+        class="loader-ai fixed top-[50%] left-[50%]"
+        :class="{ hidden: isLoadingDone }"
+      >
         <img
           class="rounded-full opacity-60"
           width="180"
           src="../assets/img/gif/loader.gif"
         />
       </div>
+      <button
+        id="connect-btn"
+        :class="{ hidden: !isLoadingDone }"
+        @click="connect"
+        class="connect-btn mt-6 border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-xs p-2 px-4 uppercase rounded-xl z-50"
+      >
+        <h1 class="relative right-2 hover:text-white hover:font-bold">
+          Connect
+        </h1>
+      </button>
     </div>
     <div
       id="faux-terminal"
@@ -49,15 +48,46 @@ export default defineComponent({
       <div class="layer"></div>
       <div class="overlay"></div>
     </div>
-    <!-- <app-text-loader /> -->
+    <TerminalComp />
   </div>
 </template>
+<script lang="ts">
+import { defineComponent, onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
+import GalaxyComp from "../components/GalaxyComp.vue";
+import useStore from "../services/store";
+import TerminalComp from "../components/TerminalComp.vue";
 
+export default defineComponent({
+  components: { GalaxyComp, TerminalComp },
+  setup() {
+    const store = useStore();
+    const isLoadingDone = ref(false);
+    const router = useRouter();
+
+    onMounted(() => {
+      setTimeout(() => {
+        isLoadingDone.value = true;
+      }, 12000);
+    });
+
+    function connect() {
+      router.push({ name: "main" });
+    }
+
+    return {
+      store,
+      isLoadingDone,
+      connect,
+    };
+  },
+});
+</script>
 <style scoped>
 .loader-ai {
   transform: translate(-50%, -50%);
 }
-h1 {
+.welcome-title {
   font-family: "Cubic" !important;
   src: url(../assets/fonts/cubic.ttf) !important;
   font-size: 2.5rem;
@@ -68,7 +98,7 @@ h1 {
   transition: all 0.3s ease;
   z-index: 3;
 }
-h1:hover {
+.welcome-title:hover {
   transform: translate3d(0, -10px, 22px);
   color: yellow;
 }
@@ -255,12 +285,12 @@ h1:hover {
   display: flex;
   flex-direction: column;
   margin: auto;
-  top: 80%;
+  top: 70%;
   left: 20%;
   right: 20%;
   width: 20%;
   min-width: 170px;
-  height: 65px;
+  height: 100px;
   min-height: 51px;
   z-index: 6000;
   background-color: transparent;
@@ -301,5 +331,142 @@ h1:hover {
   min-width: 100%;
   height: 51px;
   min-height: 51px;
+}
+@keyframes vline {
+  0% {
+    top: 0px;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.001);
+    opacity: 0.14;
+  }
+
+  8% {
+    transform: scale(1);
+    opacity: 0.13;
+  }
+
+  15% {
+    transform: scale(1.004);
+    opacity: 0.14;
+  }
+
+  30% {
+    transform: scale(1.002);
+    opacity: 0.11;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.14;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: scale(1, 1.002);
+  }
+
+  50% {
+    transform: scale(1, 1.0001);
+  }
+
+  100% {
+    transform: scale(1.001, 1);
+  }
+}
+
+#connect-btn {
+  z-index: 9999 !important;
+  position: absolute;
+  top: 20vh;
+  left: calc(50% - 35px);
+  font-family: "Orbitron", monospace;
+  font-size: x-small !important;
+}
+
+@property --d {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+button {
+  width: 70px;
+  height: 70px;
+  aspect-ratio: 1;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  position: relative;
+  z-index: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  padding: 8px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from var(--d, 0deg),
+    #ae0ff7,
+    #0000 30deg 120deg,
+    yellow 150deg 180deg,
+    #0000 210deg 300deg,
+    #ae0ff7 330deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: intersect;
+}
+
+button:after {
+  content: "";
+  position: absolute;
+  inset: -100px;
+  background: radial-gradient(80px at left 150px top 120px, #ae0ff7 98%, #0000),
+    radial-gradient(80px at right 150px bottom 120px, yellow 98%, #0000);
+  filter: blur(60px);
+  opacity: 0.5;
+}
+
+button:before,
+button:after {
+  transition: 0.5s, 99999s 99999s transform, 99999s 99999s --d;
+}
+
+button:hover {
+  box-shadow: 0 0 0 1px #666;
+}
+
+button:hover:after {
+  transform: rotate(3600deg);
+  transition: 0.5s, 60s linear transform;
+}
+
+button:hover:before {
+  --d: 3600deg;
+  transition: 0.5s, 60s linear --d;
+}
+
+button:hover:before {
+  background-color: #222;
+}
+.connect-btn:hover {
+  background-color: transparent !important;
+  background: transparent !important;
 }
 </style>
