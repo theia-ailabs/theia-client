@@ -1,10 +1,12 @@
 import { io, Socket } from "socket.io-client";
+import { SERVER_URI } from "../../config";
 // import { User } from "../../types";
 // import useStore from "./store";
 
 export function socketConnection(): Socket {
   // const store = useStore();
-  const socket: Socket = io(process.env.VUE_APP_SOCKET_ENDPOINT as string, {
+  console.log(SERVER_URI);
+  const socket: Socket = io(SERVER_URI, {
     transports: ["websocket"],
     autoConnect: true,
   });
