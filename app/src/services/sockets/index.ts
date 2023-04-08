@@ -1,12 +1,12 @@
 import { io, Socket } from "socket.io-client";
-import { SERVER_URI } from "../../../config";
+import { SERVER_URL } from "../../../config";
 // import { User } from "../../types";
 // import useStore from "./store";
 
 export function socketConnection(): Socket {
   // const store = useStore();
-  console.log(SERVER_URI);
-  const socket: Socket = io(SERVER_URI, {
+  console.log(SERVER_URL);
+  const socket: Socket = io(SERVER_URL, {
     transports: ["websocket"],
     autoConnect: true,
   });
