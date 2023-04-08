@@ -1,12 +1,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import useStore from "../services/store";
+// import useStore from "../services/store";
 import AudioWaveComp from "./AudioWaveComp.vue";
 
 export default defineComponent({
   components: { AudioWaveComp },
   setup() {
-    const store = useStore();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const store = {} as any; // useStore();
     return {
       store,
     };

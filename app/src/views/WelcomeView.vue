@@ -1,17 +1,17 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
-// import { useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 import GalaxyComp from "../components/GalaxyComp.vue";
 import useStore from "../services/store";
 import TerminalComp from "../components/TerminalComp.vue";
-import Signup from "../modules/modals/SignupModal.vue";
+// import Signup from "../modules/modals/SignupModal.vue";
 
 export default defineComponent({
-  components: { GalaxyComp, TerminalComp, Signup },
+  components: { GalaxyComp, TerminalComp },
   setup() {
     const store = useStore();
     const isLoadingDone = ref(false);
-    // const router = useRouter();
+    const router = useRouter();
 
     onMounted(() => {
       setTimeout(() => {
@@ -21,7 +21,7 @@ export default defineComponent({
 
     function connect() {
       store.signup = true;
-      // router.push({ name: "main" });
+      router.push({ name: "main" });
     }
 
     return {
@@ -35,9 +35,9 @@ export default defineComponent({
 <template>
   <div>
     <GalaxyComp />
-    <div v-if="store.signup">
+    <!-- <div v-if="store.signup">
       <Signup />
-    </div>
+    </div> -->
     <!-- Welcome Title -->
     <div class="mt-20">
       <h1

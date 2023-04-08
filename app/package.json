@@ -17,6 +17,7 @@
     "@solana/wallet-adapter-wallets": "^0.19.9",
     "@solana/web3.js": "^1.72.0",
     "@toruslabs/eccrypto": "^1.1.8",
+    "@vue/composition-api": "^1.7.1",
     "@vueuse/core": "^9.9.0",
     "apexcharts": "^3.36.3",
     "chartjs": "^0.3.24",
@@ -44,7 +45,8 @@
     "vue-socket.io-extended": "^4.2.0",
     "vue3-apexcharts": "^1.4.1",
     "wavesurfer.js": "^6.6.3",
-    "wavesurfer.js-vue": "^1.0.0"
+    "wavesurfer.js-vue": "^1.0.0",
+    "webpack": "^5.78.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
