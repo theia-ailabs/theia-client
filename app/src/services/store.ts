@@ -13,12 +13,13 @@ const useStore = defineStore("main", {
       balance: 0,
       ccy: "SOL",
       // web2 login
-      login: false,
+      loggedIn: false,
       email: "",
       name: "",
       // user info
       username: "",
       country: "",
+      flag: "🇺🇳",
       gender: "",
       age: "",
       phone: "",
@@ -39,6 +40,10 @@ const useStore = defineStore("main", {
       secondaryColor: "blue-500",
       heart: "💙",
       emoji: "",
+      // signup
+      newUser: false,
+      signup: false,
+      usernameAv: false,
     };
   },
   actions: {
