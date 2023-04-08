@@ -2,7 +2,10 @@
 import { ref } from "vue";
 import { useNotification } from "@kyvg/vue3-notification";
 import useStore from "../../services/store";
-import { searchUsersSocket, createUserSocket } from "../../services/sockets/user.socket";
+import {
+  searchUsersSocket,
+  createUserSocket,
+} from "../../services/sockets/user.socket";
 import { sqlFilter } from "../../utils";
 
 export default {
@@ -53,9 +56,7 @@ export default {
         ref="modal-backdrop"
         class="fixed z-40 inset-0 overflow-y-auto bg-opacity-50"
         :class="
-          store.dark
-            ? 'bg-gray-900 text-gray-100'
-            : 'bg-gray-900 text-gray-700'
+          store.dark ? 'bg-gray-900 text-gray-100' : 'bg-gray-900 text-gray-700'
         "
       >
         <div
@@ -98,8 +99,7 @@ export default {
               v-model="username"
               v-on="searchUser()"
               class="mt-4 text-lg py-1 text-center px-4 sm:px-8 mx-16 sm:mx-32 tracking-widest font-semibold rounded-3xl mx-22 border border-green-500 inner shadow-inner-xl bg-transparent text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-yellow-400"
-              :class="store.usernameAv ? 'text-transparent' : 'text-red-500'
-              "
+              :class="store.usernameAv ? 'text-transparent' : 'text-red-500'"
             />
             <div v-if="username">
               <p
@@ -134,7 +134,7 @@ export default {
     </div>
   </teleport>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 input {
   background-color: transparent;
   border: 2px solid rgb(103, 240, 11);

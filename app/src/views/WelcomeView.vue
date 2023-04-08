@@ -64,7 +64,7 @@ export default defineComponent({
         <img
           class="rounded-full opacity-60"
           width="180"
-          src="../assets/img/gif/loader.gif"
+          src="assets/img/gif/loader.gif"
         />
       </div>
       <button
