@@ -8,12 +8,8 @@ export default defineComponent({
   setup() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const store = useStore();
-    function isEmpty(obj: any) {
-      return Object.keys(obj).length === 0;
-    }
     return {
       store,
-      isEmpty,
     };
   },
 });
@@ -56,10 +52,7 @@ export default defineComponent({
               <div
                 class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-sm shadow-purple-400 border border-yellow-400/30"
               >
-                <AudioWaveComp
-                  v-bind:audioUrl="'sounds/voice-1.mp3'"
-                  class="max-h-[54px]"
-                />
+                <AudioWaveComp class="max-h-[54px]" />
                 <div class="p-4">
                   {{
                     !x.theia.text || x.theia.text === ""
@@ -73,7 +66,7 @@ export default defineComponent({
               <div class="text-center flex align-bottom justify-center">
                 <img
                   class="w-10 h-10 rounded-full ml-1 mr-2 m-auto border border-gray-500/50"
-                  src="../assets/img/png/theia.png"
+                  :src="require('./../assets/img/png/theia.png')"
                 />
               </div>
               <div
@@ -90,15 +83,12 @@ export default defineComponent({
             </div>
           </div>
         </div>
-        <div id="User" class="user-message-container" v-if="!isEmpty(x.user)">
+        <div id="User" class="user-message-container" v-if="x.user">
           <div>
             <div
               class="p-2 px-8 my-2 text-xs text-white font-semibold rounded-xl bg-black/30 rounded-br-none w-[280px] lg:w-[440px] shadow-inner shadow-yellow-400"
             >
-              <AudioWaveComp
-                v-bind:audioUrl="'../assets/sounds/voice-1.mp3'"
-                class="max-h-[54px]"
-              />
+              <AudioWaveComp class="max-h-[54px]" />
               {{ x.user.text }}
             </div>
             <div class="flex justify-end text-xs mb-4 pl-4">
@@ -113,7 +103,7 @@ export default defineComponent({
               <div class="text-center flex align-bottom justify-center">
                 <img
                   class="w-10 h-10 rounded-full ml-1 mr-2 m-auto mb-2"
-                  src="../assets/img/png/profile.png"
+                  :src="require('./../assets/img/png/profile.png')"
                 />
               </div>
             </div>

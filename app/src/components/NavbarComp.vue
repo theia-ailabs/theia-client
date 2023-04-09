@@ -17,7 +17,11 @@ export default defineComponent({
       :click="store.scrollTop()"
       class="relative flex bg-transparent justify-center items-center py-4"
     >
-      <img class="h-16" src="./img/png/logo3.png" alt="logo" />
+      <img
+        class="h-16"
+        :src="require('./../assets/img/png/logo3.png')"
+        alt="logo"
+      />
     </button>
   </nav>
 </template>
