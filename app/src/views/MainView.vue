@@ -17,10 +17,20 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="w-full h-screen" :class="store.dark ? 'bg-white' : 'bg-white'">
-    <NavbarComp />
-    <AvatarComp />
-    <ChatComp />
+  <div
+    class="flex flex-col min-h-screen"
+    :class="store.dark ? 'bg-white' : 'bg-white'"
+  >
+    <div class="flex-grow overflow-auto">
+      <NavbarComp />
+      <AvatarComp />
+      <ChatComp />
+    </div>
     <FooterComp />
   </div>
 </template>
+<style scoped>
+.grid-template-rows-layout {
+  grid-template-rows: 1fr auto;
+}
+</style>

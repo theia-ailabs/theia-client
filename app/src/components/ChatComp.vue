@@ -20,7 +20,10 @@ export default defineComponent({
 </script>
 <template>
   <div>
-    <form id="input-chat" class="flex relative justify-center w-full">
+    <form
+      id="input-chat"
+      class="flex relative justify-center w-full pb-[200px]"
+    >
       <textarea
         v-model="store.input"
         class="fixed top-28 py-2 resize hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner-sm shadow-yellow-400 min-h-12 p-1 my-2 w-64 rounded-xl z-50"
@@ -41,15 +44,11 @@ export default defineComponent({
     </form>
     <div class="relative p-2 pt-4 h-screen w-screen">
       <div
-        class="relative flex align-top top-0"
+        class="message-container"
         v-for="x in store.chat"
         :key="Number(x.timestamp)"
       >
-        <div
-          id="Theia"
-          class="relative align-top flex justify-start w-full -mb-4"
-          v-if="!isEmpty(x.theia)"
-        >
+        <div id="Theia" class="theia-message-container">
           <div>
             <div
               class="text-xs text-white ml-12 mt-4 my-2 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-inner shadow-purple-400 border-b-3 border-purple-400"
@@ -57,7 +56,10 @@ export default defineComponent({
               <div
                 class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-sm shadow-purple-400 border border-yellow-400/30"
               >
-                <AudioWaveComp v-bind:audioUrl="'sounds/voice-1.mp3'" />
+                <AudioWaveComp
+                  v-bind:audioUrl="'sounds/voice-1.mp3'"
+                  class="max-h-[54px]"
+                />
                 <div class="p-4">
                   {{
                     !x.theia.text || x.theia.text === ""
@@ -88,16 +90,15 @@ export default defineComponent({
             </div>
           </div>
         </div>
-        <div
-          id="User"
-          class="flex justify-end w-full -mb-4"
-          v-if="!isEmpty(x.user)"
-        >
+        <div id="User" class="user-message-container" v-if="!isEmpty(x.user)">
           <div>
             <div
               class="p-2 px-8 my-2 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[280px] lg:w-[440px] shadow-inner shadow-yellow-400"
             >
-              <AudioWaveComp v-bind:audioUrl="'../assets/sounds/voice-1.mp3'" />
+              <AudioWaveComp
+                v-bind:audioUrl="'../assets/sounds/voice-1.mp3'"
+                class="max-h-[54px]"
+              />
               {{ x.user.text }}
             </div>
             <div class="flex justify-end text-xs mb-4 pl-4">
@@ -138,5 +139,21 @@ span:focus {
   border-radius: 50%;
   top: 8.7rem;
   left: 30.4rem;
+}
+.message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.theia-message-container {
+  align-self: flex-start;
+  margin-left: 0.1rem;
+}
+
+.user-message-container {
+  align-self: flex-end;
+  margin-right: 1rem;
+  padding-bottom: -5rem;
 }
 </style>
