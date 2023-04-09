@@ -8,8 +8,12 @@ export default defineComponent({
   setup() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const store = useStore();
+    function isEmpty(obj: any) {
+      return Object.keys(obj).length === 0;
+    }
     return {
       store,
+      isEmpty,
     };
   },
 });
@@ -44,6 +48,7 @@ export default defineComponent({
         <div
           id="Theia"
           class="relative align-top flex justify-start w-full -mb-4"
+          v-if="!isEmpty(x.theia)"
         >
           <div>
             <div
@@ -83,7 +88,11 @@ export default defineComponent({
             </div>
           </div>
         </div>
-        <div id="User" class="flex justify-end w-full -mb-4">
+        <div
+          id="User"
+          class="flex justify-end w-full -mb-4"
+          v-if="!isEmpty(x.user)"
+        >
           <div>
             <div
               class="p-2 px-8 my-2 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[280px] lg:w-[440px] shadow-inner shadow-yellow-400"
