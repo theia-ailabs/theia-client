@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { State, ChatRecord, UserMessage, TheiaMessage } from "../interfaces";
 import { getDate, getTime } from "../utils";
+import { socket } from "./sockets";
 
 const useStore = defineStore("main", {
   state: (): State => {
@@ -64,6 +65,8 @@ const useStore = defineStore("main", {
       };
       console.log(chatRec);
       this.chat.push(chatRec);
+
+      socket.emit("userMessage", userMsg);
     },
     scrollTop(): void {
       window.scrollTo(document.body.scrollHeight, 0);
