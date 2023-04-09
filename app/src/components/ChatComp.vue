@@ -93,7 +93,7 @@ export default defineComponent({
         <div id="User" class="user-message-container" v-if="!isEmpty(x.user)">
           <div>
             <div
-              class="p-2 px-8 my-2 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[280px] lg:w-[440px] shadow-inner shadow-yellow-400"
+              class="p-2 px-8 my-2 text-xs text-white font-semibold rounded-xl bg-black/30 rounded-br-none w-[280px] lg:w-[440px] shadow-inner shadow-yellow-400"
             >
               <AudioWaveComp
                 v-bind:audioUrl="'../assets/sounds/voice-1.mp3'"
@@ -110,13 +110,13 @@ export default defineComponent({
               >
                 {{ store.username }}
               </div>
+              <div class="text-center flex align-bottom justify-center">
+                <img
+                  class="w-10 h-10 rounded-full ml-1 mr-2 m-auto mb-2"
+                  src="./../assets/img/png/profile.png"
+                />
+              </div>
             </div>
-          </div>
-          <div class="text-center flex align-bottom justify-center">
-            <img
-              class="w-10 h-10 rounded-full ml-1 mr-2 m-auto mb-2"
-              src="./../assets/img/png/profile.png"
-            />
           </div>
         </div>
       </div>
