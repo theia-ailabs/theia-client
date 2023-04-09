@@ -51,7 +51,7 @@ const useStore = defineStore("main", {
     connect(): void {
       this.connected = true;
     },
-    inputMessage(): void {
+    inputMessage(callback?: () => void): void {
       const userMsg: UserMessage = {
         text: this.input,
         audio: "",
@@ -66,7 +66,9 @@ const useStore = defineStore("main", {
       console.log(chatRec);
       this.chat.push(chatRec);
 
-      socket.emit("userMessage", userMsg);
+      if (callback) {
+        callback();
+      }
     },
     scrollTop(): void {
       window.scrollTo(document.body.scrollHeight, 0);
