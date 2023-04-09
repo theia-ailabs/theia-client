@@ -51,7 +51,7 @@ export default defineComponent({
         <div id="Theia" class="theia-message-container">
           <div>
             <div
-              class="text-xs text-white ml-12 mt-4 my-2 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-inner shadow-purple-400 border-b-3 border-purple-400"
+              class="text-xs text-white ml-2 mt-4 my-2 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-inner shadow-purple-400 border-b-3 border-purple-400"
             >
               <div
                 class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-sm shadow-purple-400 border border-yellow-400/30"
@@ -73,7 +73,7 @@ export default defineComponent({
               <div class="text-center flex align-bottom justify-center">
                 <img
                   class="w-10 h-10 rounded-full ml-1 mr-2 m-auto border border-gray-500/50"
-                  src="./../assets/img/png/theia.png"
+                  src="../assets/img/png/theia.png"
                 />
               </div>
               <div
@@ -113,7 +113,7 @@ export default defineComponent({
               <div class="text-center flex align-bottom justify-center">
                 <img
                   class="w-10 h-10 rounded-full ml-1 mr-2 m-auto mb-2"
-                  src="./../assets/img/png/profile.png"
+                  src="../assets/img/png/profile.png"
                 />
               </div>
             </div>
