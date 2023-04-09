@@ -92,3 +92,7 @@ export const onTheiaMessage = () => {
     store.chat.push(chatRec);
   });
 };
+
+export const emitUserMessage = (message: string) => {
+  socket.emit("theiaMessage", message);
+};
