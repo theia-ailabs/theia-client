@@ -1,14 +1,21 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import useStore from "../services/store";
 import AudioWaveComp from "./AudioWaveComp.vue";
+import { emitUserMessage } from "@/services/sockets/user.socket";
 
 export default defineComponent({
   components: { AudioWaveComp },
   setup() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const store = useStore();
+
+    const sendMessage = () => {
+      store.inputMessage(() => emitUserMessage(store.input));
+      store.input = "";
+    };
+
     return {
+      sendMessage,
       store,
     };
   },
@@ -33,7 +40,7 @@ export default defineComponent({
         form="input-chat"
         class="bg-white send z-50"
         type="button"
-        @click="store.inputMessage()"
+        @click="sendMessage"
       >
         &nbsp;
       </button>

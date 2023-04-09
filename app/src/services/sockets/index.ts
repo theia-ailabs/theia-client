@@ -19,7 +19,7 @@ export function socketConnection(): Socket {
   // socket.on("isNewUser", (isNew: boolean) => {
   //   store.dispatch("switchSignup", isNew);
   // });
-  // socket.on("getUserRes", (userInfo: User) => { 
+  // socket.on("getUserRes", (userInfo: User) => {
   //   if (userInfo) {
   //     store.dispatch("dispatchUsername", userInfo._username_);
   //   } else {
