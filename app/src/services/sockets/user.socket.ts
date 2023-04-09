@@ -2,6 +2,7 @@ import { socket } from "./";
 import useStore from "../store";
 import { useNotification } from "@kyvg/vue3-notification";
 import { User } from "../../interfaces";
+import { TheiaMessage, UserMessage, ChatRecord } from "../../interfaces";
 
 const store = useStore();
 const { notify } = useNotification();
@@ -79,4 +80,15 @@ export const userInfo = () => {
 
 export const getUserInfo = (pubkey: string) => {
   socket.emit("getUser", pubkey);
+};
+
+export const onTheiaMessage = () => {
+  socket.on("theiaMessage", (theiaMsg: TheiaMessage) => {
+    const chatRec: ChatRecord = {
+      user: {} as UserMessage,
+      theia: theiaMsg,
+      timestamp: BigInt(Date.now()),
+    };
+    store.chat.push(chatRec);
+  });
 };
