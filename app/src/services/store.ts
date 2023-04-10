@@ -42,7 +42,7 @@ const useStore = defineStore("main", {
       emoji: "",
       // signup
       newUser: false,
-      signup: false,
+      signup: true,
       usernameAv: false,
     };
   },

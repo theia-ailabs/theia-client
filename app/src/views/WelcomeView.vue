@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 import GalaxyComp from "../components/GalaxyComp.vue";
 import useStore from "../services/store";
 import TerminalComp from "../components/TerminalComp.vue";
-// import Signup from "../modules/modals/SignupModal.vue";
+import Signup from "../modules/modals/SignupModal.vue";
 
 export default defineComponent({
   components: { GalaxyComp, TerminalComp },
@@ -35,9 +35,9 @@ export default defineComponent({
 <template>
   <div>
     <GalaxyComp />
-    <!-- <div v-if="store.signup">
+    <div v-if="store.signup" class="relative z-50">
       <Signup />
-    </div> -->
+    </div>
     <!-- Welcome Title -->
     <div class="mt-20">
       <h1
