@@ -44,6 +44,9 @@ const useStore = defineStore("main", {
       newUser: false,
       signup: true,
       usernameAv: false,
+      // menu
+      showChat: false,
+      hello: false,
     };
   },
   actions: {
@@ -77,6 +80,9 @@ const useStore = defineStore("main", {
     },
     scrollTop(): void {
       window.scrollTo(document.body.scrollHeight, 0);
+    },
+    switchShowChat(): void {
+      this.showChat = !this.showChat;
     },
     switchDark(): void {
       this.dark = !this.dark;

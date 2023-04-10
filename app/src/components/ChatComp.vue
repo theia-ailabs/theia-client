@@ -15,8 +15,8 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div>
-    <div class="relative p-2 pt-4 h-screen w-screen">
+  <div class="relative p-2 pt-4 h-screen w-screen">
+    <div v-if="store.showChat">
       <div
         class="relative flex align-top top-14"
         v-for="x in store.chat"

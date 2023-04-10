@@ -38,6 +38,9 @@ export interface State {
   newUser: boolean;
   signup: boolean;
   usernameAv: boolean;
+  // menu
+  showChat: boolean;
+  hello: boolean;
 }
 
 export interface ChatRecord {
