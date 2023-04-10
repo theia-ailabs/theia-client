@@ -67,15 +67,16 @@ export default defineComponent({
   },
   setup(props) {
     console.log(props.audioUrl);
-    let cxt = toRefs(props);
+    // let cxt = toRefs(props);
     let audio: Ref<string | AudioBuffer>;
     const isPlaying = ref(false);
     const wave: Ref<WaveSurfer | null> = ref(null);
     const ms = 3000;
 
     onMounted(async () => {
-      if (cxt.audioUrl && !cxt.audioBuffer) audio = cxt.audioUrl as Ref<string>;
-      else audio = cxt.audioBuffer as Ref<AudioBuffer>;
+      if (props.audioUrl && !props.audioBuffer)
+        audio.value = props.audioUrl as string;
+      else audio.value = props.audioBuffer as AudioBuffer;
       const wave = WaveSurfer.create({
         container: "#waveform",
         waveColor: "violet",
