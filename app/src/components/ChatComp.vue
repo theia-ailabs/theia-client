@@ -18,7 +18,7 @@ export default defineComponent({
   <div>
     <div class="relative p-2 pt-4 h-screen w-screen">
       <div
-        class="relative flex align-top top-0"
+        class="relative flex align-top top-14"
         v-for="x in store.chat"
         :key="x.user.datetime"
       >
