@@ -26,15 +26,17 @@ export default defineComponent({
       <form id="input-chat" class="flex relative justify-center w-full">
         <textarea
           v-model="store.input"
-          class="py-2 hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner-sm shadow-yellow-400 p-1 my-2 rounded-xl z-50"
+          class="p-1 my-2 py-2 hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner shadow-yellow-400/50 rounded-xl z-50"
         >
         </textarea>
-        <button
-          class="ml-4 rounded-xl border border-white"
-          @click="store.inputMessage()"
-        >
-          Hola
-        </button>
+        <div class="px-2 mt-4">
+          <button
+            class="ml-4 p-2 text-xs rounded-full border text-white/50 border-purple-400/30 shadow-sm shadow-yellow-400/50 hover:text-white hover:border-purple-400 hover:shadow-yellow-400"
+            @click="store.inputMessage()"
+          >
+            Send
+          </button>
+        </div>
       </form>
     </div>
     <div class="mr-12 mt-2">
