@@ -44,6 +44,9 @@ const useStore = defineStore("main", {
       newUser: false,
       signup: true,
       usernameAv: false,
+      // menu
+      showChat: false,
+      hello: false,
     };
   },
   actions: {
@@ -51,6 +54,16 @@ const useStore = defineStore("main", {
       this.connected = true;
     },
     inputMessage(): void {
+      const theiaMsg: TheiaMessage = {
+        text: "Thinking...",
+        audio: "",
+        video: "",
+        image: "",
+        links: "",
+        datetime: `${getDate()} ${getTime()}`,
+        timestamp: BigInt(Date.now()),
+        computed_in: 0,
+      };
       const userMsg: UserMessage = {
         text: this.input,
         audio: "",
@@ -58,15 +71,18 @@ const useStore = defineStore("main", {
         timestamp: BigInt(Date.now()),
       };
       const chatRec: ChatRecord = {
-        user: userMsg,
-        theia: {} as TheiaMessage,
+        user: { ...userMsg },
+        theia: { ...theiaMsg },
         timestamp: BigInt(Date.now()),
       };
-      console.log(chatRec);
-      this.chat.push(chatRec);
+      this.chat.push({ ...chatRec });
+      console.log(this.chat[0].theia);
     },
     scrollTop(): void {
       window.scrollTo(document.body.scrollHeight, 0);
+    },
+    switchShowChat(): void {
+      this.showChat = !this.showChat;
     },
     switchDark(): void {
       this.dark = !this.dark;
