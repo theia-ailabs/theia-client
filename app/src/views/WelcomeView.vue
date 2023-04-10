@@ -35,7 +35,8 @@ export default defineComponent({
 <template>
   <div>
     <GalaxyComp />
-    <!-- <div v-if="store.signup">
+    <!-- <div v-if="store.signup" class="absolute z-50 bg-white p-8">
+      Hello
       <Signup />
     </div> -->
     <!-- Welcome Title -->

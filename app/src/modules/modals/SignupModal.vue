@@ -1,5 +1,5 @@
 <script lang="ts">
-import { ref } from "vue";
+import { defineComponent, ref } from "vue";
 import { useNotification } from "@kyvg/vue3-notification";
 import useStore from "../../services/store";
 import {
@@ -8,7 +8,7 @@ import {
 } from "../../services/sockets/user.socket";
 import { sqlFilter } from "../../utils";
 
-export default {
+export default defineComponent({
   setup() {
     const store = useStore();
     const { notify } = useNotification();
@@ -46,7 +46,7 @@ export default {
       sqlFilter,
     };
   },
-};
+});
 </script>
 <template>
   <teleport to="body">
