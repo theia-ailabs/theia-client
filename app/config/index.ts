@@ -1,1 +1,3 @@
-export const SERVER_URL = "http://localhost:3333";
+import dotenv from "dotenv";
+dotenv.config();
+export const SERVER_URL = String(process.env.SERVER_URL);
