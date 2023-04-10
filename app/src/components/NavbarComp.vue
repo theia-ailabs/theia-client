@@ -31,7 +31,7 @@ export default defineComponent({
         </textarea>
         <div class="px-2 mt-4">
           <button
-            class="ml-4 p-2 text-xs rounded-full border text-white/50 border-purple-400/30 shadow-sm shadow-yellow-400/50 hover:text-white hover:border-purple-400 hover:shadow-yellow-400"
+            class="ml-2 p-2 text-xs rounded-full border text-white/50 border-purple-400/30 shadow-sm shadow-yellow-400/50 hover:text-white hover:border-purple-400 hover:shadow-yellow-400"
             @click="store.inputMessage()"
           >
             Send
@@ -39,9 +39,9 @@ export default defineComponent({
         </div>
       </form>
     </div>
-    <div class="mr-12 mt-2">
+    <div class="mr-12 mt-3">
       <button :click="store.scrollTop()">
-        <img class="h-12" :src="profile" alt="Theia logo" />
+        <img class="h-10" :src="profile" alt="Theia logo" />
       </button>
     </div>
   </nav>

@@ -12,13 +12,6 @@ export const onServerConnection = () => {
   });
 };
 
-export const onIsNewUser = () => {
-  socket.on("isNewUser", (isNew: boolean) => {
-    store.newUser = isNew;
-    socket.off("isNewUser");
-  });
-};
-
 export const emitConnection = (pubkey: string) => {
   socket.emit("newConnection", pubkey);
   socket.off("newConnection");
@@ -29,6 +22,13 @@ export const emitConnection = (pubkey: string) => {
 export const emitDisconnection = (pubkey: string) => {
   socket.emit("newDisconnection", pubkey);
   socket.off("newDisonnection");
+};
+
+export const onIsNewUser = () => {
+  socket.on("isNewUser", (isNew: boolean) => {
+    store.newUser = isNew;
+    socket.off("isNewUser");
+  });
 };
 
 export const searchUsersSocket = (username: string) => {
