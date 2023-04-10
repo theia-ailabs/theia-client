@@ -71,7 +71,7 @@ export default defineComponent({
       RENDERER.setSize(window.innerWidth, window.innerHeight);
       RENDERER.shadowMap.enabled = true;
       RENDERER.shadowMapSort = true;
-      RENDERER.setClearColor(0xffffff, 1);
+      // RENDERER.setClearColor(0xffffff, 1);
     }
 
     function initComposer() {

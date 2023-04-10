@@ -12,30 +12,46 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="fixed bottom-12 w-full">
+  <div class="z-50 fixed bottom-12 w-full">
     <div class="flex flex-wrap justify-center bg-transparent w-full">
       <button
         @click="store.switchShowChat()"
         class="p-1 px-[7px] mx-2 rounded-full border"
-        :class="store.dark ? 'border-white/50' : 'border-black/50'"
+        :class="
+          store.dark
+            ? 'border-white/50 hover:bg-white/20'
+            : 'border-black/50 hover:bg-black/20'
+        "
       >
         💬
       </button>
       <button
         class="p-1 px-[7px] mx-2 rounded-full border"
-        :class="store.dark ? 'border-white/50' : 'border-black/50'"
+        :class="
+          store.dark
+            ? 'border-white/50 hover:bg-white/20'
+            : 'border-black/50 hover:bg-black/20'
+        "
       >
         😄
       </button>
       <button
         class="p-1 px-[7px] mx-2 rounded-full border"
-        :class="store.dark ? 'border-white/50' : 'border-black/50'"
+        :class="
+          store.dark
+            ? 'border-white/50 hover:bg-white/20'
+            : 'border-black/50 hover:bg-black/20'
+        "
       >
         🗓️
       </button>
       <button
         class="p-1 px-[7px] mx-2 rounded-full border"
-        :class="store.dark ? 'border-white/50' : 'border-black/50'"
+        :class="
+          store.dark
+            ? 'border-white/50 hover:bg-white/20'
+            : 'border-black/50 hover:bg-black/20'
+        "
       >
         📥
       </button>

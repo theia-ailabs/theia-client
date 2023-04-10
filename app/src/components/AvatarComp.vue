@@ -1,13 +1,14 @@
 <template>
-  <div class="z-0 fixed bg-white">
+  <div class="z-10 fixed bg-white">
     <div v-if="listening" class="bg-white">
       <button class="z-50 w-screen h-screen bg-white" @click="toTalk">
-        <LiquidBody />Hi
+        <LiquidTalk />
+        HI
       </button>
     </div>
-    <div v-if="talking">
-      <button class="z-10 cursor-pointer" @click="toListen">
-        <LiquidTalk />Hellooooo
+    <div :class="talking ? 'block' : 'hidden'">
+      <button class="z-10 cursor-pointer bg-white" @click="toListen">
+        <LiquidBody />
       </button>
     </div>
   </div>
