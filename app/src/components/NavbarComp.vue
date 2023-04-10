@@ -26,7 +26,7 @@ export default defineComponent({
       <form id="input-chat" class="flex relative justify-center w-full">
         <textarea
           v-model="store.input"
-          class="p-1 my-2 py-2 hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner shadow-yellow-400/50 rounded-xl z-50"
+          class="p-1 my-2 py-2 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner shadow-yellow-400/50 rounded-xl z-50 hover:border-purple-400 hover:shadow-yellow-400/80"
         >
         </textarea>
         <div class="px-2 mt-4">
