@@ -16,13 +16,16 @@ export default defineComponent({
 });
 </script>
 <template>
-  <nav class="z-50 fixed pt-4 flex justify-between w-full top-0 bg-transparent">
-    <div class="ml-12">
+  <nav
+    class="z-50 fixed pt-4 flex justify-between w-full top-0 bg-transparent"
+    :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
+  >
+    <div class="ml-12 -mt-4">
       <button :click="store.scrollTop()">
         <img class="h-14" :src="logo" alt="Theia logo" />
       </button>
     </div>
-    <div class="flex">
+    <div class="flex -mt-4">
       <form id="input-chat" class="flex relative justify-center w-full">
         <textarea
           v-model="store.input"
@@ -39,7 +42,7 @@ export default defineComponent({
         </div>
       </form>
     </div>
-    <div class="mr-12 mt-3">
+    <div class="mr-12 -mt-1">
       <button :click="store.scrollTop()">
         <img class="h-10" :src="profile" alt="Theia logo" />
       </button>
