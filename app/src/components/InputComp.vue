@@ -5,40 +5,26 @@ import useStore from "../services/store";
 export default defineComponent({
   setup() {
     const store = useStore();
-    function connect(): void {
-      store.connect();
-    }
     return {
       store,
-      connect,
     };
   },
 });
 </script>
 <template>
-  <form id="input-chat" class="flex relative justify-center w-full">
+  <form class="flex flex-wrap justify-center w-full">
     <textarea
       v-model="store.input"
-      class="fixed top-28 py-2 resize hover:border-yellow-500 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner-sm shadow-yellow-400 min-h-12 p-1 my-2 w-64 rounded-xl z-50"
+      class="p-1 my-2 py-2 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner shadow-yellow-400/50 rounded-xl z-50 hover:border-purple-400 hover:shadow-yellow-400/80"
     >
-        <span 
-        id="span_input"
-        autofocus
-          contenteditable></span>
-        </textarea
-    >
-    <button
-      form="input-chat"
-      class="bg-white send z-50"
-      type="button"
-      @click="store.inputMessage()"
-    >
-      &nbsp;
-    </button>
+    </textarea>
+    <div class="px-2 mt-4">
+      <button
+        class="rotate-90 p-2 text-xs rounded-full border text-white/50 border-purple-400/30 shadow-sm shadow-yellow-400/50 hover:text-white hover:border-purple-400 hover:shadow-yellow-400"
+        @click="store.inputMessage()"
+      >
+        Send
+      </button>
+    </div>
   </form>
 </template>
-<style scoped>
-h1 {
-  font-size: 40px;
-}
-</style>
