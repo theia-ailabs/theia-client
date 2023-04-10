@@ -17,7 +17,7 @@ export default defineComponent({
 </script>
 <template>
   <nav
-    class="z-50 fixed pt-4 flex justify-between w-full top-0 bg-transparent"
+    class="z-50 fixed pt-4 flex justify-between w-full top-0"
     :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
   >
     <div class="ml-12 -mt-4">
