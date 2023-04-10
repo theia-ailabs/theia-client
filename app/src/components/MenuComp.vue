@@ -22,21 +22,18 @@ export default defineComponent({
         💬
       </button>
       <button
-        @click="store.switchShowChat()"
         class="p-1 px-[7px] mx-2 rounded-full border"
         :class="store.dark ? 'border-white/50' : 'border-black/50'"
       >
         😄
       </button>
       <button
-        @click="store.switchShowChat()"
         class="p-1 px-[7px] mx-2 rounded-full border"
         :class="store.dark ? 'border-white/50' : 'border-black/50'"
       >
         🗓️
       </button>
       <button
-        @click="store.switchShowChat()"
         class="p-1 px-[7px] mx-2 rounded-full border"
         :class="store.dark ? 'border-white/50' : 'border-black/50'"
       >
