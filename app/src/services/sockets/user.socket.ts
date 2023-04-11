@@ -67,16 +67,3 @@ export const createUserSocket = (username: string) => {
     console.log("ERROR: Could not create user. Connect your wallet first!");
   }
 };
-
-export const userInfo = () => {
-  socket.on("userInfo", (userInfo: User) => {
-    console.log("userInfo", userInfo);
-    const username = userInfo._username_;
-    store.username = username;
-    socket.off("userInfo");
-  });
-};
-
-export const getUserInfo = (pubkey: string) => {
-  socket.emit("getUser", pubkey);
-};
