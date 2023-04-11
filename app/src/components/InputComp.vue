@@ -12,7 +12,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <form class="flex flex-wrap justify-center -ml-6">
+  <form class="flex flex-wrap justify-center">
     <textarea
       v-model="store.input"
       class="w-28 lg:w-48 p-1 my-2 py-2 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner shadow-yellow-400/50 rounded-xl z-50 hover:border-purple-400 hover:shadow-yellow-400/80"
