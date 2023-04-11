@@ -26,7 +26,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="z-50 fixed bottom-12 w-full">
+  <div class="z-50 fixed bottom-8 w-full">
     <InputComp />
     <div class="flex flex-wrap justify-center bg-transparent w-full">
       <button
@@ -37,7 +37,7 @@ export default defineComponent({
             : 'border-black/50 hover:bg-black/20'
         "
       >
-        <img :src="googleImg" alt="Google button" class="w-6" />
+        <img :src="googleImg" alt="Google button" class="w-5" />
       </button>
       <button
         class="m-2 w-10 h-10 pt-1 rounded-full border flex justify-center align-middle"
@@ -47,7 +47,7 @@ export default defineComponent({
             : 'border-black/50 hover:bg-black/20'
         "
       >
-        <img :src="appleImg" alt="Apple button" class="w-7" />
+        <img :src="appleImg" alt="Apple button" class="w-6" />
       </button>
       <button
         class="m-2 w-10 h-10 pt-[7px] rounded-full border flex justify-center align-middle"
@@ -57,7 +57,7 @@ export default defineComponent({
             : 'border-black/50 hover:bg-black/20'
         "
       >
-        <img :src="instaImg" alt="Instagram button" class="w-6" />
+        <img :src="instaImg" alt="Instagram button" class="w-5" />
       </button>
       <button
         class="m-2 w-10 h-10 rounded-full border flex justify-center align-middle"
