@@ -1,12 +1,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useStore from "../services/store";
-import InputComp from "./InputComp.vue";
+// import InputComp from "./InputComp.vue";
 // import WavesComp from "./WavesComp.vue";
 // import WalletsBtn from "./modules/buttons/WalletsButton.vue";
 
 export default defineComponent({
-  components: { InputComp },
   setup() {
     const store = useStore();
     return {
@@ -30,9 +29,6 @@ export default defineComponent({
       <button :click="store.scrollTop()">
         <img class="h-12 lg:h-14" :src="logo" alt="Theia logo" />
       </button>
-    </div>
-    <div class="flex -mt-4">
-      <InputComp />
     </div>
     <div class="flex flex-wrap mx-4 sm:mr-12 -mt-1">
       <!-- <WalletsBtn /> -->

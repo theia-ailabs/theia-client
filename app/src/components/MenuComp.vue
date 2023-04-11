@@ -1,8 +1,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import InputComp from "./InputComp.vue";
 import useStore from "../services/store";
 
 export default defineComponent({
+  components: {
+    InputComp,
+  },
   setup() {
     const store = useStore();
     return {
@@ -23,9 +27,10 @@ export default defineComponent({
 </script>
 <template>
   <div class="z-50 fixed bottom-12 w-full">
+    <InputComp />
     <div class="flex flex-wrap justify-center bg-transparent w-full">
       <button
-        class="mx-2 w-10 h-10 pt-[7px] rounded-full border flex justify-center align-middle"
+        class="m-2 w-10 h-10 pt-[7px] rounded-full border flex justify-center align-middle opacity-50"
         :class="
           store.dark
             ? 'border-white/50 hover:bg-white/20'
@@ -35,7 +40,7 @@ export default defineComponent({
         <img :src="googleImg" alt="Google button" class="w-6" />
       </button>
       <button
-        class="mx-2 w-10 h-10 pt-1 rounded-full border flex justify-center align-middle"
+        class="m-2 w-10 h-10 pt-1 rounded-full border flex justify-center align-middle"
         :class="
           store.dark
             ? 'border-white/50 hover:bg-white/20'
@@ -45,7 +50,7 @@ export default defineComponent({
         <img :src="appleImg" alt="Apple button" class="w-7" />
       </button>
       <button
-        class="mx-2 w-10 h-10 pt-[7px] rounded-full border flex justify-center align-middle"
+        class="m-2 w-10 h-10 pt-[7px] rounded-full border flex justify-center align-middle"
         :class="
           store.dark
             ? 'border-white/50 hover:bg-white/20'
@@ -55,7 +60,7 @@ export default defineComponent({
         <img :src="instaImg" alt="Instagram button" class="w-6" />
       </button>
       <button
-        class="mx-2 w-10 h-10 rounded-full border flex justify-center align-middle"
+        class="m-2 w-10 h-10 rounded-full border flex justify-center align-middle"
         :class="
           store.dark
             ? 'border-white/50 hover:bg-white/20'
@@ -65,7 +70,7 @@ export default defineComponent({
         <img :src="twitterImg" alt="Twitter button" class="w-7 mt-[6px]" />
       </button>
       <button
-        class="mx-2 w-10 h-10 rounded-full border flex justify-center align-middle"
+        class="m-2 w-10 h-10 rounded-full border flex justify-center align-middle"
         :class="
           store.dark
             ? 'border-white/50 hover:bg-white/20'
@@ -75,7 +80,7 @@ export default defineComponent({
         <img :src="spotifyImg" alt="Sptofy button" class="w-7 mt-[5px]" />
       </button>
       <button
-        class="mx-2 w-10 h-10 rounded-full border flex justify-center align-middle"
+        class="m-2 w-10 h-10 rounded-full border flex justify-center align-middle"
         :class="
           store.dark
             ? 'border-white/50 hover:bg-white/20'
