@@ -23,7 +23,7 @@ export default defineComponent({
     class="z-50 fixed pt-4 flex justify-between w-full top-0"
     :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
   >
-    <div class="sm:ml-12 -mt-4">
+    <div class="mx-4 sm:ml-12 -mt-4">
       <button :click="store.scrollTop()">
         <img class="h-12 lg:h-14" :src="logo" alt="Theia logo" />
       </button>
@@ -31,10 +31,10 @@ export default defineComponent({
     <!-- <div>
       <WavesComp />
     </div> -->
-    <div class="flex pl-8 -mt-4">
+    <div class="flex -mt-4">
       <InputComp />
     </div>
-    <div class="mr-12 -mt-1">
+    <div class="mx-4 sm:mr-12 -mt-1">
       <button :click="store.scrollTop()">
         <img class="h-10 lg:h-12" :src="profile" alt="Theia logo" />
       </button>
