@@ -9,10 +9,10 @@ export default {
   data() {
     return {
       colorModal: false,
-      sound_black: require("../../assets/img/ico/sound-black.png"),
-      sound_white: require("../../assets/img/ico/sound-white.png"),
-      mute_black: require("../../assets/img/ico/mute-black.png"),
-      mute_white: require("../../assets/img/ico/mute-white.png"),
+      sound_black: require("../../../assets/img/ico/sound-black.png"),
+      sound_white: require("../../../assets/img/ico/sound-white.png"),
+      mute_black: require("../../../assets/img/ico/mute-black.png"),
+      mute_white: require("../../../assets/img/ico/mute-white.png"),
     };
   },
 };

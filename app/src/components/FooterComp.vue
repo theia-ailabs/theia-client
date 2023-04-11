@@ -1,8 +1,8 @@
 <script lang="ts">
 import { ref } from "vue";
 import { getTime, getDate } from "../utils";
+import SettingsButtons from "./modules/buttons/SettingsButtons.vue";
 import useStore from "../services/store";
-import SettingsButtons from "../modules/buttons/SettingsButtons.vue";
 
 export default {
   components: {

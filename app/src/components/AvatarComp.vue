@@ -14,8 +14,8 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref, Ref } from "vue";
-import LiquidBody from "../modules/avatars/liquid/LiquidBody.vue";
-import LiquidTalk from "../modules/avatars/liquid/LiquidTalk.vue";
+import LiquidBody from "./modules/avatars/liquid/LiquidBody.vue";
+import LiquidTalk from "./modules/avatars/liquid/LiquidTalk.vue";
 // import useStore from "../services/store";
 
 export default defineComponent({
