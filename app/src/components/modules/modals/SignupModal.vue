@@ -68,13 +68,15 @@ export default defineComponent({
                 LOGIN WITH USER
               </p>
             </div>
-            <router-link
-              to="/theia"
-              class="m-4 mt-8 mx-24 sm:mx-52 p-3 rounded-3xl uppercase text-sm font-bold border border-gray-500 shadow-sm hover:shadow-yellow-500 hover:border-purple-600 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
-              @click="signUp()"
-            >
-              GO 🚀
-            </router-link>
+            <div class="flex w-full justify-center">
+              <router-link
+                to="/theia"
+                class="m-4 mt-8 w-24 max-w-24 p-3 rounded-3xl uppercase text-sm font-bold border border-gray-500 shadow-sm hover:shadow-yellow-500 hover:border-purple-600 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
+                @click="signUp()"
+              >
+                GO 🚀
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
