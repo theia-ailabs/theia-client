@@ -1,17 +1,12 @@
 <template>
-  <WaveSurferVue :src="file" :options="options"></WaveSurferVue>
+  <vue-wave-surfer :src="file" :options="options"></vue-wave-surfer>
 </template>
 <script lang="ts">
-import WaveSurferVue from "wavesurfer.js-vue";
-
 export default {
-  components: {
-    WaveSurferVue,
-  },
   data() {
     return {
       options: {},
-      file: "@/assets/sounds/voice-1.mp3",
+      file: "https://peregrine-results.s3.amazonaws.com/pigeon/8CCgMLeZiZnzrrELvl_0.mp3",
     };
   },
 };

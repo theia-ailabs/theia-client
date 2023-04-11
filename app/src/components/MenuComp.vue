@@ -9,51 +9,80 @@ export default defineComponent({
       store,
     };
   },
+  data() {
+    return {
+      googleImg: require("../assets/img/ico/google.png"),
+      appleImg: require("../assets/img/ico/apple.png"),
+      instaImg: require("../assets/img/ico/instagram.png"),
+      twitterImg: require("../assets/img/ico/twitter.png"),
+      youtubeImg: require("../assets/img/ico/youtube.png"),
+      spotifyImg: require("../assets/img/ico/spotify.png"),
+    };
+  },
 });
 </script>
 <template>
   <div class="z-50 fixed bottom-12 w-full">
     <div class="flex flex-wrap justify-center bg-transparent w-full">
       <button
-        @click="store.switchShowChat()"
-        class="p-1 px-[7px] mx-2 rounded-full border"
+        class="mx-2 w-10 h-10 pt-[7px] rounded-full border flex justify-center align-middle"
         :class="
           store.dark
             ? 'border-white/50 hover:bg-white/20'
             : 'border-black/50 hover:bg-black/20'
         "
       >
-        💬
+        <img :src="googleImg" alt="Google button" class="w-6" />
       </button>
       <button
-        class="p-1 px-[7px] mx-2 rounded-full border"
+        class="mx-2 w-10 h-10 pt-1 rounded-full border flex justify-center align-middle"
         :class="
           store.dark
             ? 'border-white/50 hover:bg-white/20'
             : 'border-black/50 hover:bg-black/20'
         "
       >
-        😄
+        <img :src="appleImg" alt="Apple button" class="w-7" />
       </button>
       <button
-        class="p-1 px-[7px] mx-2 rounded-full border"
+        class="mx-2 w-10 h-10 pt-[7px] rounded-full border flex justify-center align-middle"
         :class="
           store.dark
             ? 'border-white/50 hover:bg-white/20'
             : 'border-black/50 hover:bg-black/20'
         "
       >
-        🗓️
+        <img :src="instaImg" alt="Instagram button" class="w-6" />
       </button>
       <button
-        class="p-1 px-[7px] mx-2 rounded-full border"
+        class="mx-2 w-10 h-10 rounded-full border flex justify-center align-middle"
         :class="
           store.dark
             ? 'border-white/50 hover:bg-white/20'
             : 'border-black/50 hover:bg-black/20'
         "
       >
-        📥
+        <img :src="twitterImg" alt="Twitter button" class="w-7 mt-[6px]" />
+      </button>
+      <button
+        class="mx-2 w-10 h-10 rounded-full border flex justify-center align-middle"
+        :class="
+          store.dark
+            ? 'border-white/50 hover:bg-white/20'
+            : 'border-black/50 hover:bg-black/20'
+        "
+      >
+        <img :src="spotifyImg" alt="Sptofy button" class="w-7 mt-[5px]" />
+      </button>
+      <button
+        class="mx-2 w-10 h-10 rounded-full border flex justify-center align-middle"
+        :class="
+          store.dark
+            ? 'border-white/50 hover:bg-white/20'
+            : 'border-black/50 hover:bg-black/20'
+        "
+      >
+        <img :src="youtubeImg" alt="Youtube button" class="w-7 mt-[5px]" />
       </button>
     </div>
   </div>

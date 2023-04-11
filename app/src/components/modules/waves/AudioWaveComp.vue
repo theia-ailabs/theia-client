@@ -49,7 +49,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, ref, Ref, toRefs } from "vue";
+import { defineComponent, onMounted, ref, Ref } from "vue";
 import WaveSurfer from "wavesurfer.js";
 import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js";
 
@@ -58,7 +58,8 @@ export default defineComponent({
   props: {
     audioUrl: {
       type: String,
-      default: "",
+      default:
+        "https://peregrine-results.s3.amazonaws.com/pigeon/8CCgMLeZiZnzrrELvl_0.mp3",
     },
     audioBuffer: {
       type: AudioBuffer,
@@ -67,17 +68,14 @@ export default defineComponent({
   },
   setup(props) {
     console.log(props.audioUrl);
-    // let cxt = toRefs(props);
-    let audio: Ref<string | AudioBuffer>;
     const isPlaying = ref(false);
-    const wave: Ref<WaveSurfer | null> = ref(null);
     const ms = 3000;
+    let wave: WaveSurfer;
 
     onMounted(async () => {
-      if (props.audioUrl && !props.audioBuffer)
-        audio.value = props.audioUrl as string;
-      else audio.value = props.audioBuffer as AudioBuffer;
-      const wave = WaveSurfer.create({
+      const audio =
+        "https://peregrine-results.s3.amazonaws.com/pigeon/8CCgMLeZiZnzrrELvl_0.mp3";
+      wave = WaveSurfer.create({
         container: "#waveform",
         waveColor: "violet",
         progressColor: "purple",
@@ -93,10 +91,9 @@ export default defineComponent({
       await wave.load(audio);
     });
 
-    async function onPlay() {
+    function onPlay() {
       isPlaying.value = true;
-      wave.value.play();
-
+      wave.play();
       setTimeout(() => {
         onStop();
       }, ms);
@@ -104,7 +101,7 @@ export default defineComponent({
 
     function onStop() {
       isPlaying.value = false;
-      wave.value.stop();
+      wave.stop();
     }
 
     return {
