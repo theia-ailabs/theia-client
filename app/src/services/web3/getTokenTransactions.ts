@@ -3,8 +3,8 @@ import { PublicKey } from "@solana/web3.js";
 import { getDateTime } from "../../utils";
 import { BLOCKCHAIN_CONNECTION } from "@/config";
 
-const TOKEN = process.env.VUE_APP_BEEN_TOKEN as string;
-const SYMBOL = "BEEN";
+const TOKEN = "THEIA";
+const SYMBOL = "THEIA";
 const TX_LIMIT = 10;
 
 export interface TokenTransaction {

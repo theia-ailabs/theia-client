@@ -3,15 +3,15 @@ import { computed, defineComponent, ref, toRefs, watchEffect } from "vue";
 import { onClickOutside, useClipboard } from "@vueuse/core";
 import { PublicKey } from "@solana/web3.js";
 import { useWallet } from "../../../services/web3/wallets/useWallet";
-import WalletConnectButton from "../wallets/WalletConnectButton.vue";
-import WalletIcon from "../wallets/WalletIcon.vue";
-import WalletModalProvider from "../wallets/WalletModalProvider.vue";
 import { balanceSOL, balanceUSDC } from "../../../services/web3/getBalances";
-import { formatNumber } from "../../../utils";
 import {
   emitConnection,
   emitDisconnection,
 } from "../../../services/sockets/user.socket";
+import { formatNumber } from "../../../utils";
+import WalletConnectButton from "../wallets/WalletConnectButton.vue";
+import WalletIcon from "../wallets/WalletIcon.vue";
+import WalletModalProvider from "../wallets/WalletModalProvider.vue";
 
 export default defineComponent({
   components: {
@@ -27,8 +27,6 @@ export default defineComponent({
     dark: Boolean,
   },
   setup(props) {
-    // const store = useStore();
-
     const { featured, container, logo, dark } = toRefs(props);
     const { publicKey, wallet, disconnect } = useWallet();
 
@@ -137,7 +135,6 @@ export default defineComponent({
   },
 });
 </script>
-
 <template>
   <wallet-modal-provider
     :featured="featured"
