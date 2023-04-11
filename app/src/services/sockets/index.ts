@@ -1,5 +1,5 @@
 import { io, Socket } from "socket.io-client";
-import { SERVER_URL } from "../../../config";
+import { SERVER_URL } from "../../config";
 // import { User } from "../../types";
 // import useStore from "./store";
 

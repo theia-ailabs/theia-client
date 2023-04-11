@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
-import { State, ChatRecord, UserMessage, TheiaMessage } from "../interfaces";
-import { getDate, getTime } from "../utils";
+import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
+import { getDate, getTime } from "../../utils";
 
 const useStore = defineStore("main", {
   state: (): State => {
