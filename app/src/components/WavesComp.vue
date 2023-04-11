@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       options: {},
-      file: "../assets/sounds/voice-1.mp3",
+      file: "@/assets/sounds/voice-1.mp3",
     };
   },
 };
