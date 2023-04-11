@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Connection, PublicKey } from "@solana/web3.js";
+import { PublicKey } from "@solana/web3.js";
 import { getDateTime } from "../../utils";
+import { BLOCKCHAIN_CONNECTION } from "@/config";
 
-const SOLANA_RPC_URL = process.env.VUE_APP_SOLANA_RPC_URL as string;
-const SOLANA_CONNECTION = new Connection(SOLANA_RPC_URL);
 const TOKEN = process.env.VUE_APP_BEEN_TOKEN as string;
 const SYMBOL = "BEEN";
 const TX_LIMIT = 10;
@@ -25,15 +24,16 @@ export const getTokenTransactions = async (
   _symbol: string = SYMBOL,
   _txLimit: number = TX_LIMIT
 ): Promise<Array<TokenTransaction>> => {
-  const signatures = await SOLANA_CONNECTION.getConfirmedSignaturesForAddress2(
-    new PublicKey(_token),
-    { limit: _txLimit }
-  );
+  const signatures =
+    await BLOCKCHAIN_CONNECTION.getConfirmedSignaturesForAddress2(
+      new PublicKey(_token),
+      { limit: _txLimit }
+    );
   console.log("trans", signatures);
   const signatureList = signatures.map(
     (transaction: any) => transaction.signature
   );
-  const transactionDetails = await SOLANA_CONNECTION.getParsedTransactions(
+  const transactionDetails = await BLOCKCHAIN_CONNECTION.getParsedTransactions(
     signatureList
   );
   console.log("trans details", transactionDetails);

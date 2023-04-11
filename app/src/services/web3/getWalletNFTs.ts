@@ -1,8 +1,6 @@
 import { Metaplex, keypairIdentity } from "@metaplex-foundation/js";
 import { Connection, Keypair, PublicKey } from "@solana/web3.js";
-
-const SOLANA_RPC_URL = process.env.VUE_APP_SOLANA_RPC_URL as string;
-const SOLANA_CONNECTION = new Connection(SOLANA_RPC_URL);
+import { BLOCKCHAIN_CONNECTION } from "../../config";
 
 export interface NFT {
   token: string;
@@ -27,7 +25,7 @@ interface Trait {
 
 export const getWalletNFTs = async (
   _pubkey: string, // public key to get NFTs from.
-  _solanaConnection: Connection = SOLANA_CONNECTION,
+  _solanaConnection: Connection = BLOCKCHAIN_CONNECTION,
   _keypair: Keypair = Keypair.generate()
 ): Promise<NFT[]> => {
   const metaplex = new Metaplex(_solanaConnection);

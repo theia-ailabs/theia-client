@@ -1,6 +1,6 @@
 <script lang="ts">
 import { computed, defineComponent, toRefs } from "vue";
-import { useWallet } from "../../../services/wallets/useWallet";
+import { useWallet } from "../../services/web3/wallets/useWallet";
 import WalletIcon from "./WalletIcon.vue";
 
 export default defineComponent({
@@ -23,7 +23,9 @@ export default defineComponent({
     const handleClick = (event: MouseEvent) => {
       emit("click", event);
       if (event.defaultPrevented) return;
-      disconnect().catch(() => { console.log("Wallet disconnected");});
+      disconnect().catch(() => {
+        console.log("Wallet disconnected");
+      });
     };
 
     const scope = {
@@ -43,16 +45,16 @@ export default defineComponent({
 </script>
 
 <template>
-<div>
-  <slot v-bind="scope">
-    <button
-      class="swv-button swv-button-trigger"
-      :disabled="disabled || disconnecting || !wallet"
-      @click="handleClick"
-    >
-      <wallet-icon v-if="wallet" :wallet="wallet"></wallet-icon>
-      <p v-text="content"></p>
-    </button>
-  </slot>
-</div>
+  <div>
+    <slot v-bind="scope">
+      <button
+        class="swv-button swv-button-trigger"
+        :disabled="disabled || disconnecting || !wallet"
+        @click="handleClick"
+      >
+        <wallet-icon v-if="wallet" :wallet="wallet"></wallet-icon>
+        <p v-text="content"></p>
+      </button>
+    </slot>
+  </div>
 </template>

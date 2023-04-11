@@ -1,40 +1,37 @@
 <script lang="ts">
 import { computed, defineComponent, ref, toRefs, watchEffect } from "vue";
 import { onClickOutside, useClipboard } from "@vueuse/core";
-import { useWallet } from "../../../services/wallets/useWallet";
-import WalletConnectButton from "./WalletConnectButton.vue";
-import WalletIcon from "./WalletIcon.vue";
-import WalletModalProvider from "./WalletModalProvider.vue";
-import { balanceBEEN, balanceSOL, balanceUSDC } from '../../../services/wallets/getBalances';
-import { PublicKey } from '@solana/web3.js';
-import { formatNumber } from '../../../utils';
-import { useStore } from '../../../services/store';
-import { 
-  emitConnection, 
-  emitDisconnection
-} from "../../../services/sockets/user.socket";
-import { getUserInfo } from "../../../services/sockets/user.socket";
+import { useWallet } from "../../services/web3/wallets/useWallet";
+import WalletConnectButton from "../../modules/wallets/WalletConnectButton.vue";
+import WalletIcon from "../../modules/wallets/WalletIcon.vue";
+import WalletModalProvider from "../../modules/wallets/WalletModalProvider.vue";
+import { balanceSOL, balanceUSDC } from "../../services/web3/getBalances";
+import { PublicKey } from "@solana/web3.js";
+import { formatNumber } from "../../utils";
+import {
+  emitConnection,
+  emitDisconnection,
+} from "../../services/sockets/user.socket";
 
 export default defineComponent({
   components: {
     WalletConnectButton,
     WalletIcon,
-    WalletModalProvider
+    WalletModalProvider,
   },
   props: {
-    login: { type: Boolean, default: false},
+    login: { type: Boolean, default: false },
     featured: { type: Number, default: 1 },
     container: { type: String, default: "body" },
     logo: String,
     dark: Boolean,
   },
   setup(props) {
-
-    const store = useStore();
+    // const store = useStore();
 
     const { featured, container, logo, dark } = toRefs(props);
     const { publicKey, wallet, disconnect } = useWallet();
-    
+
     const dropdownPanel = ref<HTMLElement>();
     const dropdownOpened = ref(false);
     const openDropdown = () => {
@@ -44,11 +41,11 @@ export default defineComponent({
       dropdownOpened.value = false;
     };
     onClickOutside(dropdownPanel, closeDropdown);
-    
+
     const publicKeyBase58 = computed(() => publicKey.value?.toBase58());
     const publicKeyTrimmed = computed(() => {
       if (!wallet.value || !publicKeyBase58.value) return null;
-      if ( props.login ) connectBtn();
+      if (props.login) connectBtn();
       return (
         publicKeyBase58.value.slice(0, 4) +
         ".." +
@@ -56,48 +53,41 @@ export default defineComponent({
       );
     });
 
-    const connectBtn = () => {
-      if ( props.login ) {
+    const connectBtn = (): boolean => {
+      if (props.login) {
         if (wallet.value && publicKeyBase58.value) {
-          store.dispatch('switchWelcome', false);
           emitConnection(publicKeyBase58.value as string);
-          store.dispatch('dispatchPubkey', publicKeyBase58.value);
-          getUserInfo(publicKeyBase58.value); // Send socket to retreive user profile
-
+          return true;
         }
       }
+      return false;
     };
 
     const disconnectBtn = () => {
-      store.dispatch('switchWelcome', true);
       emitDisconnection(publicKeyBase58.value as string);
     };
-      
+
     const walletSOL = ref(0);
-    const walletBEEN = ref(0);
     const walletUSDC = ref(0);
     const getSOL = async () => {
-      walletSOL.value = await balanceSOL(publicKey.value as PublicKey)
-    }
-    const getBEEN = async () => {
-      walletBEEN.value = await balanceBEEN(publicKey.value as PublicKey)
-    }
+      walletSOL.value = await balanceSOL(publicKey.value as PublicKey);
+    };
     const getUSDC = async () => {
-      walletUSDC.value = await balanceUSDC(publicKey.value as PublicKey)
-    }
+      walletUSDC.value = await balanceUSDC(publicKey.value as PublicKey);
+    };
     const updateBalances = () => {
-      watchEffect( async () => {
+      watchEffect(async () => {
         await getSOL();
-        await getBEEN();
         await getUSDC();
-      })
-    }; updateBalances();
+      });
+    };
+    updateBalances();
 
-    const currency = ref('SOL');
+    const currency = ref("SOL");
     const selectCurrency = (ccy: string) => {
       currency.value = ccy;
       updateBalances();
-    }
+    };
 
     const {
       copy,
@@ -125,10 +115,8 @@ export default defineComponent({
       closeDropdown,
       formatNumber,
       walletSOL,
-      walletBEEN,
       walletUSDC,
       getSOL,
-      getBEEN,
       getUSDC,
       selectCurrency,
       currency,
@@ -142,11 +130,11 @@ export default defineComponent({
       ...scope,
     };
   },
-  data () {
+  data() {
     return {
-      daoLogo: require("../../../assets/img/logo.png"),
-    }
-  }
+      notConnectedLogo: require("../../assets/img/png/logo.png"),
+    };
+  },
 });
 </script>
 
@@ -164,7 +152,11 @@ export default defineComponent({
           class="swv-button swv-button-trigger min-w-[140px]"
           @click="modalScope.openModal"
         >
-          <img :src="daoLogo" class="h-8 w-8 -ml-2 mr-2 rounded-full"/> Select Wallet
+          <img
+            :src="notConnectedLogo"
+            class="h-8 w-8 -ml-2 mr-2 rounded-full"
+          />
+          Select Wallet
         </button>
         <wallet-connect-button
           v-else-if="!publicKeyBase58"
@@ -192,36 +184,28 @@ export default defineComponent({
             >
               <slot name="dropdown-list" v-bind="{ ...modalScope, ...scope }">
                 <li
-                  @click="selectCurrency('BEEN')"
-                  :class="currency === 'BEEN' ? 'bg-green-500 border border-green-500' : 'bg-transparent'"
-                  class="swv-dropdown-list-item"
-                  role="menuitem"
-                >
-                  {{`${formatNumber(walletBEEN)} BEEN`}}
-                </li>
-                <li
-                  @click="selectCurrency('BEENZ')"
-                  :class="currency === 'BEENZ' ? 'bg-green-500 border border-green-500' : 'bg-transparent'"
-                  class="swv-dropdown-list-item"
-                  role="menuitem"
-                >
-                  {{`${formatNumber(0)} BEENZ`}}
-                </li>
-                <li
                   @click="selectCurrency('SOL')"
-                  :class="currency === 'SOL' ? 'bg-green-500 border border-green-500' : 'bg-transparent'"
+                  :class="
+                    currency === 'SOL'
+                      ? 'bg-green-500 border border-green-500'
+                      : 'bg-transparent'
+                  "
                   class="swv-dropdown-list-item"
                   role="menuitem"
                 >
-                {{`${formatNumber(walletSOL)} SOL`}}
+                  {{ `${formatNumber(walletSOL)} SOL` }}
                 </li>
                 <li
                   @click="selectCurrency('USDC')"
-                  :class="currency === 'USDC' ? 'bg-green-500 border border-green-500' : 'bg-transparent'"
+                  :class="
+                    currency === 'USDC'
+                      ? 'bg-green-500 border border-green-500'
+                      : 'bg-transparent'
+                  "
                   class="swv-dropdown-list-item"
                   role="menuitem"
                 >
-                  {{`${formatNumber(walletUSDC)} USDC`}}
+                  {{ `${formatNumber(walletUSDC)} USDC` }}
                 </li>
                 <li
                   v-if="canCopy"

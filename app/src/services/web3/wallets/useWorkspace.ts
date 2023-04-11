@@ -1,7 +1,8 @@
-import { computed } from "vue";
+// import { computed } from "vue";
 import { useAnchorWallet } from "./useAnchorWallet";
 import { useWallet } from "./useWallet";
 import { Connection } from "@solana/web3.js";
+import { BLOCKCHAIN_CONNECTION } from "../../../config";
 import {
   BraveWalletAdapter,
   PhantomWalletAdapter,
@@ -23,8 +24,7 @@ import {
 } from "@solana/wallet-adapter-wallets";
 import { initWallet } from "./useWallet";
 import { createWalletStore, WalletStoreProps } from "./createWalletStore";
-// import useStore from "../../store";
-// const store = useStore();
+// import useStore from "../../../services/store";
 
 const walletOptions = {
   wallets: [
@@ -58,15 +58,16 @@ export const useWorkspace = () => workspace;
 export const initWorkspace = () => {
   const { publicKey } = useWallet();
   const wallet = useAnchorWallet();
-  const connection = new Connection(process.env.VUE_APP_CLUSTER_URL as string);
+  const connection: Connection = BLOCKCHAIN_CONNECTION;
   workspace = {
     wallet,
     connection,
+    publicKey,
   };
-  const publicKeyBase58 = computed(() => publicKey.value?.toBase58());
-  if (wallet.value || publicKeyBase58.value) {
-    console.log("wallet connected");
-    // store.dispatch("user/connectWallet", publicKey.value);
-    // Update to pinia
-  }
+  // const store = useStore();
+  // const publicKeyBase58 = computed(() => publicKey.value?.toBase58());
+  // if (wallet.value || publicKeyBase58.value) {
+  //   console.log("Wallet connected");
+  //   store.pubkey = publicKeyBase58.value as string;
+  // };
 };

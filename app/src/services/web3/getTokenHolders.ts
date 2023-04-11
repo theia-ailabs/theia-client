@@ -1,11 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
-import { Connection, PublicKey } from "@solana/web3.js";
+import { PublicKey } from "@solana/web3.js";
 import { formatPercentage } from "../../utils";
-
-const SOLANA_RPC_URL = process.env.VUE_APP_SOLANA_RPC_URL as string;
-const SOLANA_CONNECTION = new Connection(SOLANA_RPC_URL);
-const TOKEN = process.env.VUE_APP_BEEN_TOKEN as string;
+import { BLOCKCHAIN_CONNECTION } from "@/config";
 
 export interface TokenHolder {
   holder: string;
@@ -21,9 +18,9 @@ export interface TokenHolder {
 }
 
 export const getTokenHolders = async (
-  _token: string = TOKEN
+  _token: string
 ): Promise<Array<TokenHolder>> => {
-  const rawAccounts = await SOLANA_CONNECTION.getParsedProgramAccounts(
+  const rawAccounts = await BLOCKCHAIN_CONNECTION.getParsedProgramAccounts(
     new PublicKey(TOKEN_PROGRAM_ID), // new PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA")
     {
       filters: [
@@ -68,8 +65,5 @@ export const getTokenHolders = async (
     acc.ranking = i;
     i++;
   });
-  // if ( store.state.usersFlags.length === 0 ) {
-  //   console.log('Init store.state.usersFlags first!');
-  // }
   return holders;
 };

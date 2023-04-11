@@ -1,111 +1,254 @@
 <script lang="ts">
-import useStore from "../../services/store";
-import WalletMultiButton from "../wallets/WalletMultiButton.vue";
+import { computed, defineComponent, ref, toRefs, watchEffect } from "vue";
+import { onClickOutside, useClipboard } from "@vueuse/core";
+import { useWallet } from "../../services/web3/wallets/useWallet";
+import WalletConnectButton from "../../modules/wallets/WalletConnectButton.vue";
+import WalletIcon from "../../modules/wallets/WalletIcon.vue";
+import WalletModalProvider from "../../modules/wallets/WalletModalProvider.vue";
+import { balanceSOL, balanceUSDC } from "../../services/web3/getBalances";
+import { PublicKey } from "@solana/web3.js";
+import { formatNumber } from "../../utils";
+import {
+  emitConnection,
+  emitDisconnection,
+} from "../../services/sockets/user.socket";
 
-export default {
-  setup() {
-    const store = useStore();
+export default defineComponent({
+  components: {
+    WalletConnectButton,
+    WalletIcon,
+    WalletModalProvider,
+  },
+  props: {
+    login: { type: Boolean, default: false },
+    featured: { type: Number, default: 1 },
+    container: { type: String, default: "body" },
+    logo: String,
+    dark: Boolean,
+  },
+  setup(props) {
+    // const store = useStore();
+
+    const { featured, container, logo, dark } = toRefs(props);
+    const { publicKey, wallet, disconnect } = useWallet();
+
+    const dropdownPanel = ref<HTMLElement>();
+    const dropdownOpened = ref(false);
+    const openDropdown = () => {
+      dropdownOpened.value = true;
+    };
+    const closeDropdown = () => {
+      dropdownOpened.value = false;
+    };
+    onClickOutside(dropdownPanel, closeDropdown);
+
+    const publicKeyBase58 = computed(() => publicKey.value?.toBase58());
+    const publicKeyTrimmed = computed(() => {
+      if (!wallet.value || !publicKeyBase58.value) return null;
+      if (props.login) connectBtn();
+      return (
+        publicKeyBase58.value.slice(0, 4) +
+        ".." +
+        publicKeyBase58.value.slice(-4)
+      );
+    });
+
+    const connectBtn = (): boolean => {
+      if (props.login) {
+        if (wallet.value && publicKeyBase58.value) {
+          emitConnection(publicKeyBase58.value as string);
+          return true;
+        }
+      }
+      return false;
+    };
+
+    const disconnectBtn = () => {
+      emitDisconnection(publicKeyBase58.value as string);
+    };
+
+    const walletSOL = ref(0);
+    const walletUSDC = ref(0);
+    const getSOL = async () => {
+      walletSOL.value = await balanceSOL(publicKey.value as PublicKey);
+    };
+    const getUSDC = async () => {
+      walletUSDC.value = await balanceUSDC(publicKey.value as PublicKey);
+    };
+    const updateBalances = () => {
+      watchEffect(async () => {
+        await getSOL();
+        await getUSDC();
+      });
+    };
+    updateBalances();
+
+    const currency = ref("SOL");
+    const selectCurrency = (ccy: string) => {
+      currency.value = ccy;
+      updateBalances();
+    };
+
+    const {
+      copy,
+      copied: addressCopied,
+      isSupported: canCopy,
+    } = useClipboard();
+    const copyAddress = () =>
+      publicKeyBase58.value && copy(publicKeyBase58.value);
+
+    // Define the bindings given to scoped slots.
+    const scope = {
+      featured,
+      container,
+      logo,
+      dark,
+      wallet,
+      publicKey,
+      publicKeyTrimmed,
+      publicKeyBase58,
+      canCopy,
+      addressCopied,
+      dropdownPanel,
+      dropdownOpened,
+      openDropdown,
+      closeDropdown,
+      formatNumber,
+      walletSOL,
+      walletUSDC,
+      getSOL,
+      getUSDC,
+      selectCurrency,
+      currency,
+      copyAddress,
+      disconnect,
+      disconnectBtn,
+    };
+
     return {
-      store,
+      scope,
+      ...scope,
     };
   },
   data() {
     return {
-      isOpen: true,
-      landing_url: "https://beenzer.app",
-      pfp: require("../../../assets/ico/profile.png"),
-      logo: require("../../../assets/img/logo.png"),
+      notConnectedLogo: require("../../assets/img/png/logo.png"),
     };
   },
-  components: {
-    WalletMultiButton,
-  },
-};
+});
 </script>
+
 <template>
-  <header
-    class="px-4 py-4 sm:py-6 px-auto xl:px-12 2xl:px-24 lg:flex justify-between"
+  <wallet-modal-provider
+    :featured="featured"
+    :container="container"
+    :logo="logo"
+    :dark="dark"
   >
-    <div class="flex">
-      <!-- Logo Area -->
-      <div class="flex flex-wrap justify-between">
-        <div class="p-0">
-          <a
-            href="beenzer.app"
-            target="_blank"
-            class="flex justify-center align-middle sm:mr-2"
-          >
-            <img
-              :src="logo"
-              alt="beenzer-logo"
-              class="rounded-full w-12 h-12"
-            />
-            <div
-              v-if="store.welcome"
-              class="ml-6 mt-1 font-bold sm:text-4xl text-xl uppercase text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-yellow-400"
+    <template #default="modalScope">
+      <slot v-bind="{ ...modalScope, ...scope }">
+        <button
+          v-if="!wallet"
+          class="swv-button swv-button-trigger min-w-[140px]"
+          @click="modalScope.openModal"
+        >
+          <img
+            :src="notConnectedLogo"
+            class="h-8 w-8 -ml-2 mr-2 rounded-full"
+          />
+          Select Wallet
+        </button>
+        <wallet-connect-button
+          v-else-if="!publicKeyBase58"
+        ></wallet-connect-button>
+        <div v-else class="swv-dropdown">
+          <slot name="dropdown-button" v-bind="{ ...modalScope, ...scope }">
+            <button
+              class="swv-button swv-button-trigger"
+              :style="{ pointerEvents: dropdownOpened ? 'none' : 'auto' }"
+              :aria-expanded="dropdownOpened"
+              :title="publicKeyBase58"
+              @click="openDropdown"
             >
-              Beenzer DAO
-            </div>
-          </a>
+              <wallet-icon :wallet="wallet"></wallet-icon>
+              <p v-text="publicKeyTrimmed"></p>
+            </button>
+          </slot>
+          <slot name="dropdown" v-bind="{ ...modalScope, ...scope }">
+            <ul
+              aria-label="dropdown-list"
+              class="swv-dropdown-list"
+              :class="{ 'swv-dropdown-list-active': dropdownOpened }"
+              ref="dropdownPanel"
+              role="menu"
+            >
+              <slot name="dropdown-list" v-bind="{ ...modalScope, ...scope }">
+                <li
+                  @click="selectCurrency('SOL')"
+                  :class="
+                    currency === 'SOL'
+                      ? 'bg-green-500 border border-green-500'
+                      : 'bg-transparent'
+                  "
+                  class="swv-dropdown-list-item"
+                  role="menuitem"
+                >
+                  {{ `${formatNumber(walletSOL)} SOL` }}
+                </li>
+                <li
+                  @click="selectCurrency('USDC')"
+                  :class="
+                    currency === 'USDC'
+                      ? 'bg-green-500 border border-green-500'
+                      : 'bg-transparent'
+                  "
+                  class="swv-dropdown-list-item"
+                  role="menuitem"
+                >
+                  {{ `${formatNumber(walletUSDC)} USDC` }}
+                </li>
+                <li
+                  v-if="canCopy"
+                  @click="copyAddress"
+                  class="swv-dropdown-list-item"
+                  role="menuitem"
+                >
+                  {{ addressCopied ? "Copied!" : "Copy address" }}
+                </li>
+                <li
+                  @click="
+                    modalScope.openModal();
+                    closeDropdown();
+                  "
+                  class="swv-dropdown-list-item"
+                  role="menuitem"
+                >
+                  Change wallet
+                </li>
+                <li
+                  @click="
+                    disconnect();
+                    closeDropdown();
+                    disconnectBtn();
+                  "
+                  class="swv-dropdown-list-item"
+                  role="menuitem"
+                >
+                  Disconnect
+                </li>
+              </slot>
+            </ul>
+          </slot>
         </div>
-        <!-- Wallet Connect -->
-        <div
-          class="ml-4 flex justify-center"
-          :class="store.welcome ? 'hidden' : 'block'"
-        >
-          <wallet-multi-button :dark="store.dark"></wallet-multi-button>
-        </div>
-        <!-- Profile -->
-        <div
-          class="text-center font-semibold text-sm ml-4"
-          v-if="store.username"
-        >
-          <router-link
-            class="flex justify-center text-left sm:ml-2"
-            to="/profile"
-          >
-            <img class="w-12 h-12 rounded-full mr-4" :src="pfp" alt="pfp" />
-            <div class="mt-1 hidden sm:block">
-              <span class="text-md">Welcome,</span><br />@{{ store.username }}
-            </div>
-          </router-link>
-        </div>
-      </div>
-    </div>
-    <nav
-      :class="isOpen ? 'block' : 'hidden'"
-      class="flex flex-wrap justify-center"
-    >
-      <nav-menu class="m-4 mt-8 lg:m-0" />
-    </nav>
-    <!-- Toogle nav -->
-    <div class="lg:hidden absolute right-4 top-6">
-      <button
-        @click="isOpen = !isOpen"
-        class="block"
-        :class="store.dark ? 'text-gray-200' : 'text-gray-500'"
-      >
-        <svg
-          v-if="!isOpen"
-          class="h-8 w-8 fill-current text-green-600"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-          />
-        </svg>
-        <svg
-          v-if="isOpen"
-          class="h-8 w-8 fill-current text-green-600"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
-          />
-        </svg>
-      </button>
-    </div>
-  </header>
+      </slot>
+    </template>
+
+    <!-- Enable modal overrides. -->
+    <template #overlay="modalScope">
+      <slot name="modal-overlay" v-bind="{ ...modalScope, ...scope }"></slot>
+    </template>
+    <template #modal="modalScope">
+      <slot name="modal" v-bind="{ ...modalScope, ...scope }"></slot>
+    </template>
+  </wallet-modal-provider>
 </template>

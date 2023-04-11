@@ -1,10 +1,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useStore from "../services/store";
-// import WavesComp from "./WavesComp.vue";
 import InputComp from "./InputComp.vue";
-import logo from "../assets/img/png/logo.png";
-import profile from "../assets/img/png/profile.png";
+// import WavesComp from "./WavesComp.vue";
+// import WalletsBtn from "../modules/buttons/WalletsButton.vue";
 
 export default defineComponent({
   components: { InputComp },
@@ -12,8 +11,12 @@ export default defineComponent({
     const store = useStore();
     return {
       store,
-      logo,
-      profile,
+    };
+  },
+  data() {
+    return {
+      logo: require("../assets/img/png/logo.png"),
+      pfp: require("../assets/img/png/profile.png"),
     };
   },
 });
@@ -29,14 +32,15 @@ export default defineComponent({
       </button>
     </div>
     <!-- <div>
-      <WavesComp />
+      <WalletsBtn />
     </div> -->
     <div class="flex -mt-4">
       <InputComp />
     </div>
-    <div class="mx-4 sm:mr-12 -mt-1">
+    <div class="flex flex-wrap mx-4 sm:mr-12 -mt-1">
+      <!-- <WalletsBtn /> -->
       <button :click="store.scrollTop()">
-        <img class="h-10 lg:h-12" :src="profile" alt="Theia logo" />
+        <img class="h-10 lg:h-12" :src="pfp" alt="Theia logo" />
       </button>
     </div>
   </nav>
