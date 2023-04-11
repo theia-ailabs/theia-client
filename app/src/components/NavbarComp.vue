@@ -41,3 +41,8 @@ export default defineComponent({
     </div>
   </nav>
 </template>
+<style scoped>
+nav {
+  z-index: 100 !important;
+}
+</style>
