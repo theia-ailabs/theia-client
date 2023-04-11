@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useStore from "../services/store";
-import AudioWaveComp from "./AudioWaveComp.vue";
+import AudioWaveComp from "./modules/waves/AudioWaveComp.vue";
 
 export default defineComponent({
   components: { AudioWaveComp },

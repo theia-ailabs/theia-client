@@ -3,7 +3,7 @@ import { defineComponent, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import GalaxyComp from "../components/GalaxyComp.vue";
 import useStore from "../services/store";
-import TerminalComp from "../components/TerminalComp.vue";
+import TerminalComp from "../components/modules/terminals/TerminalComp.vue";
 // import Signup from "../modules/modals/SignupModal.vue";
 
 export default defineComponent({
