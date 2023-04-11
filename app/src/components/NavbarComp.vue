@@ -31,7 +31,7 @@ export default defineComponent({
     <!-- <div>
       <WavesComp />
     </div> -->
-    <div class="flex -mt-4">
+    <div class="flex pl-8 -mt-4">
       <InputComp />
     </div>
     <div class="mr-12 -mt-1">

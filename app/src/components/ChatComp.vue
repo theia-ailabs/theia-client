@@ -15,7 +15,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="z-40 relative p-2 pt-4 pb-8 mb-4 h-screen w-screen">
+  <div class="z-50 relative p-2 pt-4 pb-8 mb-4 h-screen w-screen">
     <div v-if="store.showChat">
       <div
         class="relative flex flex-wrap align-top top-14"
