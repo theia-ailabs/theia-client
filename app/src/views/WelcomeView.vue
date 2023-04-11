@@ -1,6 +1,5 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
 import GalaxyComp from "../components/GalaxyComp.vue";
 import useStore from "../services/store";
 import TerminalComp from "../components/modules/terminals/TerminalComp.vue";
@@ -11,7 +10,6 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const isLoadingDone = ref(false);
-    const router = useRouter();
 
     onMounted(() => {
       setTimeout(() => {
@@ -21,7 +19,6 @@ export default defineComponent({
 
     function connect() {
       store.signup = true;
-      router.push({ name: "main" });
     }
 
     return {
@@ -73,9 +70,7 @@ export default defineComponent({
         @click="connect"
         class="connect-btn mt-6 border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-xs p-2 px-4 uppercase rounded-xl z-50"
       >
-        <h1 class="relative right-2 hover:text-white hover:font-bold">
-          Connect
-        </h1>
+        <h1 class="relative right-2 hover:text-white hover:font-bold">LOGIN</h1>
       </button>
     </div>
     <div
