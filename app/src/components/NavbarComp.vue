@@ -31,9 +31,6 @@ export default defineComponent({
         <img class="h-12 lg:h-14" :src="logo" alt="Theia logo" />
       </button>
     </div>
-    <!-- <div>
-      <WalletsBtn />
-    </div> -->
     <div class="flex -mt-4">
       <InputComp />
     </div>

@@ -12,6 +12,7 @@ import { formatNumber } from "../../../utils";
 import WalletConnectButton from "../wallets/WalletConnectButton.vue";
 import WalletIcon from "../wallets/WalletIcon.vue";
 import WalletModalProvider from "../wallets/WalletModalProvider.vue";
+import useStore from "../../../services/store";
 
 export default defineComponent({
   components: {
@@ -27,6 +28,7 @@ export default defineComponent({
     dark: Boolean,
   },
   setup(props) {
+    const store = useStore();
     const { featured, container, logo, dark } = toRefs(props);
     const { publicKey, wallet, disconnect } = useWallet();
 
@@ -43,6 +45,8 @@ export default defineComponent({
     const publicKeyBase58 = computed(() => publicKey.value?.toBase58());
     const publicKeyTrimmed = computed(() => {
       if (!wallet.value || !publicKeyBase58.value) return null;
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      store.pubkey = publicKeyBase58.value as string;
       if (props.login) connectBtn();
       return (
         publicKeyBase58.value.slice(0, 4) +
