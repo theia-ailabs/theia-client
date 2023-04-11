@@ -1,6 +1,6 @@
 <script lang="ts">
 import { computed, defineComponent, toRefs } from "vue";
-import { useWallet } from "../../services/web3/wallets/useWallet";
+import { useWallet } from "../../../services/web3/wallets/useWallet";
 import WalletIcon from "./WalletIcon.vue";
 
 export default defineComponent({
@@ -45,7 +45,6 @@ export default defineComponent({
   },
 });
 </script>
-
 <template>
   <div>
     <slot v-bind="scope">

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, PropType, toRefs } from "vue";
-import { Wallet } from "../../services/web3/wallets/createWalletStore";
+import { Wallet } from "../../../services/web3/wallets/createWalletStore";
 
 export default defineComponent({
   props: {
@@ -11,7 +11,6 @@ export default defineComponent({
   },
 });
 </script>
-
 <template>
   <i class="swv-button-icon">
     <img

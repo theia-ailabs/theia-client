@@ -1,8 +1,4 @@
 <script lang="ts">
-import type { Wallet } from "../../services/web3/wallets/createWalletStore";
-import { useWallet } from "../../services/web3/wallets/useWallet";
-import { WalletName, WalletReadyState } from "@solana/wallet-adapter-base";
-import { onClickOutside, onKeyStroke, useScrollLock } from "@vueuse/core";
 import {
   computed,
   defineComponent,
@@ -12,6 +8,10 @@ import {
   toRefs,
   watch,
 } from "vue";
+import { WalletName, WalletReadyState } from "@solana/wallet-adapter-base";
+import { onClickOutside, onKeyStroke, useScrollLock } from "@vueuse/core";
+import type { Wallet } from "../../../services/web3/wallets/createWalletStore";
+import { useWallet } from "../../../services/web3/wallets/useWallet";
 import WalletIcon from "./WalletIcon.vue";
 
 type WalletModalProviderRawBindings = WalletModelProviderScope & {
@@ -148,7 +148,6 @@ export default defineComponent({
   },
 });
 </script>
-
 <template>
   <div>
     <div :class="dark ? 'swv-dark' : ''">

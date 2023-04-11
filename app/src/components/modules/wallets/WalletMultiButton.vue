@@ -1,17 +1,17 @@
 <script lang="ts">
 import { computed, defineComponent, ref, toRefs, watchEffect } from "vue";
 import { onClickOutside, useClipboard } from "@vueuse/core";
-import { useWallet } from "../../services/web3/wallets/useWallet";
-import WalletConnectButton from "../../modules/wallets/WalletConnectButton.vue";
-import WalletIcon from "../../modules/wallets/WalletIcon.vue";
-import WalletModalProvider from "../../modules/wallets/WalletModalProvider.vue";
-import { balanceSOL, balanceUSDC } from "../../services/web3/getBalances";
 import { PublicKey } from "@solana/web3.js";
-import { formatNumber } from "../../utils";
+import { useWallet } from "../../../services/web3/wallets/useWallet";
+import { balanceSOL, balanceUSDC } from "../../../services/web3/getBalances";
 import {
   emitConnection,
   emitDisconnection,
-} from "../../services/sockets/user.socket";
+} from "../../../services/sockets/user.socket";
+import { formatNumber } from "../../../utils";
+import WalletConnectButton from "./WalletConnectButton.vue";
+import WalletIcon from "./WalletIcon.vue";
+import WalletModalProvider from "./WalletModalProvider.vue";
 
 export default defineComponent({
   components: {
@@ -132,12 +132,11 @@ export default defineComponent({
   },
   data() {
     return {
-      notConnectedLogo: require("../../assets/img/png/logo.png"),
+      notConnectedLogo: require("../../../assets/img/png/logo.png"),
     };
   },
 });
 </script>
-
 <template>
   <wallet-modal-provider
     :featured="featured"

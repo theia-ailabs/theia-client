@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 import useStore from "../services/store";
 import InputComp from "./InputComp.vue";
 // import WavesComp from "./WavesComp.vue";
-// import WalletsBtn from "../modules/buttons/WalletsButton.vue";
+// import WalletsBtn from "./modules/buttons/WalletsButton.vue";
 
 export default defineComponent({
   components: { InputComp },
