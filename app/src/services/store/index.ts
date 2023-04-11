@@ -103,7 +103,7 @@ const useStore = defineStore("main", {
     },
     searchUser(): void {
       console.log(this.username);
-      socket.emit("username", this.username);
+      socket.emit("newUsername", this.username);
     },
   },
 });

@@ -29,10 +29,10 @@ export default defineComponent({
           >
             <div>
               <div
-                class="text-xs text-white ml-12 mt-4 my-2 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[280px] lg:w-[440px] shadow-inner shadow-purple-400 border-b-3 border-purple-400"
+                class="text-xs text-white ml-12 mt-4 my-2 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-purple-400 border-b-3 border-purple-400"
               >
                 <div
-                  class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[250px] sm:w-[320px] lg:w-[440px] shadow-sm shadow-purple-400 border border-yellow-400/30"
+                  class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-sm shadow-purple-400 border border-yellow-400/30"
                 >
                   <AudioWaveComp v-bind:audioUrl="'sounds/voice-1.mp3'" />
                   <div class="p-4">
@@ -68,7 +68,7 @@ export default defineComponent({
           <div id="User" class="flex justify-end w-full -mb-4">
             <div>
               <div
-                class="p-2 px-8 my-2 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[440px] shadow-inner shadow-yellow-400"
+                class="p-2 px-8 my-2 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-yellow-400"
               >
                 <AudioWaveComp
                   v-bind:audioUrl="'../assets/sounds/voice-1.mp3'"

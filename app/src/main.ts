@@ -4,10 +4,7 @@ import "./assets/css/tailwind.css";
 import "./assets/css/wallets.css";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import {
-  initWorkspace,
-  useWorkspace,
-} from "./services/web3/wallets/useWorkspace";
+import { useWorkspace } from "./services/web3/wallets/useWorkspace";
 import Notifications from "@kyvg/vue3-notification";
 import velocity from "velocity-animate";
 import router from "./routes";
