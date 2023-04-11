@@ -27,7 +27,7 @@ export default {
 </script>
 <template>
   <div
-    class="z-50 relative w-full text-center text-xs text-gray-400"
+    class="z-90 relative w-full text-center text-xs text-gray-400"
     :class="
       store.dark
         ? 'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200'
@@ -41,3 +41,8 @@ export default {
     <div class="py-4 -mb-2">Made with {{ store.heart }} by Theia Labs</div>
   </div>
 </template>
+<style scoped>
+.z-90 {
+  z-index: 90 !important;
+}
+</style>

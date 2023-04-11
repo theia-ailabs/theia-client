@@ -1,7 +1,7 @@
 <template>
-  <div class="z-50 fixed bg-white">
+  <div class="z-100 fixed bg-white">
     <div v-if="listening" class="bg-white">
-      <button class="z-50 w-screen h-screen bg-white" @click="toTalk">
+      <button class="w-screen h-screen bg-white" @click="toTalk">
         <LiquidBody />
       </button>
     </div>
@@ -44,3 +44,8 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped>
+.z-100 {
+  z-index: 80 !important;
+}
+</style>
