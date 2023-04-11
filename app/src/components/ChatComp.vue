@@ -11,6 +11,11 @@ export default defineComponent({
       store,
     };
   },
+  data() {
+    return {
+      loader: require("../assets/img/gif/loading.gif"),
+    };
+  },
 });
 </script>
 <template>
@@ -34,7 +39,14 @@ export default defineComponent({
                 <div
                   class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-sm shadow-purple-400 border border-yellow-400/30"
                 >
-                  <AudioWaveComp v-bind:audioUrl="'sounds/voice-1.mp3'" />
+                  <div v-if="x.theia.text.includes('thinking')">
+                    <img :src="loader" alt="Theia is thinking" />
+                  </div>
+                  <div v-else>
+                    <AudioWaveComp
+                      v-bind:audioUrl="'../../sounds/voice-1.mp3'"
+                    />
+                  </div>
                   <div class="p-4">
                     {{
                       !x.theia.text || x.theia.text === ""
