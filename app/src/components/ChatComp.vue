@@ -15,6 +15,7 @@ export default defineComponent({
   data() {
     return {
       loader: require("../assets/img/gif/loading.gif"),
+      userPFP: require("../assets/img/png/profile.png"),
       theiaPFP: require("../assets/img/gif/brain.gif"),
     };
   },
@@ -104,7 +105,8 @@ export default defineComponent({
             <div class="text-center flex align-bottom justify-center">
               <img
                 class="w-10 h-10 rounded-full ml-1 mr-2 m-auto mb-2"
-                src="./../assets/img/png/profile.png"
+                :src="userPFP"
+                alt="User profile picture"
               />
             </div>
           </div>
