@@ -2,6 +2,11 @@
   <router-view />
 </template>
 <style>
+@font-face {
+  font-family: "Cubics";
+  src: url("./assets/fonts/cubic.ttf");
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
