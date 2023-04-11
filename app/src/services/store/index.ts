@@ -100,6 +100,9 @@ const useStore = defineStore("main", {
     setHeart(heart: string): void {
       this.heart = heart;
     },
+    searchUser(): void {
+      return;
+    },
   },
 });
 

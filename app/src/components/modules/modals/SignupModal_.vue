@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useNotification } from "@kyvg/vue3-notification";
 import useStore from "../../services/store";
@@ -175,4 +175,4 @@ input:active {
     border-left-color: #b82e24;
   }
 }
-</style>
+</style> -->

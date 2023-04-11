@@ -4,10 +4,10 @@ import { useRouter } from "vue-router";
 import GalaxyComp from "../components/GalaxyComp.vue";
 import useStore from "../services/store";
 import TerminalComp from "../components/modules/terminals/TerminalComp.vue";
-// import Signup from "../modules/modals/SignupModal.vue";
+import Signup from "../components/modules/modals/SignupModal.vue";
 
 export default defineComponent({
-  components: { GalaxyComp, TerminalComp },
+  components: { GalaxyComp, TerminalComp, Signup },
   setup() {
     const store = useStore();
     const isLoadingDone = ref(false);
@@ -35,10 +35,9 @@ export default defineComponent({
 <template>
   <div>
     <GalaxyComp />
-    <!-- <div v-if="store.signup" class="absolute z-50 bg-white p-8">
-      Hello
+    <div v-if="store.signup" class="absolute z-50 p-8">
       <Signup />
-    </div> -->
+    </div>
     <!-- Welcome Title -->
     <div class="mt-20">
       <h1
