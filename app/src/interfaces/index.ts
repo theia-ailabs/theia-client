@@ -1,15 +1,6 @@
 export interface State {
   // user mood
   mood: string;
-  // web3 login
-  connected: boolean;
-  pubkey: string;
-  balance: number;
-  ccy: string;
-  // web2 login
-  loggedIn: boolean;
-  email: string;
-  name: string;
   // user info
   username: string;
   country: string;
@@ -20,6 +11,15 @@ export interface State {
   topics: string[];
   created: string;
   verified: boolean;
+  // web2 login
+  loggedIn: boolean;
+  email: string;
+  name: string;
+  // web3 login
+  connected: boolean;
+  pubkey: string;
+  balance: number;
+  ccy: string;
   // clock
   gmt: number;
   timezone: string;
@@ -38,9 +38,9 @@ export interface State {
   newUser: boolean;
   signup: boolean;
   usernameAv: boolean;
-  // menu
+  // settings
   showChat: boolean;
-  hello: boolean;
+  welcome: boolean;
 }
 
 export interface ChatRecord {

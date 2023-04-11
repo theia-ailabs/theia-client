@@ -7,15 +7,6 @@ const useStore = defineStore("main", {
     return {
       // user mood
       mood: "curious",
-      // web3 login
-      connected: false,
-      pubkey: "",
-      balance: 0,
-      ccy: "SOL",
-      // web2 login
-      loggedIn: false,
-      email: "",
-      name: "",
       // user info
       username: "",
       country: "",
@@ -26,6 +17,15 @@ const useStore = defineStore("main", {
       topics: [],
       created: "",
       verified: false,
+      // web3 login
+      connected: false,
+      pubkey: "",
+      balance: 0,
+      ccy: "SOL",
+      // web2 login
+      loggedIn: false,
+      email: "",
+      name: "",
       // clock
       gmt: 0,
       timezone: "",
@@ -45,8 +45,8 @@ const useStore = defineStore("main", {
       signup: true,
       usernameAv: false,
       // menu
-      showChat: false,
-      hello: false,
+      showChat: true,
+      welcome: false,
     };
   },
   actions: {

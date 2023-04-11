@@ -12,7 +12,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="z-90 fixed bottom-12 w-full">
+  <div class="z-50 fixed bottom-12 w-full">
     <div class="flex flex-wrap justify-center bg-transparent w-full">
       <button
         @click="store.switchShowChat()"
@@ -61,8 +61,5 @@ export default defineComponent({
 <style scoped>
 h1 {
   font-size: 40px;
-}
-.z-90 {
-  z-index: 90 !important;
 }
 </style>
