@@ -100,7 +100,7 @@ button:before {
   content: "";
   position: absolute;
   inset: -8px;
-  padding: 8px;
+  padding: 5px;
   border-radius: 50%;
   background: conic-gradient(
     from var(--d, 0deg),
@@ -145,7 +145,7 @@ button:hover:before {
 }
 
 button:hover:before {
-  background-color: #222;
+  background-color: transparent;
 }
 .connect-btn:hover {
   background-color: transparent !important;
