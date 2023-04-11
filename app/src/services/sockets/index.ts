@@ -40,4 +40,5 @@ export function socketConnection(): Socket {
   return socket;
 }
 
-export const socket: Socket = socketConnection();
+const socket: Socket = socketConnection();
+export default socket;

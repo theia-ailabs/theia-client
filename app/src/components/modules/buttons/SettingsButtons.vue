@@ -1,5 +1,5 @@
 <script lang="ts">
-import useStore from "./../../../services/store";
+import useStore from "../../../services/store";
 
 export default {
   setup() {
