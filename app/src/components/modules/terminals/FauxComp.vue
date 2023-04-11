@@ -1,11 +1,11 @@
 <template>
-    <div
-      id="faux-terminal"
-      class="w-full h-full z-40 fixed top-0 left-0 min-h-[51px]"
-    >
-      <div class="layer"></div>
-      <div class="overlay"></div>
-    </div>
+  <div
+    id="faux-terminal"
+    class="w-full h-full z-40 fixed top-0 left-0 min-h-[51px]"
+  >
+    <div class="layer"></div>
+    <div class="overlay"></div>
+  </div>
 </template>
 <script></script>
 <style scoped>

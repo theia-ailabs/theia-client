@@ -8,16 +8,16 @@ import FauxComp from "../components/modules/terminals/FauxComp.vue";
 import TitleComp from "../components/TitleComp.vue";
 
 export default defineComponent({
-  components: { GalaxyComp, TerminalComp, Signup, FauxComp, TitleComp },
+  components: {
+    GalaxyComp,
+    TerminalComp,
+    Signup,
+    FauxComp,
+    TitleComp,
+  },
   setup() {
     const store = useStore();
     const isLoadingDone = ref(false);
-
-    onMounted(() => {
-      setTimeout(() => {
-        isLoadingDone.value = true;
-      }, 12000);
-    });
 
     function connect() {
       store.signup = true;
@@ -41,11 +41,7 @@ export default defineComponent({
     <TitleComp />
     <!-- Loader -->
     <div class="front relative z-50">
-      <div
-        id="loader-ai"
-        class="loader-ai fixed top-[50%] left-[50%]"
-        :class="{ hidden: isLoadingDone }"
-      >
+      <div id="loader-ai" class="loader-ai fixed top-[50%] left-[50%]">
         <img
           class="rounded-full opacity-60"
           width="180"
@@ -54,11 +50,10 @@ export default defineComponent({
       </div>
       <button
         id="connect-btn"
-        :class="{ hidden: !isLoadingDone }"
         @click="connect"
         class="connect-btn mt-6 border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-xs p-2 px-4 uppercase rounded-xl z-50"
       >
-        <h1 class="relative right-2 hover:text-white hover:font-bold">LOGIN</h1>
+        <h1 class="relative hover:text-white hover:font-bold">LOGIN</h1>
       </button>
     </div>
     <FauxComp />
@@ -72,8 +67,8 @@ export default defineComponent({
 
 #connect-btn {
   position: fixed;
-  top: calc(50% - 65px);
-  left: calc(50% - 35px);
+  top: calc(50% - 59px);
+  left: calc(50% - 34px);
   z-index: 9999 !important;
   font-family: "Orbitron", monospace;
   font-size: x-small !important;
@@ -110,9 +105,9 @@ button:before {
   background: conic-gradient(
     from var(--d, 0deg),
     #ae0ff7,
-    #0000 30deg 120deg,
+    transparent 30deg 120deg,
     yellow 150deg 180deg,
-    #0000 210deg 300deg,
+    transparent 210deg 300deg,
     #ae0ff7 330deg
   );
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);

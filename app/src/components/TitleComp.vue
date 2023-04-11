@@ -1,23 +1,22 @@
 <template>
-        <div class="mt-20">
-      <h1
-        class="welcome-title relative z-50 top-[20%] w-full text-center flex flex-wrap justify-center"
-      >
-        <div class="fx text-center flex flex-wrap justify-center">
-          <div class="text-center">
-            <span class="silver">T</span>
-            <span class="silver">H</span>
-            <span class="silver">E</span>
-            <span>I</span>
-            <span>A</span>
-          </div>
+  <div class="mt-20">
+    <h1
+      class="welcome-title relative z-50 top-[20%] w-full text-center flex flex-wrap justify-center"
+    >
+      <div class="fx text-center flex flex-wrap justify-center">
+        <div class="text-center">
+          <span class="silver">T</span>
+          <span class="silver">H</span>
+          <span class="silver">E</span>
+          <span>I</span>
+          <span>A</span>
         </div>
-      </h1>
-    </div>
+      </div>
+    </h1>
+  </div>
 </template>
 <script></script>
 <style scoped>
-    
 .welcome-title {
   font-family: "Cubics" !important;
   font-size: 2.5rem;
