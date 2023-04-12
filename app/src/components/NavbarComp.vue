@@ -30,12 +30,16 @@ export default defineComponent({
       document.getElementById("showchat")?.classList.add("hidden");
       document.getElementById("hidechat")?.classList.remove("hidden");
     }
+    function showCalendar() {
+      calendar.signup = true;
+    }
     return {
       store,
       showSocial,
       hideChat,
       showChat,
       hideSocial,
+      showCalendar,
     };
   },
   data() {
