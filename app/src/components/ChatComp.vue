@@ -2,10 +2,9 @@
 import { defineComponent } from "vue";
 import useStore from "../services/store";
 import AudioWaveComp from "./modules/waves/AudioWaveComp.vue";
-import WavesComp from "./modules/waves/WavesComp.vue";
 
 export default defineComponent({
-  components: { AudioWaveComp, WavesComp },
+  components: { AudioWaveComp },
   setup() {
     const store = useStore();
     return {
@@ -49,9 +48,7 @@ export default defineComponent({
                     <img :src="loader" alt="Theia is thinking" class="w-56" />
                   </div>
                   <div v-else>
-                    <AudioWaveComp
-                      v-bind:audioUrl="'../../sounds/voice-2.mp3'"
-                    />
+                    <AudioWaveComp />
                   </div>
                   <div class="p-4">
                     {{
@@ -89,7 +86,7 @@ export default defineComponent({
                 class="mr-12 my-2 mt-4 -mb-1 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-yellow-400"
               >
                 <div class="p-2 px-8">
-                  <WavesComp />
+                  <AudioWaveComp />
                   {{ x.user.text }}
                 </div>
               </div>
