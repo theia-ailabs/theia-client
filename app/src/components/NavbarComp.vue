@@ -61,7 +61,7 @@ export default defineComponent({
         <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
       </button>
     </div>
-    <div class="flex mr-12 mt-5">
+    <div class="flex mr-12 mt-2">
       <div>
         <button class="mx-3">
           <img :src="email" alt="email" />
