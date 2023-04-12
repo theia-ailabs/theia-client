@@ -33,16 +33,19 @@ export default defineComponent({
       >
         <div class="flex items-center justify-center min-h-screen text-center">
           <div
-            class="py-24 m-6 sm:w-1/3 rounded-xl text-center overflow-hidden border border-purple-500/50 shadow-inner shadow-yellow-500/50 p-8 flex flex-col justify-center"
+            class="absolute py-24 m-6 sm:w-1/3 rounded-xl text-center overflow-hidden border border-purple-500/50 shadow-inner shadow-yellow-500/50 p-8 flex flex-col justify-center"
             :class="
               store.dark
                 ? 'bg-black/70 text-gray-100'
                 : 'bg-white/70 text-gray-700'
             "
           >
-            <p class="m-2 text-sm sm:text-md text-gray-400 tracking-widest">
-              {{ store.pubkey }}
-            </p>
+            <button
+              @click="store.loginModal = false"
+              class="absolute text-white/80 top-6 right-6 rounded-full border border-gray-600 px-[10px] pb-[4px] hover:text-white hover:bg-slate-900 hover:border-white/50"
+            >
+              x
+            </button>
             <p class="mt-4 text-xs sm:text-sm text-gray-400 animate-pulse">
               INSERT USERNAME
             </p>
