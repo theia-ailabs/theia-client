@@ -11,10 +11,14 @@ export default defineComponent({
     function showSocial() {
       document.getElementById("menu-btn")?.classList.remove("hidden");
       document.getElementById("menu-btn")?.classList.add("flex");
+      document.getElementById("showsocial")?.classList.add("hidden");
+      document.getElementById("hidesocial")?.classList.remove("hidden");
     }
     function hideSocial() {
       document.getElementById("menu-btn")?.classList.remove("flex");
       document.getElementById("menu-btn")?.classList.add("hidden");
+      document.getElementById("hidesocial")?.classList.add("hidden");
+      document.getElementById("showsocial")?.classList.remove("hidden");
     }
     function hideChat() {
       document.getElementById("chat-comp")?.classList.add("hidden");
@@ -42,6 +46,7 @@ export default defineComponent({
       pfp: require("../assets/img/png/profile.png"),
       email: require("../assets/img/svg/mail-white.svg"),
       unread: require("../assets/img/svg/mark-unread-white.svg"),
+      social: require("../assets/img/svg/groups-white.svg"),
     };
   },
 });
@@ -68,6 +73,14 @@ export default defineComponent({
       <div>
         <button class="mx-3">
           <img :src="email" alt="email" />
+        </button>
+      </div>
+      <div>
+        <button id="showsocial" class="mx-3" @click="showSocial">
+          <img :src="social" alt="social" />
+        </button>
+        <button id="hidesocial" class="mx-3 hidden" @click="hideSocial">
+          <img :src="social" alt="social" />
         </button>
       </div>
     </div>
