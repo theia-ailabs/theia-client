@@ -47,6 +47,7 @@
     "vue-router": "^4.0.3",
     "vue-socket.io-extended": "^4.2.0",
     "vue3-apexcharts": "^1.4.1",
+    "vue3-google-oauth2": "^1.0.7",
     "wavesurfer.js": "^6.6.3",
     "wavesurfer.js-vue": "^1.0.0",
     "webpack": "^5.78.0"
