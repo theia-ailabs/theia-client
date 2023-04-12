@@ -43,10 +43,10 @@ const useStore = defineStore("main", {
       emoji: "",
       showChat: true,
       showMenu: false,
+      loginModal: false,
       // signup
       welcome: false,
       newUser: false,
-      signup: false,
       usernameAv: false,
       // menu
       google: false,

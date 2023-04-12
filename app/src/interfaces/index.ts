@@ -36,10 +36,10 @@ export interface State {
   emoji: string;
   showChat: boolean;
   showMenu: boolean;
+  loginModal: boolean;
   // signup
   welcome: boolean;
   newUser: boolean;
-  signup: boolean;
   usernameAv: boolean;
   // menu
   google: boolean;

@@ -22,7 +22,7 @@ export default defineComponent({
 <template>
   <teleport to="body">
     <notifications position="top left" class="mt-2" animation-type="velocity" />
-    <div :class="store.signup ? 'block' : 'hidden'">
+    <div :class="store.loginModal ? 'block' : 'hidden'">
       <div
         ref="modal-backdrop"
         id="signup-modal"
@@ -52,7 +52,7 @@ export default defineComponent({
               key="username"
               v-model="store.username"
               v-on="store.searchUser()"
-              class="mt-4 py-1 px-4 sm:px-8 mx-16 sm:mx-32 text-lg text-center tracking-widest rounded-3xl mx-22 border border-purple-500 inner shadow-inner shadow-yellow-500/50 bg-transparent text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
+              class="mt-10 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border border-purple-500 inner shadow-inner shadow-yellow-500/50 bg-transparent text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
             />
             <div v-if="store.username">
               <p
@@ -63,9 +63,13 @@ export default defineComponent({
               </p>
               <p
                 v-else
-                class="mt-4 px-8 uppercase text-xs tracking-widest text-purple-500"
+                class="mt-4 px-8 uppercase text-xs tracking-widest text-white/50"
               >
                 LOGIN WITH USER
+                <span
+                  class="lowercase bg-transparent text-transparent bg-clip-text bg-gradient-to-l from-purple-600 to-yellow-400"
+                  >@{{ store.username }}</span
+                >
               </p>
             </div>
             <div class="flex w-full justify-center">

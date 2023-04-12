@@ -52,7 +52,7 @@ export const createUserSocket = (username: string) => {
           text: "New user created!",
           type: "success",
         });
-        store.signup = false;
+        store.loginModal = false;
         store.usernameAv = false;
       } else {
         console.log("ERROR: Could not create user. Please try again.");

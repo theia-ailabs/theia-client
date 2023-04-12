@@ -3,7 +3,7 @@ import { defineComponent, ref } from "vue";
 import GalaxyComp from "../components/GalaxyComp.vue";
 import useStore from "../services/store";
 import TerminalComp from "../components/modules/terminals/TerminalComp.vue";
-import Signup from "../components/modules/modals/SignupModal.vue";
+import LoginModal from "../components/modules/modals/LoginModal.vue";
 import FauxComp from "../components/modules/terminals/FauxComp.vue";
 import TitleComp from "../components/TitleComp.vue";
 
@@ -11,7 +11,7 @@ export default defineComponent({
   components: {
     GalaxyComp,
     TerminalComp,
-    Signup,
+    LoginModal,
     FauxComp,
     TitleComp,
   },
@@ -19,14 +19,14 @@ export default defineComponent({
     const store = useStore();
     const isLoadingDone = ref(false);
 
-    function connect() {
-      store.signup = true;
+    function login() {
+      store.loginModal = true;
     }
 
     return {
       store,
       isLoadingDone,
-      connect,
+      login,
     };
   },
 });
@@ -34,8 +34,8 @@ export default defineComponent({
 <template>
   <div>
     <GalaxyComp />
-    <div v-if="store.signup" class="absolute z-50 p-8">
-      <Signup />
+    <div v-if="store.loginModal" class="absolute z-50 p-8">
+      <LoginModal />
     </div>
     <!-- Welcome Title -->
     <TitleComp />
@@ -50,7 +50,7 @@ export default defineComponent({
       </div>
       <button
         id="connect-btn"
-        @click="connect"
+        @click="login"
         class="connect-btn mt-6 border bg-yellow-500/90 hover:bg-yellow-500 hover:shadow-sm shadow-yellow-400 border-gray-300 text-xs p-2 px-4 uppercase rounded-xl z-50"
       >
         <h1 class="relative hover:text-white hover:font-bold">LOGIN</h1>
