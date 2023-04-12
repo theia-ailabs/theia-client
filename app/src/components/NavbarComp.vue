@@ -8,38 +8,19 @@ import useStore from "../services/store";
 export default defineComponent({
   setup() {
     const store = useStore();
-    function showSocial() {
-      document.getElementById("menu-btn")?.classList.remove("hidden");
-      document.getElementById("menu-btn")?.classList.add("flex");
-      document.getElementById("showsocial")?.classList.add("hidden");
-      document.getElementById("hidesocial")?.classList.remove("hidden");
-    }
-    function hideSocial() {
-      document.getElementById("menu-btn")?.classList.remove("flex");
-      document.getElementById("menu-btn")?.classList.add("hidden");
-      document.getElementById("hidesocial")?.classList.add("hidden");
-      document.getElementById("showsocial")?.classList.remove("hidden");
-    }
-    function hideChat() {
-      document.getElementById("chat-comp")?.classList.add("hidden");
-      document.getElementById("hidechat")?.classList.add("hidden");
-      document.getElementById("showchat")?.classList.remove("hidden");
-    }
-    function showChat() {
-      document.getElementById("chat-comp")?.classList.remove("hidden");
-      document.getElementById("showchat")?.classList.add("hidden");
-      document.getElementById("hidechat")?.classList.remove("hidden");
-    }
-//    function showCalendar() {
-  //    calendar.signup = true;
-    //}
+    const switchChat = () => {
+      store.showChat = !store.showChat;
+      store.showMenu = false;
+    };
+    const switchMenu = () => {
+      store.showMenu = !store.showMenu;
+      store.showChat = false;
+    };
+
     return {
       store,
-      showSocial,
-      hideChat,
-      showChat,
-      hideSocial,
-      //showCalendar,
+      switchChat,
+      switchMenu,
     };
   },
   data() {
