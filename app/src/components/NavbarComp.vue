@@ -14,7 +14,7 @@ export default defineComponent({
   },
   data() {
     return {
-      logo: require("../assets/img/png/logo.png"),
+      logo: require("../assets/img/png/logo3.png"),
       pfp: require("../assets/img/png/profile.png"),
     };
   },
