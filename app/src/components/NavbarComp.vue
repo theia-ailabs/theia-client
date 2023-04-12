@@ -30,22 +30,22 @@ export default defineComponent({
       document.getElementById("showchat")?.classList.add("hidden");
       document.getElementById("hidechat")?.classList.remove("hidden");
     }
-    function showCalendar() {
-      calendar.signup = true;
-    }
+//    function showCalendar() {
+  //    calendar.signup = true;
+    //}
     return {
       store,
       showSocial,
       hideChat,
       showChat,
       hideSocial,
-      showCalendar,
+      //showCalendar,
     };
   },
   data() {
     return {
       chat: require("../assets/img/svg/chat-white.svg"),
-      calendar: require("../assets/img/svg/calendar-white.svg"),
+      menuImg: require("../assets/img/ico/connect-white.png"),
       logo: require("../assets/img/png/logo3.png"),
       pfp: require("../assets/img/png/profile.png"),
       email: require("../assets/img/svg/mail-white.svg"),
@@ -60,45 +60,39 @@ export default defineComponent({
     class="z-50 fixed pt-4 flex justify-between w-full top-0"
     :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
   >
-    <div class="flex ml-12 mt-5">
+    <div class="flex ml-2 lg:ml-12 mt-2">
       <div>
-        <button id="hidechat" class="mr-3" @click="hideChat">
+        <button class="mx-3" @click="switchChat">
           <img :src="chat" alt="chat" />
         </button>
-        <button id="showchat" class="mr-3 hidden" @click="showChat">
-          <img :src="unread" alt="unread-chat" />
-        </button>
       </div>
       <div>
-        <button class="mx-3">
-          <img :src="calendar" alt="calendar" />
+        <button class="mx-3 rounded-full">
+          <img
+            :src="menuImg"
+            alt="Menu Button"
+            @click="switchMenu"
+            class="h-7"
+          />
         </button>
       </div>
+    </div>
+    <div class="m-1 mx-auto">
+      <button :click="store.scrollTop()" class="flex justify-center">
+        <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
+      </button>
+    </div>
+    <div class="flex mr-2 lg:mr-12 mt-2">
       <div>
         <button class="mx-3">
           <img :src="email" alt="email" />
         </button>
       </div>
       <div>
-        <button id="showsocial" class="mx-3" @click="showSocial">
-          <img :src="social" alt="social" />
-        </button>
-        <button id="hidesocial" class="mx-3 hidden" @click="hideSocial">
+        <button id="showsocial" class="mx-3" @click="switchMenu">
           <img :src="social" alt="social" />
         </button>
       </div>
-    </div>
-    <div class="m-1 mx-auto">
-      <button :click="store.scrollTop()" class="flex justify-center">
-        <img class="h-12 lg:h-16" :src="logo" alt="Theia logo" />
-      </button>
-    </div>
-    <div class="mr-28"></div>
-    <div class="flex flex-wrap mx-4 sm:mr-12 -mt-2">
-      <!-- <WalletsBtn /> -->
-      <button :click="store.scrollTop()">
-        <img class="h-10 lg:h-12" :src="pfp" alt="Theia logo" />
-      </button>
     </div>
   </nav>
 </template>

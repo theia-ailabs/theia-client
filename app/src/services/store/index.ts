@@ -37,17 +37,28 @@ const useStore = defineStore("main", {
       // ui config
       dark: true,
       sound: true,
-      primaryColor: "blue-500",
-      secondaryColor: "blue-500",
+      primaryColor: "purple-500",
+      secondaryColor: "yellow-500",
       heart: "💙",
       emoji: "",
+      showChat: true,
+      showMenu: false,
       // signup
+      welcome: false,
       newUser: false,
       signup: false,
       usernameAv: false,
       // menu
-      showChat: true,
-      welcome: false,
+      google: false,
+      apple: false,
+      twitter: false,
+      instagram: false,
+      spotify: false,
+      youtube: false,
+      whatsapp: false,
+      telegram: false,
+      solana: false,
+      ethereum: false,
     };
   },
   actions: {
@@ -76,9 +87,9 @@ const useStore = defineStore("main", {
         theia: { ...theiaMsg },
         timestamp: BigInt(Date.now()),
       };
-
       this.chat.unshift({ ...chatRec });
       console.log(this.chat[0].theia);
+      this.input = "";
     },
     scrollTop(): void {
       window.scrollTo(document.body.scrollHeight, 0);
