@@ -41,7 +41,7 @@ const useStore = defineStore("main", {
       secondaryColor: "yellow-500",
       heart: "💙",
       emoji: "",
-      showChat: true,
+      showChat: false,
       showMenu: false,
       // signup
       welcome: false,

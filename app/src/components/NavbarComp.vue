@@ -10,9 +10,11 @@ export default defineComponent({
     const store = useStore();
     const switchChat = () => {
       store.showChat = !store.showChat;
+      store.showMenu = false;
     };
     const switchMenu = () => {
       store.showMenu = !store.showMenu;
+      store.showChat = false;
     };
 
     return {
