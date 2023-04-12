@@ -58,10 +58,10 @@ export default defineComponent({
   >
     <div class="flex ml-12 mt-5">
       <div>
-        <button id="hidechat" class="mx-3" @click="hideChat()">
+        <button id="hidechat" class="mr-3" @click="hideChat">
           <img :src="chat" alt="chat" />
         </button>
-        <button id="showchat" class="mx-3 hidden" @click="showChat()">
+        <button id="showchat" class="mr-3 hidden" @click="showChat">
           <img :src="unread" alt="unread-chat" />
         </button>
       </div>
@@ -89,7 +89,7 @@ export default defineComponent({
         <img class="h-12 lg:h-16" :src="logo" alt="Theia logo" />
       </button>
     </div>
-    <div class="mr-16"></div>
+    <div class="mr-28"></div>
     <div class="flex flex-wrap mx-4 sm:mr-12 -mt-2">
       <!-- <WalletsBtn /> -->
       <button :click="store.scrollTop()">
