@@ -9,6 +9,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.5",
+    "@fullcalendar/vue3": "^6.1.5",
     "@kyvg/vue3-notification": "^2.7.0",
     "@metaplex-foundation/js": "^0.17.12",
     "@project-serum/anchor": "^0.26.0",
