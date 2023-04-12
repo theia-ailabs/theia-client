@@ -14,11 +14,11 @@ export default defineComponent({
   },
   data() {
     return {
-      chat: require("../assets/img/svg/comments.svg"),
-      calendar: require("../assets/img/svg/calendar.svg"),
+      chat: require("../assets/img/svg/chat-white.svg"),
+      calendar: require("../assets/img/svg/calendar-white.svg"),
       logo: require("../assets/img/png/logo3.png"),
       pfp: require("../assets/img/png/profile.png"),
-      email: require("../assets/img/svg/email.svg"),
+      email: require("../assets/img/svg/mail-white.svg"),
     };
   },
 });
@@ -28,10 +28,16 @@ export default defineComponent({
     class="z-50 fixed pt-4 flex justify-between w-full top-0"
     :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
   >
-    <div>
-      <img :src="chat" alt="chat" />
-      <img :src="calendar" alt="calendar" />
-      <img :src="email" alt="email" />
+    <div class="flex">
+      <button>
+        <img :src="chat" alt="chat" />
+      </button>
+      <button>
+        <img :src="calendar" alt="calendar" />
+      </button>
+      <button>
+        <img :src="email" alt="email" />
+      </button>
     </div>
     <div class="ml-32"></div>
     <div class="m-1">
