@@ -34,7 +34,7 @@ export default defineComponent({
     <InputComp />
     <div
       id="menu-btn"
-      class="flex flex-wrap justify-center bg-transparent w-full"
+      class="hidden flex-wrap justify-center bg-transparent w-full"
     >
       <div>
         <button
