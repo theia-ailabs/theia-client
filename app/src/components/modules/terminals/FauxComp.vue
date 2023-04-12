@@ -127,7 +127,7 @@
   );
   background: radial-gradient(
     ellipse at bottom,
-    #d971fa 0%,
+    #da71faab 0%,
     rgba(64, 64, 64, 0) 30%
   );
   -webkit-transform-origin: 50% 50%;

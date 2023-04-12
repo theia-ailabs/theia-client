@@ -1,6 +1,6 @@
 <template>
   <div
-    class="workspace border-none text-white w-full absolute top-[75%] flex z-40 justify-center align-middle text-center my-0 mx-auto bg-transparent"
+    class="workspace absolute bottom-10 border-none text-white w-full flex z-40 justify-center align-middle text-center mx-auto bg-transparent"
   >
     <!-- <app-svg-spacetravel /> -->
     <div class="container-text w-full">
