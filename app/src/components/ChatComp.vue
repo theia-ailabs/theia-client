@@ -23,7 +23,7 @@ export default defineComponent({
 </script>
 <template>
   <div>
-    <div class="relative p-2 pt-4 pb-8 mb-4 h-screen w-screen">
+    <div class="relative pl-2 pt-4 pb-8 mb-4 h-screen w-screen">
       <div class="z-50" v-if="store.showChat">
         <div class="z-30 absolute h-screen w-screen bg-red-500"></div>
         <div
@@ -37,7 +37,7 @@ export default defineComponent({
           >
             <div>
               <div
-                class="text-xs text-white ml-12 mt-4 my-2 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-purple-400 border-b-3 border-purple-400"
+                class="text-xs text-white ml-16 -mb-2 mt-4 my-2 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-purple-400 border-b-3 border-purple-400"
               >
                 <div
                   class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-sm shadow-purple-400 border border-yellow-400/30"
@@ -70,14 +70,14 @@ export default defineComponent({
                   />
                 </div>
                 <div
-                  class="text-left pl-2 font-bold opacity-50 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"
+                  class="text-left pl-2 mt-4 font-bold opacity-50 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"
                 >
                   Theia
                 </div>
-                <div class="mr-4 text-gray-500">
+                <div class="mr-4 mt-4 text-gray-500">
                   {{ x.theia.datetime }}
                 </div>
-                <div class="mr-4 text-gray-500">
+                <div class="mr-4 mt-4 text-gray-500">
                   {{ x.theia.computed_in }} sec
                 </div>
               </div>
@@ -86,17 +86,19 @@ export default defineComponent({
           <div id="User" class="flex justify-end w-full -mb-4">
             <div>
               <div
-                class="p-2 px-8 my-2 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-yellow-400"
+                class="mr-12 my-2 mt-4 -mb-1 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-yellow-400"
               >
-                <WavesComp />
-                {{ x.user.text }}
+                <div class="p-2 px-8">
+                  <WavesComp />
+                  {{ x.user.text }}
+                </div>
               </div>
               <div class="flex justify-end text-xs mb-4 pl-4">
-                <div class="mr-4 text-gray-500">
+                <div class="mr-4 mt-2 text-gray-500">
                   {{ x.user.datetime }}
                 </div>
                 <div
-                  class="text-right pr-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"
+                  class="text-right pr-2 mt-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"
                 >
                   {{ store.username }}
                 </div>
