@@ -39,15 +39,20 @@ export default defineComponent({
     class="z-50 fixed pt-4 flex justify-between w-full top-0"
     :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
   >
-    <div class="flex ml-12 mt-5">
+    <div class="flex ml-12 mt-2">
       <div>
         <button class="mx-3" @click="switchChat">
           <img :src="chat" alt="chat" />
         </button>
       </div>
       <div>
-        <button class="mx-3">
-          <img :src="menuImg" alt="Menu Button" @click="switchMenu" />
+        <button class="mx-3 rounded-full">
+          <img
+            :src="menuImg"
+            alt="Menu Button"
+            @click="switchMenu"
+            class="h-7"
+          />
         </button>
       </div>
     </div>
