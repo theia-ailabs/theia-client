@@ -35,12 +35,13 @@ export interface State {
   heart: string;
   emoji: string;
   // signup
+  welcome: boolean;
   newUser: boolean;
   signup: boolean;
   usernameAv: boolean;
   // settings
   showChat: boolean;
-  welcome: boolean;
+  showMenu: boolean;
 }
 
 export interface ChatRecord {

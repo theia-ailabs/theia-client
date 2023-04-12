@@ -42,12 +42,13 @@ const useStore = defineStore("main", {
       heart: "💙",
       emoji: "",
       // signup
+      welcome: false,
       newUser: false,
       signup: false,
       usernameAv: false,
       // menu
       showChat: true,
-      welcome: false,
+      showMenu: false,
     };
   },
   actions: {
