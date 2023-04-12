@@ -41,7 +41,7 @@ const useStore = defineStore("main", {
       secondaryColor: "yellow-500",
       heart: "💙",
       emoji: "",
-      showChat: false,
+      showChat: true,
       showMenu: false,
       // signup
       welcome: false,
@@ -87,9 +87,9 @@ const useStore = defineStore("main", {
         theia: { ...theiaMsg },
         timestamp: BigInt(Date.now()),
       };
-
       this.chat.unshift({ ...chatRec });
       console.log(this.chat[0].theia);
+      this.input = "";
     },
     scrollTop(): void {
       window.scrollTo(document.body.scrollHeight, 0);

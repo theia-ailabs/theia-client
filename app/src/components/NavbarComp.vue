@@ -41,7 +41,7 @@ export default defineComponent({
     class="z-50 fixed pt-4 flex justify-between w-full top-0"
     :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
   >
-    <div class="flex ml-12 mt-2">
+    <div class="flex ml-2 lg:ml-12 mt-2">
       <div>
         <button class="mx-3" @click="switchChat">
           <img :src="chat" alt="chat" />
@@ -63,7 +63,7 @@ export default defineComponent({
         <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
       </button>
     </div>
-    <div class="flex mr-12 mt-2">
+    <div class="flex mr-2 lg:mr-12 mt-2">
       <div>
         <button class="mx-3">
           <img :src="email" alt="email" />
