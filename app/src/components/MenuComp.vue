@@ -32,7 +32,10 @@ export default defineComponent({
 <template>
   <div class="z-50 fixed bottom-8 w-full">
     <InputComp />
-    <div class="flex flex-wrap justify-center bg-transparent w-full">
+    <div
+      id="menu-btn"
+      class="flex flex-wrap justify-center bg-transparent w-full"
+    >
       <div>
         <button
           class="m-2 w-10 h-10 pt-[7px] rounded-full border flex justify-center align-middle opacity-50"
