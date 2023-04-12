@@ -37,8 +37,8 @@ const useStore = defineStore("main", {
       // ui config
       dark: true,
       sound: true,
-      primaryColor: "blue-500",
-      secondaryColor: "blue-500",
+      primaryColor: "purple-500",
+      secondaryColor: "yellow-500",
       heart: "💙",
       emoji: "",
       showChat: true,
