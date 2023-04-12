@@ -100,14 +100,14 @@ export default defineComponent({
                 >
                   {{ store.username }}
                 </div>
+                <div class="text-center flex align-bottom justify-center">
+                  <img
+                    class="w-10 h-10 rounded-full ml-1 mr-2 m-auto mb-2"
+                    :src="userPFP"
+                    alt="User profile picture"
+                  />
+                </div>
               </div>
-            </div>
-            <div class="text-center flex align-bottom justify-center">
-              <img
-                class="w-10 h-10 rounded-full ml-1 mr-2 m-auto mb-2"
-                :src="userPFP"
-                alt="User profile picture"
-              />
             </div>
           </div>
         </div>
