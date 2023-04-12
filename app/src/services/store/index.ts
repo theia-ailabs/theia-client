@@ -41,14 +41,24 @@ const useStore = defineStore("main", {
       secondaryColor: "blue-500",
       heart: "💙",
       emoji: "",
+      showChat: true,
+      showMenu: false,
       // signup
       welcome: false,
       newUser: false,
       signup: false,
       usernameAv: false,
       // menu
-      showChat: true,
-      showMenu: false,
+      google: false,
+      apple: false,
+      twitter: false,
+      instagram: false,
+      spotify: false,
+      youtube: false,
+      whatsapp: false,
+      telegram: false,
+      solana: false,
+      ethereum: false,
     };
   },
   actions: {

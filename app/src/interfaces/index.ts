@@ -34,14 +34,24 @@ export interface State {
   secondaryColor: string;
   heart: string;
   emoji: string;
+  showChat: boolean;
+  showMenu: boolean;
   // signup
   welcome: boolean;
   newUser: boolean;
   signup: boolean;
   usernameAv: boolean;
-  // settings
-  showChat: boolean;
-  showMenu: boolean;
+  // menu
+  google: boolean;
+  apple: boolean;
+  twitter: boolean;
+  instagram: boolean;
+  spotify: boolean;
+  youtube: boolean;
+  whatsapp: boolean;
+  telegram: boolean;
+  solana: boolean;
+  ethereum: boolean;
 }
 
 export interface ChatRecord {
