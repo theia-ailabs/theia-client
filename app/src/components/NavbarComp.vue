@@ -55,7 +55,7 @@ export default defineComponent({
         </button>
       </div>
     </div>
-    <div class="m-1 mx-auto">
+    <div class="mb-1">
       <button :click="store.scrollTop()" class="flex justify-center">
         <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
       </button>
