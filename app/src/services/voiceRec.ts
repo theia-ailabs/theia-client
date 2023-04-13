@@ -15,7 +15,6 @@ export default class VoiceRec {
     const store = useStore();
     this.recognition.interimResults = true;
     this.recognition.lang = "en-US";
-
     this.recognition.addEventListener(
       "result",
       (e: { results: Iterable<unknown> | ArrayLike<unknown> }) => {

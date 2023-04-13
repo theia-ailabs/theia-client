@@ -1,9 +1,9 @@
 import { io, Socket } from "socket.io-client";
 import { SERVER_URL } from "../../config";
-// import useStore from "../store";
+import useStore from "../store";
 
-// const store = useStore();
 export function socketConnection(): Socket {
+  const store = useStore();
   console.log(SERVER_URL);
   const socket: Socket = io(SERVER_URL, {
     transports: ["websocket"],
@@ -16,7 +16,7 @@ export function socketConnection(): Socket {
   // Theia responses
   socket.on("theiaRes", (res: string) => {
     console.log(res);
-    // store.theia = res;
+    store.theia = res;
   });
 
   return socket;
