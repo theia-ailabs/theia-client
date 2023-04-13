@@ -37,7 +37,7 @@ export default {
   >
     <settings-buttons class="mt-4" />
     <!-- UTC datetime -->
-    <div class="text-[11px]">{{ date }} {{ time }} UTC</div>
+    <div class="-mt-2 text-[11px]">{{ date }} {{ time }} UTC</div>
     <!-- Credits -->
     <div class="py-4 -mb-2">Made with {{ store.heart }} by Theia Labs</div>
   </div>
