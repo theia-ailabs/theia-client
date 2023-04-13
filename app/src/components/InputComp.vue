@@ -1,10 +1,12 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import useStore from "../services/store";
+import { theiaRes } from "../services/sockets/theia.socket";
 
 export default defineComponent({
   setup() {
     const store = useStore();
+    theiaRes(store);
     const userInput = ref("");
     let send = false;
     const placeholder = "Your Placeholder";
