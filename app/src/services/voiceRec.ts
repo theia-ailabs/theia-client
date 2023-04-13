@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import useStore from "./store";
 declare let webkitSpeechRecognition: any;
 
 export default class VoiceRec {
@@ -7,43 +7,43 @@ export default class VoiceRec {
   public textSound = "";
   tempWords!: string;
 
+  // constructor() {
+  //   this.init();
+  // }
+
   init() {
+    const store = useStore();
     this.recognition.interimResults = true;
     this.recognition.lang = "en-US";
+
     this.recognition.addEventListener(
       "result",
       (e: { results: Iterable<unknown> | ArrayLike<unknown> }) => {
         const transcript = Array.from(e.results)
-          .map((result: any) => result[0])
-          .map((result: any) => result.transcript)
+          .map((result: any) => result[0].transcript)
           .join("");
         this.tempWords = transcript;
-        console.log(transcript);
+        store.input = transcript;
       }
     );
   }
 
-  start(): string {
+  start(): void {
     this.stopRec = false;
     this.recognition.start();
-    console.log("Speech recognition started");
-    this.recognition.addEventListener("end", (): string | void => {
+    this.recognition.addEventListener("end", (): void => {
       if (this.stopRec) {
         this.recognition.stop();
-        console.log("End speech recognition");
       } else {
         this.recognition.start();
-        console.log(this.tempWords);
       }
     });
-    return this.textSound;
   }
 
   stop(): void {
     this.stopRec = true;
     this.wordConcat();
     this.recognition.stop();
-    console.log("End speech recognition");
   }
 
   wordConcat() {

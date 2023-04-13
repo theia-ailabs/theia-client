@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
 import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
+import { vecColors } from "../../constants";
 
 const useStore = defineStore("main", {
   state: (): State => {
@@ -40,6 +41,8 @@ const useStore = defineStore("main", {
       sound: true,
       primaryColor: "purple-500",
       secondaryColor: "yellow-500",
+      vecColor1: "vec3(204.0/255.0, 0.5, 255.0/255.0)",
+      vecColor2: "vec3(190.0/255.0, 0.5, 155.0/255.0)",
       heart: "💙",
       emoji: "",
       showChat: true,
@@ -95,6 +98,9 @@ const useStore = defineStore("main", {
     },
     scrollTop(): void {
       window.scrollTo(document.body.scrollHeight, 0);
+    },
+    avatarColor(color: string): void {
+      this.vecColor1 = "vec3(90.0/255.0, 0.5, 155.0/255.0)"; // vecColors[color];
     },
     switchShowChat(): void {
       this.showChat = !this.showChat;

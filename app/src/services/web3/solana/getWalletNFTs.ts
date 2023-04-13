@@ -1,6 +1,6 @@
 import { Metaplex, keypairIdentity } from "@metaplex-foundation/js";
 import { Connection, Keypair, PublicKey } from "@solana/web3.js";
-import { BLOCKCHAIN_CONNECTION } from "../../config";
+import { BLOCKCHAIN_CONNECTION } from "../../../config";
 
 export interface NFT {
   token: string;

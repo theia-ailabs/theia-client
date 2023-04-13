@@ -1,3 +1,15 @@
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+import VoiceRec from "./services/voiceRec";
+
+export default defineComponent({
+  setup() {
+    const voiceRec = new VoiceRec();
+    voiceRec.init();
+    voiceRec.start();
+  },
+});
+</script>
 <template>
   <router-view />
 </template>

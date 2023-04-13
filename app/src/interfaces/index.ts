@@ -33,6 +33,8 @@ export interface State {
   sound: boolean;
   primaryColor: string;
   secondaryColor: string;
+  vecColor1: string;
+  vecColor2: string;
   heart: string;
   emoji: string;
   showChat: boolean;

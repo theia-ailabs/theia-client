@@ -5,15 +5,23 @@
 </template>
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 import * as THREE from "three";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
+import useStore from "../../../../services/store";
+// import { vecC olors } from "../../../../constants";
 
 export default defineComponent({
+  methods: {
+    methodThatForcesUpdate() {
+      this.$forceUpdate(); // Notice we have to use a $ here
+    },
+  },
   setup() {
+    const store = useStore();
     let SCENE: THREE.Scene;
     let CAMERA: THREE.PerspectiveCamera;
     let RENDERER: THREE.WebGLRenderer;
@@ -140,6 +148,15 @@ export default defineComponent({
 
     function createObjects() {
       let geometry = new THREE.SphereGeometry(23, 300, 300);
+      let modelColors = ref(`
+              uniform float uTime;
+              varying vec3 vNormal;
+      void main() {
+                vec3 color1 = ${store.vecColor1};
+                vec3 color2 = ${store.vecColor2};
+        gl_FragColor = vec4(mix(color1, color2, vNormal.z), 0.5);
+      }
+      `);
       const shaderMaterial = new THREE.ShaderMaterial({
         uniforms: {
           uTime: { value: TIME },
@@ -154,17 +171,8 @@ export default defineComponent({
                 vec3 delta = 10.0 * normal * sin(normal.x + normal.y * 10.0 + normal.z + uTime * 10.0);
                 vec3 newPosition = position + delta;
                 gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-            }
-            `,
-        fragmentShader: `
-              uniform float uTime;
-              varying vec3 vNormal;
-              void main() {
-                vec3 color1 = vec3(194.0/255.0, 0.5, 255.0/255.0);
-                vec3 color2 = vec3(120.0/255.0, 25.0/255.0, 0.5);
-                gl_FragColor = vec4(mix(color1, color2, vNormal.z), 0.5);
-              }
-            `,
+            }`,
+        fragmentShader: modelColors.value,
       });
       const sphere = new THREE.Mesh(geometry, shaderMaterial);
       SCENE.add(sphere);

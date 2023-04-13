@@ -2,7 +2,7 @@
 import { useAnchorWallet } from "./useAnchorWallet";
 import { useWallet } from "./useWallet";
 import { Connection } from "@solana/web3.js";
-import { BLOCKCHAIN_CONNECTION } from "../../../config";
+import { BLOCKCHAIN_CONNECTION } from "../../../../config";
 import {
   BraveWalletAdapter,
   PhantomWalletAdapter,
@@ -54,8 +54,8 @@ initWallet(walletOptions as WalletStoreProps);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let workspace: any;
-export const useWorkspace = () => workspace;
-export const initWorkspace = () => {
+export const useSolana = () => workspace;
+export const initSolana = () => {
   const { publicKey } = useWallet();
   const wallet = useAnchorWallet();
   const connection: Connection = BLOCKCHAIN_CONNECTION;

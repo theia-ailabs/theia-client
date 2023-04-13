@@ -1,5 +1,5 @@
 import { PublicKey, TokenAccountsFilter } from "@solana/web3.js";
-import { BLOCKCHAIN_CONNECTION } from "../../config";
+import { BLOCKCHAIN_CONNECTION } from "../../../config";
 
 export async function balanceSOL(
   pubkey: PublicKey,
