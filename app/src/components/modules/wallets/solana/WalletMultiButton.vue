@@ -2,13 +2,16 @@
 import { computed, defineComponent, ref, toRefs, watchEffect } from "vue";
 import { onClickOutside, useClipboard } from "@vueuse/core";
 import { PublicKey } from "@solana/web3.js";
-import { useWallet } from "../../../services/web3/wallets/useWallet";
-import { balanceSOL, balanceUSDC } from "../../../services/web3/getBalances";
+import { useWallet } from "../../../../services/web3/solana/wallets/useWallet";
+import {
+  balanceSOL,
+  balanceUSDC,
+} from "../../../../services/web3/solana/getBalances";
 import {
   emitConnection,
   emitDisconnection,
-} from "../../../services/sockets/user.socket";
-import { formatNumber } from "../../../utils";
+} from "../../../../services/sockets/user.socket";
+import { formatNumber } from "../../../../utils";
 import WalletConnectButton from "./WalletConnectButton.vue";
 import WalletIcon from "./WalletIcon.vue";
 import WalletModalProvider from "./WalletModalProvider.vue";

@@ -35,14 +35,13 @@ const useStore = defineStore("main", {
       // messages
       input: "",
       chat: [],
-      theia: "",
       // ui config
       dark: true,
       sound: true,
       primaryColor: "purple-500",
       secondaryColor: "yellow-500",
-      vecColor1: "vec3(204.0/255.0, 0.5, 255.0/255.0)",
-      vecColor2: "vec3(190.0/255.0, 0.5, 155.0/255.0)",
+      vecColor1: "vec3(0, 0.4, 1)",
+      vecColor2: "vec3(0, 1, 0)",
       heart: "💙",
       emoji: "",
       showChat: true,
