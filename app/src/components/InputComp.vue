@@ -60,7 +60,7 @@ export default defineComponent({
     <textarea
       autofocus
       v-model="store.input"
-      class="w-[240px] ml-8 h-9 p-1 my-2 py-2 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner shadow-yellow-400/20 rounded-xl z-50 hover:border-purple-400 hover:shadow-yellow-400/80"
+      class="w-[200px] ml-8 h-9 p-1 my-2 py-2 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner shadow-yellow-400/20 rounded-xl z-50 hover:border-purple-400 hover:shadow-yellow-400/80"
     >
     </textarea>
     <div class="m-2" :class="store.input ? 'block' : 'hidden'">

@@ -27,6 +27,7 @@ export interface State {
   // messages
   input: string;
   chat: ChatRecord[];
+  theia: string;
   // ui config
   dark: boolean;
   sound: boolean;

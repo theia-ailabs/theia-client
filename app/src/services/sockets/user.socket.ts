@@ -1,4 +1,4 @@
-import socket from "./";
+import { socket } from "./";
 import useStore from "../store";
 import { useNotification } from "@kyvg/vue3-notification";
 import { User } from "../../interfaces";

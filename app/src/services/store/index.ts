@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
 import { getDate, getTime } from "../../utils";
-import socket from "../sockets";
+import { askTheia } from "../sockets/theia.socket";
 
 const useStore = defineStore("main", {
   state: (): State => {
@@ -34,6 +34,7 @@ const useStore = defineStore("main", {
       // messages
       input: "",
       chat: [],
+      theia: "",
       // ui config
       dark: true,
       sound: true,
@@ -66,6 +67,7 @@ const useStore = defineStore("main", {
       this.connected = true;
     },
     inputMessage(): void {
+      askTheia(this.input);
       const theiaMsg: TheiaMessage = {
         text: "Thinking...",
         audio: "",
@@ -114,7 +116,7 @@ const useStore = defineStore("main", {
     },
     searchUser(): void {
       console.log(this.username);
-      socket.emit("newUsername", this.username);
+      // socket.emit("newUsername", this.username);
     },
   },
 });

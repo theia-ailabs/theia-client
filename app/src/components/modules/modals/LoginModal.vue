@@ -46,7 +46,7 @@ export default defineComponent({
             >
               x
             </button>
-            <p class="mt-4 text-xs sm:text-sm text-gray-400 animate-pulse">
+            <p class="mt-14 text-xs sm:text-sm text-gray-400 animate-pulse">
               INSERT USERNAME
             </p>
             <input
@@ -55,7 +55,7 @@ export default defineComponent({
               key="username"
               v-model="store.username"
               v-on="store.searchUser()"
-              class="mt-10 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border border-purple-500 inner shadow-inner shadow-yellow-500/50 bg-transparent text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
+              class="mt-4 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border border-purple-500 inner shadow-inner shadow-yellow-500/50 bg-transparent text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
             />
             <div v-if="store.username">
               <p
