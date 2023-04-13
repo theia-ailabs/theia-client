@@ -34,6 +34,8 @@ export interface State {
   secondaryColor: string;
   vecColor1: string;
   vecColor2: string;
+  colorDir: "x" | "y" | "z";
+  colorsSplit: number;
   heart: string;
   emoji: string;
   showChat: boolean;

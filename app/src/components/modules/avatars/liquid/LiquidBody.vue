@@ -81,9 +81,8 @@ export default defineComponent({
       RENDERER.setPixelRatio(window.devicePixelRatio);
       RENDERER.setSize(window.innerWidth, window.innerHeight);
       RENDERER.shadowMap.enabled = true;
-      // RENDERER.shadowMap = true;
-      // const bgColor = 0xffffff;
-      // RENDERER.setClearColor(bgColor, 0); // set background color to black with alpha 0
+      const bgColor = 0xffffff;
+      RENDERER.setClearColor(bgColor, 1); // set background color to black with alpha 0
     }
 
     function initComposer() {
@@ -149,13 +148,13 @@ export default defineComponent({
     function createObjects() {
       let geometry = new THREE.SphereGeometry(23, 300, 300);
       let modelColors = ref(`
-              uniform float uTime;
-              varying vec3 vNormal;
-      void main() {
-                vec3 color1 = ${store.vecColor1};
-                vec3 color2 = ${store.vecColor2};
-        gl_FragColor = vec4(mix(color1, color2, vNormal.z), 0.5);
-      }
+        uniform float uTime;
+        varying vec3 vNormal;
+        void main() {
+          vec3 color1 = ${store.vecColor1};
+          vec3 color2 = ${store.vecColor2};
+          gl_FragColor = vec4(mix(color1, color2, vNormal.${store.colorDir}), ${store.colorsSplit});
+        }
       `);
       const shaderMaterial = new THREE.ShaderMaterial({
         uniforms: {
