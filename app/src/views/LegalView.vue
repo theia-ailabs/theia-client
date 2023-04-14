@@ -18,7 +18,7 @@ export default defineComponent({
 
     <ol class="list-outside pl-6 text-left w-[90%] mx-auto">
       <li class="mb-6">
-        <strong class="font-semibold text-3xl">Introducción</strong>
+        <strong class="font-semibold text-3xl">1. Introducción</strong>
         <p class="mt-2">
           Bienvenido a Theia. Estos Términos de servicio (en adelante,
           "Términos") rigen tu acceso y uso de nuestro sitio web, aplicaciones y
@@ -26,7 +26,7 @@ export default defineComponent({
         </p>
       </li>
       <li class="mb-6">
-        <strong class="font-semibold text-3xl">Registro de cuentas</strong>
+        <strong class="font-semibold text-3xl">2. Registro de cuentas</strong>
         <p class="mt-2">
           Para utilizar algunos de nuestros Servicios, es posible que debas
           registrarte y crear una cuenta. Al crear una cuenta, aceptas
@@ -34,7 +34,7 @@ export default defineComponent({
         </p>
       </li>
       <li class="mb-6">
-        <strong class="font-semibold text-3xl">Uso aceptable</strong>
+        <strong class="font-semibold text-3xl">3. Uso aceptable</strong>
         <p class="mt-2">
           Te comprometes a no utilizar los Servicios de manera que viole
           cualquier ley aplicable, infrinja los derechos de propiedad
@@ -43,7 +43,7 @@ export default defineComponent({
         </p>
       </li>
       <li class="mb-6">
-        <strong class="font-semibold text-3xl">Propiedad intelectual</strong>
+        <strong class="font-semibold text-3xl">4. Propiedad intelectual</strong>
         <p class="mt-2">
           Los Servicios y su contenido original, características y
           funcionalidades son y seguirán siendo propiedad exclusiva de Theia y
@@ -54,7 +54,7 @@ export default defineComponent({
       </li>
       <li class="mb-6">
         <strong class="font-semibold text-3xl"
-          >Limitación de responsabilidad</strong
+          >5. Limitación de responsabilidad</strong
         >
         <p class="mt-2">
           En ningún caso Theia ni sus directores, empleados o afiliados serán
@@ -65,7 +65,9 @@ export default defineComponent({
         </p>
       </li>
       <li class="mb-6">
-        <strong class="font-semibold text-3xl">Cambios en los términos</strong>
+        <strong class="font-semibold text-3xl"
+          >6. Cambios en los términos</strong
+        >
         <p class="mt-2">
           Nos reservamos el derecho de modificar o reemplazar estos Términos en
           cualquier momento a nuestra discreción. Si hacemos cambios en los
@@ -74,7 +76,7 @@ export default defineComponent({
         </p>
       </li>
       <li class="mb-6">
-        <strong class="font-bold text-3xl">Contacto</strong>
+        <strong class="font-bold text-3xl">7. Contacto</strong>
         <p class="mt-2">
           Si tienes alguna pregunta sobre estos Términos, por favor, no dudes en
           contactarnos a través de theia.ailabs@gmail.com.
