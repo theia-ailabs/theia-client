@@ -1,3 +1,15 @@
+<script lang="ts">
+import { defineComponent } from "@vue/composition-api";
+import VoiceRec from "./services/voiceRec";
+
+export default defineComponent({
+  setup() {
+    const voiceRec = new VoiceRec();
+    voiceRec.init();
+    voiceRec.start();
+  },
+});
+</script>
 <template>
   <router-view />
 </template>
@@ -28,7 +40,7 @@ html body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgba(179, 179, 179, 0.692) !important;
+  background-color: rgba(26, 26, 26, 0.692) !important;
   border-radius: 1rem;
   margin: 0.4rem;
   margin-top: 0.4rem;
@@ -38,11 +50,11 @@ html body {
 ::-webkit-scrollbar-thumb {
   border-radius: 20px;
   background: linear-gradient(
-    30deg,
-    rgba(140, 208, 11, 0.83),
-    #cf0ccfbe
+    140deg,
+    rgba(0, 0, 0, 0.384),
+    #00000031
   ) !important;
-  box-shadow: inset 0 0 6px rgb(206, 9, 212) !important;
+  box-shadow: inset 0 0 6px rgb(0, 0, 0) !important;
 }
 @media (max-width: 700px) {
   .workspace {

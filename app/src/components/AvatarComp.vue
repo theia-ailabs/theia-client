@@ -1,7 +1,7 @@
 <template>
   <div class="z-40 fixed bg-white">
     <div v-if="listening" class="bg-white">
-      <button class="w-screen h-screen bg-white" @click="toTalk">
+      <button class="w-screen h-screen bg-white">
         <LiquidBody />
       </button>
     </div>

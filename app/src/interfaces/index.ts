@@ -27,12 +27,15 @@ export interface State {
   // messages
   input: string;
   chat: ChatRecord[];
-  theia: string;
   // ui config
   dark: boolean;
   sound: boolean;
   primaryColor: string;
   secondaryColor: string;
+  vecColor1: string;
+  vecColor2: string;
+  colorDir: "x" | "y" | "z";
+  colorsSplit: number;
   heart: string;
   emoji: string;
   showChat: boolean;

@@ -3497,6 +3497,11 @@
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.18.0.tgz#ed6ecaa8e5ed5dfe8b2b3d00181702c9925f13fb"
   integrity sha512-56/MAlX5WMsPVbOg7tAxnYvNYMMWr/QJiIp6BxVSW3JJXUVzzOn64qW8TzQyMSqSUFM2+PVI4aUHcHOzIz/1tg==
 
+"@types/webspeechapi@^0.0.29":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/webspeechapi/-/webspeechapi-0.0.29.tgz#8f3c6b31b779df7a9bbac7f89acfce0c3bcb1972"
+  integrity sha512-AYEhqEJLdR08YPBOwYa73IHTiGU4DdngbKbtZdW+bzuM7s8LzKBed0Fwgl/a3oMqMY227qOT+3Lpr5A0WSmm+A==
+
 "@types/webxr@*":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@types/webxr/-/webxr-0.5.1.tgz#4908349419104bd476a4252d04e4c3abb496748d"

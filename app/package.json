@@ -58,6 +58,7 @@
     "@types/plotly.js": "^2.12.11",
     "@types/three": "^0.150.1",
     "@types/velocity-animate": "^2.0.1",
+    "@types/webspeechapi": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",

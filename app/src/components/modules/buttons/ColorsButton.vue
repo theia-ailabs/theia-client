@@ -1,10 +1,16 @@
 <script lang="ts">
+import { getCurrentInstance } from "vue";
 import useStore from "../../../services/store";
 
 export default {
   setup() {
     const store = useStore();
-    return { store };
+    const reRender = () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const instance: any = getCurrentInstance();
+      instance.proxy.forceUpdate();
+    };
+    return { store, reRender };
   },
   data() {
     return {
@@ -118,7 +124,14 @@ export default {
         <!-- Red colors -->
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setPrimaryColor('red-500'), store.setHeart('❤️')]"
+          @click="
+            [
+              store.setPrimaryColor('red-500'),
+              store.setHeart('❤️'),
+              store.avatarColor('blue'),
+              reRender(),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'

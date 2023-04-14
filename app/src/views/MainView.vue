@@ -12,9 +12,7 @@ export default defineComponent({
   components: { NavbarComp, AvatarComp, ChatComp, MenuComp, FooterComp },
   setup() {
     const store = useStore();
-    const voiceRec = new VoiceRec();
-    voiceRec.init();
-    voiceRec.start();
+
     return {
       store,
     };

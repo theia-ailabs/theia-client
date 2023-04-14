@@ -10,8 +10,8 @@ import {
 } from "vue";
 import { WalletName, WalletReadyState } from "@solana/wallet-adapter-base";
 import { onClickOutside, onKeyStroke, useScrollLock } from "@vueuse/core";
-import type { Wallet } from "../../../services/web3/wallets/createWalletStore";
-import { useWallet } from "../../../services/web3/wallets/useWallet";
+import type { Wallet } from "../../../../services/web3/solana/wallets/createWalletStore";
+import { useWallet } from "../../../../services/web3/solana/wallets/useWallet";
 import WalletIcon from "./WalletIcon.vue";
 
 type WalletModalProviderRawBindings = WalletModelProviderScope & {
