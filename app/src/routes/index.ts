@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import WelcomeView from "../views/WelcomeView.vue";
 import MainView from "../views/MainView.vue";
 import LegalView from "../views/LegalView.vue";
+import PrivacyView from "../views/PrivacyView.vue
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,6 +20,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "legal",
     component: LegalView,
   },
+  {
+    path: "/privacy",
+    name: "privacy",
+    component: PrivacyView,
+  }
   // {
   //   path: "/profile",
   //   name: "profile",
