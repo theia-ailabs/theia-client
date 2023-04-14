@@ -40,6 +40,12 @@ export default {
     <div class="-mt-2 text-[11px]">{{ date }} {{ time }} UTC</div>
     <!-- Credits -->
     <div class="py-4 -mb-2">Made with {{ store.heart }} by Theia Labs</div>
+    <!-- Legal -->
+    <div class="flex justify-center">
+      <router-link to="/legal" class="mt-1 mb-2 mx-2">Legal</router-link>
+      <!-- Privacy -->
+      <router-link to="/privacy" class="mt-1 mb-2 mx-2">Privacy</router-link>
+    </div>
   </div>
 </template>
 <!-- <style scoped>
