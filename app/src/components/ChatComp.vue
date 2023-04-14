@@ -30,38 +30,9 @@ export default defineComponent({
           v-for="x in store.chat"
           :key="x.user.datetime"
         >
-          <div id="User" class="flex justify-start w-full -mb-4">
-            <div>
-              <div
-                class="mr-12 my-2 mt-4 -mb-1 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-yellow-400"
-              >
-                <div class="p-2 px-8">
-                  <AudioWaveComp />
-                  {{ x.user.text }}
-                </div>
-              </div>
-              <div class="flex justify-end text-xs mb-4 pl-4">
-                <div class="mr-4 mt-2 text-gray-500">
-                  {{ x.user.datetime }}
-                </div>
-                <div
-                  class="text-right pr-2 mt-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"
-                >
-                  {{ store.username }}
-                </div>
-                <div class="text-center flex align-bottom justify-center">
-                  <img
-                    class="w-10 h-10 rounded-full ml-1 mr-2 m-auto mb-2"
-                    :src="userPFP"
-                    alt="User profile picture"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
           <div
             id="Theia"
-            class="relative align-top flex justify-end w-full -mb-4"
+            class="relative align-top flex justify-start w-full -mb-4"
           >
             <div>
               <div
@@ -105,6 +76,35 @@ export default defineComponent({
                 </div>
                 <div class="mr-4 mt-4 text-gray-500">
                   {{ x.theia.computed_in }} sec
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="User" class="flex justify-end w-full -mb-4">
+            <div>
+              <div
+                class="mr-12 my-2 mt-4 -mb-1 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-yellow-400"
+              >
+                <div class="p-2 px-8">
+                  <AudioWaveComp />
+                  {{ x.user.text }}
+                </div>
+              </div>
+              <div class="flex justify-end text-xs mb-4 pl-4">
+                <div class="mr-4 mt-2 text-gray-500">
+                  {{ x.user.datetime }}
+                </div>
+                <div
+                  class="text-right pr-2 mt-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"
+                >
+                  {{ store.username }}
+                </div>
+                <div class="text-center flex align-bottom justify-center">
+                  <img
+                    class="w-10 h-10 rounded-full ml-1 mr-2 m-auto mb-2"
+                    :src="userPFP"
+                    alt="User profile picture"
+                  />
                 </div>
               </div>
             </div>

@@ -165,7 +165,7 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  top: 70%;
+  top: 85%;
   left: 20%;
   right: 20%;
   width: 20%;

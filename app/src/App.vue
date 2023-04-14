@@ -62,7 +62,7 @@ html body {
   }
 
   #faux-terminal .overlay {
-    top: 70% !important;
+    top: 85% !important;
   }
 }
 
