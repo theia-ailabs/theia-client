@@ -40,7 +40,9 @@ export interface State {
   emoji: string;
   showChat: boolean;
   showMenu: boolean;
+  // modals
   loginModal: boolean;
+  settingsModal: boolean;
   // signup
   welcome: boolean;
   newUser: boolean;

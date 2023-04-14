@@ -1,10 +1,17 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import SettingsModal from "./modules/modals/SettingsModal.vue";
 import useStore from "../services/store";
 
 export default defineComponent({
+  components: {
+    SettingsModal,
+  },
   setup() {
     const store = useStore();
+    const switchModal = () => {
+      store.settingsModal = !store.settingsModal;
+    };
     const switchChat = () => {
       store.showChat = !store.showChat;
       store.showMenu = false;
@@ -16,6 +23,7 @@ export default defineComponent({
 
     return {
       store,
+      switchModal,
       switchChat,
       switchMenu,
     };
@@ -34,45 +42,48 @@ export default defineComponent({
 });
 </script>
 <template>
-  <nav
-    class="z-50 fixed pt-4 flex justify-between w-full top-0"
-    :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
-  >
-    <div class="flex ml-2 lg:ml-12">
-      <div>
-        <button class="mx-3" @click="switchChat">
-          <img :src="chat" alt="chat" />
+  <div>
+    <SettingsModal />
+    <nav
+      class="z-50 fixed pt-4 flex justify-between w-full top-0"
+      :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
+    >
+      <div class="flex ml-2 lg:ml-12">
+        <div>
+          <button class="mx-3" @click="switchChat">
+            <img :src="chat" alt="chat" />
+          </button>
+        </div>
+        <div>
+          <button class="mx-3 rounded-full">
+            <img
+              :src="menuImg"
+              alt="Menu Button"
+              @click="switchMenu"
+              class="h-7"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="mb-1">
+        <button @click="switchModal" class="z-50 flex justify-center">
+          <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
         </button>
       </div>
-      <div>
-        <button class="mx-3 rounded-full">
-          <img
-            :src="menuImg"
-            alt="Menu Button"
-            @click="switchMenu"
-            class="h-7"
-          />
-        </button>
+      <div class="flex mr-2 lg:mr-12">
+        <div>
+          <button class="mx-3">
+            <img :src="email" alt="email" />
+          </button>
+        </div>
+        <div>
+          <button id="showsocial" class="mx-3" @click="switchMenu">
+            <img :src="social" alt="social" />
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="mb-1">
-      <button :click="store.scrollTop()" class="flex justify-center">
-        <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
-      </button>
-    </div>
-    <div class="flex mr-2 lg:mr-12">
-      <div>
-        <button class="mx-3">
-          <img :src="email" alt="email" />
-        </button>
-      </div>
-      <div>
-        <button id="showsocial" class="mx-3" @click="switchMenu">
-          <img :src="social" alt="social" />
-        </button>
-      </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 <style scoped>
 nav {

@@ -40,15 +40,18 @@ const useStore = defineStore("main", {
       sound: true,
       primaryColor: "purple-500",
       secondaryColor: "yellow-500",
-      vecColor1: "vec3(1, 1, 1)",
-      vecColor2: "vec3(0, 1, 0)",
-      colorDir: "z",
-      colorsSplit: 0.25,
+      colorsSplit: 0.2,
       heart: "💙",
       emoji: "",
       showChat: true,
       showMenu: false,
+      // modals
       loginModal: false,
+      settingsModal: true,
+      // avatar
+      vecColor1: "vec3(1, 0, 0.5)",
+      vecColor2: "vec3(1, 0.5, 0)",
+      colorDir: "z",
       // signup
       welcome: false,
       newUser: false,

@@ -147,7 +147,7 @@ export default defineComponent({
 
     function createObjects() {
       let geometry = new THREE.SphereGeometry(23, 300, 300);
-      let modelColors = ref(`
+      const modelColors = ref(`
         uniform float uTime;
         varying vec3 vNormal;
         void main() {
