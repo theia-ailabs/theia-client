@@ -1,10 +1,12 @@
 <script lang="ts">
 import useStore from "../../../services/store";
-import ColorsButton from "./ColorsButton.vue";
+import Color1Button from "./Color1Button.vue";
+import Color2Button from "./Color1Button.vue";
 
 export default {
   components: {
-    ColorsButton,
+    Color1Button,
+    Color2Button,
   },
   setup() {
     const store = useStore();
@@ -79,9 +81,9 @@ export default {
       </svg>
     </button>
     <!-- Primary Color button -->
-    <ColorsButton />
+    <Color1Button />
     <!-- Secondary Color button -->
-    <ColorsButton />
+    <Color2Button />
     <!-- Sound button -->
     <button
       class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"

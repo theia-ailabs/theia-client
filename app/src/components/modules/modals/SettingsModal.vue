@@ -49,24 +49,13 @@ export default defineComponent({
             <p class="mt-14 text-xs sm:text-sm text-gray-400 animate-pulse">
               CUSTOMIZE THEIA
             </p>
-            <div>COLOR 1</div>
-            <div v-if="store.username">
-              <p
-                v-if="store.usernameAv"
-                class="mt-4 px-8 uppercase text-xs tracking-widest text-green-500"
-              >
-                CREATE USER @{{ store.username }}
-              </p>
-              <p
-                v-else
-                class="mt-4 px-8 uppercase text-xs tracking-widest text-white/50"
-              >
-                LOGIN WITH USER
-                <span
-                  class="lowercase bg-transparent text-transparent bg-clip-text bg-gradient-to-l from-purple-600 to-yellow-400"
-                  >@{{ store.username }}</span
-                >
-              </p>
+            <div
+              class="grid grid-cols-2 py-2 mx-8 font-semibold text-gray-400 justify-center align-center align-middle"
+            >
+              <div>COLOR 1</div>
+              <div>COLOR 2</div>
+              <div>COLOR 1</div>
+              <div>COLOR 2</div>
             </div>
             <div class="flex w-full justify-center">
               <button
