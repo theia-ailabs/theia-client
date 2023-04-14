@@ -13,8 +13,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import LegalView from "@/views/LegalView.vue";
-import useStore from "@/services/store";
+import LegalView from "../../../views/LegalView.vue";
+import useStore from "../../../services/store";
 
 export default defineComponent({
   setup() {

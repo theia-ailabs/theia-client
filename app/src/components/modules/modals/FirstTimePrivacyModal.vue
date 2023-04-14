@@ -13,8 +13,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import PrivacyView from "@/views/PrivacyView.vue";
-import useStore from "@/services/store";
+import PrivacyView from "../../../views/PrivacyView.vue";
+import useStore from "../../../services/store";
 
 export default defineComponent({
   setup() {
