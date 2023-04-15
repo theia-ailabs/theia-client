@@ -59,9 +59,22 @@ export default defineComponent({
             >
               x
             </button>
-            <p class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
+            <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
               CUSTOMIZE THEIA
+            </h1>
+            <p class="mt-14 text-xs sm:text-sm text-gray-400 animate-pulse">
+              AI NAME
             </p>
+            <div class="flex justify-center w-full px-4">
+              <input
+                trype="text"
+                id="ainame"
+                key="ainame"
+                placeholder="Theia"
+                v-model="store.username"
+                class="mt-4 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border border-purple-500 inner shadow-inner shadow-yellow-500/50 bg-transparent text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
+              />
+            </div>
             <div
               class="grid grid-cols-2 py-2 mx-2 sm:mx-4 md:mx-8 ml-2 sm:ml-4 md:ml-8 font-semibold text-gray-400 justify-center align-center align-middle"
             >
