@@ -1,7 +1,7 @@
 <script lang="ts">
 import useStore from "../../../services/store";
 import Color1Button from "./Color1Button.vue";
-import Color2Button from "./Color1Button.vue";
+import Color2Button from "./Color2Button.vue";
 
 export default {
   components: {

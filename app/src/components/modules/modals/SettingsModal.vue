@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, getCurrentInstance } from "vue";
 import Color1Button from "../buttons/Color1Button.vue";
 import Color2Button from "../buttons/Color2Button.vue";
 import useStore from "../../../services/store";
@@ -17,10 +17,17 @@ export default defineComponent({
     function signUp(): void {
       return;
     }
+    const rerenderComp = () => {
+      // ...
+      const instance: any = getCurrentInstance();
+      instance.proxy.forceUpdate();
+      // ...
+    };
     return {
       store,
       goBack,
       signUp,
+      rerenderComp,
     };
   },
 });
@@ -77,7 +84,7 @@ export default defineComponent({
               <router-link
                 to="/theia"
                 class="m-4 mt-8 w-24 max-w-24 p-3 rounded-3xl uppercase text-sm font-bold border border-gray-500 shadow-sm hover:shadow-yellow-500 hover:border-purple-600 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
-                @click="signUp()"
+                @click="[store.reRender(), (store.settingsModal = false)]"
               >
                 SAVE
               </router-link>

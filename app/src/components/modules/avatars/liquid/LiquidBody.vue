@@ -16,7 +16,7 @@ import useStore from "../../../../services/store";
 
 export default defineComponent({
   methods: {
-    methodThatForcesUpdate() {
+    rerenderComp() {
       this.$forceUpdate(); // Notice we have to use a $ here
     },
   },
@@ -135,7 +135,7 @@ export default defineComponent({
           child.material.type === "ShaderMaterial"
         ) {
           child.material.uniforms.uTime.value = TIME;
-          child.material.needsUpdate = true;
+          child.material.needsUpdate = false;
         }
       });
     }

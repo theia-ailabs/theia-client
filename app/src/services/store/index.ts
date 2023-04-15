@@ -1,3 +1,4 @@
+import { getCurrentInstance } from "vue";
 import { defineStore } from "pinia";
 import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
 import { getDate, getTime } from "../../utils";
@@ -45,9 +46,10 @@ const useStore = defineStore("main", {
       emoji: "",
       showChat: true,
       showMenu: false,
+      rerenderKey: 0,
       // modals
       loginModal: false,
-      settingsModal: true,
+      settingsModal: false,
       // avatar
       vecColor1: "vec3(1, 0, 0.5)",
       vecColor2: "vec3(1, 0.5, 0)",
@@ -72,6 +74,10 @@ const useStore = defineStore("main", {
   actions: {
     connect(): void {
       this.connected = true;
+    },
+    reRender(): void {
+      console.log("Rerendering...");
+      this.rerenderKey++;
     },
     inputMessage(): void {
       askTheia(this.input);
@@ -102,9 +108,6 @@ const useStore = defineStore("main", {
     },
     scrollTop(): void {
       window.scrollTo(document.body.scrollHeight, 0);
-    },
-    avatarColor(color: string): void {
-      this.vecColor1 = "vec3(90.0/255.0, 0.5, 155.0/255.0)"; // vecColors[color];
     },
     switchShowChat(): void {
       this.showChat = !this.showChat;
