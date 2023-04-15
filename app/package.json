@@ -30,6 +30,7 @@
     "dotenv-webpack": "^8.0.1",
     "fs": "^0.0.1-security",
     "gsap": "^3.11.5",
+    "imagesloaded": "^5.0.0",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "os": "^0.1.2",
     "path": "^0.12.7",

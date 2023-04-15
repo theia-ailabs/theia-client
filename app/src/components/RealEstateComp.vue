@@ -100,6 +100,273 @@
 </div>
 </template>
 <script lang="ts">
+import { gsap } from 'gsap';
+import imagesLoaded from 'imagesloaded';
+
+export default {
+  data() {
+    return {
+      buttons: {
+        prev: null,
+        next: null,
+      },
+      cardsContainerEl: null,
+      appBgContainerEl: null,
+      cardInfosContainerEl: null,
+    };
+  },
+  mounted() {
+    this.initializeElements();
+    this.initEventListeners();
+    this.waitForImages();
+  },
+  methods: {
+    initializeElements() {
+      this.buttons.prev = this.$el.querySelector('.btn--left');
+      this.buttons.next = this.$el.querySelector('.btn--right');
+      this.cardsContainerEl = this.$el.querySelector('.cards__wrapper');
+      this.appBgContainerEl = this.$el.querySelector('.app__bg');
+      this.cardInfosContainerEl = this.$el.querySelector('.info__wrapper');
+    },
+    initEventListeners() {
+      this.$el.buttons.next.addEventListener('click', () => this.swapCards('right'));
+      this.$el.buttons.prev.addEventListener('click', () => this.swapCards('left'));
+    },
+    swapCards(direction: any) {
+        const currentCardEl = this.$el.cardsContainerEl.querySelector(".current--card");
+	    const previousCardEl = this.$el.cardsContainerEl.querySelector(".previous--card");
+	const nextCardEl = this.$el.cardsContainerEl.querySelector(".next--card");
+
+	const currentBgImageEl = this.$el.appBgContainerEl.querySelector(".current--image");
+	const previousBgImageEl = this.$el.appBgContainerEl.querySelector(".previous--image");
+	const nextBgImageEl = this.$el..querySelector(".next--image");
+
+	this.changeInfo(direction);
+	swapCardsClass();
+
+	this.removeCardEvents(currentCardEl);
+
+    function swapCardsClass() {
+		currentCardEl.classList.remove("current--card");
+		previousCardEl.classList.remove("previous--card");
+		nextCardEl.classList.remove("next--card");
+
+		currentBgImageEl.classList.remove("current--image");
+		previousBgImageEl.classList.remove("previous--image");
+		nextBgImageEl.classList.remove("next--image");
+
+		currentCardEl.style.zIndex = "50";
+		currentBgImageEl.style.zIndex = "-2";
+
+		if (direction === "right") {
+			previousCardEl.style.zIndex = "20";
+			nextCardEl.style.zIndex = "30";
+
+			nextBgImageEl.style.zIndex = "-1";
+
+			currentCardEl.classList.add("previous--card");
+			previousCardEl.classList.add("next--card");
+			nextCardEl.classList.add("current--card");
+
+			currentBgImageEl.classList.add("previous--image");
+			previousBgImageEl.classList.add("next--image");
+			nextBgImageEl.classList.add("current--image");
+		} else if (direction === "left") {
+			previousCardEl.style.zIndex = "30";
+			nextCardEl.style.zIndex = "20";
+
+			previousBgImageEl.style.zIndex = "-1";
+
+			currentCardEl.classList.add("next--card");
+			previousCardEl.classList.add("current--card");
+			nextCardEl.classList.add("previous--card");
+
+			currentBgImageEl.classList.add("next--image");
+			previousBgImageEl.classList.add("current--image");
+			nextBgImageEl.classList.add("previous--image");
+		}
+	}
+    },
+
+  changeInfo(direction: any) {
+    let currentInfoEl = this.$el.cardInfosContainerEl.querySelector(".current--info");
+	let previousInfoEl = this.$el.cardInfosContainerEl.querySelector(".previous--info");
+	let nextInfoEl = this.$el.cardInfosContainerEl.querySelector(".next--info");
+
+	gsap.timeline()
+		.to([this.buttons.prev, this.buttons.next], {
+		duration: 0.2,
+		opacity: 0.5,
+		pointerEvents: "none",
+	})
+		.to(
+		currentInfoEl.querySelectorAll(".text"),
+		{
+			duration: 0.4,
+			stagger: 0.1,
+			translateY: "-120px",
+			opacity: 0,
+		},
+		"-="
+	)
+		.call(() => {
+		swapInfosClass();
+	})
+		.call(() => this.initCardEvents())
+		.fromTo(
+		direction === "right"
+		? nextInfoEl.querySelectorAll(".text")
+		: previousInfoEl.querySelectorAll(".text"),
+		{
+			opacity: 0,
+			translateY: "40px",
+		},
+		{
+			duration: 0.4,
+			stagger: 0.1,
+			translateY: "0px",
+			opacity: 1,
+		}
+	)
+		.to([this.buttons.prev, this.buttons.next], {
+		duration: 0.2,
+		opacity: 1,
+		pointerEvents: "all",
+	});
+
+        function swapInfosClass() {
+		currentInfoEl.classList.remove("current--info");
+		previousInfoEl.classList.remove("previous--info");
+		nextInfoEl.classList.remove("next--info");
+
+		if (direction === "right") {
+			currentInfoEl.classList.add("previous--info");
+			nextInfoEl.classList.add("current--info");
+			previousInfoEl.classList.add("next--info");
+		} else if (direction === "left") {
+			currentInfoEl.classList.add("next--info");
+			nextInfoEl.classList.add("previous--info");
+			previousInfoEl.classList.add("current--info");
+		}
+	}
+  },
+
+  updateCard(e: any) {
+    const card = e.currentTarget;
+	const box = card.getBoundingClientRect();
+	const centerPosition = {
+		x: box.left + box.width / 2,
+		y: box.top + box.height / 2,
+	};
+	let angle = Math.atan2(e.pageX - centerPosition.x, 0) * (35 / Math.PI);
+	gsap.set(card, {
+		"--current-card-rotation-offset": `${angle}deg`,
+	});
+	const currentInfoEl = this.$el.cardInfosContainerEl.querySelector(".current--info");
+	gsap.set(currentInfoEl, {
+		rotateY: `${angle}deg`,
+	});
+  },
+
+  resetCardTransforms(e: any) {
+    const card = e.currentTarget;
+	const currentInfoEl = this.$el.cardInfosContainerEl.querySelector(".current--info");
+	gsap.set(card, {
+		"--current-card-rotation-offset": 0,
+	});
+	gsap.set(currentInfoEl, {
+		rotateY: 0,
+	});
+  },
+
+  initCardEvents() {
+    const currentCardEl = this.$el.cardsContainerEl.querySelector(".current--card");
+	currentCardEl.addEventListener("pointermove", this.updateCard);
+	currentCardEl.addEventListener("pointerout", (e: any) => {
+		this.resetCardTransforms(e);
+	});
+  },
+
+  removeCardEvents(card: any) {
+    card.removeEventListener("pointermove", this.updateCard);
+  },
+
+  init() {
+    let tl = gsap.timeline();
+
+	tl.to(this.$el.cardsContainerEl.children, {
+		delay: 0.15,
+		duration: 0.5,
+		stagger: {
+			ease: "power4.inOut",
+			from: "end",
+			amount: 0.1,
+		},
+		"--card-translateY-offset": "0%",
+	})
+		.to(this.$el.cardInfosContainerEl.querySelector(".current--info").querySelectorAll(".text"), {
+		delay: 0.5,
+		duration: 0.4,
+		stagger: 0.1,
+		opacity: 1,
+		translateY: 0,
+	})
+		.to(
+		[this.buttons.prev, this.buttons.next],
+		{
+			duration: 0.4,
+			opacity: 1,
+			pointerEvents: "all",
+		},
+		"-=0.4"
+	);
+  },
+
+  waitForImages() {
+    const images = [...document.querySelectorAll("img")];
+	const totalImages = images.length;
+	let loadedImages = 0;
+	const loaderEl = document.querySelector(".loader span");
+
+	gsap.set(this.$el.cardsContainerEl.children, {
+		"--card-translateY-offset": "100vh",
+	});
+	gsap.set(this.$el.cardInfosContainerEl.querySelector(".current--info").querySelectorAll(".text"), {
+		translateY: "40px",
+		opacity: 0,
+	});
+	gsap.set([this.buttons.prev, this.buttons.next], {
+		pointerEvents: "none",
+		opacity: "0",
+	});
+
+	images.forEach((image) => {
+		imagesLoaded(image, (instance: any) => {
+			if (instance.isComplete) {
+				loadedImages++;
+				let loadProgress = loadedImages / totalImages;
+
+				gsap.to(loaderEl, {
+					duration: 1,
+					scaleX: loadProgress,
+					backgroundColor: `hsl(${loadProgress * 120}, 100%, 50%`,
+				});
+
+				if (totalImages == loadedImages) {
+					gsap.timeline()
+						.to(".loading__wrapper", {
+						duration: 0.8,
+						opacity: 0,
+						pointerEvents: "none",
+					})
+						.call(() => this.init());
+				}
+			}
+		});
+	});
+  },
+  },
+};
 </script>
 <style scoped>
     @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
