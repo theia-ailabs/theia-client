@@ -50,7 +50,13 @@ export default {
         <!-- Dark mode -->
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setPrimaryColor('white/90'), store.setHeart('🤍')]"
+          @click="
+            [
+              store.setPrimaryColor('white/90'),
+              store.setHeart('🤍'),
+              changeVecColor('white/90'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -62,7 +68,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setPrimaryColor('white/60'), store.setHeart('🤍')]"
+          @click="
+            [
+              store.setPrimaryColor('white/60'),
+              store.setHeart('🤍'),
+              changeVecColor('white/60'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -74,7 +86,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setPrimaryColor('white/20'), store.setHeart('🤍')]"
+          @click="
+            [
+              store.setPrimaryColor('white/20'),
+              store.setHeart('🤍'),
+              changeVecColor('white/20'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -88,7 +106,13 @@ export default {
         <div class="flex" v-if="!store.dark">
           <button
             class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-            @click="[store.setPrimaryColor('black/90'), store.setHeart('🖤')]"
+            @click="
+              [
+                store.setPrimaryColor('black/90'),
+                store.setHeart('🖤'),
+                changeVecColor('black/90'),
+              ]
+            "
             :class="
               store.dark
                 ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -99,7 +123,13 @@ export default {
           </button>
           <button
             class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-            @click="[store.setPrimaryColor('black/60'), store.setHeart('🖤')]"
+            @click="
+              [
+                store.setPrimaryColor('black/60'),
+                store.setHeart('🖤'),
+                changeVecColor('black/60'),
+              ]
+            "
             :class="
               store.dark
                 ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -110,7 +140,13 @@ export default {
           </button>
           <button
             class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-            @click="[store.setPrimaryColor('black/20'), store.setHeart('🖤')]"
+            @click="
+              [
+                store.setPrimaryColor('black/20'),
+                store.setHeart('🖤'),
+                changeVecColor('black/90'),
+              ]
+            "
             :class="
               store.dark
                 ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -227,7 +263,13 @@ export default {
         <!-- Blue colors -->
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setPrimaryColor('blue-500'), store.setHeart('💙')]"
+          @click="
+            [
+              store.setPrimaryColor('blue-500'),
+              store.setHeart('💙'),
+              changeVecColor('blue-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -238,7 +280,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setPrimaryColor('sky-500'), store.setHeart('💙')]"
+          @click="
+            [
+              store.setPrimaryColor('sky-500'),
+              store.setHeart('💙'),
+              changeVecColor('blue-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -249,7 +297,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setPrimaryColor('cyan-500'), store.setHeart('💙')]"
+          @click="
+            [
+              store.setPrimaryColor('cyan-500'),
+              store.setHeart('💙'),
+              changeVecColor('cyan-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -261,7 +315,13 @@ export default {
         <!-- Pink colors -->
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setPrimaryColor('purple-500'), store.setHeart('💜')]"
+          @click="
+            [
+              store.setPrimaryColor('purple-500'),
+              store.setHeart('💜'),
+              changeVecColor('purple-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -272,7 +332,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setPrimaryColor('fuchsia-500'), store.setHeart('💜')]"
+          @click="
+            [
+              store.setPrimaryColor('fuchsia-500'),
+              store.setHeart('💜'),
+              changeVecColor('fuchsia-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -283,7 +349,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setPrimaryColor('pink-500'), store.setHeart('💗')]"
+          @click="
+            [
+              store.setPrimaryColor('pink-500'),
+              store.setHeart('💗'),
+              changeVecColor('pink-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'

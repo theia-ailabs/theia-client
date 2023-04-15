@@ -1,16 +1,15 @@
 <script lang="ts">
-import { getCurrentInstance } from "vue";
+import { vecColors } from "../../../constants";
 import useStore from "../../../services/store";
 
 export default {
   setup() {
     const store = useStore();
-    const reRender = () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const instance: any = getCurrentInstance();
-      instance.proxy.forceUpdate();
+    const changeVecColor = (color: string) => {
+      store.vecColor2 = vecColors[color as keyof typeof vecColors];
+      store.reRender();
     };
-    return { store, reRender };
+    return { store, changeVecColor };
   },
   data() {
     return {
@@ -51,7 +50,13 @@ export default {
         <!-- Dark mode -->
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('white/90'), store.setHeart('🤍')]"
+          @click="
+            [
+              store.setSecondaryColor('white/90'),
+              store.setHeart('🤍'),
+              changeVecColor('white/90'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -63,7 +68,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('white/60'), store.setHeart('🤍')]"
+          @click="
+            [
+              store.setSecondaryColor('white/60'),
+              store.setHeart('🤍'),
+              changeVecColor('white/60'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -75,7 +86,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('white/20'), store.setHeart('🤍')]"
+          @click="
+            [
+              store.setSecondaryColor('white/20'),
+              store.setHeart('🤍'),
+              changeVecColor('white/20'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -89,7 +106,13 @@ export default {
         <div class="flex" v-if="!store.dark">
           <button
             class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-            @click="[store.setSecondaryColor('black/90'), store.setHeart('🖤')]"
+            @click="
+              [
+                store.setSecondaryColor('black/90'),
+                store.setHeart('🖤'),
+                changeVecColor('black/90'),
+              ]
+            "
             :class="
               store.dark
                 ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -100,7 +123,13 @@ export default {
           </button>
           <button
             class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-            @click="[store.setSecondaryColor('black/60'), store.setHeart('🖤')]"
+            @click="
+              [
+                store.setSecondaryColor('black/60'),
+                store.setHeart('🖤'),
+                changeVecColor('black/60'),
+              ]
+            "
             :class="
               store.dark
                 ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -111,7 +140,13 @@ export default {
           </button>
           <button
             class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-            @click="[store.setSecondaryColor('black/20'), store.setHeart('🖤')]"
+            @click="
+              [
+                store.setSecondaryColor('black/20'),
+                store.setHeart('🖤'),
+                changeVecColor('black/90'),
+              ]
+            "
             :class="
               store.dark
                 ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -128,8 +163,7 @@ export default {
             [
               store.setSecondaryColor('red-500'),
               store.setHeart('❤️'),
-              store.avatarColor('blue'),
-              reRender(),
+              changeVecColor('red-500'),
             ]
           "
           :class="
@@ -142,7 +176,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('orange-500'), store.setHeart('🧡')]"
+          @click="
+            [
+              store.setSecondaryColor('orange-500'),
+              store.setHeart('🧡'),
+              changeVecColor('orange-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -153,7 +193,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('yellow-500'), store.setHeart('💛')]"
+          @click="
+            [
+              store.setSecondaryColor('yellow-500'),
+              store.setHeart('💛'),
+              changeVecColor('yellow-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -165,7 +211,13 @@ export default {
         <!-- Green colors -->
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('green-500'), store.setHeart('💚')]"
+          @click="
+            [
+              store.setSecondaryColor('green-500'),
+              store.setHeart('💚'),
+              changeVecColor('green-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -176,7 +228,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('lime-500'), store.setHeart('💚')]"
+          @click="
+            [
+              store.setSecondaryColor('lime-500'),
+              store.setHeart('💚'),
+              changeVecColor('lime-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -188,7 +246,11 @@ export default {
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
           @click="
-            [store.setSecondaryColor('emerald-500'), store.setHeart('💚')]
+            [
+              store.setSecondaryColor('emerald-500'),
+              store.setHeart('💚'),
+              changeVecColor('emerald-500'),
+            ]
           "
           :class="
             store.dark
@@ -201,7 +263,13 @@ export default {
         <!-- Blue colors -->
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('blue-500'), store.setHeart('💙')]"
+          @click="
+            [
+              store.setSecondaryColor('blue-500'),
+              store.setHeart('💙'),
+              changeVecColor('blue-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -212,7 +280,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('sky-500'), store.setHeart('💙')]"
+          @click="
+            [
+              store.setSecondaryColor('sky-500'),
+              store.setHeart('💙'),
+              changeVecColor('blue-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -223,7 +297,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('cyan-500'), store.setHeart('💙')]"
+          @click="
+            [
+              store.setSecondaryColor('cyan-500'),
+              store.setHeart('💙'),
+              changeVecColor('cyan-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -235,7 +315,13 @@ export default {
         <!-- Pink colors -->
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('purple-500'), store.setHeart('💜')]"
+          @click="
+            [
+              store.setSecondaryColor('purple-500'),
+              store.setHeart('💜'),
+              changeVecColor('purple-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
@@ -247,7 +333,11 @@ export default {
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
           @click="
-            [store.setSecondaryColor('fuchsia-500'), store.setHeart('💜')]
+            [
+              store.setSecondaryColor('fuchsia-500'),
+              store.setHeart('💜'),
+              changeVecColor('fuchsia-500'),
+            ]
           "
           :class="
             store.dark
@@ -259,7 +349,13 @@ export default {
         </button>
         <button
           class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-          @click="[store.setSecondaryColor('pink-500'), store.setHeart('💗')]"
+          @click="
+            [
+              store.setSecondaryColor('pink-500'),
+              store.setHeart('💗'),
+              changeVecColor('pink-500'),
+            ]
+          "
           :class="
             store.dark
               ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
