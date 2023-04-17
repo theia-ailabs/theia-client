@@ -1,9 +1,7 @@
-import { getCurrentInstance } from "vue";
 import { defineStore } from "pinia";
 import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
 import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
-import { vecColors } from "../../constants";
 
 const useStore = defineStore("main", {
   state: (): State => {
@@ -41,19 +39,38 @@ const useStore = defineStore("main", {
       sound: true,
       primaryColor: "purple-500",
       secondaryColor: "yellow-500",
-      colorsSplit: 0.2,
       heart: "💙",
       emoji: "",
       showChat: true,
       showMenu: false,
       rerenderKey: 0,
+      // 3d avatar
+      avatarConfig: {
+        vecColor1: "vec3(0.7, 0, 1)",
+        vecColor2: "vec3(0.89, 0.6, 0)",
+        colorDir: "z",
+        colorsSplit: 0.2,
+        sphere: {
+          x: 23,
+          y: 300,
+          z: 300,
+        },
+        position: {
+          x: 0,
+          y: 150,
+          z: 150,
+        },
+        energy: {
+          x: 1.5,
+          y: 1,
+          z: 0.1,
+        },
+        speed: 5,
+        transparent: false,
+      },
       // modals
       loginModal: false,
       settingsModal: false,
-      // avatar
-      vecColor1: "vec3(0.7, 0, 1)",
-      vecColor2: "vec3(0.89, 0.6, 0)",
-      colorDir: "z",
       // signup
       welcome: false,
       newUser: false,

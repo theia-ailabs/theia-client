@@ -1,5 +1,4 @@
 import "./services/web/registerServiceWorker";
-import "./assets/css/style.css";
 import "./assets/css/tailwind.css";
 import "./assets/css/wallets.css";
 import { createApp } from "vue";

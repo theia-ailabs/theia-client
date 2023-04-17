@@ -1,9 +1,6 @@
 <template>
-  <div class="bg-blue-500">
-    <div class="ai-body border-none"></div>
-  </div>
+  <div id="canvas" class="bg-blue-500" @mouseup="updateCoordinates"></div>
 </template>
-<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
 import * as THREE from "three";
@@ -14,11 +11,6 @@ import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPa
 import useStore from "../../../../services/store";
 
 export default defineComponent({
-  methods: {
-    rerenderComp() {
-      this.$forceUpdate(); // Notice we have to use a $ here
-    },
-  },
   setup() {
     const store = useStore();
     let SCENE: THREE.Scene;
@@ -27,6 +19,15 @@ export default defineComponent({
     let CONTROLS: OrbitControls;
     let COMPOSER: EffectComposer;
     let TIME = 10; // Let it be non zero at star
+    let CANVAS: HTMLCanvasElement;
+
+    // Render 3D
+    onMounted(() => {
+      CANVAS = document.querySelector("#canvas") as HTMLCanvasElement;
+      if (CANVAS) {
+        CANVAS.appendChild(RENDERER.domElement);
+      }
+    });
 
     main();
 
@@ -43,45 +44,41 @@ export default defineComponent({
       initControls();
       initEventListeners();
       createObjects();
-      // Render 3D
-      onMounted(() => {
-        const container = document.querySelector(".ai-body") as HTMLElement;
-        if (container) {
-          container.appendChild(RENDERER.domElement);
-        }
-      });
     }
 
     function initScene() {
       SCENE = new THREE.Scene();
-      SCENE.background = null;
+      // SCENE.background = new THREE.Color(0);
       initLights();
     }
 
     function initLights() {
-      const point = new THREE.PointLight(0xffffff, 1, 0);
-      point.position.set(255, 255, 255);
-      SCENE.add(point);
+      const light = new THREE.PointLight(0xffffff, 1, 100);
+      light.position.set(0, 0, 0);
+      SCENE.add(light);
+      const light2 = new THREE.PointLight(0xffffff, 1);
+      light2.position.set(-70, -150, -150);
+      SCENE.add(light2);
     }
 
     function initCamera() {
       CAMERA = new THREE.PerspectiveCamera(
         45,
         window.innerWidth / window.innerHeight,
-        1,
+        100,
         2000
       );
-      CAMERA.position.y = 150;
-      CAMERA.position.z = 150;
+      CAMERA.position.x = store.avatarConfig.position.x;
+      CAMERA.position.y = store.avatarConfig.position.y;
+      CAMERA.position.z = store.avatarConfig.position.z;
     }
 
     function initRenderer() {
       RENDERER = new THREE.WebGLRenderer({ alpha: true });
+      RENDERER.setClearColor(0x000000, 0);
       RENDERER.setPixelRatio(window.devicePixelRatio);
       RENDERER.setSize(window.innerWidth, window.innerHeight);
       RENDERER.shadowMap.enabled = true;
-      // const bgColor = 0xffffff;
-      // RENDERER.setClearColor(0xffffff, 1); // set background color to black with alpha 0
     }
 
     function initComposer() {
@@ -91,9 +88,9 @@ export default defineComponent({
       COMPOSER.addPass(renderPass);
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
-        1.5,
-        1,
-        0.1
+        store.avatarConfig.energy.x,
+        store.avatarConfig.energy.y,
+        store.avatarConfig.energy.z
       );
       bloomPass.renderToScreen = true;
       COMPOSER.addPass(bloomPass);
@@ -122,12 +119,13 @@ export default defineComponent({
     function animate() {
       requestAnimationFrame(animate);
       CONTROLS.update();
-      TIME += 0.005;
+      TIME += store.avatarConfig.speed / 1000;
       updateUniforms();
       render();
     }
 
     function updateUniforms() {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       SCENE.traverse(function (child: any) {
         if (
           child instanceof THREE.Mesh &&
@@ -145,21 +143,25 @@ export default defineComponent({
     }
 
     function createObjects() {
-      let geometry = new THREE.SphereGeometry(23, 300, 300);
+      let geometry = new THREE.SphereGeometry(
+        store.avatarConfig.sphere.x,
+        store.avatarConfig.sphere.y,
+        store.avatarConfig.sphere.z
+      );
       const modelColors = ref(`
         uniform float uTime;
         varying vec3 vNormal;
         void main() {
-          vec3 color1 = ${store.vecColor1};
-          vec3 color2 = ${store.vecColor2};
-          gl_FragColor = vec4(mix(color1, color2, vNormal.${store.colorDir}), ${store.colorsSplit});
+          vec3 color1 = ${store.avatarConfig.vecColor1};
+          vec3 color2 = ${store.avatarConfig.vecColor2};
+          gl_FragColor = vec4(mix(color1, color2, vNormal.${store.avatarConfig.colorDir}), ${store.avatarConfig.colorsSplit});
         }
       `);
       const shaderMaterial = new THREE.ShaderMaterial({
         uniforms: {
           uTime: { value: TIME },
         },
-        transparent: true,
+        transparent: store.avatarConfig.transparent,
         side: THREE.DoubleSide,
         vertexShader: `
             uniform float uTime;     
@@ -175,16 +177,15 @@ export default defineComponent({
       const sphere = new THREE.Mesh(geometry, shaderMaterial);
       SCENE.add(sphere);
     }
+
+    function updateCoordinates() {
+      store.avatarConfig.position = CAMERA.position;
+      console.log(store.avatarConfig.position);
+    }
+
+    return {
+      updateCoordinates,
+    };
   },
 });
 </script>
-<style scoped>
-.ai-body {
-  background: transparent !important;
-  background-color: transparent !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999 !important;
-}
-</style>

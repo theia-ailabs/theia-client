@@ -1,5 +1,5 @@
 <template>
-  <div class="z-40 fixed">
+  <div class="z-40 fixed bg-red-500">
     <LiquidBody :key="store.rerenderKey" />
   </div>
 </template>

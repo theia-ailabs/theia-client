@@ -32,15 +32,13 @@ export interface State {
   sound: boolean;
   primaryColor: string;
   secondaryColor: string;
-  vecColor1: string;
-  vecColor2: string;
-  colorDir: "x" | "y" | "z";
-  colorsSplit: number;
   heart: string;
   emoji: string;
   showChat: boolean;
   showMenu: boolean;
   rerenderKey: number;
+  // 3d avatar
+  avatarConfig: AvatarConfig;
   // modals
   loginModal: boolean;
   settingsModal: boolean;
@@ -59,6 +57,24 @@ export interface State {
   telegram: boolean;
   solana: boolean;
   ethereum: boolean;
+}
+
+export interface Vector3 {
+  x: number;
+  y: number;
+  z: number;
+}
+
+export interface AvatarConfig {
+  vecColor1: string;
+  vecColor2: string;
+  colorDir: "x" | "y" | "z";
+  colorsSplit: number;
+  sphere: Vector3;
+  position: Vector3;
+  energy: Vector3;
+  speed: number;
+  transparent: boolean;
 }
 
 export interface ChatRecord {
