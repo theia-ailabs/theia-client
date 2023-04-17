@@ -48,8 +48,3 @@ export default {
     </div>
   </div>
 </template>
-<!-- <style scoped>
-.z-90 {
-  z-index: 90 !important;
-}
-</style> -->
