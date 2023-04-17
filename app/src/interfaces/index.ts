@@ -121,3 +121,12 @@ export interface UsersFlags {
   pubkey: string;
   flag: string;
 }
+
+export interface RealEstate {
+  img: string;
+  title: string;
+  price: number;
+  address: string;
+  particular: boolean;
+  type: string;
+}
