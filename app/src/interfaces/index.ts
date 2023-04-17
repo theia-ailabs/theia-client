@@ -46,17 +46,8 @@ export interface State {
   welcome: boolean;
   newUser: boolean;
   usernameAv: boolean;
-  // menu
-  google: boolean;
-  apple: boolean;
-  twitter: boolean;
-  instagram: boolean;
-  spotify: boolean;
-  youtube: boolean;
-  whatsapp: boolean;
-  telegram: boolean;
-  solana: boolean;
-  ethereum: boolean;
+  // menus
+  connections: SocialConnections;
 }
 
 export interface Vector3 {
@@ -73,8 +64,22 @@ export interface AvatarConfig {
   sphere: Vector3;
   position: Vector3;
   energy: Vector3;
+  vertex: Vector3;
   speed: number;
   transparent: boolean;
+}
+
+export interface SocialConnections {
+  google: boolean;
+  apple: boolean;
+  twitter: boolean;
+  instagram: boolean;
+  spotify: boolean;
+  youtube: boolean;
+  whatsapp: boolean;
+  telegram: boolean;
+  solana: boolean;
+  ethereum: boolean;
 }
 
 export interface ChatRecord {

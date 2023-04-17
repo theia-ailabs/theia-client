@@ -1,5 +1,7 @@
 <template>
-  <div id="canvas" class="bg-blue-500" @mouseup="updateCoordinates"></div>
+  <div class="bg-green-500 w-screen h-screen">
+    <div id="canvas" class="bg-blue-500" @mouseup="updateCoordinates"></div>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
@@ -38,6 +40,7 @@ export default defineComponent({
 
     function init() {
       initScene();
+      initLights();
       initCamera();
       initRenderer();
       initComposer();
@@ -49,16 +52,14 @@ export default defineComponent({
     function initScene() {
       SCENE = new THREE.Scene();
       // SCENE.background = new THREE.Color(0);
-      initLights();
     }
 
     function initLights() {
-      const light = new THREE.PointLight(0xffffff, 1, 100);
-      light.position.set(0, 0, 0);
-      SCENE.add(light);
-      const light2 = new THREE.PointLight(0xffffff, 1);
-      light2.position.set(-70, -150, -150);
-      SCENE.add(light2);
+      // const light = new THREE.PointLight(0xffffff, 1, 100);
+      // light.position.set(255, 255, 255);
+      // const ambientLight = new THREE.AmbientLight(0xffffff, 0);
+      // SCENE.add(ambientLight);
+      // SCENE.add(light);
     }
 
     function initCamera() {
@@ -75,7 +76,7 @@ export default defineComponent({
 
     function initRenderer() {
       RENDERER = new THREE.WebGLRenderer({ alpha: true });
-      RENDERER.setClearColor(0x000000, 0);
+      RENDERER.setClearColor(0x0000, 0);
       RENDERER.setPixelRatio(window.devicePixelRatio);
       RENDERER.setSize(window.innerWidth, window.innerHeight);
       RENDERER.shadowMap.enabled = true;
@@ -157,21 +158,22 @@ export default defineComponent({
           gl_FragColor = vec4(mix(color1, color2, vNormal.${store.avatarConfig.colorDir}), ${store.avatarConfig.colorsSplit});
         }
       `);
+      const vertex = ref(`
+        uniform float uTime;     
+        varying vec3 vNormal;
+        void main() {
+            vNormal = normal;
+            vec3 delta = ${store.avatarConfig.vertex.x}.0 * normal * sin(normal.x + normal.y * ${store.avatarConfig.vertex.y}.0 + normal.z + uTime * ${store.avatarConfig.vertex.z}.0);
+            vec3 newPosition = position + delta;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+        }`);
       const shaderMaterial = new THREE.ShaderMaterial({
         uniforms: {
           uTime: { value: TIME },
         },
         transparent: store.avatarConfig.transparent,
         side: THREE.DoubleSide,
-        vertexShader: `
-            uniform float uTime;     
-            varying vec3 vNormal;
-            void main() {
-                vNormal = normal;
-                vec3 delta = 10.0 * normal * sin(normal.x + normal.y * 10.0 + normal.z + uTime * 10.0);
-                vec3 newPosition = position + delta;
-                gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-            }`,
+        vertexShader: vertex.value,
         fragmentShader: modelColors.value,
       });
       const sphere = new THREE.Mesh(geometry, shaderMaterial);

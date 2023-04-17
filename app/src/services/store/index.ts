@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
 import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
+import { avatarConfigDefault, socialConnections } from "./default";
 
 const useStore = defineStore("main", {
   state: (): State => {
@@ -45,29 +46,7 @@ const useStore = defineStore("main", {
       showMenu: false,
       rerenderKey: 0,
       // 3d avatar
-      avatarConfig: {
-        vecColor1: "vec3(0.7, 0, 1)",
-        vecColor2: "vec3(0.89, 0.6, 0)",
-        colorDir: "z",
-        colorsSplit: 0.2,
-        sphere: {
-          x: 23,
-          y: 300,
-          z: 300,
-        },
-        position: {
-          x: 0,
-          y: 150,
-          z: 150,
-        },
-        energy: {
-          x: 1.5,
-          y: 1,
-          z: 0.1,
-        },
-        speed: 5,
-        transparent: false,
-      },
+      avatarConfig: avatarConfigDefault,
       // modals
       loginModal: false,
       settingsModal: false,
@@ -75,17 +54,8 @@ const useStore = defineStore("main", {
       welcome: false,
       newUser: false,
       usernameAv: false,
-      // menu
-      google: false,
-      apple: false,
-      twitter: false,
-      instagram: false,
-      spotify: false,
-      youtube: false,
-      whatsapp: false,
-      telegram: false,
-      solana: false,
-      ethereum: false,
+      // menus
+      connections: socialConnections,
     };
   },
   actions: {
