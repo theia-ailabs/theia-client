@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white">
-    <div class="ai-body bg-white border-none"></div>
+  <div class="bg-blue-500">
+    <div class="ai-body border-none"></div>
   </div>
 </template>
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
@@ -12,7 +12,6 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
 import useStore from "../../../../services/store";
-// import { vecC olors } from "../../../../constants";
 
 export default defineComponent({
   methods: {
@@ -55,13 +54,13 @@ export default defineComponent({
 
     function initScene() {
       SCENE = new THREE.Scene();
-      SCENE.background = new THREE.Color(0x000);
+      SCENE.background = null;
       initLights();
     }
 
     function initLights() {
       const point = new THREE.PointLight(0xffffff, 1, 0);
-      point.position.set(20, 255, 255);
+      point.position.set(255, 255, 255);
       SCENE.add(point);
     }
 
@@ -81,8 +80,8 @@ export default defineComponent({
       RENDERER.setPixelRatio(window.devicePixelRatio);
       RENDERER.setSize(window.innerWidth, window.innerHeight);
       RENDERER.shadowMap.enabled = true;
-      const bgColor = 0xffffff;
-      RENDERER.setClearColor(bgColor, 1); // set background color to black with alpha 0
+      // const bgColor = 0xffffff;
+      // RENDERER.setClearColor(0xffffff, 1); // set background color to black with alpha 0
     }
 
     function initComposer() {
@@ -181,8 +180,8 @@ export default defineComponent({
 </script>
 <style scoped>
 .ai-body {
-  background-color: #fff !important;
-  background: #fff !important;
+  background: transparent !important;
+  background-color: transparent !important;
   position: absolute;
   top: 0;
   left: 0;

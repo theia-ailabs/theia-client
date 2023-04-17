@@ -21,10 +21,10 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div>
+  <div :class="store.dark ? 'bg-black' : 'bg-white'">
     <div class="relative pl-2 pt-4 pb-8 mb-4 h-screen w-screen">
       <div class="z-50" v-if="store.showChat">
-        <div class="z-30 absolute h-screen w-screen bg-red-500"></div>
+        <div class="z-30 absolute h-full w-screen"></div>
         <div
           class="z-50 relative flex flex-wrap align-top top-14"
           v-for="x in store.chat"
@@ -117,7 +117,7 @@ export default defineComponent({
 <style scoped>
 span:active {
   outline: none !important;
-  border: rgb(249, 17, 249) rple !important;
+  border: rgb(249, 17, 249) !important;
 }
 span:focus {
   outline: none !important;
