@@ -18,7 +18,7 @@ export const avatarConfigDefault: AvatarConfig = {
   energy: {
     x: 1.5,
     y: 1,
-    z: 5,
+    z: 0.8,
   },
   vertex: {
     x: 10,

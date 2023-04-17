@@ -38,8 +38,8 @@ export default defineComponent({
     <div :class="store.settingsModal ? 'block' : 'hidden'">
       <div
         ref="modal-backdrop"
-        id="signup-modal"
-        class="fixed inset-0 overflow-y-auto bg-opacity-50"
+        id="settings-modal"
+        class="fixed top-10 overflow-y-auto bg-opacity-50"
         :class="
           store.dark ? 'bg-gray-900 text-white/80' : 'bg-black/80 text-gray-700'
         "

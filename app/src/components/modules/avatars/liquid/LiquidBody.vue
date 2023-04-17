@@ -1,6 +1,9 @@
 <template>
-  <div class="bg-green-500 w-screen h-screen">
-    <div id="canvas" class="bg-blue-500" @mouseup="updateCoordinates"></div>
+  <div
+    class="w-screen h-screen"
+    :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
+  >
+    <div id="canvas" @mouseup="updateCoordinates"></div>
   </div>
 </template>
 <script lang="ts">
@@ -50,11 +53,11 @@ export default defineComponent({
     }
 
     function initLights() {
-      // const light = new THREE.PointLight(0xffffff, 1, 100);
-      // light.position.set(255, 255, 255);
-      // const ambientLight = new THREE.AmbientLight(0xffffff, 0);
-      // SCENE.add(ambientLight);
-      // SCENE.add(light);
+      const light = new THREE.PointLight(0xffffff, 1, 100);
+      light.position.set(255, 255, 255);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0);
+      SCENE.add(ambientLight);
+      SCENE.add(light);
     }
 
     function initCamera() {
@@ -181,6 +184,7 @@ export default defineComponent({
     }
 
     return {
+      store,
       updateCoordinates,
     };
   },
