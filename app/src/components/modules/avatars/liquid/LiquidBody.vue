@@ -25,18 +25,13 @@ export default defineComponent({
 
     // Render 3D
     onMounted(() => {
-      CANVAS = document.querySelector("#canvas") as HTMLCanvasElement;
-      if (CANVAS) {
-        CANVAS.appendChild(RENDERER.domElement);
-      }
-    });
-
-    main();
-
-    function main() {
       init();
       animate();
-    }
+      CANVAS = document.querySelector("#canvas") as HTMLCanvasElement;
+      if (CANVAS) {
+        CANVAS.append(RENDERER.domElement);
+      }
+    });
 
     function init() {
       initScene();
@@ -76,7 +71,7 @@ export default defineComponent({
 
     function initRenderer() {
       RENDERER = new THREE.WebGLRenderer({ alpha: true });
-      RENDERER.setClearColor(0x0000, 0);
+      RENDERER.setClearColor(0xffffff, store.avatarConfig.background);
       RENDERER.setPixelRatio(window.devicePixelRatio);
       RENDERER.setSize(window.innerWidth, window.innerHeight);
       RENDERER.shadowMap.enabled = true;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import useStore from "./store";
 declare let webkitSpeechRecognition: any;
 
@@ -6,10 +7,6 @@ export default class VoiceRec {
   stopRec = false;
   public textSound = "";
   tempWords!: string;
-
-  // constructor() {
-  //   this.init();
-  // }
 
   init() {
     const store = useStore();
@@ -23,6 +20,7 @@ export default class VoiceRec {
           .join("");
         this.tempWords = transcript;
         store.input = transcript;
+        console.log(transcript);
       }
     );
   }

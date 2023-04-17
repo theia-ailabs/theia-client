@@ -18,14 +18,15 @@ export const avatarConfigDefault: AvatarConfig = {
   energy: {
     x: 1.5,
     y: 1,
-    z: 0.1,
+    z: 5,
   },
   vertex: {
     x: 10,
     y: 10,
     z: 10,
   },
-  speed: 5,
+  background: 0.1, // 0 black 1 white
+  speed: 10,
   transparent: false,
 };
 

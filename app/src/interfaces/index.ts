@@ -66,6 +66,7 @@ export interface AvatarConfig {
   energy: Vector3;
   vertex: Vector3;
   speed: number;
+  background: number;
   transparent: boolean;
 }
 
