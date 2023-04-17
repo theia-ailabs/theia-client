@@ -11,23 +11,8 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
-    function goBack(): void {
-      store.connect();
-    }
-    function signUp(): void {
-      return;
-    }
-    const rerenderComp = () => {
-      // ...
-      const instance: any = getCurrentInstance();
-      instance.proxy.forceUpdate();
-      // ...
-    };
     return {
       store,
-      goBack,
-      signUp,
-      rerenderComp,
     };
   },
 });
@@ -39,19 +24,21 @@ export default defineComponent({
       <div
         ref="modal-backdrop"
         id="settings-modal"
-        class="fixed top-10 overflow-y-auto bg-opacity-50"
+        class="fixed inset-0 overflow-y-auto bg-opacity-50"
         :class="
           store.dark ? 'bg-gray-900 text-white/80' : 'bg-black/80 text-gray-700'
         "
       >
         <div class="flex items-center justify-center min-h-screen text-center">
           <div
-            class="absolute py-24 m-6 sm:w-1/3 rounded-xl text-center overflow-hidden border border-purple-500/50 shadow-inner shadow-yellow-500/50 p-8 flex flex-col justify-center"
-            :class="
+            class="absolute py-24 m-6 sm:w-1/3 rounded-xl text-center overflow-hidden border shadow-md p-8 flex flex-col justify-center"
+            :class="[
               store.dark
                 ? 'bg-black/70 text-gray-100'
-                : 'bg-white/70 text-gray-700'
-            "
+                : 'bg-white/70 text-gray-900',
+              `border-${store.primaryColor}`,
+              `shadow-${store.secondaryColor}`,
+            ]"
           >
             <button
               @click="store.settingsModal = false"
@@ -72,7 +59,14 @@ export default defineComponent({
                 key="ainame"
                 placeholder="Theia"
                 v-model="store.username"
-                class="mt-4 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border border-purple-500 inner shadow-inner shadow-yellow-500/50 bg-transparent text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
+                class="mt-4 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
+                :class="[
+                  store.dark
+                    ? 'bg-black/70 text-gray-100'
+                    : 'bg-white/70 text-gray-900',
+                  `border-${store.primaryColor}`,
+                  `shadow-${store.secondaryColor}`,
+                ]"
               />
             </div>
             <div
@@ -89,14 +83,30 @@ export default defineComponent({
             </div>
             <div class="flex w-full justify-center">
               <button
-                class="m-4 mt-8 w-24 max-w-24 p-3 rounded-3xl uppercase text-sm font-bold border border-gray-500 shadow-sm hover:shadow-yellow-500 hover:border-purple-600 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
+                class="m-4 mt-8 w-24 max-w-24 p-3 rounded-3xl uppercase text-sm font-bold border border-gray-500 shadow-sm text-transparent bg-clip-text bg-gradient-to-r"
+                :class="[
+                  store.dark
+                    ? 'bg-black/70 text-gray-100'
+                    : 'bg-white/70 text-gray-900',
+                  `hover:border-${store.primaryColor}`,
+                  `hover:shadow-${store.secondaryColor}`,
+                  `from-${store.primaryColor} to-${store.secondaryColor}`,
+                ]"
                 @click="store.settingsModal = false"
               >
                 CANCEL
               </button>
               <router-link
                 to="/theia"
-                class="m-4 mt-8 w-24 max-w-24 p-3 rounded-3xl uppercase text-sm font-bold border border-gray-500 shadow-sm hover:shadow-yellow-500 hover:border-purple-600 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-400"
+                class="m-4 mt-8 w-24 max-w-24 p-3 rounded-3xl uppercase text-sm font-bold border border-gray-500 shadow-sm text-transparent bg-clip-text bg-gradient-to-r"
+                :class="[
+                  store.dark
+                    ? 'bg-black/70 text-gray-100'
+                    : 'bg-white/70 text-gray-900',
+                  `hover:border-${store.primaryColor}`,
+                  `hover:shadow-${store.secondaryColor}`,
+                  `from-${store.primaryColor} to-${store.secondaryColor}`,
+                ]"
                 @click="[store.reRender(), (store.settingsModal = false)]"
               >
                 SAVE
@@ -115,7 +125,7 @@ input:focus {
 input:active {
   border: none !important;
 }
-#signup-modal {
+#settings-modal {
   z-index: 9999 !important;
 }
 </style>
