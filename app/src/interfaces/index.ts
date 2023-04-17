@@ -121,3 +121,14 @@ export interface UsersFlags {
   pubkey: string;
   flag: string;
 }
+
+type Tipo = "alquiler" | "venta";
+
+export interface RealEstate {
+  img: string;
+  title: string;
+  price: number;
+  address: string;
+  particular: boolean;
+  tipo: Tipo;
+}
