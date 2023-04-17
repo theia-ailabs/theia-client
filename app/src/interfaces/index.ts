@@ -122,11 +122,13 @@ export interface UsersFlags {
   flag: string;
 }
 
+type Tipo = "alquiler" | "venta";
+
 export interface RealEstate {
   img: string;
   title: string;
   price: number;
   address: string;
   particular: boolean;
-  type: string;
+  tipo: Tipo;
 }
