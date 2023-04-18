@@ -2,10 +2,20 @@ import { AvatarSettings, SocialConnections } from "../../interfaces";
 
 export const avatarSettings: AvatarSettings = {
   listening: {
-    vecColor1: "vec3(0.7, 0, 1)",
-    vecColor2: "vec3(0.89, 0.6, 0)",
+    color1: {
+      x: 0.7,
+      y: 0,
+      z: 1,
+    },
+    color2: {
+      x: 0.89,
+      y: 0.6,
+      z: 0,
+    },
+    vecColor1: "",
+    vecColor2: "",
     colorDir: "z",
-    colorSplit: 0.2,
+    colorSplit: 0.5,
     sphere: {
       x: 23,
       y: 300,
@@ -31,6 +41,16 @@ export const avatarSettings: AvatarSettings = {
     background: 0.1, // 0 black 1 white
   },
   thinking: {
+    color1: {
+      x: 0.7,
+      y: 0,
+      z: 1,
+    },
+    color2: {
+      x: 0.89,
+      y: 0.6,
+      z: 0,
+    },
     vecColor1: "vec3(0.7, 0, 1)",
     vecColor2: "vec3(0.89, 0.6, 0)",
     colorDir: "x",
@@ -60,6 +80,16 @@ export const avatarSettings: AvatarSettings = {
     background: 0.1, // 0 black 1 white
   },
   talking: {
+    color1: {
+      x: 0.7,
+      y: 0,
+      z: 1,
+    },
+    color2: {
+      x: 0.89,
+      y: 0.6,
+      z: 0,
+    },
     vecColor1: "vec3(0.7, 0, 1)",
     vecColor2: "vec3(0.89, 0.6, 0)",
     colorDir: "z",
@@ -89,6 +119,16 @@ export const avatarSettings: AvatarSettings = {
     background: 0.1, // 0 black 1 white
   },
   sleeping: {
+    color1: {
+      x: 0.7,
+      y: 0,
+      z: 1,
+    },
+    color2: {
+      x: 0.89,
+      y: 0.6,
+      z: 0,
+    },
     vecColor1: "vec3(0.7, 0, 1)",
     vecColor2: "vec3(0.89, 0.6, 0)",
     colorDir: "z",
@@ -118,6 +158,14 @@ export const avatarSettings: AvatarSettings = {
     background: 0.1, // 0 black 1 white
   },
 };
+avatarSettings.listening.vecColor1 = `vec3(
+  ${avatarSettings.listening.color1.x},
+  ${avatarSettings.listening.color1.y},
+  ${avatarSettings.listening.color1.z})`;
+avatarSettings.listening.vecColor2 = `vec3(
+  ${avatarSettings.listening.color2.x},
+  ${avatarSettings.listening.color2.y},
+  ${avatarSettings.listening.color2.z})`;
 
 export const socialConnections: SocialConnections = {
   google: true,

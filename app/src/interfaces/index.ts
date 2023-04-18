@@ -61,6 +61,8 @@ export interface Vector3 {
 export type Vector3Key = keyof Vector3;
 
 export interface AvatarConfig {
+  color1: Vector3;
+  color2: Vector3;
   vecColor1: string;
   vecColor2: string;
   colorDir: "x" | "y" | "z";

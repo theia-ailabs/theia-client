@@ -49,17 +49,12 @@ export default defineComponent({
                     <img :src="loader" alt="Theia is thinking" class="w-56" />
                   </div>
                   <div v-else>
-                    <audio
-                      id="player"
-                      src="https://peregrine-results.s3.amazonaws.com/pigeon/NhiiE61uq7D09dGYNN_0.mp3"
-                    ></audio>
                     <AudioPlayer
                       :wave_width="250"
                       :wave_height="40"
                       wave_type="mirror"
-                      :src="'https://peregrine-results.s3.amazonaws.com/pigeon/NhiiE61uq7D09dGYNN_0.mp3'"
+                      :src="x.theia.audio"
                     />
-                    {{ x.theia.audio }}
                   </div>
                   <div class="p-4">
                     {{
