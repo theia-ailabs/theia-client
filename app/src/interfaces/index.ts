@@ -2,6 +2,7 @@ export interface State {
   // user mood
   mood: string;
   // user info
+  pfp: string;
   username: string;
   country: string;
   flag: string;
@@ -39,6 +40,7 @@ export interface State {
   rerenderKey: number;
   // 3d avatar
   avatarConfig: AvatarConfig;
+  avatarMode: string;
   // modals
   loginModal: boolean;
   settingsModal: boolean;
@@ -56,18 +58,27 @@ export interface Vector3 {
   z: number;
 }
 
+export type Vector3Key = keyof Vector3;
+
 export interface AvatarConfig {
   vecColor1: string;
   vecColor2: string;
   colorDir: "x" | "y" | "z";
-  colorsSplit: number;
+  colorSplit: number;
   sphere: Vector3;
   position: Vector3;
-  energy: Vector3;
+  material: Vector3;
   vertex: Vector3;
   speed: number;
-  background: number;
   transparent: boolean;
+  background: number;
+}
+
+export interface AvatarSettings {
+  listening: AvatarConfig;
+  thinking: AvatarConfig;
+  talking: AvatarConfig;
+  sleeping: AvatarConfig;
 }
 
 export interface SocialConnections {
@@ -142,15 +153,4 @@ export interface UserState {
 export interface UsersFlags {
   pubkey: string;
   flag: string;
-}
-
-type Tipo = "alquiler" | "venta";
-
-export interface RealEstate {
-  img: string;
-  title: string;
-  price: number;
-  address: string;
-  particular: boolean;
-  tipo: Tipo;
 }

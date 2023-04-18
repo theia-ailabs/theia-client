@@ -7,7 +7,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted, ref, watchEffect } from "vue";
 import * as THREE from "three";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
@@ -23,10 +23,22 @@ export default defineComponent({
     let RENDERER: THREE.WebGLRenderer;
     let CONTROLS: OrbitControls;
     let COMPOSER: EffectComposer;
-    let TIME = 10; // Let it be non zero at star
+    let TIME = 5; // Let it be non zero at star
     let CANVAS: HTMLCanvasElement;
+    const avatarMode = ref(store.avatarMode);
+    const vecColor1 = ref(store.avatarConfig.vecColor1);
+    const vecColor2 = ref(store.avatarConfig.vecColor2);
+    const colorDir = ref(store.avatarConfig.colorDir);
+    const colorSplit = ref(store.avatarConfig.colorSplit);
+    const sphereForm = ref(store.avatarConfig.sphere);
+    const cameraPosition = ref(store.avatarConfig.position);
+    const material = ref(store.avatarConfig.material);
+    const vertexXYZ = ref(store.avatarConfig.vertex);
+    const speedEffect = ref(store.avatarConfig.speed);
+    const transparentMaterial = ref(store.avatarConfig.transparent);
+    const canvasBackground = ref(store.avatarConfig.background);
 
-    // Render 3D
+    // Render 3D Avatar
     onMounted(() => {
       init();
       animate();
@@ -34,7 +46,16 @@ export default defineComponent({
       if (CANVAS) {
         CANVAS.append(RENDERER.domElement);
       }
+      modeTransition();
     });
+
+    function modeTransition() {
+      watchEffect(() => {
+        if (store.avatarMode != avatarMode.value) {
+          console.log();
+        }
+      });
+    }
 
     function init() {
       initScene();
@@ -49,7 +70,6 @@ export default defineComponent({
 
     function initScene() {
       SCENE = new THREE.Scene();
-      // SCENE.background = new THREE.Color(0);
     }
 
     function initLights() {
@@ -67,14 +87,14 @@ export default defineComponent({
         100,
         2000
       );
-      CAMERA.position.x = store.avatarConfig.position.x;
-      CAMERA.position.y = store.avatarConfig.position.y;
-      CAMERA.position.z = store.avatarConfig.position.z;
+      CAMERA.position.x = cameraPosition.value.x;
+      CAMERA.position.y = cameraPosition.value.y;
+      CAMERA.position.z = cameraPosition.value.z;
     }
 
     function initRenderer() {
       RENDERER = new THREE.WebGLRenderer({ alpha: true });
-      RENDERER.setClearColor(0xffffff, store.avatarConfig.background);
+      RENDERER.setClearColor(0xffffff, canvasBackground.value);
       RENDERER.setPixelRatio(window.devicePixelRatio);
       RENDERER.setSize(window.innerWidth, window.innerHeight);
       RENDERER.shadowMap.enabled = true;
@@ -87,9 +107,9 @@ export default defineComponent({
       COMPOSER.addPass(renderPass);
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
-        store.avatarConfig.energy.x,
-        store.avatarConfig.energy.y,
-        store.avatarConfig.energy.z
+        material.value.x,
+        material.value.y,
+        material.value.z
       );
       bloomPass.renderToScreen = true;
       COMPOSER.addPass(bloomPass);
@@ -98,8 +118,8 @@ export default defineComponent({
     function initControls() {
       CONTROLS = new OrbitControls(CAMERA, RENDERER.domElement);
       CONTROLS.enableZoom = false;
-      CONTROLS.minPolarAngle = (Math.PI * 1) / 4;
-      CONTROLS.maxPolarAngle = (Math.PI * 3) / 4;
+      CONTROLS.minPolarAngle = Math.PI / 32;
+      CONTROLS.maxPolarAngle = Math.PI * 32;
       CONTROLS.update();
     }
 
@@ -118,7 +138,7 @@ export default defineComponent({
     function animate() {
       requestAnimationFrame(animate);
       CONTROLS.update();
-      TIME += store.avatarConfig.speed / 1000;
+      TIME += speedEffect.value / 1000;
       updateUniforms();
       render();
     }
@@ -143,36 +163,36 @@ export default defineComponent({
 
     function createObjects() {
       let geometry = new THREE.SphereGeometry(
-        store.avatarConfig.sphere.x,
-        store.avatarConfig.sphere.y,
-        store.avatarConfig.sphere.z
+        sphereForm.value.x,
+        sphereForm.value.y,
+        sphereForm.value.z
       );
-      const modelColors = ref(`
+      const modelColors = `
         uniform float uTime;
         varying vec3 vNormal;
         void main() {
-          vec3 color1 = ${store.avatarConfig.vecColor1};
-          vec3 color2 = ${store.avatarConfig.vecColor2};
-          gl_FragColor = vec4(mix(color1, color2, vNormal.${store.avatarConfig.colorDir}), ${store.avatarConfig.colorsSplit});
+          vec3 color1 = ${vecColor1.value};
+          vec3 color2 = ${vecColor2.value};
+          gl_FragColor = vec4(mix(color1, color2, vNormal.${colorDir.value}), ${colorSplit.value});
         }
-      `);
-      const vertex = ref(`
+      `;
+      const vertex = `
         uniform float uTime;     
         varying vec3 vNormal;
         void main() {
             vNormal = normal;
-            vec3 delta = ${store.avatarConfig.vertex.x}.0 * normal * sin(normal.x + normal.y * ${store.avatarConfig.vertex.y}.0 + normal.z + uTime * ${store.avatarConfig.vertex.z}.0);
+            vec3 delta = ${vertexXYZ.value.x}.0 * normal * sin(normal.x + normal.y * ${vertexXYZ.value.y}.0 + normal.z + uTime * ${vertexXYZ.value.z}.0);
             vec3 newPosition = position + delta;
             gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-        }`);
+        }`;
       const shaderMaterial = new THREE.ShaderMaterial({
         uniforms: {
           uTime: { value: TIME },
         },
-        transparent: store.avatarConfig.transparent,
+        transparent: transparentMaterial.value,
         side: THREE.DoubleSide,
-        vertexShader: vertex.value,
-        fragmentShader: modelColors.value,
+        vertexShader: vertex,
+        fragmentShader: modelColors,
       });
       const sphere = new THREE.Mesh(geometry, shaderMaterial);
       SCENE.add(sphere);

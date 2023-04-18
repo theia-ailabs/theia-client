@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
 import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
-import { avatarConfigDefault, socialConnections } from "./default";
+import { avatarSettings, socialConnections } from "./default";
 
 const useStore = defineStore("main", {
   state: (): State => {
@@ -10,6 +10,7 @@ const useStore = defineStore("main", {
       // user mood
       mood: "curious",
       // user info
+      pfp: "",
       username: "",
       country: "",
       flag: "🇺🇳",
@@ -46,7 +47,8 @@ const useStore = defineStore("main", {
       showMenu: false,
       rerenderKey: 0,
       // 3d avatar
-      avatarConfig: avatarConfigDefault,
+      avatarConfig: avatarSettings["listening"],
+      avatarMode: "listening",
       // modals
       loginModal: false,
       settingsModal: false,

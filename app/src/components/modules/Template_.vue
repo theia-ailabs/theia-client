@@ -17,7 +17,7 @@ export default defineComponent({
 </script>
 <template>
   <div class="flex" :class="store.dark ? 'bg-black' : 'bg-white'">
-    <button :on-click="connect">Connect</button>
+    <button @click="connect">Connect</button>
   </div>
 </template>
 <style scoped>

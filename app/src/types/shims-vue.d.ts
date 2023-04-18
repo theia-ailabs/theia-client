@@ -1,5 +1,12 @@
 /* eslint-disable */
+declare module "vue3-wave-audio-player";
 declare module "wavesurfer.js-vue";
+declare module "vue3-carousel";
+declare module "vue-carousel-3d" {
+  import { DefineComponent } from "vue";
+  export const Carousel3d: DefineComponent<any, any, any>;
+  export const Slide: DefineComponent<any, any, any>;
+}
 
 declare module "*.vue" {
   import type { DefineComponent } from "vue";

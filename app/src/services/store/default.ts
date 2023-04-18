@@ -1,33 +1,122 @@
-import { AvatarConfig, SocialConnections } from "../../interfaces";
+import { AvatarSettings, SocialConnections } from "../../interfaces";
 
-export const avatarConfigDefault: AvatarConfig = {
-  vecColor1: "vec3(0.7, 0, 1)",
-  vecColor2: "vec3(0.89, 0.6, 0)",
-  colorDir: "z",
-  colorsSplit: 0.2,
-  sphere: {
-    x: 23,
-    y: 300,
-    z: 300,
+export const avatarSettings: AvatarSettings = {
+  listening: {
+    vecColor1: "vec3(0.7, 0, 1)",
+    vecColor2: "vec3(0.89, 0.6, 0)",
+    colorDir: "z",
+    colorSplit: 0.2,
+    sphere: {
+      x: 23,
+      y: 300,
+      z: 300,
+    },
+    position: {
+      x: 0,
+      y: 150,
+      z: 150,
+    },
+    material: {
+      x: 1.5,
+      y: 1,
+      z: 1,
+    },
+    vertex: {
+      x: 10,
+      y: 10,
+      z: 10,
+    },
+    speed: 5,
+    transparent: false,
+    background: 0.1, // 0 black 1 white
   },
-  position: {
-    x: 0,
-    y: 150,
-    z: 150,
+  thinking: {
+    vecColor1: "vec3(0.7, 0, 1)",
+    vecColor2: "vec3(0.89, 0.6, 0)",
+    colorDir: "x",
+    colorSplit: 1,
+    sphere: {
+      x: 23,
+      y: 300,
+      z: 300,
+    },
+    position: {
+      x: 0,
+      y: 150,
+      z: 150,
+    },
+    material: {
+      x: 1.5,
+      y: 1,
+      z: 1,
+    },
+    vertex: {
+      x: 10,
+      y: 10,
+      z: 10,
+    },
+    speed: 10,
+    transparent: false,
+    background: 0.1, // 0 black 1 white
   },
-  energy: {
-    x: 1.5,
-    y: 1,
-    z: 0.8,
+  talking: {
+    vecColor1: "vec3(0.7, 0, 1)",
+    vecColor2: "vec3(0.89, 0.6, 0)",
+    colorDir: "z",
+    colorSplit: 0.2,
+    sphere: {
+      x: 23,
+      y: 300,
+      z: 300,
+    },
+    position: {
+      x: 0,
+      y: 150,
+      z: 150,
+    },
+    material: {
+      x: 1.5,
+      y: 1,
+      z: 1,
+    },
+    vertex: {
+      x: 10,
+      y: 10,
+      z: 10,
+    },
+    speed: 10,
+    transparent: false,
+    background: 0.1, // 0 black 1 white
   },
-  vertex: {
-    x: 10,
-    y: 10,
-    z: 10,
+  sleeping: {
+    vecColor1: "vec3(0.7, 0, 1)",
+    vecColor2: "vec3(0.89, 0.6, 0)",
+    colorDir: "z",
+    colorSplit: 0.2,
+    sphere: {
+      x: 23,
+      y: 300,
+      z: 300,
+    },
+    position: {
+      x: 0,
+      y: 150,
+      z: 150,
+    },
+    material: {
+      x: 1.5,
+      y: 1,
+      z: 1,
+    },
+    vertex: {
+      x: 10,
+      y: 10,
+      z: 10,
+    },
+    speed: 10,
+    transparent: false,
+    background: 0.1, // 0 black 1 white
   },
-  background: 0.1, // 0 black 1 white
-  speed: 10,
-  transparent: false,
 };
 
 export const socialConnections: SocialConnections = {

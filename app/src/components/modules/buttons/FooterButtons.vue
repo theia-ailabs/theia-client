@@ -24,7 +24,7 @@ export default {
 };
 </script>
 <template>
-  <div class="flex justify-center p-4">
+  <div class="flex justify-center my-4 pt-4">
     <!-- Dark/Light button -->
     <button
       class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"

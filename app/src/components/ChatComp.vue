@@ -2,9 +2,10 @@
 import { defineComponent } from "vue";
 import useStore from "../services/store";
 import AudioWaveComp from "./modules/waves/AudioWaveComp.vue";
+import AudioPlayer from "vue3-wave-audio-player";
 
 export default defineComponent({
-  components: { AudioWaveComp },
+  components: { AudioWaveComp, AudioPlayer },
   setup() {
     const store = useStore();
     return {
@@ -48,7 +49,17 @@ export default defineComponent({
                     <img :src="loader" alt="Theia is thinking" class="w-56" />
                   </div>
                   <div v-else>
-                    <AudioWaveComp />
+                    <audio
+                      id="player"
+                      src="https://peregrine-results.s3.amazonaws.com/pigeon/NhiiE61uq7D09dGYNN_0.mp3"
+                    ></audio>
+                    <AudioPlayer
+                      :wave_width="250"
+                      :wave_height="40"
+                      wave_type="mirror"
+                      :src="'https://peregrine-results.s3.amazonaws.com/pigeon/NhiiE61uq7D09dGYNN_0.mp3'"
+                    />
+                    {{ x.theia.audio }}
                   </div>
                   <div class="p-4">
                     {{
