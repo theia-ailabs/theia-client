@@ -2,14 +2,23 @@
 import { defineComponent } from "vue";
 import useStore from "../services/store";
 import AudioWaveComp from "./modules/waves/AudioWaveComp.vue";
-import AudioPlayer from "vue3-wave-audio-player";
+// import AudioPlayer from "vue3-wave-audio-player";
 
 export default defineComponent({
-  components: { AudioWaveComp, AudioPlayer },
+  components: { AudioWaveComp },
   setup() {
     const store = useStore();
+    async function playBuffer(audio: AudioBuffer) {
+      const context = new AudioContext();
+      const source = context.createBufferSource();
+      source.buffer = audio;
+      source.connect(context.destination);
+      source.start();
+    }
+
     return {
       store,
+      playBuffer,
     };
   },
   data() {
@@ -48,13 +57,14 @@ export default defineComponent({
                   >
                     <img :src="loader" alt="Theia is thinking" class="w-56" />
                   </div>
-                  <div v-else>
-                    <AudioPlayer
+                  <div v-if="x.theia.audioBuffer">
+                    {{ playBuffer(x.theia.audioBuffer) }}
+                    <!-- <AudioPlayer
                       :wave_width="250"
                       :wave_height="40"
                       wave_type="mirror"
                       :src="x.theia.audio"
-                    />
+                    /> -->
                   </div>
                   <div class="p-4">
                     {{

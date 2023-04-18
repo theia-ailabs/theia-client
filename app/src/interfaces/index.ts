@@ -111,9 +111,12 @@ export interface UserMessage {
 
 export interface TheiaMessage {
   text: string;
-  audio: AudioBuffer | string;
-  video: Buffer | string;
-  image: HTMLImageElement | string;
+  audioUrl: string;
+  audioBuffer: AudioBuffer;
+  videoUrl: Buffer | string;
+  videoBuffer: Buffer;
+  imageUrl: string;
+  imageHTML: HTMLImageElement;
   links: string;
   datetime: string;
   timestamp: bigint;
