@@ -61,9 +61,9 @@ export const avatarSettings: AvatarSettings = {
       z: 300,
     },
     position: {
-      x: 0,
-      y: 150,
-      z: 150,
+      x: -33,
+      y: -204,
+      z: -44,
     },
     material: {
       x: 1.5,

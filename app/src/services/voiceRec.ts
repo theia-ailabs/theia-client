@@ -21,6 +21,9 @@ export default class VoiceRec {
         this.tempWords = transcript;
         store.input = transcript;
         console.log(transcript);
+        if (store.avatarMode === "listening") {
+          store.inputMessage();
+        }
       }
     );
   }
