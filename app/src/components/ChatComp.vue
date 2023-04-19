@@ -2,13 +2,23 @@
 import { defineComponent } from "vue";
 import useStore from "../services/store";
 import AudioWaveComp from "./modules/waves/AudioWaveComp.vue";
+// import AudioPlayer from "vue3-wave-audio-player";
 
 export default defineComponent({
   components: { AudioWaveComp },
   setup() {
     const store = useStore();
+    async function playBuffer(audio: AudioBuffer) {
+      const context = new AudioContext();
+      const source = context.createBufferSource();
+      source.buffer = audio;
+      source.connect(context.destination);
+      source.start();
+    }
+
     return {
       store,
+      playBuffer,
     };
   },
   data() {
@@ -21,10 +31,10 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div>
+  <div :class="store.dark ? 'bg-black' : 'bg-white'">
     <div class="relative pl-2 pt-4 pb-8 mb-4 h-screen w-screen">
       <div class="z-50" v-if="store.showChat">
-        <div class="z-30 absolute h-screen w-screen bg-red-500"></div>
+        <div class="z-30 absolute h-full w-screen"></div>
         <div
           class="z-50 relative flex flex-wrap align-top top-14"
           v-for="x in store.chat"
@@ -47,8 +57,14 @@ export default defineComponent({
                   >
                     <img :src="loader" alt="Theia is thinking" class="w-56" />
                   </div>
-                  <div v-else>
-                    <AudioWaveComp />
+                  <div v-if="x.theia.audioBuffer">
+                    {{ playBuffer(x.theia.audioBuffer) }}
+                    <!-- <AudioPlayer
+                      :wave_width="250"
+                      :wave_height="40"
+                      wave_type="mirror"
+                      :src="x.theia.audio"
+                    /> -->
                   </div>
                   <div class="p-4">
                     {{
@@ -117,7 +133,7 @@ export default defineComponent({
 <style scoped>
 span:active {
   outline: none !important;
-  border: rgb(249, 17, 249) rple !important;
+  border: rgb(249, 17, 249) !important;
 }
 span:focus {
   outline: none !important;

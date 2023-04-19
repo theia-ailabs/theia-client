@@ -1,25 +1,10 @@
 <script lang="ts">
 import useStore from "../../../services/store";
-import Color1Button from "./Color1Button.vue";
-import Color2Button from "./Color2Button.vue";
 
 export default {
-  components: {
-    Color1Button,
-    Color2Button,
-  },
   setup() {
     const store = useStore();
     return { store };
-  },
-  data() {
-    return {
-      colorModal: false,
-      sound_black: require("../../../assets/img/ico/sound-black.png"),
-      sound_white: require("../../../assets/img/ico/sound-white.png"),
-      mute_black: require("../../../assets/img/ico/mute-black.png"),
-      mute_white: require("../../../assets/img/ico/mute-white.png"),
-    };
   },
 };
 </script>
@@ -79,33 +64,6 @@ export default {
           d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
         />
       </svg>
-    </button>
-    <!-- Primary Color button -->
-    <Color1Button />
-    <!-- Secondary Color button -->
-    <Color2Button />
-    <!-- Sound button -->
-    <button
-      class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"
-      @click="store.switchSound()"
-      :class="
-        store.dark
-          ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
-          : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
-      "
-    >
-      <img
-        alt="Sound"
-        v-if="store.sound"
-        :src="store.dark ? sound_white : sound_black"
-        class="h-4 w-4"
-      />
-      <img
-        alt="Sound"
-        v-else
-        :src="store.dark ? mute_white : mute_black"
-        class="h-4 w-4"
-      />
     </button>
   </div>
 </template>

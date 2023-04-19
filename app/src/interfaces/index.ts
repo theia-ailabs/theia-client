@@ -2,6 +2,7 @@ export interface State {
   // user mood
   mood: string;
   // user info
+  pfp: string;
   username: string;
   country: string;
   flag: string;
@@ -32,15 +33,14 @@ export interface State {
   sound: boolean;
   primaryColor: string;
   secondaryColor: string;
-  vecColor1: string;
-  vecColor2: string;
-  colorDir: "x" | "y" | "z";
-  colorsSplit: number;
   heart: string;
   emoji: string;
   showChat: boolean;
   showMenu: boolean;
   rerenderKey: number;
+  // 3d avatar
+  avatarConfig: AvatarConfig;
+  avatarMode: string;
   // modals
   loginModal: boolean;
   settingsModal: boolean;
@@ -48,7 +48,42 @@ export interface State {
   welcome: boolean;
   newUser: boolean;
   usernameAv: boolean;
-  // menu
+  // menus
+  connections: SocialConnections;
+}
+
+export interface Vector3 {
+  x: number;
+  y: number;
+  z: number;
+}
+
+export type Vector3Key = keyof Vector3;
+
+export interface AvatarConfig {
+  color1: Vector3;
+  color2: Vector3;
+  vecColor1: string;
+  vecColor2: string;
+  colorDir: "x" | "y" | "z";
+  colorSplit: number;
+  sphere: Vector3;
+  position: Vector3;
+  material: Vector3;
+  vertex: Vector3;
+  speed: number;
+  transparent: boolean;
+  background: number;
+}
+
+export interface AvatarSettings {
+  listening: AvatarConfig;
+  thinking: AvatarConfig;
+  talking: AvatarConfig;
+  sleeping: AvatarConfig;
+}
+
+export interface SocialConnections {
   google: boolean;
   apple: boolean;
   twitter: boolean;
@@ -76,9 +111,12 @@ export interface UserMessage {
 
 export interface TheiaMessage {
   text: string;
-  audio: AudioBuffer | string;
-  video: Buffer | string;
-  image: HTMLImageElement | string;
+  audioUrl: string;
+  audioBuffer: AudioBuffer;
+  videoUrl: Buffer | string;
+  videoBuffer: Buffer;
+  imageUrl: string;
+  imageHTML: HTMLImageElement;
   links: string;
   datetime: string;
   timestamp: bigint;

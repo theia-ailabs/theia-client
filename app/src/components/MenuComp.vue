@@ -38,11 +38,11 @@ export default defineComponent({
       <div>
         <!-- Google -->
         <button
-          @click="store.google = !store.google"
+          @click="store.connections.google = !store.connections.google"
           class="m-2 w-8 h-8 pt-[7px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.google
+            store.connections.google
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
@@ -51,11 +51,11 @@ export default defineComponent({
         </button>
         <!-- Apple -->
         <button
-          @click="store.apple = !store.apple"
+          @click="store.connections.apple = !store.connections.apple"
           class="m-2 w-8 h-8 pt-1 rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.apple
+            store.connections.apple
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
@@ -66,11 +66,11 @@ export default defineComponent({
       <div>
         <!-- Twitter -->
         <button
-          @click="store.twitter = !store.twitter"
+          @click="store.connections.twitter = !store.connections.twitter"
           class="m-2 w-8 h-8 pt-[6px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.twitter
+            store.connections.twitter
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
@@ -79,11 +79,11 @@ export default defineComponent({
         </button>
         <!-- Instagram -->
         <button
-          @click="store.instagram = !store.instagram"
+          @click="store.connections.instagram = !store.connections.instagram"
           class="m-2 w-8 h-8 pt-[7px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.instagram
+            store.connections.instagram
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
@@ -94,11 +94,11 @@ export default defineComponent({
       <div>
         <!-- Spotify -->
         <button
-          @click="store.spotify = !store.spotify"
+          @click="store.connections.spotify = !store.connections.spotify"
           class="m-2 w-8 h-8 pt-[5px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.spotify
+            store.connections.spotify
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
@@ -107,11 +107,11 @@ export default defineComponent({
         </button>
         <!-- Youtube -->
         <button
-          @click="store.youtube = !store.youtube"
+          @click="store.connections.youtube = !store.connections.youtube"
           class="m-2 w-8 h-8 pt-[5px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.youtube
+            store.connections.youtube
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
@@ -122,11 +122,11 @@ export default defineComponent({
       <div>
         <!-- Whatsapp -->
         <button
-          @click="store.whatsapp = !store.whatsapp"
+          @click="store.connections.whatsapp = !store.connections.whatsapp"
           class="m-2 w-8 h-8 pt-[5px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.whatsapp
+            store.connections.whatsapp
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
@@ -135,11 +135,11 @@ export default defineComponent({
         </button>
         <!-- Telegram -->
         <button
-          @click="store.telegram = !store.telegram"
+          @click="store.connections.telegram = !store.connections.telegram"
           class="m-2 w-8 h-8 pt-[5px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.telegram
+            store.connections.telegram
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
@@ -150,11 +150,11 @@ export default defineComponent({
       <div>
         <!-- Solana -->
         <button
-          @click="store.solana = !store.solana"
+          @click="store.connections.solana = !store.connections.solana"
           class="m-2 w-8 h-8 pt-[5px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.solana
+            store.connections.solana
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
@@ -163,11 +163,11 @@ export default defineComponent({
         </button>
         <!-- Ethereum -->
         <button
-          @click="store.ethereum = !store.ethereum"
+          @click="store.connections.ethereum = !store.connections.ethereum"
           class="m-2 w-8 h-8 pt-[5px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.ethereum
+            store.connections.ethereum
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"

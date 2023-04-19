@@ -1,5 +1,8 @@
 <template>
-  <div class="z-40 fixed">
+  <div
+    class="z-40 fixed h-screen w-screen"
+    :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
+  >
     <LiquidBody :key="store.rerenderKey" />
   </div>
 </template>

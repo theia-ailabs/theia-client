@@ -1,12 +1,12 @@
 <script lang="ts">
 import { ref } from "vue";
 import { getTime, getDate } from "../utils";
-import SettingsButtons from "./modules/buttons/SettingsButtons.vue";
+import FooterButtons from "./modules/buttons/FooterButtons.vue";
 import useStore from "../services/store";
 
 export default {
   components: {
-    SettingsButtons,
+    FooterButtons,
   },
   setup() {
     const store = useStore();
@@ -35,7 +35,7 @@ export default {
         : 'bg-white/90 shadow-gray-300 border-gray-900 text-gray-800'
     "
   >
-    <settings-buttons class="mt-4" />
+    <FooterButtons class="mt-4" />
     <!-- UTC datetime -->
     <div class="-mt-2 text-[11px]">{{ date }} {{ time }} UTC</div>
     <!-- Credits -->
@@ -48,8 +48,3 @@ export default {
     </div>
   </div>
 </template>
-<!-- <style scoped>
-.z-90 {
-  z-index: 90 !important;
-}
-</style> -->

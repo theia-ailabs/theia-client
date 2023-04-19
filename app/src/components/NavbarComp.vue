@@ -1,11 +1,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import SettingsModal from "./modules/modals/SettingsModal.vue";
+// import SettingsModal from "./modules/modals/SettingsModal.vue";
+import CarouselModal from "./modules/modals/CarouselModal.vue";
 import useStore from "../services/store";
 
 export default defineComponent({
   components: {
-    SettingsModal,
+    // SettingsModal,
+    CarouselModal,
   },
   setup() {
     const store = useStore();
@@ -48,7 +50,8 @@ export default defineComponent({
 </script>
 <template>
   <div>
-    <SettingsModal />
+    <CarouselModal />
+    <!-- <SettingsModal /> -->
     <nav
       class="z-50 fixed pt-4 flex justify-between w-full top-0"
       :class="store.dark ? 'bg-black/90' : 'bg-white/90'"

@@ -1,9 +1,8 @@
-import { getCurrentInstance } from "vue";
 import { defineStore } from "pinia";
 import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
 import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
-import { vecColors } from "../../constants";
+import { avatarSettings, socialConnections } from "./default";
 
 const useStore = defineStore("main", {
   state: (): State => {
@@ -11,6 +10,7 @@ const useStore = defineStore("main", {
       // user mood
       mood: "curious",
       // user info
+      pfp: "",
       username: "",
       country: "",
       flag: "🇺🇳",
@@ -41,34 +41,23 @@ const useStore = defineStore("main", {
       sound: true,
       primaryColor: "purple-500",
       secondaryColor: "yellow-500",
-      colorsSplit: 0.2,
       heart: "💙",
       emoji: "",
       showChat: true,
       showMenu: false,
       rerenderKey: 0,
+      // 3d avatar
+      avatarConfig: avatarSettings["listening"],
+      avatarMode: "listening",
       // modals
       loginModal: false,
       settingsModal: false,
-      // avatar
-      vecColor1: "vec3(0.7, 0, 1)",
-      vecColor2: "vec3(0.89, 0.6, 0)",
-      colorDir: "z",
       // signup
       welcome: false,
       newUser: false,
       usernameAv: false,
-      // menu
-      google: false,
-      apple: false,
-      twitter: false,
-      instagram: false,
-      spotify: false,
-      youtube: false,
-      whatsapp: false,
-      telegram: false,
-      solana: false,
-      ethereum: false,
+      // menus
+      connections: socialConnections,
     };
   },
   actions: {
@@ -81,15 +70,21 @@ const useStore = defineStore("main", {
     },
     inputMessage(): void {
       askTheia(this.input);
+      this.avatarMode = "thinking";
+      this.avatarConfig = avatarSettings["thinking"];
+      this.reRender();
       const theiaMsg: TheiaMessage = {
         text: "Thinking...",
-        audio: "",
-        video: "",
-        image: "",
+        audioUrl: "",
+        audioBuffer: new AudioBuffer({ length: 0, sampleRate: 0 }),
+        videoUrl: "",
+        videoBuffer: new Buffer(0),
+        imageUrl: "",
+        imageHTML: new HTMLImageElement(),
         links: "",
         datetime: `${getDate()} ${getTime()}`,
         timestamp: BigInt(Date.now()),
-        computed_in: 0,
+        computed_in: 0.0,
       };
       const userMsg: UserMessage = {
         text: this.input,
@@ -114,6 +109,9 @@ const useStore = defineStore("main", {
     },
     switchDark(): void {
       this.dark = !this.dark;
+      if (this.dark) this.avatarConfig.background = 0.1;
+      else this.avatarConfig.background = 0.9;
+      this.reRender();
     },
     switchSound(): void {
       this.sound = !this.sound;
