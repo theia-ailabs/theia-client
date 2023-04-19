@@ -21,11 +21,16 @@ export default defineComponent({
       store.showChat = false;
     };
 
+    const showImg = () => {
+      let showImg = true;
+    };
+
     return {
       store,
       switchModal,
       switchChat,
       switchMenu,
+      showImg,
     };
   },
   data() {
@@ -72,7 +77,7 @@ export default defineComponent({
       </div>
       <div class="flex mr-2 lg:mr-12">
         <div>
-          <button class="mx-3">
+          <button class="mx-3" @click="showImg">
             <img :src="email" alt="email" />
           </button>
         </div>
