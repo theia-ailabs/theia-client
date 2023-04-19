@@ -57,18 +57,18 @@ export default defineComponent({
                   >
                     <img :src="loader" alt="Theia is thinking" class="w-56" />
                   </div>
-                  <div v-if="x.theia.audioBuffer">
-                    {{ playBuffer(x.theia.audioBuffer) }}
-                    <!-- <AudioPlayer
+                  <div>
+                    <!-- {{ playBuffer(x.theia.audioBuffer) }} -->
+                    <AudioPlayer
                       :wave_width="250"
                       :wave_height="40"
                       wave_type="mirror"
-                      :src="x.theia.audio"
-                    /> -->
+                      :src="'https://peregrine-results.s3.amazonaws.com/pigeon/GanONCKmByu74rOd1l_0.mp3'"
+                    />
                   </div>
                   <div class="p-4">
                     {{
-                      !x.theia.text || x.theia.text === ""
+                      !x.theia.text
                         ? "Hello, Im Theia your AI assistant. Im here to help you in anything you need. Im a advance trained NLP model with also access to google, wikipedia, youtube, spotify, gmail, calendar, and much more. I can make your life easier. How can I help you?"
                         : x.theia.text
                     }}

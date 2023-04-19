@@ -70,21 +70,15 @@ const useStore = defineStore("main", {
     },
     inputMessage(): void {
       askTheia(this.input);
-      this.avatarMode = "thinking";
-      this.avatarConfig = avatarSettings["thinking"];
-      this.reRender();
       const theiaMsg: TheiaMessage = {
         text: "Thinking...",
-        audioUrl: "",
-        audioBuffer: new AudioBuffer({ length: 0, sampleRate: 0 }),
-        videoUrl: "",
-        videoBuffer: new Buffer(0),
-        imageUrl: "",
-        imageHTML: new HTMLImageElement(),
+        audio: "",
+        video: "",
+        image: "",
         links: "",
         datetime: `${getDate()} ${getTime()}`,
         timestamp: BigInt(Date.now()),
-        computed_in: 0.0,
+        computed_in: 0,
       };
       const userMsg: UserMessage = {
         text: this.input,
