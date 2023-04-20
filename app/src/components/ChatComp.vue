@@ -61,7 +61,7 @@ export default defineComponent({
                       Your browser does not support the audio tag.
                     </audio>
                   </div>
-                  <div class="m-2 p-4">
+                  <div class="m-2 p-4 px-10">
                     {{ x.theia.text }}
                   </div>
                 </div>
