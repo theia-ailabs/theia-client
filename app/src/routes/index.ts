@@ -3,6 +3,7 @@ import WelcomeView from "../views/WelcomeView.vue";
 import MainView from "../views/MainView.vue";
 import LegalView from "../views/LegalView.vue";
 import PrivacyView from "../views/PrivacyView.vue";
+import LoaderView from "../views/LoaderView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/privacy",
     name: "privacy",
     component: PrivacyView,
+  },
+  {
+    path: "/loader",
+    name: "loader",
+    component: LoaderView,
   },
   // {
   //   path: "/profile",
