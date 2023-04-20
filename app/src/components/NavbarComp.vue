@@ -58,6 +58,23 @@ export default defineComponent({
     >
       <div class="flex ml-2 lg:ml-12">
         <div>
+          <button class="mx-3" @click="showImg">
+            <img :src="email" alt="email" />
+          </button>
+        </div>
+        <div>
+          <button id="showsocial" class="mx-3" @click="switchMenu">
+            <img :src="social" alt="social" />
+          </button>
+        </div>
+      </div>
+      <div class="mb-1">
+        <button @click="switchModal" class="z-50 flex justify-center">
+          <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
+        </button>
+      </div>
+      <div class="flex mr-2 lg:mr-12">
+        <div>
           <button class="mx-3" @click="switchChat">
             <img :src="chat" alt="chat" />
           </button>
@@ -70,23 +87,6 @@ export default defineComponent({
               @click="switchMenu"
               class="h-7"
             />
-          </button>
-        </div>
-      </div>
-      <div class="mb-1">
-        <button @click="switchModal" class="z-50 flex justify-center">
-          <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
-        </button>
-      </div>
-      <div class="flex mr-2 lg:mr-12">
-        <div>
-          <button class="mx-3" @click="showImg">
-            <img :src="email" alt="email" />
-          </button>
-        </div>
-        <div>
-          <button id="showsocial" class="mx-3" @click="switchMenu">
-            <img :src="social" alt="social" />
           </button>
         </div>
       </div>
