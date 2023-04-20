@@ -5,7 +5,7 @@ import useStore from "../services/store";
 import TerminalComp from "../components/modules/terminals/TerminalComp.vue";
 import LoginModal from "../components/modules/modals/LoginModal.vue";
 import FauxComp from "../components/modules/terminals/FauxComp.vue";
-import TitleComp from "../components/TitleComp.vue";
+import TitleComp from "../components/modules/titles/TitleComp.vue";
 
 export default defineComponent({
   components: {
