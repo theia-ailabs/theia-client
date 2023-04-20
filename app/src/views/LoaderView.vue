@@ -2,7 +2,7 @@
   <LoaderComp />
 </template>
 <script lang="ts">
-import LoaderComp from "@/components/LoaderComp.vue";
+import LoaderComp from "@/components/modules/loaders/LoaderComp.vue";
 </script>
 <style scoped>
 body {
