@@ -13,7 +13,7 @@ export const askTheia = (
 };
 export const theiaRes = (store: State, _i = 0) => {
   socket.volatile.on("theiaRes", (res: AskTheiaRet) => {
-    if (res.audio) {
+    if (res.audio && res.audio != "Error" && res.audio.length < 22) {
       console.log(_i, "Audio completed!");
       const speech = new Audio(res.audio);
       store.chat[_i].theia.audio = res.audio;
