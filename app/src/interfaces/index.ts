@@ -162,3 +162,17 @@ export interface UsersFlags {
   pubkey: string;
   flag: string;
 }
+
+export interface AskTheiaRet {
+  text: string;
+  words: number;
+  audio: string;
+  duration: number;
+  size: number;
+}
+
+export interface SpeechUrlRet {
+  url: string;
+  duration: number;
+  size: number;
+}

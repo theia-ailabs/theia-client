@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import socket from ".";
-import { State } from "../../interfaces";
+import { State, AskTheiaRet } from "../../interfaces";
 import { avatarSettings } from "../store/default";
 
 export const askTheia = (
@@ -13,15 +12,22 @@ export const askTheia = (
   console.log("\n", _i, question, "\n");
 };
 export const theiaRes = (store: State, _i = 0) => {
-  socket.volatile.on("theiaRes", (res: any) => {
+  socket.volatile.on("theiaRes", (res: AskTheiaRet) => {
     if (res.audio) {
-      console.log("audio received");
-      console.log(res.audio);
+      console.log(_i, "Audio completed!");
+      const speech = new Audio(res.audio);
       store.chat[_i].theia.audio = res.audio;
       store.rerenderAudio++; // render audio player
-      store.avatarMode = "listening";
-      store.avatarConfig = avatarSettings["listening"];
+      store.avatarMode = "talking";
+      store.avatarConfig = avatarSettings["talking"];
       store.rerenderAvatar++;
+      speech.play();
+      setTimeout(() => {
+        store.avatarMode = "listening";
+        store.avatarConfig = avatarSettings["listening"];
+        store.rerenderAvatar++;
+        console.log(res.duration, " seconds");
+      }, res.duration * 1000);
     } else if (res.text) {
       if (!res.text.includes("thinking")) {
         store.chat[_i].theia.text = "";

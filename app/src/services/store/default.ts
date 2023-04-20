@@ -107,12 +107,12 @@ export const avatarSettings: AvatarSettings = {
     material: {
       x: 1.5,
       y: 1,
-      z: 1,
+      z: 0.1,
     },
     vertex: {
-      x: 10,
+      x: 2,
       y: 10,
-      z: 10,
+      z: 100,
     },
     speed: 10,
     transparent: false,

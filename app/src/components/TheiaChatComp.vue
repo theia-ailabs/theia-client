@@ -75,7 +75,7 @@ export default defineComponent({
               <div class="flex justify-start text-xs mb-4 pl-4">
                 <div class="text-center flex align-bottom justify-center">
                   <img
-                    class="w-10 h-10 rounded-full ml-1 mr-2 m-auto border shadow-sm"
+                    class="w-8 h-8 ml-1 mr-2 rounded-full border shadow-sm"
                     :class="[
                       `shadow-${store.secondaryColor}`,
                       `border-${store.primaryColor}`,
