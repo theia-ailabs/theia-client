@@ -113,10 +113,10 @@ export default defineComponent({
                   ]"
                 >
                   <div class="m-4 mt-6 flex justify-center">
-                    <audio controls>
-                      <source :src="x.user.audio" type="audio/mpeg" />
-                      Your browser does not support the audio tag.
-                    </audio>
+                    <AudioPlayer
+                      :src="x.theia.audio"
+                      :key="store.rerenderAudio"
+                    />
                   </div>
                   <div class="m-2 p-4">
                     {{ x.user.text }}
