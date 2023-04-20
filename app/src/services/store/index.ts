@@ -79,7 +79,7 @@ const useStore = defineStore("main", {
       this.rerenderAudio++;
     },
     inputMessage(): void {
-      askTheia(this.input, "larry", 1, 0);
+      askTheia(this.input, "denis", 1, "larry");
       this.avatarMode = "thinking";
       this.avatarConfig = avatarSettings["thinking"];
       this.reAvatar();

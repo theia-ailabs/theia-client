@@ -4,13 +4,13 @@ import { avatarSettings } from "../store/default";
 
 export const askTheia = (
   question: string,
-  _voice = "larry",
+  _voice = "denis",
   _speed = 1,
-  _i = 0
+  _userVoice = "larry"
 ) => {
-  socket.volatile.emit("askTheia", question, _voice, _speed);
-  console.log("\n", _i, question, "\n");
+  socket.volatile.emit("askTheia", question, _voice, _speed, _userVoice);
 };
+
 export const theiaRes = (store: State) => {
   socket.volatile.on("theiaRes", (res: AskTheiaRet, _i = 0) => {
     if (res.speech && res.speech != "Error" && res.speech.length > 22) {
