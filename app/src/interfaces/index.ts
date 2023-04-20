@@ -1,5 +1,6 @@
 export interface State {
   // user mood
+  lang: string;
   mood: string;
   // user info
   pfp: string;

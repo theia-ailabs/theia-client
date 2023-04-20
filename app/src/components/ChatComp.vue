@@ -1,9 +1,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import AudioPlayer from "./AudioPlayer.vue";
 import useStore from "../services/store";
 import ProgressBarComp from "./ProgressBarComp.vue";
 
 export default defineComponent({
+  components: {
+    AudioPlayer,
+  },
   setup() {
     const store = useStore();
     return {
@@ -58,10 +62,10 @@ export default defineComponent({
                     <ProgressBarComp />
                   </div>
                   <div v-else class="m-4 mt-6 flex justify-center">
-                    <audio autoplay controls>
-                      <source :src="x.theia.audio" type="audio/mpeg" />
-                      Your browser does not support the audio tag.
-                    </audio>
+                    <AudioPlayer
+                      :src="x.theia.audio"
+                      :key="store.rerenderAudio"
+                    />
                   </div>
                   <div class="m-2 p-4 px-10">
                     {{ x.theia.text }}
