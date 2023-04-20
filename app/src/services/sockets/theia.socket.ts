@@ -11,9 +11,9 @@ export const askTheia = (
   socket.volatile.emit("askTheia", question, _voice, _speed);
   console.log("\n", _i, question, "\n");
 };
-export const theiaRes = (store: State, _i = 0) => {
-  socket.volatile.on("theiaRes", (res: AskTheiaRet) => {
-    if (res.audio && res.audio != "Error" && res.audio.length > 22) {
+export const theiaRes = (store: State) => {
+  socket.volatile.on("theiaRes", (res: AskTheiaRet, _i = 0) => {
+    if (res.speech && res.speech != "Error" && res.speech.length > 22) {
       console.log(_i, "Audio completed!");
       const speech = new Audio(res.speech);
       speech.play();
@@ -28,6 +28,7 @@ export const theiaRes = (store: State, _i = 0) => {
         store.rerenderAvatar++;
         console.log(res.duration, " seconds");
       }, res.duration * 1000);
+      return;
     } else if (res.answer || res.answer != "Error") {
       if (!res.answer.includes("thinking")) {
         store.chat[_i].theia.text = "";
@@ -42,6 +43,10 @@ export const theiaRes = (store: State, _i = 0) => {
         store.chat[_i].theia.computed_in = 0.01;
         countThinking(store, _i);
       }
+      return;
+    } else if (res.audio && res.audio != "Error" && res.audio.length > 22) {
+      store.chat[_i].user.audio = res.audio;
+      store.rerenderAudio++; // rerender audio player
     }
   });
 };
