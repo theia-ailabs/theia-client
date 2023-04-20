@@ -15,13 +15,13 @@ export const theiaRes = (store: State, _i = 0) => {
   socket.volatile.on("theiaRes", (res: AskTheiaRet) => {
     if (res.audio && res.audio != "Error" && res.audio.length > 22) {
       console.log(_i, "Audio completed!");
-      const speech = new Audio(res.audio);
+      const speech = new Audio(res.speech);
       speech.play();
-      store.chat[_i].theia.audio = res.audio;
-      store.rerenderAudio++; // render audio player
+      store.chat[_i].theia.audio = res.speech;
+      store.rerenderAudio++; // rerender audio player
       store.avatarMode = "talking";
       store.avatarConfig = avatarSettings["talking"];
-      store.rerenderAvatar++;
+      store.rerenderAvatar++; // rerender audio avatar
       setTimeout(() => {
         store.avatarMode = "listening";
         store.avatarConfig = avatarSettings["listening"];
