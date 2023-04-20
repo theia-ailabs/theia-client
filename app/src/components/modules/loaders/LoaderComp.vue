@@ -25,7 +25,7 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-body {
+html {
   background: #161b29;
   margin: 0 auto;
   height: 100%;
@@ -34,16 +34,19 @@ body {
 }
 #loader {
   position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #161b29;
   z-index: 9999;
 }
 .container {
   z-index: 9999 !important;
   width: 15vw;
   height: 15vw;
-  position: absolute;
-  left: 0;
+  position: relative;
+  left: 25vw;
   right: 0;
-  top: 10vw;
+  top: 15vw;
   bottom: 0;
   margin: auto;
   overflow: hidden;
@@ -130,9 +133,9 @@ body {
   height: 0.25vw;
   z-index: 9999 !important;
   position: relative;
-  left: 0;
+  left: -25vw;
   right: 0;
-  top: 17vw;
+  top: 25vw;
   bottom: 0;
   margin: auto;
   overflow: hidden;

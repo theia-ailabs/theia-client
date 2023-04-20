@@ -10,8 +10,8 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-body {
-  background-color: black;
+html {
+  background-color: black !important;
   position: absolute;
   width: 100%;
   height: 100%;
