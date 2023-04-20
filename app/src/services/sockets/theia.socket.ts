@@ -16,12 +16,12 @@ export const theiaRes = (store: State, _i = 0) => {
     if (res.audio && res.audio != "Error" && res.audio.length < 22) {
       console.log(_i, "Audio completed!");
       const speech = new Audio(res.audio);
+      speech.play();
       store.chat[_i].theia.audio = res.audio;
       store.rerenderAudio++; // render audio player
       store.avatarMode = "talking";
       store.avatarConfig = avatarSettings["talking"];
       store.rerenderAvatar++;
-      speech.play();
       setTimeout(() => {
         store.avatarMode = "listening";
         store.avatarConfig = avatarSettings["listening"];
