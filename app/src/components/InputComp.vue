@@ -57,15 +57,31 @@ export default defineComponent({
     <textarea
       autofocus
       v-model="store.input"
-      class="w-[200px] sm:w-[280] md:w-[320px] lg:w-[360px] ml-8 h-9 p-1 my-2 py-2 text-center border border-purple-300/50 bg-black/50 text-white text-xs shadow-inner shadow-yellow-400/20 rounded-xl z-50 hover:border-purple-400 hover:shadow-yellow-400/80"
+      class="w-[200px] sm:w-[280] md:w-[320px] lg:w-[360px] ml-8 h-9 p-1 my-2 py-2 text-center border text-xs shadow-inner rounded-xl z-50"
+      :class="[
+        store.dark ? 'bg-black/50 text-white/80' : 'bg-white/50 text-black/80',
+        `border-${store.primaryColor}`,
+        `shadow-${store.secondaryColor}`,
+        `hover:border-${store.secondaryColor}`,
+        `hover:shadow-${store.primaryColor}`,
+      ]"
     >
     </textarea>
     <div class="m-2" :class="store.input ? 'block' : 'hidden'">
       <button
-        class="p-1 text-xs rounded-xl border text-white/80 border-purple-400/50 shadow-sm shadow-yellow-400/70 hover:text-white hover:border-purple-400 hover:shadow-yellow-400"
+        class="p-1 text-xs rounded-xl border shadow-sm"
+        :class="[
+          store.dark
+            ? 'bg-black/50 text-white/80'
+            : 'bg-white/50 text-black/80',
+          `border-${store.primaryColor}`,
+          `shadow-${store.secondaryColor}`,
+          `hover:border-${store.secondaryColor}`,
+          `hover:shadow-${store.primaryColor}`,
+        ]"
         @click="store.inputMessage()"
       >
-        <img :src="sendImg" alt="Send button" class="w-6" />
+        <img :src="sendImg" alt="Send button" class="w-6 hover:animate-spin" />
       </button>
     </div>
   </form>

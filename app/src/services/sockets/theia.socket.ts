@@ -14,10 +14,6 @@ export const askTheia = (
 };
 export const theiaRes = (store: State, _i = 0) => {
   socket.volatile.on("theiaRes", (res: any) => {
-    if (res.text.lowercase.includes("thinking")) {
-      store.chat[_i].theia.computed_in = 0.01;
-      countThinking(store, _i);
-    }
     if (res.audio) {
       console.log("audio received");
       console.log(res.audio);
@@ -26,8 +22,8 @@ export const theiaRes = (store: State, _i = 0) => {
       store.avatarMode = "listening";
       store.avatarConfig = avatarSettings["listening"];
       store.rerenderAvatar++;
-    } else {
-      if (res.text) {
+    } else if (res.text) {
+      if (!res.text.includes("thinking")) {
         store.chat[_i].theia.text = "";
         let j = 0;
         const intervalID = setInterval(() => {
@@ -36,6 +32,9 @@ export const theiaRes = (store: State, _i = 0) => {
           j++;
         }, 80);
         console.log(res.text);
+      } else {
+        store.chat[_i].theia.computed_in = 0.01;
+        countThinking(store, _i);
       }
     }
   });

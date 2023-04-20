@@ -415,6 +415,24 @@ export default {
     <div class="shadow-purple-500 border-purple-500"></div>
     <div class="shadow-fuchsia-500 border-fuchsia-500"></div>
     <div class="shadow-pink-500 border-pink-500"></div>
+    <div class="hover:shadow-black/90 hover:border-black/90"></div>
+    <div class="hover:shadow-black/60 hover:border-black/60"></div>
+    <div class="hover:shadow-black/20 hover:border-black/20"></div>
+    <div class="hover:shadow-white/90 hover:border-white/90"></div>
+    <div class="hover:shadow-white/60 hover:border-white/60"></div>
+    <div class="hover:shadow-white/20 hover:border-white/20"></div>
+    <div class="hover:shadow-red-500 hover:border-red-500"></div>
+    <div class="hover:shadow-orange-500 hover:border-orange-500"></div>
+    <div class="hover:shadow-yellow-500 hover:border-yellow-500"></div>
+    <div class="hover:shadow-green-500 hover:border-green-500"></div>
+    <div class="hover:shadow-emerald-500 hover:border-emerald-500"></div>
+    <div class="hover:shadow-lime-500 hover:border-lime-500"></div>
+    <div class="hover:shadow-blue-500 hover:border-blue-500"></div>
+    <div class="hover:shadow-sky-500 hover:border-sky-500"></div>
+    <div class="hover:shadow-cyan-500 hover:border-cyan-500"></div>
+    <div class="hover:shadow-purple-500 hover:border-purple-500"></div>
+    <div class="hover:shadow-fuchsia-500 hover:border-fuchsia-500"></div>
+    <div class="hover:shadow-pink-500 hover:border-pink-500"></div>
     <!-- from to (init colors) -->
     <div class="from-black/90 to-black/90"></div>
     <div class="from-black/60 to-black/60"></div>
