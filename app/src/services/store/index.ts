@@ -46,6 +46,7 @@ const useStore = defineStore("main", {
       emoji: "",
       showChat: true,
       showMenu: false,
+      loading: false,
       // rerenders
       rerenderAvatar: 0,
       rerenderAudio: 0,
