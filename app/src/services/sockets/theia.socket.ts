@@ -2,7 +2,7 @@ import socket from ".";
 import { State } from "../../interfaces";
 import { avatarSettings } from "../store/default";
 
-export const askTheia = (question: string, _voice = "elena", _speed = 1) => {
+export const askTheia = (question: string, _voice = "denis", _speed = 1) => {
   socket.volatile.emit("askTheia", question, _voice, _speed);
 };
 export const theiaRes = (store: State) => {
@@ -14,8 +14,9 @@ export const theiaRes = (store: State) => {
       console.log(res.audio);
       store.chat[0].theia.audio = res.audio;
       store.rerenderAudio++; // render audio player
-      store.avatarMode = "talking";
-      store.avatarConfig = avatarSettings["talking"];
+      store.avatarMode = "listening";
+      store.avatarConfig = avatarSettings["listening"];
+      store.rerenderAvatar++;
     }
   });
 };

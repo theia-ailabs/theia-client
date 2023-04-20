@@ -78,6 +78,7 @@ const useStore = defineStore("main", {
       askTheia(this.input);
       this.avatarMode = "thinking";
       this.avatarConfig = avatarSettings["thinking"];
+      this.reAvatar();
       const theiaMsg: TheiaMessage = {
         text: "Thinking...",
         audio: "",

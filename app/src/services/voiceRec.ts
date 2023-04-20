@@ -24,7 +24,7 @@ export default class VoiceRec {
           // console.log(transcript);
           setTimeout(() => {
             if (store.avatarMode === "listening") store.inputMessage();
-          }, 5000);
+          }, 3000);
         }
       }
     );
