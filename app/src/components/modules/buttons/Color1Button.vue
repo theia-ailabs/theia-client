@@ -7,7 +7,7 @@ export default {
     const store = useStore();
     const changeVecColor = (color: string) => {
       store.avatarConfig.vecColor1 = vecColors[color as keyof typeof vecColors];
-      store.reRender();
+      store.reAvatar();
     };
     return { store, changeVecColor };
   },

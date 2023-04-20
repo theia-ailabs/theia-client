@@ -1,24 +1,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useStore from "../services/store";
-import AudioWaveComp from "./modules/waves/AudioWaveComp.vue";
-// import AudioPlayer from "vue3-wave-audio-player";
 
 export default defineComponent({
-  components: { AudioWaveComp },
   setup() {
     const store = useStore();
-    async function playBuffer(audio: AudioBuffer) {
-      const context = new AudioContext();
-      const source = context.createBufferSource();
-      source.buffer = audio;
-      source.connect(context.destination);
-      source.start();
-    }
-
     return {
       store,
-      playBuffer,
     };
   },
   data() {
@@ -26,13 +14,14 @@ export default defineComponent({
       loader: require("../assets/img/gif/loading.gif"),
       userPFP: require("../assets/img/png/profile.png"),
       theiaPFP: require("../assets/img/gif/brain.gif"),
+      audioTest: require("../assets/sounds/voice-1.mp3"),
     };
   },
 });
 </script>
 <template>
-  <div :class="store.dark ? 'bg-black' : 'bg-white'">
-    <div class="relative pl-2 pt-4 pb-8 mb-4 h-screen w-screen">
+  <div :class="store.dark ? 'bg-black text-white' : 'bg-white text-black'">
+    <div class="relative overflow-scroll pt-4 pb-8 mb-4 h-screen w-screen">
       <div class="z-50" v-if="store.showChat">
         <div class="z-30 absolute h-full w-screen"></div>
         <div
@@ -46,44 +35,51 @@ export default defineComponent({
           >
             <div>
               <div
-                class="text-xs text-white ml-16 -mb-2 mt-4 my-2 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-purple-400 border-b-3 border-purple-400"
+                class="text-xs ml-16 -mb-2 mt-4 my-2 font-semibold rounded-full rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner border-b-3"
+                :class="[
+                  store.dark ? 'bg-black/30' : 'bg-white/30',
+                  `shadow-${store.primaryColor}`,
+                  `border-${store.secondaryColor}`,
+                ]"
               >
                 <div
-                  class="text-xs text-white p-2 px-8 font-semibold rounded-xl bg-black/30 rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-sm shadow-purple-400 border border-yellow-400/30"
+                  class="text-xs p-2 px-8 font-semibold rounded-full rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-sm border"
+                  :class="[
+                    `shadow-${store.primaryColor}`,
+                    `border-${store.secondaryColor}`,
+                  ]"
                 >
                   <div
-                    v-if="x.theia.text.includes('Thinking')"
-                    class="flex w-full justify-center"
+                    v-if="!x.theia.audio"
+                    class="flex w-full justify-center mt-6"
                   >
-                    <img :src="loader" alt="Theia is thinking" class="w-56" />
+                    <img :src="loader" alt="Theia is thinking" class="w-32" />
                   </div>
-                  <div>
-                    <!-- {{ playBuffer(x.theia.audioBuffer) }} -->
-                    <AudioPlayer
-                      :wave_width="250"
-                      :wave_height="40"
-                      wave_type="mirror"
-                      :src="'https://peregrine-results.s3.amazonaws.com/pigeon/GanONCKmByu74rOd1l_0.mp3'"
-                    />
+                  <div v-else class="m-4 mt-6 flex justify-center">
+                    <audio autoplay controls>
+                      <source :src="x.theia.audio" type="audio/mpeg" />
+                      Your browser does not support the audio tag.
+                    </audio>
                   </div>
-                  <div class="p-4">
-                    {{
-                      !x.theia.text
-                        ? "Hello, Im Theia your AI assistant. Im here to help you in anything you need. Im a advance trained NLP model with also access to google, wikipedia, youtube, spotify, gmail, calendar, and much more. I can make your life easier. How can I help you?"
-                        : x.theia.text
-                    }}
+                  <div class="m-2 p-4">
+                    {{ x.theia.text }}
                   </div>
                 </div>
               </div>
               <div class="flex justify-start text-xs mb-4 pl-4">
                 <div class="text-center flex align-bottom justify-center">
                   <img
-                    class="w-10 h-10 rounded-full ml-1 mr-2 m-auto border border-purple-500/50 shadow-sm shadow-yellow-500"
+                    class="w-10 h-10 rounded-full ml-1 mr-2 m-auto border shadow-sm"
+                    :class="[
+                      `shadow-${store.secondaryColor}`,
+                      `border-${store.primaryColor}`,
+                    ]"
                     :src="theiaPFP"
                   />
                 </div>
                 <div
-                  class="text-left pl-2 mt-4 font-bold opacity-50 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"
+                  class="text-left pl-2 mt-4 font-bold opacity-50 text-transparent bg-clip-text bg-gradient-to-r"
+                  :class="`from-${store.primaryColor} to-${store.secondaryColor}`"
                 >
                   Theia
                 </div>
@@ -99,11 +95,25 @@ export default defineComponent({
           <div id="User" class="flex justify-end w-full -mb-4">
             <div>
               <div
-                class="mr-12 my-2 mt-4 -mb-1 text-xs text-white text-semibold rounded-xl bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-yellow-400"
+                class="mr-12 my-2 mt-4 -mb-1 text-xs text-white text-semibold rounded-full bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-yellow-400"
               >
-                <div class="p-2 px-8">
-                  <AudioWaveComp />
-                  {{ x.user.text }}
+                <div
+                  class="text-xs text-white p-2 px-8 font-semibold rounded-full bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-sm border"
+                  :class="[
+                    store.dark ? 'bg-black/30' : 'bg-white/30',
+                    `shadow-${store.primaryColor}`,
+                    `border-${store.primaryColor}`,
+                  ]"
+                >
+                  <div class="m-4 mt-6 flex justify-center">
+                    <audio controls>
+                      <source :src="x.user.audio" type="audio/mpeg" />
+                      Your browser does not support the audio tag.
+                    </audio>
+                  </div>
+                  <div class="m-2 p-4">
+                    {{ x.user.text }}
+                  </div>
                 </div>
               </div>
               <div class="flex justify-end text-xs mb-4 pl-4">

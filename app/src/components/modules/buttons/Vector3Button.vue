@@ -12,7 +12,7 @@ export default defineComponent({
       else if (axis.value === "x") axis.value = "y";
       else if (axis.value === "y") axis.value = "z";
       store.avatarConfig.colorDir = axis.value as Vector3Key;
-      store.reRender();
+      store.reAvatar();
     }
     return {
       store,

@@ -11,7 +11,7 @@ export default class VoiceRec {
   init() {
     const store = useStore();
     this.recognition.interimResults = true;
-    this.recognition.lang = "es";
+    this.recognition.lang = "en";
     this.recognition.addEventListener(
       "result",
       (e: { results: Iterable<unknown> | ArrayLike<unknown> }) => {
@@ -19,11 +19,13 @@ export default class VoiceRec {
           .map((result: any) => result[0].transcript)
           .join("");
         this.tempWords = transcript;
-        store.input = transcript;
-        console.log(transcript);
-        setTimeout(() => {
-          if (store.avatarMode === "listening") store.inputMessage();
-        }, 1500);
+        if (store.avatarMode === "listening") {
+          store.input = transcript;
+          // console.log(transcript);
+          setTimeout(() => {
+            if (store.avatarMode === "listening") store.inputMessage();
+          }, 5000);
+        }
       }
     );
   }

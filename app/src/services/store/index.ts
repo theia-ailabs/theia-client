@@ -45,7 +45,9 @@ const useStore = defineStore("main", {
       emoji: "",
       showChat: true,
       showMenu: false,
-      rerenderKey: 0,
+      // rerenders
+      rerenderAvatar: 0,
+      rerenderAudio: 0,
       // 3d avatar
       avatarConfig: avatarSettings["listening"],
       avatarMode: "listening",
@@ -64,12 +66,18 @@ const useStore = defineStore("main", {
     connect(): void {
       this.connected = true;
     },
-    reRender(): void {
+    reAvatar(): void {
       console.log("Rerendering...");
-      this.rerenderKey++;
+      this.rerenderAvatar++;
+    },
+    reAudio(): void {
+      console.log("Rerendering...");
+      this.rerenderAudio++;
     },
     inputMessage(): void {
       askTheia(this.input);
+      this.avatarMode = "thinking";
+      this.avatarConfig = avatarSettings["thinking"];
       const theiaMsg: TheiaMessage = {
         text: "Thinking...",
         audio: "",
@@ -82,7 +90,8 @@ const useStore = defineStore("main", {
       };
       const userMsg: UserMessage = {
         text: this.input,
-        audio: "",
+        audio:
+          "https://peregrine-results.s3.amazonaws.com/pigeon/8CCgMLeZiZnzrrELvl_0.mp3",
         datetime: `${getDate()} ${getTime()}`,
         timestamp: BigInt(Date.now()),
       };
@@ -105,7 +114,7 @@ const useStore = defineStore("main", {
       this.dark = !this.dark;
       if (this.dark) this.avatarConfig.background = 0.1;
       else this.avatarConfig.background = 0.9;
-      this.reRender();
+      this.reAvatar();
     },
     switchSound(): void {
       this.sound = !this.sound;

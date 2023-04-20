@@ -21,7 +21,7 @@ export default defineComponent({
   <div class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
     <NavbarComp />
     <AvatarComp />
-    <ChatComp />
+    <ChatComp :key="store.rerenderAudio" />
     <MenuComp />
     <FooterComp />
   </div>

@@ -37,7 +37,9 @@ export interface State {
   emoji: string;
   showChat: boolean;
   showMenu: boolean;
-  rerenderKey: number;
+  // rerenders
+  rerenderAvatar: number;
+  rerenderAudio: number;
   // 3d avatar
   avatarConfig: AvatarConfig;
   avatarMode: string;
@@ -104,15 +106,15 @@ export interface ChatRecord {
 
 export interface UserMessage {
   text: string;
-  audio: AudioBuffer | string;
+  audio: AudioBuffer | string | any;
   datetime: string;
   timestamp: bigint;
 }
 
 export interface TheiaMessage {
   text: string;
-  audio: AudioBuffer | string;
-  video: Buffer | string;
+  audio: HTMLAudioElement | AudioBuffer | string | any;
+  video: HTMLVideoElement | Buffer | string;
   image: HTMLImageElement | string;
   links: string;
   datetime: string;

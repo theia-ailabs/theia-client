@@ -3,7 +3,7 @@
     class="z-40 fixed h-screen w-screen"
     :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
   >
-    <LiquidBody :key="store.rerenderKey" />
+    <LiquidBody :key="store.rerenderAvatar" />
   </div>
 </template>
 <script lang="ts">
