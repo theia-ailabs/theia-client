@@ -36,7 +36,7 @@ export const avatarSettings: AvatarSettings = {
       y: 10,
       z: 10,
     },
-    speed: 5,
+    speed: 3,
     transparent: false,
     background: 0.1, // 0 black 1 white
   },
