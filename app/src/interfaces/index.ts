@@ -2,6 +2,7 @@ export interface State {
   // user mood
   lang: string;
   mood: string;
+  voice: string;
   // user info
   pfp: string;
   username: string;

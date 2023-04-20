@@ -10,6 +10,7 @@ const useStore = defineStore("main", {
       // user mood
       lang: "en",
       mood: "curious",
+      voice: "denis",
       // user info
       pfp: "",
       username: "",
@@ -77,7 +78,7 @@ const useStore = defineStore("main", {
       this.rerenderAudio++;
     },
     inputMessage(): void {
-      askTheia(this.input);
+      askTheia(this.input, "larry", 1, 0);
       this.avatarMode = "thinking";
       this.avatarConfig = avatarSettings["thinking"];
       this.reAvatar();

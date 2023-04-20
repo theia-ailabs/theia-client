@@ -27,7 +27,6 @@ export default {
 </script>
 <template>
   <div
-    v-if="!store.showChat"
     class="z-50 relative bottom-0 w-full text-center text-xs text-gray-400"
     :class="
       store.dark
