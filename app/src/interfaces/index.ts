@@ -35,7 +35,8 @@ export interface State {
   sound: boolean;
   primaryColor: string;
   secondaryColor: string;
-  heart: string;
+  heart1: string;
+  heart2: string;
   emoji: string;
   showChat: boolean;
   showMenu: boolean;

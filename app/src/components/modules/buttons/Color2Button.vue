@@ -53,7 +53,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('white/90'),
-              store.setHeart('🤍'),
+              store.setHeart('🤍', 2),
               changeVecColor('white/90'),
             ]
           "
@@ -71,7 +71,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('white/60'),
-              store.setHeart('🤍'),
+              store.setHeart('🤍', 2),
               changeVecColor('white/60'),
             ]
           "
@@ -89,7 +89,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('white/20'),
-              store.setHeart('🤍'),
+              store.setHeart('🤍', 2),
               changeVecColor('white/20'),
             ]
           "
@@ -109,7 +109,7 @@ export default {
             @click="
               [
                 store.setSecondaryColor('black/90'),
-                store.setHeart('🖤'),
+                store.setHeart('🖤', 2),
                 changeVecColor('black/90'),
               ]
             "
@@ -126,7 +126,7 @@ export default {
             @click="
               [
                 store.setSecondaryColor('black/60'),
-                store.setHeart('🖤'),
+                store.setHeart('🖤', 2),
                 changeVecColor('black/60'),
               ]
             "
@@ -143,7 +143,7 @@ export default {
             @click="
               [
                 store.setSecondaryColor('black/20'),
-                store.setHeart('🖤'),
+                store.setHeart('🖤', 2),
                 changeVecColor('black/90'),
               ]
             "
@@ -162,7 +162,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('red-500'),
-              store.setHeart('❤️'),
+              store.setHeart('❤️', 2),
               changeVecColor('red-500'),
             ]
           "
@@ -179,7 +179,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('orange-500'),
-              store.setHeart('🧡'),
+              store.setHeart('🧡', 2),
               changeVecColor('orange-500'),
             ]
           "
@@ -196,7 +196,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('yellow-500'),
-              store.setHeart('💛'),
+              store.setHeart('💛', 2),
               changeVecColor('yellow-500'),
             ]
           "
@@ -214,7 +214,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('green-500'),
-              store.setHeart('💚'),
+              store.setHeart('💚', 2),
               changeVecColor('green-500'),
             ]
           "
@@ -231,7 +231,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('lime-500'),
-              store.setHeart('💚'),
+              store.setHeart('💚', 2),
               changeVecColor('lime-500'),
             ]
           "
@@ -248,7 +248,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('emerald-500'),
-              store.setHeart('💚'),
+              store.setHeart('💚', 2),
               changeVecColor('emerald-500'),
             ]
           "
@@ -266,7 +266,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('blue-500'),
-              store.setHeart('💙'),
+              store.setHeart('💙', 2),
               changeVecColor('blue-500'),
             ]
           "
@@ -283,7 +283,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('sky-500'),
-              store.setHeart('💙'),
+              store.setHeart('💙', 2),
               changeVecColor('blue-500'),
             ]
           "
@@ -300,7 +300,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('cyan-500'),
-              store.setHeart('💙'),
+              store.setHeart('💙', 2),
               changeVecColor('cyan-500'),
             ]
           "
@@ -318,7 +318,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('purple-500'),
-              store.setHeart('💜'),
+              store.setHeart('💜', 2),
               changeVecColor('purple-500'),
             ]
           "
@@ -335,7 +335,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('fuchsia-500'),
-              store.setHeart('💜'),
+              store.setHeart('💜', 2),
               changeVecColor('fuchsia-500'),
             ]
           "
@@ -352,7 +352,7 @@ export default {
           @click="
             [
               store.setSecondaryColor('pink-500'),
-              store.setHeart('💗'),
+              store.setHeart('💗', 2),
               changeVecColor('pink-500'),
             ]
           "

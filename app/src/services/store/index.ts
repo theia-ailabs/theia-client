@@ -43,7 +43,8 @@ const useStore = defineStore("main", {
       sound: true,
       primaryColor: "purple-500",
       secondaryColor: "yellow-500",
-      heart: "💙",
+      heart1: "💙",
+      heart2: "💛",
       emoji: "",
       showChat: true,
       showMenu: false,
@@ -129,8 +130,9 @@ const useStore = defineStore("main", {
     setSecondaryColor(color: string): void {
       this.secondaryColor = color;
     },
-    setHeart(heart: string): void {
-      this.heart = heart;
+    setHeart(heart: string, _i = 1): void {
+      if (_i === 1 || _i === 0) this.heart1 = heart;
+      else this.heart2 = heart;
     },
     searchUser(): void {
       console.log(this.username);

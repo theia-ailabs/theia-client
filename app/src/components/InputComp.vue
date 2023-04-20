@@ -57,9 +57,10 @@ export default defineComponent({
     <textarea
       autofocus
       v-model="store.input"
-      class="w-[200px] sm:w-[280] md:w-[320px] lg:w-[360px] ml-8 h-9 p-1 my-2 py-2 text-center border text-xs shadow-inner rounded-xl z-50"
+      class="w-[200px] sm:w-[280] md:w-[320px] lg:w-[360px] ml-8 h-9 p-1 my-2 py-2 text-center border text-xs shadow-inner rounded-xl z-50 text-transparent bg-clip-text bg-gradient-to-r"
       :class="[
-        store.dark ? 'bg-black/50 text-white/80' : 'bg-white/50 text-black/80',
+        store.dark ? 'bg-black' : 'bg-white',
+        `from-${store.primaryColor} to-${store.secondaryColor}`,
         `border-${store.primaryColor}`,
         `shadow-${store.secondaryColor}`,
         `hover:border-${store.secondaryColor}`,

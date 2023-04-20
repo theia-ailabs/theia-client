@@ -43,7 +43,7 @@ export default defineComponent({
               <div
                 class="text-xs ml-16 -mb-2 mt-4 my-2 font-semibold rounded-full rounded-bl-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner border-b-3"
                 :class="[
-                  store.dark ? 'bg-black/30' : 'bg-white/30',
+                  store.dark ? 'bg-black' : 'bg-white',
                   `shadow-${store.primaryColor}`,
                   `border-${store.secondaryColor}`,
                 ]"
@@ -101,10 +101,11 @@ export default defineComponent({
           <div id="User" class="flex justify-end w-full -mb-4">
             <div>
               <div
-                class="mr-12 my-2 mt-4 -mb-1 text-xs text-white text-semibold rounded-full bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-yellow-400"
+                class="mr-12 my-2 mt-4 -mb-1 text-xs text-white text-semibold rounded-full rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-inner shadow-yellow-400"
+                :class="store.dark ? 'bg-black' : 'bg-white'"
               >
                 <div
-                  class="text-xs text-white p-2 px-8 font-semibold rounded-full bg-black/30 rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-sm border"
+                  class="text-xs text-white p-2 px-8 font-semibold rounded-full rounded-br-none w-[250px] sm:w-[320px] lg:w-[540px] shadow-sm border"
                   :class="[
                     store.dark ? 'bg-black/30' : 'bg-white/30',
                     `shadow-${store.primaryColor}`,
