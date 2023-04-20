@@ -8,7 +8,13 @@ import FooterComp from "../components/FooterComp.vue";
 import useStore from "../services/store";
 
 export default defineComponent({
-  components: { NavbarComp, AvatarComp, ChatComp, MenuComp, FooterComp },
+  components: {
+    NavbarComp,
+    AvatarComp,
+    ChatComp,
+    MenuComp,
+    FooterComp,
+  },
   setup() {
     const store = useStore();
     return {
