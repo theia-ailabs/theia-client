@@ -1,12 +1,17 @@
 <script lang="ts">
 import FullCalendar from "@fullcalendar/vue3";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import useStore from "../../../services/store";
 
 export default {
   components: {
     FullCalendar, // make the <FullCalendar> tag available
   },
-  data: function () {
+  setup() {
+    const store = useStore();
+    return { store };
+  },
+  data() {
     return {
       calendarOptions: {
         plugins: [dayGridPlugin],
@@ -22,7 +27,7 @@ export default {
 <template>
   <teleport to="body">
     <notifications position="top left" class="mt-2" animation-type="velocity" />
-    <div :class="calendar.signup ? 'block' : 'hidden'">
+    <div :class="store.connect ? 'block' : 'hidden'">
       <h1>Demo App</h1>
       <FullCalendar :options="calendarOptions" />
     </div>

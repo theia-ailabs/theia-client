@@ -51,7 +51,7 @@ export default defineComponent({
 </script>
 <template>
   <form
-    class="flex flex-wrap justify-center m-2 w-full pr-12"
+    class="z-50 flex flex-wrap justify-center m-2 w-full pr-12 px-2"
     :class="store.showChat ? 'block' : 'hidden'"
   >
     <textarea
