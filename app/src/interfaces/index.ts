@@ -38,6 +38,7 @@ export interface State {
   emoji: string;
   showChat: boolean;
   showMenu: boolean;
+  loading: boolean;
   // rerenders
   rerenderAvatar: number;
   rerenderAudio: number;
