@@ -26,11 +26,6 @@ const routes: Array<RouteRecordRaw> = [
     name: "privacy",
     component: PrivacyView,
   },
-  {
-    path: "/loader",
-    name: "loader",
-    component: LoaderView,
-  },
   // {
   //   path: "/profile",
   //   name: "profile",
