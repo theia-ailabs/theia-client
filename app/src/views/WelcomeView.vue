@@ -1,11 +1,11 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import GalaxyComp from "../components/GalaxyComp.vue";
-import useStore from "../services/store";
+import GalaxyComp from "../components/modules/canvas/GalaxyComp.vue";
 import TerminalComp from "../components/modules/terminals/TerminalComp.vue";
 import LoginModal from "../components/modules/modals/LoginModal.vue";
 import FauxComp from "../components/modules/terminals/FauxComp.vue";
 import TitleComp from "../components/modules/titles/TitleComp.vue";
+import useStore from "../services/store";
 
 export default defineComponent({
   components: {

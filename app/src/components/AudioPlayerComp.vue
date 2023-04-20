@@ -20,7 +20,7 @@ export default defineComponent({
 </script>
 <template>
   <div class="m-2 w-full flex justify-center">
-    <audio autoplay controls>
+    <audio controls>
       <source :src="src" type="audio/mpeg" />
       Your browser does not support the audio tag.
     </audio>

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import AudioPlayer from "./AudioPlayer.vue";
+import AudioPlayer from "./AudioPlayerComp.vue";
 import ProgressBarComp from "./modules/loaders/ProgressBarComp.vue";
 import useStore from "../services/store";
 
