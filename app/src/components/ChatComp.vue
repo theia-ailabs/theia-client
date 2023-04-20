@@ -1,12 +1,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import AudioPlayer from "./AudioPlayer.vue";
-import useStore from "../services/store";
 import ProgressBarComp from "./ProgressBarComp.vue";
+import useStore from "../services/store";
 
 export default defineComponent({
   components: {
     AudioPlayer,
+    ProgressBarComp,
   },
   setup() {
     const store = useStore();
@@ -22,7 +23,6 @@ export default defineComponent({
       audioTest: require("../assets/sounds/voice-1.mp3"),
     };
   },
-  components: { ProgressBarComp },
 });
 </script>
 <template>
