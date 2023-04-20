@@ -27,7 +27,7 @@ export default {
 <template>
   <teleport to="body">
     <notifications position="top left" class="mt-2" animation-type="velocity" />
-    <div :class="store.connect ? 'block' : 'hidden'">
+    <div :class="store.loggedIn ? 'block' : 'hidden'">
       <h1>Demo App</h1>
       <FullCalendar :options="calendarOptions" />
     </div>
