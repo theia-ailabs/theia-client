@@ -38,7 +38,7 @@ export const theiaRes = (store: State) => {
           if (res.answer.length <= j) clearInterval(intervalID);
           j++;
         }, 80);
-        console.log(res.answer);
+        // console.log(res.answer);
       } else {
         store.chat[_i].theia.computed_in = 0.01;
         countThinking(store, _i);
