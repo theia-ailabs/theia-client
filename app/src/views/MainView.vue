@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 import NavbarComp from "../components/NavbarComp.vue";
 import AvatarComp from "../components/AvatarComp.vue";
-import ChatComp from "../components/ChatComp.vue";
+import TheiaChatComp from "../components/TheiaChatComp.vue";
 import MenuComp from "../components/MenuComp.vue";
 import FooterComp from "../components/FooterComp.vue";
 import useStore from "../services/store";
@@ -11,7 +11,7 @@ export default defineComponent({
   components: {
     NavbarComp,
     AvatarComp,
-    ChatComp,
+    TheiaChatComp,
     MenuComp,
     FooterComp,
   },
@@ -27,7 +27,7 @@ export default defineComponent({
   <div class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
     <NavbarComp />
     <AvatarComp />
-    <ChatComp />
+    <TheiaChatComp />
     <MenuComp />
     <FooterComp />
   </div>
