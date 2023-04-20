@@ -12,22 +12,21 @@ export default class VoiceRec {
     const store = useStore();
     this.recognition.interimResults = true;
     this.recognition.lang = store.lang;
-    this.recognition.addEventListener(
-      "result",
-      (e: { results: Iterable<unknown> | ArrayLike<unknown> }) => {
-        const transcript = Array.from(e.results)
-          .map((result: any) => result[0].transcript)
-          .join("");
-        this.tempWords = transcript;
-        if (store.avatarMode === "listening") {
+    if (store.avatarMode === "listening") {
+      this.recognition.addEventListener(
+        "result",
+        (e: { results: Iterable<unknown> | ArrayLike<unknown> }) => {
+          const transcript = Array.from(e.results)
+            .map((result: any) => result[0].transcript)
+            .join("");
+          this.tempWords = transcript;
           store.input = transcript;
-          // console.log(transcript);
           setTimeout(() => {
             if (store.avatarMode === "listening") store.inputMessage();
           }, 3000);
         }
-      }
-    );
+      );
+    }
   }
 
   start(): void {

@@ -35,6 +35,8 @@ export const theiaRes = (store: State) => {
         let j = 0;
         const intervalID = setInterval(() => {
           store.chat[_i].theia.text += res.answer[j] || " ";
+          if ([".", "!", "?", ";", ":"].includes(res.answer[j]))
+            store.chat[_i].theia.text += "'\n'";
           if (res.answer.length <= j) clearInterval(intervalID);
           j++;
         }, 80);
