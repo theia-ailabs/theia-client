@@ -13,7 +13,7 @@ export const askTheia = (
 };
 export const theiaRes = (store: State, _i = 0) => {
   socket.volatile.on("theiaRes", (res: AskTheiaRet) => {
-    if (res.audio && res.audio != "Error" && res.audio.length < 22) {
+    if (res.audio && res.audio != "Error" && res.audio.length > 22) {
       console.log(_i, "Audio completed!");
       const speech = new Audio(res.audio);
       speech.play();
@@ -28,16 +28,16 @@ export const theiaRes = (store: State, _i = 0) => {
         store.rerenderAvatar++;
         console.log(res.duration, " seconds");
       }, res.duration * 1000);
-    } else if (res.text) {
-      if (!res.text.includes("thinking")) {
+    } else if (res.answer || res.answer != "Error") {
+      if (!res.answer.includes("thinking")) {
         store.chat[_i].theia.text = "";
         let j = 0;
         const intervalID = setInterval(() => {
-          store.chat[_i].theia.text += res.text[j] || " ";
-          if (res.text.length <= j) clearInterval(intervalID);
+          store.chat[_i].theia.text += res.answer[j] || " ";
+          if (res.answer.length <= j) clearInterval(intervalID);
           j++;
         }, 80);
-        console.log(res.text);
+        console.log(res.answer);
       } else {
         store.chat[_i].theia.computed_in = 0.01;
         countThinking(store, _i);
