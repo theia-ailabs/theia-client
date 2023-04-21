@@ -175,6 +175,34 @@ export default defineComponent({
           <img :src="ethereumImg" alt="Youtube button" class="w-[14px] h-5" />
         </button>
       </div>
+      <div>
+        <!-- lichess.org -->
+        <button
+          @click="store.connections.solana = !store.connections.solana"
+          class="m-2 w-8 h-8 pt-[5px] rounded-full flex justify-center align-middle border shadow-md"
+          :class="[
+            store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
+            store.connections.solana
+              ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
+              : 'opacity-50 border-gray-500/50',
+          ]"
+        >
+          <img :src="solanaImg" alt="Youtube button" class="w-5" />
+        </button>
+        <!-- chess.com -->
+        <button
+          @click="store.connections.ethereum = !store.connections.ethereum"
+          class="m-2 w-8 h-8 pt-[5px] rounded-full flex justify-center align-middle border shadow-md"
+          :class="[
+            store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
+            store.connections.ethereum
+              ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
+              : 'opacity-50 border-gray-500/50',
+          ]"
+        >
+          <img :src="ethereumImg" alt="Youtube button" class="w-[14px] h-5" />
+        </button>
+      </div>
     </div>
     <InputComp />
   </div>
