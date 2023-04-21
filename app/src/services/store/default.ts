@@ -178,4 +178,6 @@ export const socialConnections: SocialConnections = {
   telegram: false,
   solana: false,
   ethereum: false,
+  lichess: false,
+  chess: false,
 };

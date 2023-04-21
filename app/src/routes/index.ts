@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import WelcomeView from "../views/WelcomeView.vue";
-import MainView from "../views/MainView.vue";
+import MainView from "../views/TheiaView.vue";
 import LegalView from "../views/LegalView.vue";
 import PrivacyView from "../views/PrivacyView.vue";
 import LoaderView from "../views/LoaderView.vue";

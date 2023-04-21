@@ -100,6 +100,8 @@ export interface SocialConnections {
   telegram: boolean;
   solana: boolean;
   ethereum: boolean;
+  lichess: boolean;
+  chess: boolean;
 }
 
 export interface ChatRecord {

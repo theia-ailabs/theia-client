@@ -25,6 +25,8 @@ export default defineComponent({
       telegramImg: require("../assets/img/ico/telegram.png"),
       solanaImg: require("../assets/img/ico/solana.png"),
       ethereumImg: require("../assets/img/ico/ethereum.png"),
+      lichessImg: require("../assets/img/ico/lichess.png"),
+      chessImg: require("../assets/img/ico/chess.png"),
     };
   },
 });
@@ -178,29 +180,33 @@ export default defineComponent({
       <div>
         <!-- lichess.org -->
         <button
-          @click="store.connections.solana = !store.connections.solana"
+          @click="store.connections.lichess = !store.connections.lichess"
           class="m-2 w-8 h-8 pt-[5px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.connections.solana
+            store.connections.lichess
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
         >
-          <img :src="solanaImg" alt="Youtube button" class="w-5" />
+          <img
+            :src="lichessImg"
+            alt="Youtube button"
+            class="w-5 rounded-full"
+          />
         </button>
         <!-- chess.com -->
         <button
-          @click="store.connections.ethereum = !store.connections.ethereum"
-          class="m-2 w-8 h-8 pt-[5px] rounded-full flex justify-center align-middle border shadow-md"
+          @click="store.connections.chess = !store.connections.chess"
+          class="m-2 w-8 h-8 pt-[6px] rounded-full flex justify-center align-middle border shadow-md"
           :class="[
             store.dark ? 'hover:bg-white/20' : 'hover:bg-black/20',
-            store.connections.ethereum
+            store.connections.chess
               ? `border-${store.primaryColor} shadow-${store.secondaryColor}/50`
               : 'opacity-50 border-gray-500/50',
           ]"
         >
-          <img :src="ethereumImg" alt="Youtube button" class="w-[14px] h-5" />
+          <img :src="chessImg" alt="Youtube button" class="w-[14px] h-4" />
         </button>
       </div>
     </div>
