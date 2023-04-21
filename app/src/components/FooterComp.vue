@@ -42,7 +42,7 @@ export default {
       Made with {{ store.heart1 + store.heart2 }} by Theia Labs
     </div>
     <!-- Legal -->
-    <div class="flex justify-center pl-3 pb-3">
+    <div class="flex justify-center pb-3">
       <div class="mt-1 mb-2 mx-2" :class="`hover:text-${store.primaryColor}`">
         <router-link to="/legal">Legal</router-link>
       </div>
