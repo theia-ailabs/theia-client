@@ -21,7 +21,7 @@ export default defineComponent({
     :class="store.dark ? 'bg-black text-white/90' : 'bg-white text-black/90'"
   >
     <div class="flex flex-wrap justify-center items-center h-screen w-screen">
-      <div id="account">
+      <div id="account" class="w-96 h-full">
         <h1>ACCOUNT</h1>
       </div>
       <div id="board">

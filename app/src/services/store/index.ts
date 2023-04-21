@@ -138,6 +138,10 @@ const useStore = defineStore("main", {
       console.log(this.username);
       // socket.emit("newUsername", this.username);
     },
+    // Connection functions
+    connectLichess(): boolean {
+      return true;
+    },
   },
 });
 
