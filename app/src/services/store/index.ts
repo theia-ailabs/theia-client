@@ -43,7 +43,7 @@ const useStore = defineStore("main", {
       sound: true,
       primaryColor: "purple-500",
       secondaryColor: "yellow-500",
-      heart1: "💙",
+      heart1: "💜",
       heart2: "💛",
       emoji: "",
       showChat: true,

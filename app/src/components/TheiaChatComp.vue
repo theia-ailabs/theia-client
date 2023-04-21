@@ -114,7 +114,7 @@ export default defineComponent({
                 >
                   <div class="m-4 mt-6 flex justify-center">
                     <AudioPlayer
-                      :src="x.theia.audio"
+                      :src="x.user.audio"
                       :key="store.rerenderAudio"
                     />
                   </div>

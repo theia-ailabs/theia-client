@@ -34,18 +34,22 @@ export default {
         : 'bg-white/90 shadow-gray-300 border-gray-900 text-gray-800'
     "
   >
-    <FooterButtons class="mt-4" />
+    <FooterButtons class="pt-6" />
     <!-- UTC datetime -->
     <div class="-mt-2 text-[11px]">{{ date }} {{ time }} UTC</div>
     <!-- Credits -->
-    <div class="py-4 -mb-2">
+    <div class="py-4 pl-6 -mb-2">
       Made with {{ store.heart1 + store.heart2 }} by Theia Labs
     </div>
     <!-- Legal -->
-    <div class="flex justify-center">
-      <router-link to="/legal" class="mt-1 mb-2 mx-2">Legal</router-link>
+    <div class="flex justify-center pl-3 pb-3">
+      <div class="mt-1 mb-2 mx-2" :class="`hover:text-${store.primaryColor}`">
+        <router-link to="/legal">Legal</router-link>
+      </div>
       <!-- Privacy -->
-      <router-link to="/privacy" class="mt-1 mb-2 mx-2">Privacy</router-link>
+      <div class="mt-1 mb-2 mx-2" :class="`hover:text-${store.secondaryColor}`">
+        <router-link to="/legal">Legal</router-link>
+      </div>
     </div>
   </div>
 </template>
