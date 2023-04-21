@@ -4,6 +4,12 @@
     :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
   >
     <LiquidBody :key="store.rerenderAvatar" />
+    <div
+      class="fixed bottom-30 z-50 text-xl"
+      :class="[store.dark ? 'text-white' : 'text-black']"
+    >
+      Thinking...
+    </div>
   </div>
 </template>
 <script lang="ts">

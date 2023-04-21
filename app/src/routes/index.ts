@@ -3,7 +3,7 @@ import WelcomeView from "../views/WelcomeView.vue";
 import MainView from "../views/TheiaView.vue";
 import LegalView from "../views/LegalView.vue";
 import PrivacyView from "../views/PrivacyView.vue";
-import LoaderView from "../views/LoaderView.vue";
+import LiChessView from "../views/LiChessView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -15,6 +15,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/theia",
     name: "main",
     component: MainView,
+  },
+  {
+    path: "/lichess",
+    name: "lichess",
+    component: LiChessView,
   },
   {
     path: "/legal",

@@ -189,11 +189,13 @@ export default defineComponent({
               : 'opacity-50 border-gray-500/50',
           ]"
         >
-          <img
-            :src="lichessImg"
-            alt="Youtube button"
-            class="w-5 rounded-full"
-          />
+          <router-link to="/lichess">
+            <img
+              :src="lichessImg"
+              alt="Youtube button"
+              class="w-5 rounded-full"
+            />
+          </router-link>
         </button>
         <!-- chess.com -->
         <button
