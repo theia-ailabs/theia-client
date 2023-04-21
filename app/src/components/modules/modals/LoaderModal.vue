@@ -1,24 +1,24 @@
 <template>
-    <teleport to="body">
-        <notifications position="top left" class="mt-2" animation-type="velocity" />
-        <div id="loader" class="out">
-    <div class="fade-in flex">
-      <div class="container">
-        <div class="one common"></div>
-        <div class="two common"></div>
-        <div class="three common"></div>
-        <div class="four common"></div>
-        <div class="five common"></div>
-        <div class="six common"></div>
-        <div class="seven common"></div>
-        <div class="eight common"></div>
-      </div>
-      <div class="bar">
-        <div class="progress"></div>
+  <teleport to="body">
+    <notifications position="top left" class="mt-2" animation-type="velocity" />
+    <div id="loader" class="out">
+      <div class="fade-in flex">
+        <div class="container">
+          <div class="one common"></div>
+          <div class="two common"></div>
+          <div class="three common"></div>
+          <div class="four common"></div>
+          <div class="five common"></div>
+          <div class="six common"></div>
+          <div class="seven common"></div>
+          <div class="eight common"></div>
+        </div>
+        <div class="bar">
+          <div class="progress"></div>
+        </div>
       </div>
     </div>
-  </div>
-    </teleport>
+  </teleport>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
