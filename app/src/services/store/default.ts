@@ -53,45 +53,6 @@ export const avatarSettings: AvatarSettings = {
     },
     vecColor1: "vec3(0.7, 0, 1)",
     vecColor2: "vec3(0.89, 0.6, 0)",
-    colorDir: "x",
-    colorSplit: 1,
-    sphere: {
-      x: 23,
-      y: 300,
-      z: 300,
-    },
-    position: {
-      x: -33,
-      y: -204,
-      z: -44,
-    },
-    material: {
-      x: 1.5,
-      y: 1,
-      z: 1,
-    },
-    vertex: {
-      x: 10,
-      y: 10,
-      z: 10,
-    },
-    speed: 10,
-    transparent: false,
-    background: 0.1, // 0 black 1 white
-  },
-  talking: {
-    color1: {
-      x: 0.7,
-      y: 0,
-      z: 1,
-    },
-    color2: {
-      x: 0.89,
-      y: 0.6,
-      z: 0,
-    },
-    vecColor1: "vec3(0.7, 0, 1)",
-    vecColor2: "vec3(0.89, 0.6, 0)",
     colorDir: "z",
     colorSplit: 0.2,
     sphere: {
@@ -115,6 +76,45 @@ export const avatarSettings: AvatarSettings = {
       z: 10,
     },
     speed: 3,
+    transparent: false,
+    background: 0.1, // 0 black 1 white
+  },
+  talking: {
+    color1: {
+      x: 0.7,
+      y: 0,
+      z: 1,
+    },
+    color2: {
+      x: 0.89,
+      y: 0.6,
+      z: 0,
+    },
+    vecColor1: "vec3(0.7, 0, 1)",
+    vecColor2: "vec3(0.89, 0.6, 0)",
+    colorDir: "x",
+    colorSplit: 1,
+    sphere: {
+      x: 23,
+      y: 300,
+      z: 300,
+    },
+    position: {
+      x: -33,
+      y: -204,
+      z: -44,
+    },
+    material: {
+      x: 1.5,
+      y: 1,
+      z: 1,
+    },
+    vertex: {
+      x: 10,
+      y: 10,
+      z: 10,
+    },
+    speed: 10,
     transparent: false,
     background: 0.1, // 0 black 1 white
   },
