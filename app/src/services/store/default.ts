@@ -72,7 +72,7 @@ export const avatarSettings: AvatarSettings = {
     },
     vertex: {
       x: 2,
-      y: 10,
+      y: 5,
       z: 10,
     },
     speed: 3,
@@ -100,22 +100,22 @@ export const avatarSettings: AvatarSettings = {
       z: 300,
     },
     position: {
-      x: -33,
-      y: -204,
-      z: -44,
+      x: 35,
+      y: -14,
+      z: 172,
     },
     material: {
       x: 1.5,
       y: 1,
-      z: 1,
+      z: 0.7,
     },
     vertex: {
       x: 10,
-      y: 10,
+      y: 20,
       z: 10,
     },
-    speed: 10,
-    transparent: false,
+    speed: 5,
+    transparent: true,
     background: 0.1, // 0 black 1 white
   },
   sleeping: {
