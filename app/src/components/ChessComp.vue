@@ -17,19 +17,34 @@ export default defineComponent({
 </script>
 <template>
   <div
-    class="fixed top-0 bottom-0 h-screen w-screen"
+    class="flex flex-wrap justify-center items-center h-screen w-screen"
     :class="store.dark ? 'bg-black text-white/90' : 'bg-white text-black/90'"
   >
-    <div class="flex flex-wrap justify-center items-center h-screen w-screen">
-      <div id="account" class="w-96 h-full">
-        <h1>ACCOUNT</h1>
+    <div id="account" class="w-96 mx-4 p-4">
+      <h1>ACCOUNT</h1>
+    </div>
+    <div id="board" class="w-96 mx-4 p-4">
+      <h1>BOARD</h1>
+      <div class="grid col-8 row-8">
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-black w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
+        <div class="bg-white w-full h-full">1</div>
       </div>
-      <div id="board">
-        <h1>BOARD</h1>
-      </div>
-      <div id="game">
-        <h1>GAME</h1>
-      </div>
+    </div>
+    <div id="game" class="w-96 mx-4 p-4">
+      <h1>GAME</h1>
     </div>
   </div>
 </template>

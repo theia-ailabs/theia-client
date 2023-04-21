@@ -5,11 +5,14 @@ import CarouselModal from "./modules/modals/CarouselModal.vue";
 import useStore from "../services/store";
 
 export default defineComponent({
+  props: {
+    config: { type: Boolean, default: true },
+  },
   components: {
     // SettingsModal,
     CarouselModal,
   },
-  setup() {
+  setup(props: any) {
     const store = useStore();
     const switchModal = () => {
       store.settingsModal = !store.settingsModal;
@@ -22,7 +25,6 @@ export default defineComponent({
       store.showMenu = !store.showMenu;
       store.showChat = false;
     };
-
     const showImg = () => {
       let showImg = true;
     };
@@ -33,6 +35,7 @@ export default defineComponent({
       switchChat,
       switchMenu,
       showImg,
+      props,
     };
   },
   data() {
@@ -57,11 +60,13 @@ export default defineComponent({
       :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
     >
       <div class="flex ml-2 lg:ml-12">
+        <!-- Messages -->
         <div>
           <button class="mx-3" @click="showImg">
             <img :src="email" alt="email" />
           </button>
         </div>
+        <!-- Contacts -->
         <div>
           <button id="showsocial" class="mx-3" @click="switchMenu">
             <img :src="social" alt="social" />
@@ -69,16 +74,26 @@ export default defineComponent({
         </div>
       </div>
       <div class="mb-1">
-        <button @click="switchModal" class="z-50 flex justify-center">
-          <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
-        </button>
+        <!-- Logo -->
+        <div v-if="props.config">
+          <button @click="switchModal" class="z-50 flex justify-center">
+            <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
+          </button>
+        </div>
+        <div v-else>
+          <router-link to="/theia">
+            <img class="h-10 lg:h-12" :src="logo" alt="Theia logo"
+          /></router-link>
+        </div>
       </div>
       <div class="flex mr-2 lg:mr-12">
+        <!-- Theia Chat -->
         <div>
           <button class="mx-3" @click="switchChat">
             <img :src="chat" alt="chat" />
           </button>
         </div>
+        <!-- Connections Button -->
         <div>
           <button class="mx-3 rounded-full">
             <img
