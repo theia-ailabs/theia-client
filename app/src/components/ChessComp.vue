@@ -37,104 +37,104 @@ export default defineComponent({
       <div class="p-8 text-lg">BOARD</div>
       <div class="grid col-8 row-8 justify-center">
         <div class="flex w-full h-full">
-          <div id="A1" class="bg-white/75 w-20 h-20"></div>
-          <div id="A2" class="bg-black/75 w-20 h-20"></div>
-          <div id="A3" class="bg-white/75 w-20 h-20"></div>
-          <div id="A4" class="bg-black/75 w-20 h-20"></div>
-          <div id="A5" class="bg-white/75 w-20 h-20"></div>
-          <div id="A6" class="bg-black/75 w-20 h-20"></div>
-          <div id="A7" class="bg-white/75 w-20 h-20"></div>
-          <div id="A8" class="bg-black/75 w-20 h-20"></div>
+          <div id="A1" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="A2" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="A3" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="A4" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="A5" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="A6" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="A7" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="A8" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
         </div>
         <div class="flex w-full">
-          <div id="B2" class="bg-black/75 w-20 h-20">
+          <div id="B2" class="w-20 h-20" :class="`bg-${store.primaryColor}`">
             <img :src="wPawn" alt="White Pawn" />
           </div>
-          <div id="B2" class="bg-white/75 w-20 h-20">
+          <div id="B2" class="w-20 h-20" :class="`bg-${store.secondaryColor}`">
             <img :src="wPawn" alt="White Pawn" />
           </div>
-          <div id="B2" class="bg-black/75 w-20 h-20">
+          <div id="B2" class="w-20 h-20" :class="`bg-${store.primaryColor}`">
             <img :src="wPawn" alt="White Pawn" />
           </div>
-          <div id="B2" class="bg-white/75 w-20 h-20">
+          <div id="B2" class="w-20 h-20" :class="`bg-${store.secondaryColor}`">
             <img :src="wPawn" alt="White Pawn" />
           </div>
-          <div id="B2" class="bg-black/75 w-20 h-20">
+          <div id="B2" class="w-20 h-20" :class="`bg-${store.primaryColor}`">
             <img :src="wPawn" alt="White Pawn" />
           </div>
-          <div id="B2" class="bg-white/75 w-20 h-20">
+          <div id="B2" class="w-20 h-20" :class="`bg-${store.secondaryColor}`">
             <img :src="wPawn" alt="White Pawn" />
           </div>
-          <div id="B2" class="bg-black/75 w-20 h-20">
+          <div id="B2" class="w-20 h-20" :class="`bg-${store.primaryColor}`">
             <img :src="wPawn" alt="White Pawn" />
           </div>
-          <div id="B2" class="bg-white/75 w-20 h-20">
+          <div id="B2" class="w-20 h-20" :class="`bg-${store.secondaryColor}`">
             <img :src="wPawn" alt="White Pawn" />
           </div>
         </div>
         <div class="flex w-full">
-          <div id="C1" class="bg-white/75 w-20 h-20"></div>
-          <div id="C2" class="bg-black/75 w-20 h-20"></div>
-          <div id="C3" class="bg-white/75 w-20 h-20"></div>
-          <div id="C4" class="bg-black/75 w-20 h-20"></div>
-          <div id="C5" class="bg-white/75 w-20 h-20"></div>
-          <div id="C6" class="bg-black/75 w-20 h-20"></div>
-          <div id="C7" class="bg-white/75 w-20 h-20"></div>
-          <div id="C8" class="bg-black/75 w-20 h-20"></div>
+          <div id="C1" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="C2" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="C3" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="C4" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="C5" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="C6" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="C7" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="C8" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
         </div>
         <div class="flex w-full">
-          <div id="D1" class="bg-black/75 w-20 h-20"></div>
-          <div id="D2" class="bg-white/75 w-20 h-20"></div>
-          <div id="D3" class="bg-black/75 w-20 h-20"></div>
-          <div id="D4" class="bg-white/75 w-20 h-20"></div>
-          <div id="D5" class="bg-black/75 w-20 h-20"></div>
-          <div id="D6" class="bg-white/75 w-20 h-20"></div>
-          <div id="D7" class="bg-black/75 w-20 h-20"></div>
-          <div id="D8" class="bg-white/75 w-20 h-20"></div>
+          <div id="D1" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="D2" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="D3" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="D4" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="D5" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="D6" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="D7" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="D8" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
         </div>
         <div class="flex w-full">
-          <div id="E1" class="bg-white/75 w-20 h-20"></div>
-          <div id="E2" class="bg-black/75 w-20 h-20"></div>
-          <div id="E3" class="bg-white/75 w-20 h-20"></div>
-          <div id="E4" class="bg-black/75 w-20 h-20"></div>
-          <div id="E5" class="bg-white/75 w-20 h-20"></div>
-          <div id="E6" class="bg-black/75 w-20 h-20"></div>
-          <div id="E7" class="bg-white/75 w-20 h-20"></div>
-          <div id="E8" class="bg-black/75 w-20 h-20"></div>
+          <div id="E1" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="E2" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="E3" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="E4" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="E5" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="E6" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="E7" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="E8" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
         </div>
         <div class="flex w-full">
-          <div id="F1" class="bg-black/75 w-20 h-20"></div>
-          <div id="F2" class="bg-white/75 w-20 h-20"></div>
-          <div id="F3" class="bg-black/75 w-20 h-20"></div>
-          <div id="F4" class="bg-white/75 w-20 h-20"></div>
-          <div id="F5" class="bg-black/75 w-20 h-20"></div>
-          <div id="F6" class="bg-white/75 w-20 h-20"></div>
-          <div id="F7" class="bg-black/75 w-20 h-20"></div>
-          <div id="F8" class="bg-white/75 w-20 h-20"></div>
+          <div id="F1" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="F2" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="F3" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="F4" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="F5" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="F6" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
+          <div id="F7" class="w-20 h-20" :class="`bg-${store.primaryColor}`"></div>
+          <div id="F8" class="w-20 h-20" :class="`bg-${store.secondaryColor}`"></div>
         </div>
         <div class="flex w-full">
-          <div id="G1" class="bg-white/75 w-20 h-20">
+          <div id="G1" class="w-20 h-20" :class="`bg-${store.secondaryColor}`">
             <img :src="bPawn" alt="Black Pawn" />
           </div>
-          <div id="G2" class="bg-black/75 w-20 h-20">
+          <div id="G2" class="w-20 h-20" :class="`bg-${store.primaryColor}`">
             <img :src="bPawn" alt="Black Pawn" />
           </div>
-          <div id="G3" class="bg-white/75 w-20 h-20">
+          <div id="G3" class="w-20 h-20" :class="`bg-${store.secondaryColor}`">
             <img :src="bPawn" alt="Black Pawn" />
           </div>
-          <div id="G4" class="bg-black/75 w-20 h-20">
+          <div id="G4" class="w-20 h-20" :class="`bg-${store.primaryColor}`">
             <img :src="bPawn" alt="Black Pawn" />
           </div>
-          <div id="G5" class="bg-white/75 w-20 h-20">
+          <div id="G5" class="w-20 h-20" :class="`bg-${store.secondaryColor}`">
             <img :src="bPawn" alt="Black Pawn" />
           </div>
-          <div id="G6" class="bg-black/75 w-20 h-20">
+          <div id="G6" class="w-20 h-20" :class="`bg-${store.primaryColor}`">
             <img :src="bPawn" alt="Black Pawn" />
           </div>
-          <div id="G7" class="bg-white/75 w-20 h-20">
+          <div id="G7" class="w-20 h-20" :class="`bg-${store.secondaryColor}`">
             <img :src="bPawn" alt="Black Pawn" />
           </div>
-          <div id="G8" class="bg-black/75 w-20 h-20">
+          <div id="G8" class="w-20 h-20" :class="`bg-${store.primaryColor}`">
             <img :src="bPawn" alt="Black Pawn" />
           </div>
         </div>
