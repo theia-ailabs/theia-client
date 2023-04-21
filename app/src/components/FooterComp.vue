@@ -27,14 +27,14 @@ export default {
 </script>
 <template>
   <div
-    class="z-50 relative bottom-0 w-full text-center text-xs text-gray-400"
+    class="z-50 relative bottom-0 -mt-8 w-full text-center text-xs text-gray-400"
     :class="
       store.dark
         ? 'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200'
         : 'bg-white/90 shadow-gray-300 border-gray-900 text-gray-800'
     "
   >
-    <FooterButtons class="pt-8" />
+    <FooterButtons class="pt-12" />
     <!-- UTC datetime -->
     <div class="-mt-2 py-2 text-[12px]">{{ date }} {{ time }} UTC</div>
     <!-- Credits -->
