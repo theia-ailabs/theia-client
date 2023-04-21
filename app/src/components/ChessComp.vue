@@ -26,6 +26,7 @@ export default defineComponent({
     <div id="board" class="w-96 mx-4 p-4">
       <h1>BOARD</h1>
       <div class="grid col-8 row-8">
+        <div class=""
         <div class="bg-white w-full h-full">1</div>
         <div class="bg-black w-full h-full">1</div>
         <div class="bg-white w-full h-full">1</div>

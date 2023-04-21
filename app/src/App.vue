@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "@vue/composition-api";
-import VoiceRec from "./services/voiceRec";
+import VoiceRec from "./services/utilities/voiceRec";
 
 export default defineComponent({
   setup() {

@@ -52,6 +52,7 @@ export const theiaRes = (store: State) => {
     }
   });
 };
+
 const countThinking = (store: State, _i = 0, _mm = 10) => {
   if (store.chat[_i].theia.computed_in > 0) {
     let secs = 0;

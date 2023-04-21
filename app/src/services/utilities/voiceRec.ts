@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import useStore from "./store";
+import useStore from "../store";
 declare let webkitSpeechRecognition: any;
 
 export default class VoiceRec {
