@@ -59,7 +59,7 @@ export default defineComponent({
       class="z-50 fixed pt-4 flex justify-between w-full top-0"
       :class="store.dark ? 'bg-black/90' : 'bg-white/90'"
     >
-      <div class="flex ml-2 lg:ml-12">
+      <div class="flex ml-2 mt-2 lg:ml-12">
         <!-- Messages -->
         <div>
           <button class="mx-3" @click="showImg">
@@ -82,11 +82,11 @@ export default defineComponent({
         </div>
         <div v-else>
           <router-link to="/theia">
-            <img class="h-10 lg:h-12" :src="logo" alt="Theia logo"
+            <img class="h-10 lg:h-11" :src="logo" alt="Theia logo"
           /></router-link>
         </div>
       </div>
-      <div class="flex mr-2 lg:mr-12">
+      <div class="flex mr-2 mt-2 lg:mr-12">
         <!-- Theia Chat -->
         <div>
           <button class="mx-3" @click="switchChat">
