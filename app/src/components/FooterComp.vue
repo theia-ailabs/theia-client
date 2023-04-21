@@ -44,7 +44,7 @@ export default {
     <!-- Legal -->
     <div class="flex justify-center mt-2 pb-3">
       <div class="mt-1 mb-2 mx-2" :class="`hover:text-${store.primaryColor}`">
-        <router-link to="/legal">Legal</router-link>
+        <router-link to="/privacy">Privacy</router-link>
       </div>
       <!-- Privacy -->
       <div class="mt-1 mb-2 mx-2" :class="`hover:text-${store.secondaryColor}`">

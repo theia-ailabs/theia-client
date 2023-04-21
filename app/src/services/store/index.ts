@@ -8,7 +8,7 @@ const useStore = defineStore("main", {
   state: (): State => {
     return {
       // user mood
-      lang: "es",
+      lang: "en",
       mood: "curious",
       voice: "denis",
       // user info
