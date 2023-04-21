@@ -101,20 +101,20 @@ export const avatarSettings: AvatarSettings = {
     },
     position: {
       x: 0,
-      y: 150,
+      y: 75,
       z: 150,
     },
     material: {
       x: 1.5,
       y: 1,
-      z: 0.1,
+      z: 1,
     },
     vertex: {
       x: 2,
       y: 10,
-      z: 100,
+      z: 10,
     },
-    speed: 10,
+    speed: 3,
     transparent: false,
     background: 0.1, // 0 black 1 white
   },
