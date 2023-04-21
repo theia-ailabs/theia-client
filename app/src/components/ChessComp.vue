@@ -17,17 +17,19 @@ export default defineComponent({
 </script>
 <template>
   <div
-    class="fixed h-screen w-screen flex flex-col justify-center items-center"
-    :class="store.dark ? 'bg-black' : 'bg-white'"
+    class="fixed top-0 bottom-0 h-screen w-screen"
+    :class="store.dark ? 'bg-black text-white/90' : 'bg-white text-black/90'"
   >
-    <div id="account">
-      <button @click="connect">LICHESS ACCOUNT</button>
-    </div>
-    <div id="board">
-      <button @click="connect">LICHESS ACCOUNT</button>
-    </div>
-    <div id="game">
-      <button @click="connect">LICHESS ACCOUNT</button>
+    <div class="flex flex-wrap justify-center items-center h-screen w-screen">
+      <div id="account">
+        <h1>ACCOUNT</h1>
+      </div>
+      <div id="board">
+        <h1>BOARD</h1>
+      </div>
+      <div id="game">
+        <h1>GAME</h1>
+      </div>
     </div>
   </div>
 </template>
