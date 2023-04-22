@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import useStore from "../services/store";
-import { theiaRes } from "../services/sockets/theia.socket";
+import { theiaRes } from "../../../services/sockets/theia.socket";
+import useStore from "../../../services/store";
 
 export default defineComponent({
   setup() {
@@ -44,14 +44,14 @@ export default defineComponent({
   },
   data() {
     return {
-      sendImg: require("../assets/img/ico/send.png"),
+      sendImg: require("../../../assets/img/ico/send.png"),
     };
   },
 });
 </script>
 <template>
   <form
-    class="z-50 flex flex-wrap justify-center m-2 w-full pr-12 px-2"
+    class="z-50 fixed bottom-20 flex flex-wrap justify-center m-2 w-full pr-12 px-2"
     :class="store.showChat ? 'block' : 'hidden'"
   >
     <textarea

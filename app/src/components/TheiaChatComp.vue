@@ -2,12 +2,14 @@
 import { defineComponent } from "vue";
 import AudioPlayer from "./AudioPlayerComp.vue";
 import ProgressBarComp from "./modules/loaders/ProgressBarComp.vue";
+import InputComp from "./modules/inputs/InputComp.vue";
 import useStore from "../services/store";
 
 export default defineComponent({
   components: {
     AudioPlayer,
     ProgressBarComp,
+    InputComp,
   },
   setup() {
     const store = useStore();
@@ -145,6 +147,7 @@ export default defineComponent({
         </div>
       </div>
     </div>
+    <InputComp />
   </div>
 </template>
 <style scoped>

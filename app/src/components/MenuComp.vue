@@ -1,12 +1,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import InputComp from "./InputComp.vue";
 import useStore from "../services/store";
 
 export default defineComponent({
-  components: {
-    InputComp,
-  },
   setup() {
     const store = useStore();
     return {
@@ -212,7 +208,6 @@ export default defineComponent({
         </button>
       </div>
     </div>
-    <InputComp />
   </div>
 </template>
 <style scoped>
