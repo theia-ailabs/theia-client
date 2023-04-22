@@ -11,7 +11,7 @@ export default defineComponent({
     voiceRec.start();
     return {
       store,
-    }
+    };
   },
 });
 </script>
