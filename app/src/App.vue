@@ -1,14 +1,10 @@
 <script lang="ts">
 import { defineComponent } from "@vue/composition-api";
-import VoiceRec from "./services/utilities/voiceRec";
 import useStore from "./services/store";
 
 export default defineComponent({
   setup() {
     const store = useStore();
-    const voiceRec = new VoiceRec();
-    voiceRec.init();
-    voiceRec.start();
     return {
       store,
     };
