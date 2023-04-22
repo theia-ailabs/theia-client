@@ -1,4 +1,5 @@
 import socket from ".";
+import { State } from "../../interfaces";
 // import { State, AskTheiaRet } from "../../interfaces";
 // import { avatarSettings } from "../store/default";
 
@@ -11,7 +12,7 @@ export const disconnectLichess = () => {
 };
 
 export const getLichessAccount = () => {
-  socket.volatile.on("UserLichess", (res: any) => {
+  socket.volatile.on("lichessAccount", (res: any) => {
     console.log(res);
   });
 };

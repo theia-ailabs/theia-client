@@ -27,7 +27,7 @@ export default {
 </script>
 <template>
   <div
-    class="z-50 relative bottom-0 -mt-8 pt-2 w-full text-center text-xs text-gray-400"
+    class="z-50 relative bottom-0 -mt-4 pt-2 w-full text-center text-xs text-gray-400"
     :class="
       store.dark
         ? 'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200'

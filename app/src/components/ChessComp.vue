@@ -1,10 +1,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import { getLichessAccount } from "../services/sockets/chess.socket";
 import useStore from "../services/store";
 
 export default defineComponent({
   setup() {
     const store = useStore();
+    getLichessAccount();
     return {
       store,
     };
