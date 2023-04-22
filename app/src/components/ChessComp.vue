@@ -9,6 +9,7 @@ export default defineComponent({
     getLichessAccount();
     return {
       store,
+      getLichessAccount,
     };
   },
   data() {
@@ -37,7 +38,9 @@ export default defineComponent({
     "
   >
     <div id="account" class="w-96 mx-4 p-4">
-      <div class="p-8 text-lg">ACCOUNT</div>
+      <button @click="getLichessAccount">
+        <div class="p-8 text-lg">ACCOUNT</div>
+      </button>
     </div>
     <div id="board" class="w-96 p-4 pb-8 -mt-24">
       <div class="p-8 text-lg">BOARD</div>

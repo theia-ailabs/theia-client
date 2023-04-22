@@ -12,7 +12,8 @@ export const disconnectLichess = () => {
 };
 
 export const getLichessAccount = () => {
-  socket.volatile.on("lichessAccount", (res: any) => {
+  socket.emit("lichessAccount");
+  socket.volatile.on("lichessAccountRes", (res: any) => {
     console.log(res);
   });
 };
