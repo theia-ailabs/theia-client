@@ -4,7 +4,7 @@ import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
 import { userSettings, avatarSettings, socialConnections } from "./default";
 
-const useStore = defineStore("main", {
+const useStore = defineStore("store", {
   state: (): State => {
     return {
       // login / signup
