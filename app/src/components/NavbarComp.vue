@@ -41,6 +41,7 @@ export default defineComponent({
   data() {
     return {
       chat: require("../assets/img/svg/chat-white.svg"),
+      blackchat: require("../assets/img/svg/chat-black.svg"),
       menuImg: require("../assets/img/ico/connect-white.png"),
       logo: require("../assets/img/png/logo3.png"),
       pfp: require("../assets/img/png/profile.png"),
@@ -48,6 +49,8 @@ export default defineComponent({
       unread: require("../assets/img/svg/mark-unread-white.svg"),
       social: require("../assets/img/svg/groups-white.svg"),
       blacklogo: require("../assets/img/png/logo3-black.png"),
+      blacksocial: require("../assets/img/svg/groups-black.svg"),
+      blackmail: require("../assets/img/svg/email-black.svg"),
     };
   },
 });
@@ -64,13 +67,21 @@ export default defineComponent({
         <!-- Messages -->
         <div>
           <button class="mx-3" @click="showImg">
-            <img :src="email" alt="email" />
+            <img
+              class="w-[24px] h-[24px]"
+              :src="store.dark ? email : blackmail"
+              alt="email"
+            />
           </button>
         </div>
         <!-- Contacts -->
         <div>
           <button id="showsocial" class="mx-3" @click="switchMenu">
-            <img :src="social" alt="social" />
+            <img
+              class="w-[24px] h-[24px]"
+              :src="store.dark ? social : blacksocial"
+              alt="social"
+            />
           </button>
         </div>
       </div>
@@ -87,7 +98,10 @@ export default defineComponent({
         </div>
         <div v-else>
           <router-link to="/theia">
-            <img class="h-10 lg:h-11" :src="logo" alt="Theia logo"
+            <img
+              class="h-10 lg:h-11"
+              :src="store.dark ? logo : blacklogo"
+              alt="Theia logo"
           /></router-link>
         </div>
       </div>
@@ -95,7 +109,11 @@ export default defineComponent({
         <!-- Theia Chat -->
         <div>
           <button class="mx-3" @click="switchChat">
-            <img :src="chat" alt="chat" />
+            <img
+              class="w-[24px] h-[24px]"
+              :src="store.dark ? chat : blackchat"
+              alt="chat"
+            />
           </button>
         </div>
         <!-- Connections Button -->
