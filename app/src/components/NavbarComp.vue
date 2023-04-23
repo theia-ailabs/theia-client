@@ -47,6 +47,7 @@ export default defineComponent({
       email: require("../assets/img/svg/mail-white.svg"),
       unread: require("../assets/img/svg/mark-unread-white.svg"),
       social: require("../assets/img/svg/groups-white.svg"),
+      blacklogo: require("../assets/img/png/logo3-black.png"),
     };
   },
 });
@@ -77,7 +78,11 @@ export default defineComponent({
         <!-- Logo -->
         <div v-if="props.config">
           <button @click="switchModal" class="z-50 flex justify-center">
-            <img class="h-10 lg:h-12" :src="logo" alt="Theia logo" />
+            <img
+              class="h-10 lg:h-12"
+              :src="store.dark ? logo : blacklogo"
+              alt="Theia logo"
+            />
           </button>
         </div>
         <div v-else>
