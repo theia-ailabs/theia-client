@@ -23,7 +23,7 @@ export default defineComponent({
   <teleport to="body">
     <notifications position="top left" class="mt-2" animation-type="velocity" />
     <div :class="store.settingsModal ? 'block' : 'hidden'">
-      <h1>USER SETTINGS</h1>
+      <h1 class="text-white">USER SETTINGS</h1>
       <UserSettings />
       <h1>THEIA SETTINGS</h1>
       <AvatarSettings />
