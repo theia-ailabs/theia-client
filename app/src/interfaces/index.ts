@@ -1,32 +1,15 @@
 export interface State {
+  // login / signup
+  welcome: boolean;
+  newUser: boolean;
+  inputUsername: string;
+  usernameAv: boolean;
   // user mood
   lang: string;
   mood: string;
   voice: string;
   // user info
-  pfp: string;
-  username: string;
-  country: string;
-  flag: string;
-  gender: string;
-  age: string;
-  phone: string;
-  topics: string[];
-  created: string;
-  verified: boolean;
-  // web2 login
-  loggedIn: boolean;
-  email: string;
-  name: string;
-  // web3 login
-  connected: boolean;
-  pubkey: string;
-  balance: number;
-  ccy: string;
-  // clock
-  gmt: number;
-  timezone: string;
-  alarm: string;
+  userProfile: UserSettings;
   // messages
   input: string;
   chat: ChatRecord[];
@@ -50,14 +33,27 @@ export interface State {
   // modals
   loginModal: boolean;
   settingsModal: boolean;
-  // signup
-  welcome: boolean;
-  newUser: boolean;
-  usernameAv: boolean;
   // menus
   connections: SocialConnections;
 }
 
+export interface UserSettings {
+  username: string;
+  pfp: string;
+  mood: string;
+  firstName: string;
+  lastName: string;
+  age: number;
+  gender: Gender;
+  country: string;
+  timezone: string;
+  website: string;
+  created_on: string;
+  verified: boolean;
+  topics: string[];
+}
+
+type Gender = "female" | "male" | "non-binary" | "";
 export interface Vector3 {
   x: number;
   y: number;

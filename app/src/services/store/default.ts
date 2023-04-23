@@ -1,4 +1,24 @@
-import { AvatarSettings, SocialConnections } from "../../interfaces";
+import {
+  UserSettings,
+  AvatarSettings,
+  SocialConnections,
+} from "../../interfaces";
+
+export const userSettings: UserSettings = {
+  username: "",
+  pfp: "",
+  mood: "",
+  firstName: "",
+  lastName: "",
+  age: 0,
+  gender: "",
+  country: "",
+  timezone: "",
+  website: "",
+  created_on: "",
+  verified: false,
+  topics: [],
+};
 
 export const avatarSettings: AvatarSettings = {
   listening: {

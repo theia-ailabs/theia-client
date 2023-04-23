@@ -2,39 +2,22 @@ import { defineStore } from "pinia";
 import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
 import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
-import { avatarSettings, socialConnections } from "./default";
+import { userSettings, avatarSettings, socialConnections } from "./default";
 
 const useStore = defineStore("main", {
   state: (): State => {
     return {
+      // signup
+      welcome: true,
+      inputUsername: "",
+      newUser: false,
+      usernameAv: false,
       // user mood
       lang: "en",
       mood: "curious",
       voice: "denis",
       // user info
-      pfp: "",
-      username: "",
-      country: "",
-      flag: "🇺🇳",
-      gender: "",
-      age: "",
-      phone: "",
-      topics: [],
-      created: "",
-      verified: false,
-      // web3 login
-      connected: false,
-      pubkey: "",
-      balance: 0,
-      ccy: "SOL",
-      // web2 login
-      loggedIn: false,
-      email: "",
-      name: "",
-      // clock
-      gmt: 0,
-      timezone: "",
-      alarm: "",
+      userProfile: userSettings,
       // messages
       input: "",
       chat: [],
@@ -58,18 +41,11 @@ const useStore = defineStore("main", {
       // modals
       loginModal: false,
       settingsModal: false,
-      // signup
-      welcome: false,
-      newUser: false,
-      usernameAv: false,
       // menus
       connections: socialConnections,
     };
   },
   actions: {
-    connect(): void {
-      this.connected = true;
-    },
     reAvatar(): void {
       console.log("Rerendering...");
       this.rerenderAvatar++;
@@ -135,7 +111,7 @@ const useStore = defineStore("main", {
       else this.heart2 = heart;
     },
     searchUser(): void {
-      console.log(this.username);
+      console.log(this.inputUsername);
       // socket.emit("newUsername", this.username);
     },
     // Connection functions
