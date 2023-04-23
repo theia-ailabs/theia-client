@@ -12,6 +12,7 @@ export const userSettings: UserSettings = {
   lastName: "",
   age: 0,
   gender: "",
+  handees: "right",
   country: "",
   timezone: "",
   website: "",

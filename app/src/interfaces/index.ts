@@ -1,6 +1,6 @@
 export interface State {
   // login / signup
-  welcome: boolean;
+  login: boolean;
   newUser: boolean;
   inputUsername: string;
   usernameAv: boolean;
@@ -45,6 +45,7 @@ export interface UserSettings {
   lastName: string;
   age: number;
   gender: Gender;
+  handees: Handees;
   country: string;
   timezone: string;
   website: string;
@@ -54,6 +55,7 @@ export interface UserSettings {
 }
 
 type Gender = "female" | "male" | "non-binary" | "";
+type Handees = "left" | "right";
 export interface Vector3 {
   x: number;
   y: number;

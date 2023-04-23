@@ -7,8 +7,8 @@ import { userSettings, avatarSettings, socialConnections } from "./default";
 const useStore = defineStore("main", {
   state: (): State => {
     return {
-      // signup
-      welcome: true,
+      // login / signup
+      login: false,
       inputUsername: "",
       newUser: false,
       usernameAv: false,

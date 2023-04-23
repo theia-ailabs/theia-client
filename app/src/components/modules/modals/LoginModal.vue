@@ -6,7 +6,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     function goBack(): void {
-      store.connect();
+      store.login = false;
     }
     function signUp(): void {
       return;

@@ -9,7 +9,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     function connect(): void {
-      store.connect();
+      store.login = true;
     }
     return {
       store,

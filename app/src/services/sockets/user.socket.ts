@@ -43,8 +43,8 @@ export const searchUsersSocket = (username: string) => {
 };
 
 export const createUserSocket = (username: string) => {
-  if (store.pubkey) {
-    socket.emit("newUser", store.pubkey, username, false);
+  if (store.userProfile.username) {
+    socket.emit("newUser", store.userProfile.username, username, false);
     socket.on("newUserCreated", (created: boolean) => {
       if (created) {
         notify({
