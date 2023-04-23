@@ -12,9 +12,9 @@ import {
   emitDisconnection,
 } from "../../../services/sockets/user.socket";
 import { formatNumber } from "../../../utils";
-import WalletConnectButton from "../wallets/WalletConnectButton.vue";
-import WalletIcon from "../wallets/WalletIcon.vue";
-import WalletModalProvider from "../wallets/WalletModalProvider.vue";
+import WalletConnectButton from "../wallets/solana/WalletConnectButton.vue";
+import WalletIcon from "../wallets/solana/WalletIcon.vue";
+import WalletModalProvider from "../wallets/solana/WalletModalProvider.vue";
 import useStore from "../../../services/store";
 
 export default defineComponent({
@@ -49,7 +49,7 @@ export default defineComponent({
     const publicKeyTrimmed = computed(() => {
       if (!wallet.value || !publicKeyBase58.value) return null;
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-      store.pubkey = publicKeyBase58.value as string;
+      // store.pubkey = publicKeyBase58.value as string;
       if (props.login) connectBtn();
       return (
         publicKeyBase58.value.slice(0, 4) +
