@@ -132,7 +132,7 @@ export default defineComponent({
                 <div
                   class="text-right pr-2 mt-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"
                 >
-                  {{ store.username }}
+                  {{ store.userProfile }}
                 </div>
                 <div class="text-center flex align-bottom justify-center">
                   <img

@@ -50,7 +50,8 @@ const useStore = defineStore("store", {
       // menus
       connections: socialConnections,
       // real estate
-      carousel: [],
+      realEstate: [],
+      showEstate: true,
     };
   },
   actions: {

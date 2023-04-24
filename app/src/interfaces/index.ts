@@ -36,7 +36,8 @@ export interface State {
   // menus
   connections: SocialConnections;
   // real estate
-  carousel: RealEstate[];
+  realEstate: RealEstate[];
+  showEstate: boolean;
 }
 
 export interface UserSettings {
