@@ -17,8 +17,6 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
-    store.recorder.init();
-    store.recorder.start();
     return {
       store,
     };
