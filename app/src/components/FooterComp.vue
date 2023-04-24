@@ -30,8 +30,8 @@ export default {
     class="z-50 relative bottom-0 -mt-4 pt-2 w-full text-center text-xs text-gray-400"
     :class="
       store.dark
-        ? 'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200'
-        : 'bg-white/90 shadow-gray-300 border-gray-900 text-gray-800'
+        ? 'bg-black shadow-gray-700 border-gray-200 text-gray-200'
+        : 'bg-white shadow-gray-300 border-gray-900 text-gray-800'
     "
   >
     <FooterButtons class="pt-12" />
