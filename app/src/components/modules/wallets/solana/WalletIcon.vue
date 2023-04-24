@@ -12,12 +12,11 @@ export default defineComponent({
 });
 </script>
 <template>
-  <i class="swv-button-icon h-8 w-8">
+  <i class="swv-button-icon w-10">
     <img
       v-if="wallet"
       :src="wallet.adapter.icon"
       :alt="`${wallet.adapter.name} icon`"
-      class="w-16"
     />
   </i>
 </template>
