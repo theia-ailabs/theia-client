@@ -16,11 +16,13 @@ export default defineComponent({
       store,
       Slide,
       Carousel,
+			Pagination,
+			Navigation,
     };
   },
-	data() {
-		return {
-			title: "Chalet 300m2",
+  data() {
+    return {
+      title: "Chalet 300m2",
       img: require("../assets/img/ico/casa1.jpg"),
       particular: true,
       tipo: "Venta",
@@ -28,8 +30,8 @@ export default defineComponent({
       address: "C/ Baltasar de España, 32, 08970 Sant Joan Despí",
       telf: "600 00 00 00",
       email: "prueba@gmail.com",
-		};
-	}
+    };
+  },
 });
 </script>
 <template>
