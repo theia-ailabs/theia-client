@@ -120,7 +120,7 @@ export default defineComponent({
           <router-link to="/theia">
             <div class="mr-2">
               <img
-                class="w-8 h-8 -mt-1"
+                class="w-7 h-7 mb-2"
                 :src="store.dark ? theiaWhite : theiaBlack"
                 alt="chat"
               /></div

@@ -152,42 +152,40 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div>
-    <div class="w-full h-screen overflow-y-scroll mt-20">
-      <div class="bg-transparent" :class="{ 'flex flex-wrap': !hasLogo }">
-        <div class="" v-if="hasLogo">
-          <img
-            class="h-8 w-8"
-            width="80"
-            height="60"
-            :src="logo"
-            alt="wallet logo"
-          />
-        </div>
-        <ul class="w-96">
-          <li
-            class="flex flex-wrap"
-            v-for="wallet in walletsToDisplay"
-            :key="wallet.adapter.name"
-            @click="
-              selectWallet(wallet.adapter.name);
-              closeModal();
-            "
-          >
-            <button class="flex flex-wrap">
-              <wallet-icon class="p-2 m-2" :wallet="wallet"></wallet-icon>
-              <p class="p-2 m-2" v-text="wallet.adapter.name"></p>
-              <div
-                v-if="wallet.readyState === 'Installed'"
-                class="p-2 m-2"
-                :class="`color-${store.primaryColor}`"
-              >
-                Detected
-              </div>
-            </button>
-          </li>
-        </ul>
+  <div class="w-full h-screen overflow-y-scroll mt-20">
+    <div class="bg-transparent" :class="{ 'flex flex-wrap': !hasLogo }">
+      <div class="" v-if="hasLogo">
+        <img
+          class="h-8 w-8"
+          width="80"
+          height="60"
+          :src="logo"
+          alt="wallet logo"
+        />
       </div>
+      <ul class="w-96">
+        <li
+          class="flex flex-wrap"
+          v-for="wallet in walletsToDisplay"
+          :key="wallet.adapter.name"
+          @click="
+            selectWallet(wallet.adapter.name);
+            closeModal();
+          "
+        >
+          <button class="flex flex-wrap">
+            <wallet-icon class="p-2 m-2" :wallet="wallet"></wallet-icon>
+            <p class="p-2 m-2" v-text="wallet.adapter.name"></p>
+            <div
+              v-if="wallet.readyState === 'Installed'"
+              class="p-2 m-2"
+              :class="`color-${store.primaryColor}`"
+            >
+              Detected
+            </div>
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
