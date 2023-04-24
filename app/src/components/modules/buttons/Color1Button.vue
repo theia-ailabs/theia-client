@@ -396,6 +396,24 @@ export default {
     <div class="bg-purple-500 text-purple-500"></div>
     <div class="bg-fuchsia-500 text-fuchsia-50"></div>
     <div class="bg-pink-500 text-pink-500"></div>
+    <div class="hover:bg-black/90 hover:text-black/90"></div>
+    <div class="hover:bg-black/60 hover:text-black/60"></div>
+    <div class="hover:bg-black/20 hover:text-black/20"></div>
+    <div class="hover:bg-white/90 hover:text-white/90"></div>
+    <div class="hover:bg-white/60 hover:text-white/60"></div>
+    <div class="hover:bg-white/20 hover:text-white/20"></div>
+    <div class="hover:bg-red-500 hover:text-red-500"></div>
+    <div class="hover:bg-orange-500 hover:text-orange-500"></div>
+    <div class="hover:bg-yellow-500 hover:text-yellow-500"></div>
+    <div class="hover:bg-green-500 hover:text-green-500"></div>
+    <div class="hover:bg-emerald-500 hover:text-emerald-500"></div>
+    <div class="hover:bg-lime-500 hover:text-lime-500"></div>
+    <div class="hover:bg-blue-500 hover:text-blue-500"></div>
+    <div class="hover:bg-sky-500 hover:text-sky-500"></div>
+    <div class="hover:bg-cyan-500 hover:text-cyan-500"></div>
+    <div class="hover:bg-purple-500 hover:text-purple-500"></div>
+    <div class="hover:bg-fuchsia-500 hover:text-fuchsia-50"></div>
+    <div class="hover:bg-pink-500 hover:text-pink-500"></div>
     <!-- shadow border (init colors) -->
     <div class="shadow-black/90 border-black/90"></div>
     <div class="shadow-black/60 border-black/60"></div>

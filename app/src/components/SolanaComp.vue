@@ -17,17 +17,18 @@ export default defineComponent({
 </script>
 <template>
   <div
-    class="flex flex-wrap justify-center items-center h-screen w-screen"
+    class="z-40 h-screen w-screen flex flex-wrap justify-center items-center"
     :class="
-      store.dark ? 'bg-black/90 text-white/90' : 'bg-white/90 text-black/90'
+      store.dark ? 'bg-white/10 text-white/90' : 'bg-black/10 text-black/90'
     "
   >
     <div class="flex flex-wrap justify-center">
-      <div class="w-full flex flex-wrap justify-start">
+      <div class="w-96 flex flex-wrap justify-start">
+        <div>Solana Wallets</div>
         <WalletConnections :dark="store.dark" />
       </div>
-      <div class="w-96 mt-24">Solana Wallets</div>
-      <div class="w-96 mt-24">Blockchain Terminal</div>
+      <div class="w-96">Solana Wallets</div>
+      <div class="w-96">Blockchain Terminal</div>
     </div>
   </div>
 </template>

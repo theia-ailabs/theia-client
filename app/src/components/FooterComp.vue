@@ -36,22 +36,32 @@ export default {
   >
     <FooterButtons class="pt-12" />
     <!-- UTC datetime -->
-    <div class="-mt-2 py-2 text-[12px]">{{ date }} {{ time }} UTC</div>
+    <!-- <div class="-mt-2 py-2 text-[12px]">{{ date }} {{ time }} UTC</div> -->
     <!-- Credits -->
-    <div class="py-4 pl-6 -mb-2">
-      Made with {{ store.heart1 + store.heart2 }} by Theia Labs
+    <div class="py-4 -mb-2">
+      <span class="pl-4">Made with</span>
+      <span class="pl-5">{{ store.heart1 }}</span>
+      <span class="pl-4">{{ store.heart2 }}</span>
+      <span class="pl-3"
+        ><a href="https://github.com/theia-ailabs" target="_blank"
+          >by Theia Labs</a
+        ></span
+      >
     </div>
-    <!-- Privacy -->
-    <div class="flex justify-center mt-2 pb-3">
-      <div class="mt-1 mb-2 mx-2" :class="`hover:text-${store.primaryColor}`">
-        <router-link to="/privacy">Privacy</router-link>
-      </div>
+    <div class="flex justify-center mt-2 pb-3 pr-4">
       <!-- Legal -->
       <div
-        class="mt-1 mb-2 mx-2 pl-2"
-        :class="`hover:text-${store.secondaryColor}`"
+        class="mt-1 mb-2 mx-2 pl-7"
+        :class="`hover:text-${store.primaryColor}`"
       >
         <router-link to="/legal">Legal</router-link>
+      </div>
+      <!-- Privacy -->
+      <div
+        class="mt-1 mb-2 mx-2 pl-7"
+        :class="`hover:text-${store.secondaryColor}`"
+      >
+        <router-link to="/privacy">Privacy</router-link>
       </div>
     </div>
   </div>
