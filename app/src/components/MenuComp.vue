@@ -101,7 +101,7 @@ export default defineComponent({
               : 'opacity-50 border-gray-500/50',
           ]"
         >
-          <img :src="spotifyImg" alt="Sptofy button" class="w-5" />
+          <img :src="spotifyImg" alt="Spotify button" class="w-5" />
         </button>
         <!-- Youtube -->
         <button

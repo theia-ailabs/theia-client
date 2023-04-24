@@ -9,6 +9,7 @@ import {
 import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
 import { userSettings, avatarSettings, socialConnections } from "./default";
+import VoiceRec from "../utilities/voiceRec";
 
 const useStore = defineStore("store", {
   state: (): State => {
@@ -109,6 +110,7 @@ const useStore = defineStore("store", {
     switchSound(): void {
       this.sound = !this.sound;
     },
+
     setPrimaryColor(color: string): void {
       this.primaryColor = color;
     },
