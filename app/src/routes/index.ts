@@ -1,9 +1,10 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import WelcomeView from "../views/WelcomeView.vue";
 import MainView from "../views/TheiaView.vue";
+import SolanaView from "../views/SolanaView.vue";
+import LichessView from "../views/LichessView.vue";
 import LegalView from "../views/LegalView.vue";
 import PrivacyView from "../views/PrivacyView.vue";
-import LichessView from "../views/LichessView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -13,8 +14,13 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/theia",
-    name: "main",
+    name: "theia",
     component: MainView,
+  },
+  {
+    path: "/solana",
+    name: "solana",
+    component: SolanaView,
   },
   {
     path: "/lichess",
