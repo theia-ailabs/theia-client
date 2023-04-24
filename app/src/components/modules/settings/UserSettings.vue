@@ -58,7 +58,7 @@ export default defineComponent({
                 id="ainame"
                 key="ainame"
                 placeholder="Theia"
-                v-model="store.username"
+                v-model="store.userProfile"
                 class="mt-4 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
                 :class="[
                   store.dark
