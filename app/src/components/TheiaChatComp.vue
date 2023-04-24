@@ -71,11 +71,11 @@ export default defineComponent({
                       :key="store.rerenderAudio"
                     />
                   </div>
-                  <div class="m-2 p-4 px-10 flex flex-wrap">
+                  <div class="m-2 p-4 px-10 flex flex-wrap justify-center">
                     <div>{{ x.theia.text }}</div>
-                    <div class="w-[80%] mx-auto">
-                      <RealEstateComp />
-                    </div>
+                  </div>
+                  <div v-if="false" class="w-[80%] mx-auto">
+                    <RealEstateComp />
                   </div>
                 </div>
               </div>

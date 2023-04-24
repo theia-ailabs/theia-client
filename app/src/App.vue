@@ -1,12 +1,15 @@
 <script lang="ts">
 import { defineComponent } from "@vue/composition-api";
+import { onMounted } from "vue";
 import useStore from "./services/store";
 
 export default defineComponent({
   setup() {
     const store = useStore();
-    store.recorder.init();
-    store.recorder.start();
+    onMounted(() => {
+      store.recorder.init();
+      store.recorder.start();
+    });
     return {
       store,
     };
