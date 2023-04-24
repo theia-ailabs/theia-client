@@ -38,27 +38,29 @@ export default {
     <!-- UTC datetime -->
     <!-- <div class="-mt-2 py-2 text-[12px]">{{ date }} {{ time }} UTC</div> -->
     <!-- Credits -->
-    <div class="py-4 -mb-2">
-      <span class="pl-4">Made with</span>
-      <span class="pl-5">{{ store.heart1 }}</span>
-      <span class="pl-4">{{ store.heart2 }}</span>
-      <span class="pl-3"
-        ><a href="https://github.com/theia-ailabs" target="_blank"
-          >by Theia Labs</a
+    <div class="py-4 -mb-2 pl-6">
+      <span class="mr-3">Made with</span>
+      <span class="ml-4">{{ store.heart1 }}</span>
+      <span class="mr-4 pl-4">{{ store.heart2 }}</span>
+      <span class="ml-2">
+        by
+        <a href="https://github.com/theia-ailabs" target="_blank"
+          ><span :class="`hover:text-${store.primaryColor}`"> Theia </span
+          ><span :class="`hover:text-${store.secondaryColor}`"> Labs </span></a
         ></span
       >
     </div>
-    <div class="flex justify-center mt-2 pb-3 pr-4">
+    <div class="flex justify-center mt-4 pb-3 uppercase">
       <!-- Legal -->
       <div
-        class="mt-1 mb-2 mx-2 pl-7"
+        class="mt-1 mb-2 mx-2 pl-4"
         :class="`hover:text-${store.primaryColor}`"
       >
         <router-link to="/legal">Legal</router-link>
       </div>
       <!-- Privacy -->
       <div
-        class="mt-1 mb-2 mx-2 pl-7"
+        class="mt-1 mb-2 mx-2 pl-4"
         :class="`hover:text-${store.secondaryColor}`"
       >
         <router-link to="/privacy">Privacy</router-link>

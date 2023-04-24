@@ -103,7 +103,7 @@ const useStore = defineStore("store", {
     },
     switchDark(): void {
       this.dark = !this.dark;
-      if (this.dark) this.avatarConfig.background = 0.05;
+      if (this.dark) this.avatarConfig.background = 0.07;
       else this.avatarConfig.background = 0.95;
       this.reAvatar();
     },

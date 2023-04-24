@@ -59,7 +59,7 @@ export const avatarSettings: AvatarSettings = {
     },
     speed: 4,
     transparent: false,
-    background: 0.05, // 0 black 1 white
+    background: 0.07, // 0 black 1 white
   },
   thinking: {
     color1: {
