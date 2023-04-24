@@ -108,7 +108,7 @@ export default defineComponent({
                   `hover:shadow-${store.secondaryColor}`,
                   `from-${store.primaryColor} to-${store.secondaryColor}`,
                 ]"
-                @click="[store.reRender(), (store.settingsModal = false)]"
+                @click="[store.reAvatar(), (store.settingsModal = false)]"
               >
                 SAVE
               </router-link>

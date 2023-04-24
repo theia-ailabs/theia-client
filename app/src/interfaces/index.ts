@@ -184,15 +184,15 @@ export interface SpeechUrlRet {
   duration: number;
   size: number;
 }
-type Tipo = "alquiler" | "venta";
+type Category = "rent" | "sell";
 
 export interface RealEstate {
   img: string;
   title: string;
-  price: number;
+  category: Category;
+  price: string;
   address: string;
-  particular: boolean;
-  tipo: Tipo;
-  telf: string;
+  individual: boolean;
+  phone: string;
   email: string;
 }
