@@ -35,6 +35,8 @@ export interface State {
   settingsModal: boolean;
   // menus
   connections: SocialConnections;
+  // real estate
+  carousel: RealEstate[];
 }
 
 export interface UserSettings {

@@ -1,5 +1,11 @@
 import { defineStore } from "pinia";
-import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
+import {
+  State,
+  ChatRecord,
+  UserMessage,
+  TheiaMessage,
+  RealEstate,
+} from "../../interfaces";
 import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
 import { userSettings, avatarSettings, socialConnections } from "./default";
@@ -43,6 +49,8 @@ const useStore = defineStore("store", {
       settingsModal: false,
       // menus
       connections: socialConnections,
+      // real estate
+      carousel: [],
     };
   },
   actions: {
