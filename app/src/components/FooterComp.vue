@@ -40,13 +40,13 @@ export default {
     <!-- Credits -->
     <div class="py-4 pl-6">
       <span class="mr-3">Made with</span>
-      <span class="ml-4">{{ store.heart1 }}</span>
-      <span class="mr-4 pl-4">{{ store.heart2 }}</span>
+      <span class="ml-6">{{ store.heart1 }}</span>
+      <span class="mr-4 pl-5">{{ store.heart2 }}</span>
       <span class="ml-2">
         by
         <a href="https://github.com/theia-ailabs" target="_blank"
-          ><span :class="`hover:text-${store.primaryColor}`"> Theia </span
-          ><span :class="`hover:text-${store.secondaryColor}`"> Labs </span></a
+          ><span :class="`text-${store.primaryColor}`"> Theia </span
+          ><span :class="`text-${store.secondaryColor}`"> AI Labs </span></a
         ></span
       >
     </div>
