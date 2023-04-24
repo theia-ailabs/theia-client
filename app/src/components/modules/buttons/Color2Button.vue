@@ -1,8 +1,9 @@
 <script lang="ts">
+import { defineComponent } from "vue";
 import { vecColors } from "../../../constants";
 import useStore from "../../../services/store";
 
-export default {
+export default defineComponent({
   setup() {
     const store = useStore();
     const changeVecColor = (color: string) => {
@@ -16,7 +17,7 @@ export default {
       colorModal: false,
     };
   },
-};
+});
 </script>
 <template>
   <div>

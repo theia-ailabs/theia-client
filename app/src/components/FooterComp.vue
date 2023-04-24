@@ -50,7 +50,7 @@ export default {
         ></span
       >
     </div>
-    <div class="flex justify-center mt-4 pb-3 uppercase">
+    <div class="flex justify-center mt-4 pb-6 uppercase text-2xs">
       <!-- Legal -->
       <div
         class="mt-1 mb-2 mx-2 pl-4"

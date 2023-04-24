@@ -1,3 +1,5 @@
+import VoiceRec from "../services/utilities/voiceRec";
+
 export interface State {
   // login / signup
   login: boolean;
@@ -16,6 +18,7 @@ export interface State {
   // ui config
   dark: boolean;
   sound: boolean;
+  recorder: VoiceRec;
   primaryColor: string;
   secondaryColor: string;
   heart1: string;

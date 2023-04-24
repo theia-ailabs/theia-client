@@ -1,15 +1,16 @@
 <script lang="ts">
+import { defineComponent } from "vue";
 import useStore from "../../../services/store";
 
-export default {
+export default defineComponent({
   setup() {
     const store = useStore();
     return { store };
   },
-};
+});
 </script>
 <template>
-  <div class="flex justify-center p-4">
+  <div class="flex justify-center">
     <!-- Dark/Light button -->
     <button
       class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"

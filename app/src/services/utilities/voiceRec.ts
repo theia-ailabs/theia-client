@@ -30,21 +30,25 @@ export default class VoiceRec {
   }
 
   start(): void {
-    this.stopRec = false;
-    this.recognition.start();
-    this.recognition.addEventListener("end", (): void => {
-      if (this.stopRec) {
-        this.recognition.stop();
-      } else {
-        this.recognition.start();
-      }
-    });
+    if (this.stopRec) {
+      this.stopRec = false;
+      this.recognition.start();
+      this.recognition.addEventListener("end", (): void => {
+        if (this.stopRec) {
+          this.recognition.stop();
+        } else {
+          this.recognition.start();
+        }
+      });
+    }
   }
 
   stop(): void {
-    this.stopRec = true;
-    this.wordConcat();
-    this.recognition.stop();
+    if (!this.stopRec) {
+      this.stopRec = true;
+      this.wordConcat();
+      this.recognition.stop();
+    }
   }
 
   wordConcat() {

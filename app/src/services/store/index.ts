@@ -1,14 +1,9 @@
 import { defineStore } from "pinia";
-import {
-  State,
-  ChatRecord,
-  UserMessage,
-  TheiaMessage,
-  RealEstate,
-} from "../../interfaces";
+import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
 import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
 import { userSettings, avatarSettings, socialConnections } from "./default";
+import { AudioRecorder } from "../utilities/audioToogle";
 import VoiceRec from "../utilities/voiceRec";
 
 const useStore = defineStore("store", {
@@ -31,6 +26,7 @@ const useStore = defineStore("store", {
       // ui config
       dark: true,
       sound: true,
+      recorder: new VoiceRec(),
       primaryColor: "purple-500",
       secondaryColor: "yellow-500",
       heart1: "💜",
@@ -109,6 +105,9 @@ const useStore = defineStore("store", {
     },
     switchSound(): void {
       this.sound = !this.sound;
+      this.recorder.init();
+      if (this.sound) this.recorder.start();
+      else this.recorder.stop();
     },
 
     setPrimaryColor(color: string): void {
