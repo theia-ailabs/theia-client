@@ -193,4 +193,6 @@ export interface RealEstate {
   address: string;
   particular: boolean;
   tipo: Tipo;
+  telf: string;
+  email: string;
 }

@@ -4,12 +4,14 @@ import AudioPlayer from "./AudioPlayerComp.vue";
 import ProgressBarComp from "./modules/loaders/ProgressBarComp.vue";
 import InputComp from "./modules/inputs/InputComp.vue";
 import useStore from "../services/store";
+import RealEstateComp from "./RealEstateComp.vue";
 
 export default defineComponent({
   components: {
     AudioPlayer,
     ProgressBarComp,
     InputComp,
+    RealEstateComp,
   },
   setup() {
     const store = useStore();
@@ -71,6 +73,7 @@ export default defineComponent({
                   </div>
                   <div class="m-2 p-4 px-10">
                     {{ x.theia.text }}
+                    <RealEstateComp />
                   </div>
                 </div>
               </div>
@@ -132,7 +135,7 @@ export default defineComponent({
                 <div
                   class="text-right pr-2 mt-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400"
                 >
-                  {{ store.userProfile }}
+                  {{ store.inputUsername }}
                 </div>
                 <div class="text-center flex align-bottom justify-center">
                   <img
