@@ -54,7 +54,7 @@ export default defineComponent({
             </p>
             <div class="flex justify-center w-full px-4">
               <input
-                trype="text"
+                type="text"
                 id="ainame"
                 key="ainame"
                 placeholder="Theia"
