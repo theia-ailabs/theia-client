@@ -7,6 +7,7 @@ import useStore from "../services/store";
 export default defineComponent({
   props: {
     config: { type: Boolean, default: true },
+    theia: { type: Boolean, default: true },
   },
   components: {
     SettingsModal,
@@ -25,16 +26,12 @@ export default defineComponent({
       store.showMenu = !store.showMenu;
       store.showChat = false;
     };
-    const showImg = () => {
-      let showImg = true;
-    };
 
     return {
       store,
       switchModal,
       switchChat,
       switchMenu,
-      showImg,
       props,
     };
   },
@@ -52,6 +49,8 @@ export default defineComponent({
       blackmail: require("../assets/img/svg/email-black.svg"),
       blackconnect: require("../assets/img/svg/connect-black.svg"),
       connect: require("../assets/img/svg/connect.svg"),
+      theiaWhite: require("../assets/img/svg/theia-white.svg"),
+      theiaBlack: require("../assets/img/svg/theia-black.svg"),
     };
   },
 });
@@ -108,7 +107,7 @@ export default defineComponent({
       </div>
       <div class="flex mr-2 mt-2 lg:mr-12">
         <!-- Theia Chat -->
-        <div>
+        <div v-if="props.theia">
           <button class="mx-3" @click="switchChat">
             <img
               class="w-[24px] h-[24px]"
@@ -116,6 +115,16 @@ export default defineComponent({
               alt="chat"
             />
           </button>
+        </div>
+        <div v-else>
+          <router-link to="/theia">
+            <div class="mr-2">
+              <img
+                class="w-8 h-8 -mt-1"
+                :src="store.dark ? theiaWhite : theiaBlack"
+                alt="chat"
+              /></div
+          ></router-link>
         </div>
         <!-- Connections Button -->
         <div>

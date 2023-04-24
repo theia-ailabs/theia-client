@@ -27,7 +27,7 @@ export default defineComponent({
 </script>
 <template>
   <div class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
-    <NavbarComp />
+    <NavbarComp :theia="false" />
     <SolanaComp />
     <MenuComp />
     <FooterComp />
