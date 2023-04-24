@@ -38,7 +38,7 @@ export default {
     <!-- UTC datetime -->
     <!-- <div class="-mt-2 py-2 text-[12px]">{{ date }} {{ time }} UTC</div> -->
     <!-- Credits -->
-    <div class="py-4 -mb-2 pl-6">
+    <div class="py-4 pl-6">
       <span class="mr-3">Made with</span>
       <span class="ml-4">{{ store.heart1 }}</span>
       <span class="mr-4 pl-4">{{ store.heart2 }}</span>
