@@ -13,6 +13,7 @@ import { onClickOutside, onKeyStroke, useScrollLock } from "@vueuse/core";
 import type { Wallet } from "../../../../services/web3/solana/wallets/createWalletStore";
 import { useWallet } from "../../../../services/web3/solana/wallets/useWallet";
 import WalletIcon from "./WalletIcon.vue";
+import useStore from "../../../../services/store";
 
 type WalletModalProviderRawBindings = WalletModelProviderScope & {
   scope: WalletModelProviderScope;
@@ -46,6 +47,7 @@ export default defineComponent({
     dark: Boolean,
   },
   setup(this: void, props, { slots }): WalletModalProviderRawBindings {
+    const store = useStore();
     const { featured, container, logo, dark } = toRefs(props);
     const modalPanel = ref(null) as Ref<HTMLElement | null>;
     const modalOpened = ref(false);
@@ -125,6 +127,7 @@ export default defineComponent({
 
     // Define the bindings given to scoped slots.
     const scope = {
+      store,
       dark,
       logo,
       hasLogo,
@@ -150,13 +153,20 @@ export default defineComponent({
 </script>
 <template>
   <div>
-    <div class="w-screen h-screen overflow-y-scroll mt-20">
-      <div class="bg-transparent" :class="{ '': !hasLogo }">
+    <div class="w-full h-screen overflow-y-scroll mt-20">
+      <div class="bg-transparent" :class="{ 'flex flex-wrap': !hasLogo }">
         <div class="" v-if="hasLogo">
-          <img alt="logo" class="h-8 w-8" :src="logo" />
+          <img
+            class="h-8 w-8"
+            width="80"
+            height="60"
+            :src="logo"
+            alt="wallet logo"
+          />
         </div>
-        <ul class="w-96 bg-transparent">
+        <ul class="w-96">
           <li
+            class="flex flex-wrap"
             v-for="wallet in walletsToDisplay"
             :key="wallet.adapter.name"
             @click="
@@ -164,12 +174,13 @@ export default defineComponent({
               closeModal();
             "
           >
-            <button class="swv-button">
-              <wallet-icon :wallet="wallet"></wallet-icon>
-              <p v-text="wallet.adapter.name"></p>
+            <button class="flex flex-wrap">
+              <wallet-icon class="p-2 m-2" :wallet="wallet"></wallet-icon>
+              <p class="p-2 m-2" v-text="wallet.adapter.name"></p>
               <div
                 v-if="wallet.readyState === 'Installed'"
-                class="swv-wallet-status"
+                class="p-2 m-2"
+                :class="`color-${store.primaryColor}`"
               >
                 Detected
               </div>
