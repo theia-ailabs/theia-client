@@ -22,8 +22,10 @@ export default defineComponent({
       store.dark ? 'bg-black/90 text-white/90' : 'bg-white/90 text-black/90'
     "
   >
-    <WalletConnections :dark="store.dark" />
-    <div class="w-96">Solana Wallets</div>
-    <div class="w-96">Blockchain Terminal</div>
+    <div class="flex flex-wrap justify-center">
+      <WalletConnections :dark="store.dark" />
+      <div class="w-96">Solana Wallets</div>
+      <div class="w-96">Blockchain Terminal</div>
+    </div>
   </div>
 </template>
