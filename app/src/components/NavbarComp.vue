@@ -42,7 +42,6 @@ export default defineComponent({
     return {
       chat: require("../assets/img/svg/chat-white.svg"),
       blackchat: require("../assets/img/svg/chat-black.svg"),
-      menuImg: require("../assets/img/ico/connect-white.png"),
       logo: require("../assets/img/png/logo3.png"),
       pfp: require("../assets/img/png/profile.png"),
       email: require("../assets/img/svg/mail-white.svg"),
@@ -51,6 +50,8 @@ export default defineComponent({
       blacklogo: require("../assets/img/png/logo3-black.png"),
       blacksocial: require("../assets/img/svg/groups-black.svg"),
       blackmail: require("../assets/img/svg/email-black.svg"),
+      blackconnect: require("../assets/img/svg/connect-black.svg"),
+      connect: require("../assets/img/svg/connect.svg"),
     };
   },
 });
@@ -120,10 +121,10 @@ export default defineComponent({
         <div>
           <button class="mx-3 rounded-full">
             <img
-              :src="menuImg"
+              :src="store.dark ? connect : blackconnect"
               alt="Menu Button"
               @click="switchMenu"
-              class="h-7"
+              class="w-[24px] h-[24px]"
             />
           </button>
         </div>
