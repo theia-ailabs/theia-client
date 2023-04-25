@@ -74,7 +74,7 @@ export default defineComponent({
                   <div class="m-2 p-4 px-10 flex flex-wrap justify-center">
                     <div>{{ x.theia.text }}</div>
                   </div>
-                  <div class="w-[80%] mx-auto">
+                  <div class="w-[80%] mx-auto mb-5">
                     <RealEstateComp />
                   </div>
                 </div>
