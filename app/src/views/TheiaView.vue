@@ -26,11 +26,17 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
-    <NavbarComp />
-    <AvatarComp />
-    <TheiaChatComp />
-    <MenuComp />
-    <FooterComp />
+  <div id="theiaview-body" class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
+    <header>
+      <NavbarComp />
+    </header>
+    <main>
+      <AvatarComp />
+      <TheiaChatComp />
+      <MenuComp />
+    </main>
+    <footer>
+      <FooterComp />
+    </footer>
   </div>
 </template>
