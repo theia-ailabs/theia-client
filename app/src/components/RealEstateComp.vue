@@ -54,28 +54,28 @@ export default defineComponent({
 <template>
   <Carousel class="carousel__item mx-auto w-[50%] border-2 mb-2">
     <Slide v-for="(x, index) in properties" :key="index">
-      <figure class="my-2 p-2 justify-left align-middle">
-        <img :src="x.img" class="w-[200px] my-2 mx-auto" />
+      <figure class="my-2 p-2 text-left align-middle">
+        <img :src="x.img" class="w-[200px] my-2 mx-auto border-black" />
         <h2>{{ x.title }}</h2>
         <h3>{{ x.category }}</h3>
-        <figcaption class="align-left">
+        <figcaption>
           <ul>
             <li>
-              <p>Precio: {{ x.price }}</p>
+              <p>{{ x.price }}</p>
             </li>
             <li>
               <p>{{ x.address }}</p>
             </li>
             <li>
               <p>
-                Estado: {{ x.individual ? "Particular" : "Inmobiliaria" }}
+                {{ x.individual ? "Particular" : "Inmobiliaria" }}
               </p>
             </li>
             <li>
-              <p>Teléfono: {{ x.phone }}</p>
+              <p>{{ x.phone }}</p>
             </li>
             <li>
-              <p>Email: {{ x.email }}</p>
+              <p>{{ x.email }}</p>
             </li>
           </ul>
         </figcaption>
@@ -94,6 +94,8 @@ export default defineComponent({
 }
 .carousel__item {
   position: relative;
+  background-color: white;
+  opacity: .7;
   min-height: 200px;
   max-width: 200px;
   font-size: 20px;
