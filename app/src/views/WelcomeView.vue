@@ -32,15 +32,24 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div>
-    <GalaxyComp />
-    <div v-if="store.loginModal" class="absolute z-50 p-8">
+  <main>
+    <!-- Backround Canvas -->
+    <section id="CanvasBg">
+      <GalaxyComp />
+    </section>
+
+    <!-- Login Modal -->
+    <section id="loginModal" v-if="store.loginModal" class="absolute z-50 p-8">
       <LoginModal />
-    </div>
-    <!-- Welcome Title -->
-    <TitleComp />
-    <!-- Loader -->
-    <div class="front relative z-50">
+    </section>
+
+    <!-- Theia Title -->
+    <section id="welcomeTitle">
+      <TitleComp />
+    </section>
+
+    <!-- Loader & Connect Button -->
+    <section id="loaderBtn" class="front relative z-50">
       <div id="loader-ai" class="loader-ai fixed top-[50%] left-[50%]">
         <img
           class="rounded-full opacity-60"
@@ -55,10 +64,13 @@ export default defineComponent({
       >
         <h1 class="relative hover:text-white hover:font-bold">LOGIN</h1>
       </button>
-    </div>
-    <FauxComp />
-    <TerminalComp />
-  </div>
+    </section>
+    <!-- Terminal text & Gradient Bg-->
+    <section id="terminal">
+      <FauxComp />
+      <TerminalComp />
+    </section>
+  </main>
 </template>
 <style scoped>
 .loader-ai {

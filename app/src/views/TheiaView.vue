@@ -26,7 +26,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div id="theiaview-body" class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
+  <div id="theiaview" class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
     <header>
       <NavbarComp />
     </header>
