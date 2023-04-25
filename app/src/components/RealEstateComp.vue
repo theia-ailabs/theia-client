@@ -52,7 +52,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <Carousel class="carousel__item mx-auto w-[90%]">
+  <Carousel class="carousel__item mx-auto w-[50%] border-2 mb-2">
     <Slide v-for="(x, index) in properties" :key="index">
       <figure class="my-2 p-2 justify-left align-middle">
         <img :src="x.img" class="w-[200px] my-2 mx-auto" />
@@ -64,7 +64,7 @@ export default defineComponent({
               <p>Precio: {{ x.price }}</p>
             </li>
             <li>
-              <p>Dirección: {{ x.address }}</p>
+              <p>{{ x.address }}</p>
             </li>
             <li>
               <p>
@@ -95,7 +95,7 @@ export default defineComponent({
 .carousel__item {
   position: relative;
   min-height: 200px;
-  width: 300px;
+  max-width: 200px;
   font-size: 20px;
   border-radius: 8px;
   display: block;
