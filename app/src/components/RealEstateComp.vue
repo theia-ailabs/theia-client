@@ -54,29 +54,28 @@ export default defineComponent({
 <template>
   <Carousel class="carousel__item mx-auto w-[90%]">
     <Slide v-for="(x, index) in properties" :key="index">
-      <figure class="my-2 p-2 justify-center align-middle">
+      <figure class="my-2 p-2 justify-left align-middle">
         <img :src="x.img" class="w-[200px] my-2 mx-auto" />
         <h2>{{ x.title }}</h2>
         <h3>{{ x.category }}</h3>
-        <figcaption>
+        <figcaption class="align-left">
           <ul>
             <li>
-              <p><b>Precio: </b>{{ x.price }}</p>
+              <p>Precio: {{ x.price }}</p>
             </li>
             <li>
-              <p><b>Dirección: </b> {{ x.address }}</p>
+              <p>Dirección: {{ x.address }}</p>
             </li>
             <li>
               <p>
-                <b>Particular? </b
-                >{{ x.individual ? "Particular" : "Inmobiliaria" }}
+                Estado: {{ x.individual ? "Particular" : "Inmobiliaria" }}
               </p>
             </li>
             <li>
-              <p><b>Teléfono: </b>{{ x.phone }}</p>
+              <p>Teléfono: {{ x.phone }}</p>
             </li>
             <li>
-              <p><b>Email: </b>{{ x.email }}</p>
+              <p>Email: {{ x.email }}</p>
             </li>
           </ul>
         </figcaption>
@@ -89,6 +88,10 @@ export default defineComponent({
   </Carousel>
 </template>
 <style scoped>
+* {
+  font-family: 'Orbitron', monospace;
+  font-size: .8rem;
+}
 .carousel__item {
   position: relative;
   min-height: 200px;
