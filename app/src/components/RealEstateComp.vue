@@ -64,7 +64,7 @@ export default defineComponent({
               <p><b>Precio: </b>{{ x.price }}</p>
             </li>
             <li>
-              <p><b>Dirección: </b {{ x.address }}</p>
+              <p><b>Dirección: </b> {{ x.address }}</p>
             </li>
             <li>
               <p>
