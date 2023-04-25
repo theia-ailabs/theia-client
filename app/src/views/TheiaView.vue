@@ -28,14 +28,19 @@ export default defineComponent({
 <template>
   <div id="theiaview" class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
     <header>
+      <!-- Navigation bar-->
       <NavbarComp />
     </header>
     <main>
+      <!-- 3D Theia Image -->
       <AvatarComp />
+      <!-- Chat Theia Component -->
       <TheiaChatComp />
+      <!-- Social Buttons -->
       <MenuComp />
     </main>
     <footer>
+      <!-- Footer info -->
       <FooterComp />
     </footer>
   </div>

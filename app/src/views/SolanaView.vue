@@ -26,10 +26,20 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
-    <NavbarComp :theia="false" />
-    <SolanaComp />
-    <MenuComp />
-    <FooterComp />
-  </div>
+  <section id="solanaView" class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
+    <header>
+      <!-- Navigation bar -->
+      <NavbarComp :theia="false" />
+    </header>
+    <main>
+      <!-- Solana Wallet -->
+      <SolanaComp />
+      <!-- Social buttons -->
+      <MenuComp />
+    </main>
+    <footer>
+      <!-- Footer -->
+      <FooterComp />
+    </footer>
+  </section>
 </template>
