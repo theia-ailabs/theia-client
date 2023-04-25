@@ -54,11 +54,12 @@ export default defineComponent({
 <template>
   <Carousel class="carousel__item mx-auto w-[90%]">
     <Slide v-for="(x, index) in properties" :key="index">
-      <div class="my-2 p-2 justify-center align-middle">
+      <figure class="my-2 p-2 justify-center align-middle">
         <img :src="x.img" class="w-[200px] my-2 mx-auto" />
         <h2>{{ x.title }}</h2>
         <h3>{{ x.category }}</h3>
-        <ul>
+        <figcaption>
+          <ul>
           <li>
             <p><strong>Precio: </strong>{{ x.price }}</p>
           </li>
@@ -78,7 +79,8 @@ export default defineComponent({
             <p><strong>Email: </strong>{{ x.email }}</p>
           </li>
         </ul>
-      </div>
+        </figcaption>
+      </figure>
     </Slide>
     <template #addons>
       <Navigation class="text-white pb-6" />
