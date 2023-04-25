@@ -12,7 +12,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <section id="legalText" class="container mx-auto px-4 py-8">
     <h1 class="text-5xl font-bold mb-3">Términos de servicio</h1>
     <p class="mb-4">Última actualización: 14/04/2023</p>
 
@@ -83,5 +83,5 @@ export default defineComponent({
         </p>
       </li>
     </ol>
-  </div>
+  </section>
 </template>

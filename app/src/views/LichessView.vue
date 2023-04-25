@@ -23,9 +23,19 @@ export default defineComponent({
 </script>
 <template>
   <div class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
-    <NavbarComp :config="true" :theia="false" />
-    <ChessComp />
-    <MenuComp />
-    <FooterComp />
+    <header>
+      <!-- Navigation bar -->
+      <NavbarComp :config="true" :theia="false" />
+    </header>
+    <main>
+      <!-- Chess -->
+      <ChessComp />
+      <!-- Social buttons -->
+      <MenuComp />
+    </main>
+    <footer>
+      <!-- Footer Info -->
+      <FooterComp />
+    </footer>
   </div>
 </template>
