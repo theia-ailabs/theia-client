@@ -60,25 +60,25 @@ export default defineComponent({
         <h3>{{ x.category }}</h3>
         <figcaption>
           <ul>
-          <li>
-            <p><strong>Precio: </strong>{{ x.price }}</p>
-          </li>
-          <li>
-            <p><strong>Dirección: </strong> {{ x.address }}</p>
-          </li>
-          <li>
-            <p>
-              <strong>Particular? </strong
-              >{{ x.individual ? "Particular" : "Inmobiliaria" }}
-            </p>
-          </li>
-          <li>
-            <p><strong>Teléfono: </strong>{{ x.phone }}</p>
-          </li>
-          <li>
-            <p><strong>Email: </strong>{{ x.email }}</p>
-          </li>
-        </ul>
+            <li>
+              <p><b>Precio: </b>{{ x.price }}</p>
+            </li>
+            <li>
+              <p><b>Dirección: </b {{ x.address }}</p>
+            </li>
+            <li>
+              <p>
+                <b>Particular? </b
+                >{{ x.individual ? "Particular" : "Inmobiliaria" }}
+              </p>
+            </li>
+            <li>
+              <p><b>Teléfono: </b>{{ x.phone }}</p>
+            </li>
+            <li>
+              <p><b>Email: </b>{{ x.email }}</p>
+            </li>
+          </ul>
         </figcaption>
       </figure>
     </Slide>

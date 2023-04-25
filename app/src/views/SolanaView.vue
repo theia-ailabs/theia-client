@@ -26,7 +26,11 @@ export default defineComponent({
 });
 </script>
 <template>
-  <section id="solanaView" class="w-full h-screen" :class="store.dark ? 'bg-black' : 'bg-white'">
+  <section
+    id="solanaView"
+    class="w-full h-screen"
+    :class="store.dark ? 'bg-black' : 'bg-white'"
+  >
     <header>
       <!-- Navigation bar -->
       <NavbarComp :theia="false" />
