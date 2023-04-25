@@ -187,7 +187,7 @@ export interface SpeechUrlRet {
   duration: number;
   size: number;
 }
-type Category = "rent" | "sell";
+type Category = "Alquiler" | "Venta";
 
 export interface RealEstate {
   img: string;

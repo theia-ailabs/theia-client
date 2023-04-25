@@ -20,7 +20,7 @@ export default defineComponent({
         {
           title: "Chalet 300m2",
           img: require("../assets/img/ico/casa1.jpg"),
-          category: "sell",
+          category: "Venta",
           price: "200 000 €",
           individual: true,
           address: "C/ Baltasar de España, 32, 08970 Sant Joan Despí",
@@ -30,7 +30,7 @@ export default defineComponent({
         {
           title: "Casa 800m2",
           img: require("../assets/img/ico/casa2.jpg"),
-          category: "sell",
+          category: "Alquiler",
           price: "2 000 €" + "/mes",
           individual: true,
           address: "C/ Baltasar de España, 32, 08970 Sant Joan Despí",
