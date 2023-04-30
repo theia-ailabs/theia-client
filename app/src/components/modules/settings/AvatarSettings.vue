@@ -23,7 +23,7 @@ export default defineComponent({
     <div :class="store.avatarSettings ? 'block' : 'hidden'">
       <div
         ref="modal-backdrop"
-        id="settings-modal"
+        id="avatar-settings"
         class="fixed inset-0 overflow-y-auto bg-opacity-50"
         :class="
           store.dark ? 'bg-gray-900 text-white/80' : 'bg-black/80 text-gray-700'
