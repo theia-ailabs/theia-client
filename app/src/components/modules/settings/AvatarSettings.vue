@@ -47,6 +47,9 @@ export default defineComponent({
               x
             </button>
             <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
+              CUSTOMIZE USER
+            </h1>
+            <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
               CUSTOMIZE THEIA
             </h1>
             <p class="mt-14 text-xs sm:text-sm text-gray-400 animate-pulse">

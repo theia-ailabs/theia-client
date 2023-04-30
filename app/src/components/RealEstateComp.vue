@@ -55,7 +55,7 @@ export default defineComponent({
   <Carousel class="carousel__item mx-auto w-[50%] border-2 mb-2">
     <Slide v-for="(x, index) in properties" :key="index">
       <figure class="my-2 p-2 text-left align-middle">
-        <img :src="x.img" class="w-[200px] my-2 mx-auto border-black" />
+        <img :src="x.img" class="w-[200px] mb-2 mx-auto border-black" />
         <h2>{{ x.title }}</h2>
         <h3>{{ x.category }}</h3>
         <figcaption>
@@ -89,13 +89,14 @@ export default defineComponent({
 </template>
 <style scoped>
 * {
-  font-family: 'Orbitron', monospace;
-  font-size: .8rem;
+  font-family: "Orbitron", monospace;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 .carousel__item {
   position: relative;
   background-color: white;
-  opacity: .7;
+  opacity: 0.7;
   min-height: 200px;
   max-width: 200px;
   font-size: 20px;
