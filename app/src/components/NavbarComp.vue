@@ -66,7 +66,7 @@ export default defineComponent({
       <div class="flex ml-2 mt-2 lg:ml-12">
         <!-- Messages -->
         <div>
-          <button class="mx-3" @click="showImg">
+          <button class="mx-3">
             <img
               class="w-[24px] h-[24px]"
               :src="store.dark ? email : blackmail"
