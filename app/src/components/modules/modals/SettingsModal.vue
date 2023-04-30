@@ -13,8 +13,20 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
+    const switchUserModal = () => {
+      store.userModal = !store.userModal;
+    }
+    const switchAvatarModal = () => {
+      store.avatarModal = !store.avatarModal;
+    }
+    const switchConnectionModal = () => {
+      store.connectionModal = !store.connectionModal;
+    }
     return {
       store,
+      switchUserModal,
+      switchAvatarModal,
+      switchConnectionModal
     };
   },
 });
@@ -24,11 +36,11 @@ export default defineComponent({
     <notifications position="top left" class="mt-2" animation-type="velocity" />
     <div :class="store.settingsModal ? 'block' : 'hidden'">
       <h1 class="text-white">USER SETTINGS</h1>
-      <UserSettings />
+      <UserSettings v-if="store.userModal ? 'block' : 'hidden'" />
       <h1>THEIA SETTINGS</h1>
-      <AvatarSettings />
+      <AvatarSettings v-if="store.avatarModal ? 'block' : 'hidden'" />
       <h1>CONNECTIONS SETTINGS</h1>
-      <ConnectionsSettings />
+      <ConnectionsSettings v-if="store.connectionModal ? 'block' : 'hidden'" />
     </div>
   </teleport>
 </template>
