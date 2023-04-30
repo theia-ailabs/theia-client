@@ -20,10 +20,10 @@ export default defineComponent({
 <template>
   <teleport to="body">
     <notifications position="top left" class="mt-2" animation-type="velocity" />
-    <div :class="store.settingsModal ? 'block' : 'hidden'">
+    <div :class="store.userSettings ? 'block' : 'hidden'">
       <div
         ref="modal-backdrop"
-        id="settings-modal"
+        id="user-settings"
         class="fixed inset-0 overflow-y-auto bg-opacity-50"
         :class="
           store.dark ? 'bg-gray-900 text-white/80' : 'bg-black/80 text-gray-700'
