@@ -1,14 +1,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import Color1Button from "../buttons/Color1Button.vue";
-import Color2Button from "../buttons/Color2Button.vue";
 import useStore from "../../../services/store";
 
 export default defineComponent({
-  components: {
-    Color1Button,
-    Color2Button,
-  },
   setup() {
     const store = useStore();
     return {

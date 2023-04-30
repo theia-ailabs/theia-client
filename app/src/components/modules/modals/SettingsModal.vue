@@ -13,20 +13,8 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
-    const switchUserModal = () => {
-      store.userModal = !store.userModal;
-    }
-    const switchAvatarModal = () => {
-      store.avatarModal = !store.avatarModal;
-    }
-    const switchConnectionModal = () => {
-      store.connectionModal = !store.connectionModal;
-    }
     return {
       store,
-      switchUserModal,
-      switchAvatarModal,
-      switchConnectionModal
     };
   },
 });
@@ -36,38 +24,11 @@ export default defineComponent({
     <notifications position="top left" class="mt-2" animation-type="velocity" />
     <div :class="store.settingsModal ? 'block' : 'hidden'">
       <h1 class="text-white">USER SETTINGS</h1>
-      <button
-      class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"
-      @click="switchUserModal"
-      :class="
-        store.dark
-          ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
-          : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
-      "
-    ></button>
-      <UserSettings v-if="store.userModal ? 'block' : 'hidden'" />
+      <UserSettings />
       <h1>THEIA SETTINGS</h1>
-      <button
-      class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"
-      @click="switchAvatarModal"
-      :class="
-        store.dark
-          ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
-          : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
-      "
-    ></button>
-      <AvatarSettings v-if="store.avatarModal ? 'block' : 'hidden'" />
+      <AvatarSettings />
       <h1>CONNECTIONS SETTINGS</h1>
-      <button
-      class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"
-      @click="switchConnectionModal"
-      :class="
-        store.dark
-          ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
-          : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
-      "
-    ></button>
-      <ConnectionsSettings v-if="store.connectionModal ? 'block' : 'hidden'" />
+      <ConnectionsSettings />
     </div>
   </teleport>
 </template>
@@ -79,6 +40,6 @@ input:active {
   border: none !important;
 }
 #settings-modal {
-  z-index: 9000 !important;
+  z-index: 9999 !important;
 }
 </style>

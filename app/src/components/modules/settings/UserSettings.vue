@@ -20,10 +20,10 @@ export default defineComponent({
 <template>
   <teleport to="body">
     <notifications position="top left" class="mt-2" animation-type="velocity" />
-    <div :class="store.userModal ? 'block' : 'hidden'">
+    <div :class="store.settingsModal ? 'block' : 'hidden'">
       <div
         ref="modal-backdrop"
-        id="user-settings"
+        id="settings-modal"
         class="fixed inset-0 overflow-y-auto bg-opacity-50"
         :class="
           store.dark ? 'bg-gray-900 text-white/80' : 'bg-black/80 text-gray-700'
@@ -41,25 +41,24 @@ export default defineComponent({
             ]"
           >
             <button
-              @click="store.userModal = false"
+              @click="store.settingsModal = false"
               class="absolute text-white/80 top-6 right-6 rounded-full border border-gray-600 px-[10px] pb-[4px] hover:text-white hover:bg-slate-900 hover:border-white/50"
             >
               x
             </button>
             <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
-              CUSTOMIZE USER
+              CUSTOMIZE THEIA
             </h1>
-            
             <p class="mt-14 text-xs sm:text-sm text-gray-400 animate-pulse">
-              CHANGE USERNAME
+              AI NAME
             </p>
             <div class="flex justify-center w-full px-4">
               <input
                 type="text"
-                id="username"
-                key="username"
-                placeholder=""
-                v-model="store.userProfile.username"
+                id="ainame"
+                key="ainame"
+                placeholder="Theia"
+                v-model="store.userProfile"
                 class="mt-4 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
                 :class="[
                   store.dark
