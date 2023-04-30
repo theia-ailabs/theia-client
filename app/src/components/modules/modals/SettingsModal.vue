@@ -50,6 +50,9 @@ export default defineComponent({
             <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
               CUSTOMIZE THEIA
             </h1>
+            <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
+              CUSTOMIZE CONNECTIONS
+            </h1>
             <div class="flex justify-center w-full px-4">
               <input
                 type="text"
