@@ -20,7 +20,7 @@ export default defineComponent({
 <template>
   <teleport to="body">
     <notifications position="top left" class="mt-2" animation-type="velocity" />
-    <div :class="store.avatarSettings ? 'block' : 'hidden'">
+    <div :class="store.avatarModal ? 'block' : 'hidden'">
       <div
         ref="modal-backdrop"
         id="avatar-settings"
@@ -41,7 +41,7 @@ export default defineComponent({
             ]"
           >
             <button
-              @click="store.avatarSettings = false"
+              @click="store.avatarModal = false"
               class="absolute text-white/80 top-6 right-6 rounded-full border border-gray-600 px-[10px] pb-[4px] hover:text-white hover:bg-slate-900 hover:border-white/50"
             >
               x
@@ -58,7 +58,7 @@ export default defineComponent({
                 id="ainame"
                 key="ainame"
                 placeholder="Theia"
-                v-model="store."
+                v-model="store.userProfile"
                 class="mt-4 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
                 :class="[
                   store.dark

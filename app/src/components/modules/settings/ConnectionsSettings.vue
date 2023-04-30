@@ -20,7 +20,7 @@ export default defineComponent({
 <template>
   <teleport to="body">
     <notifications position="top left" class="mt-2" animation-type="velocity" />
-    <div :class="store.connectionSettings ? 'block' : 'hidden'">
+    <div :class="store.connectionModal ? 'block' : 'hidden'">
       <div
         ref="modal-backdrop"
         id="connection-settings"
@@ -70,18 +70,6 @@ export default defineComponent({
                 ]"
               />
             </div>
-            <div
-              class="grid grid-cols-2 py-2 mx-2 sm:mx-4 md:mx-8 ml-2 sm:ml-4 md:ml-8 font-semibold text-gray-400 justify-center align-center align-middle"
-            >
-              <div class="flex mt-3 justify-center">Primary Color</div>
-              <div class="flex justify-center">
-                <Color1Button />
-              </div>
-              <div class="flex justify-center mt-3">Secondary Color</div>
-              <div class="flex justify-center">
-                <Color2Button />
-              </div>
-            </div>
             <div class="flex w-full justify-center">
               <button
                 class="m-4 mt-8 w-24 max-w-24 p-3 rounded-3xl uppercase text-sm font-bold border border-gray-500 shadow-sm text-transparent bg-clip-text bg-gradient-to-r"
@@ -93,7 +81,7 @@ export default defineComponent({
                   `hover:shadow-${store.secondaryColor}`,
                   `from-${store.primaryColor} to-${store.secondaryColor}`,
                 ]"
-                @click="store.settingsModal = false"
+                @click="store.connectionModal = false"
               >
                 CANCEL
               </button>
