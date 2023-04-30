@@ -40,6 +40,6 @@ input:active {
   border: none !important;
 }
 #settings-modal {
-  z-index: 9999 !important;
+  z-index: 9000 !important;
 }
 </style>

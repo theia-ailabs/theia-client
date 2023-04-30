@@ -44,6 +44,9 @@ const useStore = defineStore("store", {
       // modals
       loginModal: false,
       settingsModal: false,
+      userSettings: false,
+      avatarSettings: false,
+      connectionSettings: false,
       // menus
       connections: socialConnections,
       // real estate

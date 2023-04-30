@@ -47,18 +47,18 @@ export default defineComponent({
               x
             </button>
             <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
-              CUSTOMIZE THEIA
+              CUSTOMIZE USER
             </h1>
             <p class="mt-14 text-xs sm:text-sm text-gray-400 animate-pulse">
-              AI NAME
+              CHANGE USERNAME
             </p>
             <div class="flex justify-center w-full px-4">
               <input
                 type="text"
                 id="ainame"
                 key="ainame"
-                placeholder="Theia"
-                v-model="store.userProfile"
+                placeholder=""
+                v-model="store.userProfile.username"
                 class="mt-4 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
                 :class="[
                   store.dark
