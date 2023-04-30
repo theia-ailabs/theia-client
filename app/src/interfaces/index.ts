@@ -36,9 +36,9 @@ export interface State {
   // modals
   loginModal: boolean;
   settingsModal: boolean;
-  userSettings: boolean;
-  avatarSettings: boolean;
-  connectionSettings: boolean;
+  userModal: boolean;
+  avatarModal: boolean;
+  connectionModal: boolean;
   // menus
   connections: SocialConnections;
   // real estate
