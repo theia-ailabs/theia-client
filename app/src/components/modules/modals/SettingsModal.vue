@@ -6,11 +6,27 @@ import ConnectionsSettings from "../settings/ConnectionsSettings.vue";
 import useStore from "../../../services/store";
 
 export default defineComponent({
-  components: {},
+  components: {
+    UserSettings,
+    AvatarSettings,
+    ConnectionsSettings
+  },
   setup() {
     const store = useStore();
+    const showUserModal = () => {
+      store.userModal = !store.userModal
+    }
+    const showAvatarModal = () => {
+      store.avatarModal = !store.avatarModal
+    }
+    const showConnectionsModal = () => {
+      store.connectionModal = !store.connectionModal
+    }
     return {
       store,
+      showUserModal,
+      showAvatarModal,
+      showConnectionsModal
     };
   },
 });
