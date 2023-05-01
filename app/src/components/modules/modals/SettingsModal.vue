@@ -56,6 +56,7 @@ export default defineComponent({
                     : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
                 "
               ></button>
+              <UserSettings v-if="store.userModal" />
             </div>
             <section id="theia" class="flex align-center justify-center">
               <h1
@@ -71,6 +72,7 @@ export default defineComponent({
                     : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
                 "
               ></button>
+              <AvatarSettings v-if="store.avatarModal" />
             </section>
             <section id="connection" class="flex align-center justify-center">
               <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
@@ -84,6 +86,7 @@ export default defineComponent({
                     : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
                 "
               ></button>
+              <ConnectionsSettings v-if="store.connectionModal" />
             </section>
             <div class="flex w-full justify-center">
               <button
