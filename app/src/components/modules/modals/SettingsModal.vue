@@ -18,7 +18,7 @@ export default defineComponent({
 <template>
   <teleport to="body">
     <notifications position="top left" class="mt-2" animation-type="velocity" />
-    <div :class="store.settingsModal? 'block' : 'hidden'">
+    <div :class="store.settingsModal ? 'block' : 'hidden'">
       <div
         ref="modal-backdrop"
         id="settings-modal"
@@ -44,20 +44,46 @@ export default defineComponent({
             >
               x
             </button>
-            <section id="user">
+            <div id="user" class="flex align-center justify-center">
               <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
-              CUSTOMIZE USER
-            </h1>
+                CUSTOMIZE USER
+              </h1>
+              <button
+                class="rounded-full h-8 w-8 m-2 flex justify-right items-center shadow-xl"
+                :class="
+                  store.dark
+                    ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
+                    : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
+                "
+              ></button>
+            </div>
+            <section id="theia" class="flex align-center justify-center">
+              <h1
+                class="m-4 text-lg sm:text-base text-gray-400 animate-pulse justify-start"
+              >
+                CUSTOMIZE THEIA
+              </h1>
+              <button
+                class="rounded-full h-8 w-8 m-2 flex justify-end items-center shadow-xl"
+                :class="
+                  store.dark
+                    ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
+                    : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
+                "
+              ></button>
             </section>
-            <section id="theia">
+            <section id="connection" class="flex align-center justify-center">
               <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
-              CUSTOMIZE THEIA
-            </h1>
-            </section>
-            <section id="connection">
-              <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
-              CUSTOMIZE CONNECTIONS
-            </h1>
+                CUSTOMIZE CONNECTIONS
+              </h1>
+              <button
+                class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"
+                :class="
+                  store.dark
+                    ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
+                    : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
+                "
+              ></button>
             </section>
             <div class="flex w-full justify-center">
               <button

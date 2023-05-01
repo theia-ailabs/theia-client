@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import SettingsModal from "./modules/modals/SettingsModal.vue";
-import CarouselModal from "./modules/modals/CarouselModal.vue";
+// import CarouselModal from "./modules/modals/CarouselModal.vue";
 import useStore from "../services/store";
 
 export default defineComponent({
@@ -11,7 +11,7 @@ export default defineComponent({
   },
   components: {
     SettingsModal,
-    CarouselModal,
+    //CarouselModal,
   },
   setup(props: any) {
     const store = useStore();
