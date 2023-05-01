@@ -71,6 +71,7 @@ export default defineComponent({
                     ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
                     : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
                 "
+                @click="showUserModal"
               ></button>
               <UserSettings v-if="store.userModal" />
             </div>
@@ -87,6 +88,7 @@ export default defineComponent({
                     ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
                     : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
                 "
+                @click="showAvatarModal"
               ></button>
               <AvatarSettings v-if="store.avatarModal" />
             </section>
@@ -101,6 +103,7 @@ export default defineComponent({
                     ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white'
                     : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'
                 "
+                @click="showConnectionsModal"
               ></button>
               <ConnectionsSettings v-if="store.connectionModal" />
             </section>
