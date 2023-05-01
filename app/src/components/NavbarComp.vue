@@ -57,7 +57,7 @@ export default defineComponent({
 </script>
 <template>
   <div>
-    <CarouselModal />
+    <!-- <CarouselModal /> -->
     <SettingsModal />
     <nav
       class="z-50 fixed pt-4 flex justify-between w-full top-0"

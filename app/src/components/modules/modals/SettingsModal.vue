@@ -44,45 +44,21 @@ export default defineComponent({
             >
               x
             </button>
-            <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
+            <section id="user">
+              <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
               CUSTOMIZE USER
             </h1>
-            <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
+            </section>
+            <section id="theia">
+              <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
               CUSTOMIZE THEIA
             </h1>
-            <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
+            </section>
+            <section id="connection">
+              <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
               CUSTOMIZE CONNECTIONS
             </h1>
-            <div class="flex justify-center w-full px-4">
-              <input
-                type="text"
-                id="ainame"
-                key="ainame"
-                placeholder="Theia"
-                v-model="store.userProfile"
-                class="mt-4 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
-                :class="[
-                  store.dark
-                    ? 'bg-black/70 text-gray-100'
-                    : 'bg-white/70 text-gray-900',
-                  `border-${store.primaryColor}`,
-                  `shadow-${store.secondaryColor}`,
-                  `from-${store.primaryColor} to-${store.secondaryColor}`,
-                ]"
-              />
-            </div>
-            <div
-              class="grid grid-cols-2 py-2 mx-2 sm:mx-4 md:mx-8 ml-2 sm:ml-4 md:ml-8 font-semibold text-gray-400 justify-center align-center align-middle"
-            >
-              <div class="flex mt-3 justify-center">Primary Color</div>
-              <div class="flex justify-center">
-                <Color1Button />
-              </div>
-              <div class="flex justify-center mt-3">Secondary Color</div>
-              <div class="flex justify-center">
-                <Color2Button />
-              </div>
-            </div>
+            </section>
             <div class="flex w-full justify-center">
               <button
                 class="m-4 mt-8 w-24 max-w-24 p-3 rounded-3xl uppercase text-sm font-bold border border-gray-500 shadow-sm text-transparent bg-clip-text bg-gradient-to-r"
