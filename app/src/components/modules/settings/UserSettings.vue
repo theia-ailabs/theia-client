@@ -30,6 +30,12 @@ export default defineComponent({
     function updateHandees(value: any) {
       store.userProfile.handees = value;
     }
+    function updateCountry(value: string) {
+      store.userProfile.country = value;
+    }
+    function updateMood(value: string) {
+      store.userProfile.mood = value;
+    }
     const setupObject: {
       store: typeof store;
       updateUsername: (value: string) => void;
@@ -38,6 +44,8 @@ export default defineComponent({
       updateAge: (value: number) => void;
       updateGender: (value: any) => void;
       updateHandees: (value: any) => void;
+      updateMood: (value: string) => void;
+      updateCountry: (value: string) => void;
     } = {
       store,
       updateUsername,
@@ -46,6 +54,8 @@ export default defineComponent({
       updateAge,
       updateGender,
       updateHandees,
+      updateMood,
+      updateCountry
     };
 
     return setupObject;
@@ -157,6 +167,30 @@ export default defineComponent({
                     :target="store.userProfile.handees"
                     :options="['left', 'right']"
                     @update-target="updateHandees($event)"
+                  />
+                </li>
+                </div>
+                <div class="flex">
+                  <li class="mx-3">
+                  <p
+                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                  >
+                    Country
+                  </p>
+                  <InputComp
+                    :target="store.userProfile.country"
+                    @update-target="updateCountry($event)"
+                  />
+                </li>
+                <li class="mx-3">
+                  <p
+                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                  >
+                    Mood
+                  </p>
+                  <InputComp
+                    :target="store.userProfile.mood"
+                    @update-target="updateMood($event)"
                   />
                 </li>
                 </div>
