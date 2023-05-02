@@ -4,12 +4,14 @@ import Color1Button from "../buttons/Color1Button.vue";
 import Color2Button from "../buttons/Color2Button.vue";
 import useStore from "../../../services/store";
 import InputComp from "../inputs/InputComp.vue";
+import ModeButton from "../buttons/ModeButton.vue";
 
 export default defineComponent({
   components: {
     Color1Button,
     Color2Button,
     InputComp,
+    ModeButton,
   },
   setup() {
     const store = useStore();
@@ -48,29 +50,31 @@ export default defineComponent({
             >
               x
             </button>
-            <h1 class="mx-4 text-lg sm:text-base text-gray-400 animate-pulse">CUSTOMIZE THEIA
+            <h1 class="mx-4 text-lg sm:text-base text-gray-400 animate-pulse">
+              CUSTOMIZE THEIA
             </h1>
             <div>
-              <p
-                      class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
-                    >
-                      Avatar Colors
-                    </p>
-                    <div
-              class="grid grid-cols-2 py-2 mx-2 sm:mx-4 md:mx-8 ml-2 sm:ml-4 md:ml-8 font-semibold text-gray-400 justify-center align-center align-middle"
-            >
-              <div class="flex mt-3 justify-center">Primary Color</div>
-              <div class="flex justify-center">
-                <Color1Button />
-              </div>
-              <div class="flex justify-center mt-3">Secondary Color</div>
-              <div class="flex justify-center">
-                <Color2Button />
+              <p class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse">
+                Avatar Colors
+              </p>
+              <div
+                class="grid grid-cols-2 py-2 mx-2 sm:mx-4 md:mx-8 ml-2 sm:ml-4 md:ml-8 font-semibold text-gray-400 justify-center align-center align-middle"
+              >
+                <div class="flex mt-3 justify-center">Primary Color</div>
+                <div class="flex justify-center">
+                  <Color1Button />
+                </div>
+                <div class="flex justify-center mt-3">Secondary Color</div>
+                <div class="flex justify-center">
+                  <Color2Button />
+                </div>
               </div>
             </div>
-            </div>
-            <div class="flex">
-              
+            <p class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse">
+              Avatar Style
+            </p>
+            <div class="mx-auto">
+              <ModeButton />
             </div>
             <div class="flex w-full justify-center">
               <button
