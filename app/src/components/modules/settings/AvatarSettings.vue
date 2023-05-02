@@ -48,16 +48,15 @@ export default defineComponent({
             >
               x
             </button>
-            <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
-              CUSTOMIZE THEIA
+            <h1 class="mx-4 text-lg sm:text-base text-gray-400 animate-pulse">CUSTOMIZE THEIA
             </h1>
-            <p class="mt-14 text-xs sm:text-sm text-gray-400 animate-pulse">
-              AI NAME
-            </p>
-            <div class="flex justify-center w-full px-4">
-              <InputComp />
-            </div>
-            <div
+            <div>
+              <p
+                      class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                    >
+                      Avatar Colors
+                    </p>
+                    <div
               class="grid grid-cols-2 py-2 mx-2 sm:mx-4 md:mx-8 ml-2 sm:ml-4 md:ml-8 font-semibold text-gray-400 justify-center align-center align-middle"
             >
               <div class="flex mt-3 justify-center">Primary Color</div>
@@ -68,6 +67,10 @@ export default defineComponent({
               <div class="flex justify-center">
                 <Color2Button />
               </div>
+            </div>
+            </div>
+            <div class="flex">
+              
             </div>
             <div class="flex w-full justify-center">
               <button
@@ -80,7 +83,7 @@ export default defineComponent({
                   `hover:shadow-${store.secondaryColor}`,
                   `from-${store.primaryColor} to-${store.secondaryColor}`,
                 ]"
-                @click="store.settingsModal = false"
+                @click="store.avatarModal = false"
               >
                 CANCEL
               </button>
@@ -95,7 +98,7 @@ export default defineComponent({
                   `hover:shadow-${store.secondaryColor}`,
                   `from-${store.primaryColor} to-${store.secondaryColor}`,
                 ]"
-                @click="[store.reAvatar(), (store.settingsModal = false)]"
+                @click="[store.reAvatar(), (store.avatarModal = false)]"
               >
                 SAVE
               </router-link>
@@ -113,7 +116,7 @@ input:focus {
 input:active {
   border: none !important;
 }
-#settings-modal {
+#avatar-settings {
   z-index: 9999 !important;
 }
 </style>
