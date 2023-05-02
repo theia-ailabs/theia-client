@@ -81,7 +81,8 @@ export default defineComponent({
       >
         <div class="flex items-center justify-center min-h-screen text-center">
           <div
-            class="absolute py-3 m-6 sm:w-1/3 rounded-xl text-center overflow-hidden border shadow-md p-8 flex flex-col justify-center"
+            id="container"
+            class="absolute py-3 m-6 rounded-xl text-center overflow-hidden border shadow-md p-8 flex flex-col justify-center"
             :class="[
               store.dark
                 ? 'bg-black/70 text-gray-100'
@@ -207,7 +208,7 @@ export default defineComponent({
                   </p>
                   <InputComp
                     :target="store.userProfile.website"
-                    inputWidth="w-96"
+                    inputWidth="w-48 sm:w-96"
                     @update-target="updateWebsite($event)"
                   />
                 </li>
@@ -259,5 +260,10 @@ input:active {
 }
 #settings-modal {
   z-index: 9999 !important;
+}
+@media (max-width: 500px){
+  #container {
+    max-width: 350px !important;
+  }
 }
 </style>

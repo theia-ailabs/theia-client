@@ -23,7 +23,7 @@ export default defineComponent({
     target: String,
     inputWidth: {
       type: String,
-      default: "w-44",
+      default: "w-32 sm:w-44",
     },
   },
   setup(props, { emit }) {

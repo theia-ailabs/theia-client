@@ -1,7 +1,7 @@
 <template>
   <select
     :value="selectedValue"
-    class="mt-1 w-44 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
+    class="mt-1 w-32 sm:w-44 py-1 text-lg text-center align-middle justify-center tracking-widest rounded-3xl mx-auto border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
     :class="[
       store.dark ? 'bg-black/70 text-gray-100' : 'bg-white/70 text-gray-900',
       `border-${store.primaryColor}`,
@@ -49,3 +49,12 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss" scoped>
+select {
+  text-align: center;
+
+  & option {
+    color: black;
+  }
+}
+</style>
