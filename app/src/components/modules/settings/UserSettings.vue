@@ -82,7 +82,7 @@ export default defineComponent({
                   <p
                     class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
                   >
-                    USERNAME
+                    Username
                   </p>
                   <InputComp
                     :target="store.userProfile.username"
@@ -116,6 +116,17 @@ export default defineComponent({
                     class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
                   >
                     Age
+                  </p>
+                  <InputComp 
+                    :target="store.userProfile.age"
+                    @update-target="updateAge($event)"
+                   />
+                </li>
+                <li>
+                  <p
+                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                  >
+                    Gender
                   </p>
                   <InputComp 
                     :target="store.userProfile.age"
