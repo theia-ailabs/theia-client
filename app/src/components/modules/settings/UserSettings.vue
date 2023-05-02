@@ -86,28 +86,32 @@ export default defineComponent({
             </h1>
             <div class="flex justify-center w-full px-4 my-0">
               <ul>
-                <li>
-                  <p
-                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
-                  >
-                    Username
-                  </p>
-                  <InputComp
-                    :target="store.userProfile.username"
-                    @update-target="updateUsername($event)"
-                  />
-                  <p
-                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
-                  >
-                    First Name
-                  </p>
-                  <InputComp
-                    :target="store.userProfile.firstName"
-                    @update-target="updateFirstName($event)"
-                  />
-                </li>
-                <li></li>
-                <li>
+                <div class="flex">
+                  <li class="mx-3">
+                    <p
+                      class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                    >
+                      Username
+                    </p>
+                    <InputComp
+                      :target="store.userProfile.username"
+                      @update-target="updateUsername($event)"
+                    />
+                  </li>
+                  <li class="mx-3">
+                    <p
+                      class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                    >
+                      First Name
+                    </p>
+                    <InputComp
+                      :target="store.userProfile.firstName"
+                      @update-target="updateFirstName($event)"
+                    />
+                  </li>
+                </div>
+                <div class="flex">
+                  <li class="mx-3">
                   <p
                     class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
                   >
@@ -118,7 +122,7 @@ export default defineComponent({
                     @update-target="updateLastName($event)"
                   />
                 </li>
-                <li>
+                <li class="mx-3">
                   <p
                     class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
                   >
@@ -129,7 +133,9 @@ export default defineComponent({
                     @update-target="updateAge($event)"
                   />
                 </li>
-                <li>
+                </div>
+                <div class="flex">
+                  <li class="mx-3">
                   <p
                     class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
                   >
@@ -141,7 +147,7 @@ export default defineComponent({
                     @update-target="updateGender($event)"
                   />
                 </li>
-                <li>
+                <li class="mx-3">
                   <p
                     class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
                   >
@@ -153,6 +159,7 @@ export default defineComponent({
                     @update-target="updateHandees($event)"
                   />
                 </li>
+                </div>
               </ul>
             </div>
             <div class="flex w-full justify-center">
