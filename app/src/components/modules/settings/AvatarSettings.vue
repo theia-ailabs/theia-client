@@ -9,7 +9,7 @@ export default defineComponent({
   components: {
     Color1Button,
     Color2Button,
-    InputComp
+    InputComp,
   },
   setup() {
     const store = useStore();

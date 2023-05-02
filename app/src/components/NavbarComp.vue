@@ -13,7 +13,7 @@ export default defineComponent({
     SettingsModal,
     //CarouselModal,
   },
-  setup(props: any) {
+  setup(props) {
     const store = useStore();
     const switchModal = () => {
       store.settingsModal = !store.settingsModal;

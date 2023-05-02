@@ -3,7 +3,6 @@ import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
 import { getDate, getTime } from "../../utils";
 import { askTheia } from "../sockets/theia.socket";
 import { userSettings, avatarSettings, socialConnections } from "./default";
-import { AudioRecorder } from "../utilities/audioToogle";
 import VoiceRec from "../utilities/voiceRec";
 
 const useStore = defineStore("store", {

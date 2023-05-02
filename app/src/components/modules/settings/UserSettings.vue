@@ -261,7 +261,7 @@ input:active {
 #settings-modal {
   z-index: 9999 !important;
 }
-@media (max-width: 500px){
+@media (max-width: 500px) {
   #container {
     max-width: 350px !important;
   }
