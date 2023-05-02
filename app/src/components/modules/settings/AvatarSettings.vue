@@ -3,11 +3,13 @@ import { defineComponent } from "vue";
 import Color1Button from "../buttons/Color1Button.vue";
 import Color2Button from "../buttons/Color2Button.vue";
 import useStore from "../../../services/store";
+import InputComp from "../inputs/InputComp.vue";
 
 export default defineComponent({
   components: {
     Color1Button,
     Color2Button,
+    InputComp
   },
   setup() {
     const store = useStore();
@@ -20,7 +22,7 @@ export default defineComponent({
 <template>
   <teleport to="body">
     <notifications position="top left" class="mt-2" animation-type="velocity" />
-    <div :class="store.avatarModal ? 'block' : 'hidden'">
+    <div>
       <div
         ref="modal-backdrop"
         id="avatar-settings"
@@ -31,7 +33,7 @@ export default defineComponent({
       >
         <div class="flex items-center justify-center min-h-screen text-center">
           <div
-            class="absolute py-24 m-6 sm:w-1/3 rounded-xl text-center overflow-hidden border shadow-md p-8 flex flex-col justify-center"
+            class="absolute py-24 m-6 rounded-xl text-center overflow-hidden border shadow-md p-8 flex flex-col justify-center"
             :class="[
               store.dark
                 ? 'bg-black/70 text-gray-100'
@@ -53,22 +55,7 @@ export default defineComponent({
               AI NAME
             </p>
             <div class="flex justify-center w-full px-4">
-              <input
-                trype="text"
-                id="ainame"
-                key="ainame"
-                placeholder="Theia"
-                v-model="store.userProfile"
-                class="mt-4 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
-                :class="[
-                  store.dark
-                    ? 'bg-black/70 text-gray-100'
-                    : 'bg-white/70 text-gray-900',
-                  `border-${store.primaryColor}`,
-                  `shadow-${store.secondaryColor}`,
-                  `from-${store.primaryColor} to-${store.secondaryColor}`,
-                ]"
-              />
+              <InputComp />
             </div>
             <div
               class="grid grid-cols-2 py-2 mx-2 sm:mx-4 md:mx-8 ml-2 sm:ml-4 md:ml-8 font-semibold text-gray-400 justify-center align-center align-middle"
