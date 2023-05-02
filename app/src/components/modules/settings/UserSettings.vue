@@ -7,7 +7,7 @@ import SelectComp from "@/components/common/SelectComp.vue";
 export default defineComponent({
   components: {
     InputComp,
-    SelectComp
+    SelectComp,
   },
   setup() {
     const store = useStore();
@@ -45,7 +45,7 @@ export default defineComponent({
       updateLastName,
       updateAge,
       updateGender,
-      updateHandees
+      updateHandees,
     };
 
     return setupObject;
@@ -66,7 +66,7 @@ export default defineComponent({
       >
         <div class="flex items-center justify-center min-h-screen text-center">
           <div
-            class="absolute py-24 m-6 sm:w-1/3 rounded-xl text-center overflow-hidden border shadow-md p-8 flex flex-col justify-center"
+            class="absolute py-3 m-6 sm:w-1/3 rounded-xl text-center overflow-hidden border shadow-md p-8 flex flex-col justify-center"
             :class="[
               store.dark
                 ? 'bg-black/70 text-gray-100'
@@ -96,8 +96,6 @@ export default defineComponent({
                     :target="store.userProfile.username"
                     @update-target="updateUsername($event)"
                   />
-                </li>
-                <li>
                   <p
                     class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
                   >
@@ -108,6 +106,7 @@ export default defineComponent({
                     @update-target="updateFirstName($event)"
                   />
                 </li>
+                <li></li>
                 <li>
                   <p
                     class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
@@ -146,7 +145,7 @@ export default defineComponent({
                   <p
                     class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
                   >
-                    Handee
+                    Handlee
                   </p>
                   <SelectComp
                     :target="store.userProfile.handees"
