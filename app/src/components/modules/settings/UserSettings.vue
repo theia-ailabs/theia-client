@@ -3,17 +3,44 @@ import { defineComponent } from "vue";
 import Color1Button from "../buttons/Color1Button.vue";
 import Color2Button from "../buttons/Color2Button.vue";
 import useStore from "../../../services/store";
+import InputComp from "@/components/common/InputComp.vue";
 
 export default defineComponent({
   components: {
     Color1Button,
     Color2Button,
+    InputComp,
   },
   setup() {
     const store = useStore();
-    return {
+
+    function updateUsername(value: string) {
+      store.userProfile.username = value;
+    }
+    function updateFirstName(value: string) {
+      store.userProfile.firstName = value;
+    }
+    function updateLastName(value: string) {
+      store.userProfile.lastName = value;
+    }
+    function updateAge(value: number) {
+      store.userProfile.age = value;
+    }
+    const setupObject: {
+      store: typeof store;
+      updateUsername: (value: string) => void;
+      updateFirstName: (value: string) => void;
+      updateLastName: (value: string) => void;
+      updateAge: (value: number) => void;
+    } = {
       store,
+      updateUsername,
+      updateFirstName,
+      updateLastName,
+      updateAge
     };
+
+    return setupObject;
   },
 });
 </script>
@@ -52,46 +79,48 @@ export default defineComponent({
             <div class="flex justify-center w-full px-4 my-0">
               <ul>
                 <li>
-                  <p class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse">
-                USERNAME
-                </p> 
-                  <input
-                type="text"
-                id="username"
-                key="username"
-                placeholder="Change your username"
-                v-model="store.userProfile.username"
-                class="mt-1 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
-                :class="[
-                  store.dark
-                    ? 'bg-black/70 text-gray-100'
-                    : 'bg-white/70 text-gray-900',
-                  `border-${store.primaryColor}`,
-                  `shadow-${store.secondaryColor}`,
-                  `from-${store.primaryColor} to-${store.secondaryColor}`,
-                ]"
-              />
+                  <p
+                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                  >
+                    USERNAME
+                  </p>
+                  <InputComp
+                    :target="store.userProfile.username"
+                    @update-target="updateUsername($event)"
+                  />
                 </li>
                 <li>
-                  <p class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse">
-                First name
-                </p> 
-                  <input
-                type="text"
-                id="firstname"
-                key="firstname"
-                placeholder="Change your username"
-                v-model="store.userProfile.firstName"
-                class="mt-1 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
-                :class="[
-                  store.dark
-                    ? 'bg-black/70 text-gray-100'
-                    : 'bg-white/70 text-gray-900',
-                  `border-${store.primaryColor}`,
-                  `shadow-${store.secondaryColor}`,
-                  `from-${store.primaryColor} to-${store.secondaryColor}`,
-                ]"
-              />
+                  <p
+                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                  >
+                    First Name
+                  </p>
+                  <InputComp 
+                    :target="store.userProfile.firstName"
+                    @update-target="updateFirstName($event)"
+                   />
+                </li>
+                <li>
+                  <p
+                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                  >
+                    Last Name
+                  </p>
+                  <InputComp 
+                    :target="store.userProfile.lastName"
+                    @update-target="updateLastName($event)"
+                   />
+                </li>
+                <li>
+                  <p
+                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                  >
+                    Age
+                  </p>
+                  <InputComp 
+                    :target="store.userProfile.age"
+                    @update-target="updateAge($event)"
+                   />
                 </li>
               </ul>
             </div>

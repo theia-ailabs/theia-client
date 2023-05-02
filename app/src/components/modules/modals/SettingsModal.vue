@@ -9,24 +9,24 @@ export default defineComponent({
   components: {
     UserSettings,
     AvatarSettings,
-    ConnectionsSettings
+    ConnectionsSettings,
   },
   setup() {
     const store = useStore();
     const showUserModal = () => {
-      store.userModal = !store.userModal
-    }
+      store.userModal = !store.userModal;
+    };
     const showAvatarModal = () => {
-      store.avatarModal = !store.avatarModal
-    }
+      store.avatarModal = !store.avatarModal;
+    };
     const showConnectionsModal = () => {
-      store.connectionModal = !store.connectionModal
-    }
+      store.connectionModal = !store.connectionModal;
+    };
     return {
       store,
       showUserModal,
       showAvatarModal,
-      showConnectionsModal
+      showConnectionsModal,
     };
   },
 });
