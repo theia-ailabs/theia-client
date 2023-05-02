@@ -36,6 +36,9 @@ export default defineComponent({
     function updateMood(value: string) {
       store.userProfile.mood = value;
     }
+    function updateWebsite(value: string) {
+      store.userProfile.website = value;
+    }
     const setupObject: {
       store: typeof store;
       updateUsername: (value: string) => void;
@@ -46,6 +49,7 @@ export default defineComponent({
       updateHandees: (value: any) => void;
       updateMood: (value: string) => void;
       updateCountry: (value: string) => void;
+      updateWebsite: (value: string) => void;
     } = {
       store,
       updateUsername,
@@ -55,7 +59,8 @@ export default defineComponent({
       updateGender,
       updateHandees,
       updateMood,
-      updateCountry
+      updateCountry,
+      updateWebsite,
     };
 
     return setupObject;
@@ -122,78 +127,90 @@ export default defineComponent({
                 </div>
                 <div class="flex">
                   <li class="mx-3">
-                  <p
-                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
-                  >
-                    Last Name
-                  </p>
-                  <InputComp
-                    :target="store.userProfile.lastName"
-                    @update-target="updateLastName($event)"
-                  />
-                </li>
-                <li class="mx-3">
-                  <p
-                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
-                  >
-                    Age
-                  </p>
-                  <InputComp
-                    :target="store.userProfile.age"
-                    @update-target="updateAge($event)"
-                  />
-                </li>
+                    <p
+                      class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                    >
+                      Last Name
+                    </p>
+                    <InputComp
+                      :target="store.userProfile.lastName"
+                      @update-target="updateLastName($event)"
+                    />
+                  </li>
+                  <li class="mx-3">
+                    <p
+                      class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                    >
+                      Age
+                    </p>
+                    <InputComp
+                      :target="store.userProfile.age"
+                      @update-target="updateAge($event)"
+                    />
+                  </li>
                 </div>
                 <div class="flex">
                   <li class="mx-3">
-                  <p
-                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
-                  >
-                    Gender
-                  </p>
-                  <SelectComp
-                    :target="store.userProfile.gender"
-                    :options="['female', 'male', 'non-binary', '']"
-                    @update-target="updateGender($event)"
-                  />
-                </li>
-                <li class="mx-3">
-                  <p
-                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
-                  >
-                    Handlee
-                  </p>
-                  <SelectComp
-                    :target="store.userProfile.handees"
-                    :options="['left', 'right']"
-                    @update-target="updateHandees($event)"
-                  />
-                </li>
+                    <p
+                      class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                    >
+                      Gender
+                    </p>
+                    <SelectComp
+                      :target="store.userProfile.gender"
+                      :options="['female', 'male', 'non-binary', '']"
+                      @update-target="updateGender($event)"
+                    />
+                  </li>
+                  <li class="mx-3">
+                    <p
+                      class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                    >
+                      Handlee
+                    </p>
+                    <SelectComp
+                      :target="store.userProfile.handees"
+                      :options="['left', 'right']"
+                      @update-target="updateHandees($event)"
+                    />
+                  </li>
                 </div>
                 <div class="flex">
                   <li class="mx-3">
-                  <p
-                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
-                  >
-                    Country
-                  </p>
-                  <InputComp
-                    :target="store.userProfile.country"
-                    @update-target="updateCountry($event)"
-                  />
-                </li>
-                <li class="mx-3">
-                  <p
-                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
-                  >
-                    Mood
-                  </p>
-                  <InputComp
-                    :target="store.userProfile.mood"
-                    @update-target="updateMood($event)"
-                  />
-                </li>
+                    <p
+                      class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                    >
+                      Country
+                    </p>
+                    <InputComp
+                      :target="store.userProfile.country"
+                      @update-target="updateCountry($event)"
+                    />
+                  </li>
+                  <li class="mx-3">
+                    <p
+                      class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                    >
+                      Mood
+                    </p>
+                    <InputComp
+                      :target="store.userProfile.mood"
+                      @update-target="updateMood($event)"
+                    />
+                  </li>
                 </div>
+                <li>
+                  <p
+                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                  >
+                    Website
+                  </p>
+                  <InputComp
+                    :target="store.userProfile.website"
+                    inputWidth="w-96"
+                    @update-target="updateWebsite($event)"
+                  />
+                </li>
               </ul>
             </div>
             <div class="flex w-full justify-center">
