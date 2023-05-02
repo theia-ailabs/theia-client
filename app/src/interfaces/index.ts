@@ -63,8 +63,8 @@ export interface UserSettings {
   topics: string[];
 }
 
-type Gender = "female" | "male" | "non-binary" | "";
-type Handees = "left" | "right";
+type Gender = "Female" | "Male" | "Non-binary" | "";
+type Handees = "Left" | "Right";
 
 export interface Vector3 {
   x: number;
