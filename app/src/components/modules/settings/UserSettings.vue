@@ -158,7 +158,7 @@ export default defineComponent({
                     </p>
                     <SelectComp
                       :target="store.userProfile.gender"
-                      :options="['female', 'male', 'non-binary', '']"
+                      :options="['Female', 'Male', 'Non-binary', '']"
                       @update-target="updateGender($event)"
                     />
                   </li>
@@ -170,7 +170,7 @@ export default defineComponent({
                     </p>
                     <SelectComp
                       :target="store.userProfile.handees"
-                      :options="['left', 'right']"
+                      :options="['Left', 'Right']"
                       @update-target="updateHandees($event)"
                     />
                   </li>
