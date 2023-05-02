@@ -27,6 +27,9 @@ export default defineComponent({
     function updateGender(value: any) {
       store.userProfile.gender = value;
     }
+    function updateHandees(value: any) {
+      store.userProfile.handees = value;
+    }
     const setupObject: {
       store: typeof store;
       updateUsername: (value: string) => void;
@@ -34,13 +37,15 @@ export default defineComponent({
       updateLastName: (value: string) => void;
       updateAge: (value: number) => void;
       updateGender: (value: any) => void;
+      updateHandees: (value: any) => void;
     } = {
       store,
       updateUsername,
       updateFirstName,
       updateLastName,
       updateAge,
-      updateGender
+      updateGender,
+      updateHandees
     };
 
     return setupObject;
@@ -135,6 +140,18 @@ export default defineComponent({
                     :target="store.userProfile.gender"
                     :options="['female', 'male', 'non-binary', '']"
                     @update-target="updateGender($event)"
+                  />
+                </li>
+                <li>
+                  <p
+                    class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse"
+                  >
+                    Handee
+                  </p>
+                  <SelectComp
+                    :target="store.userProfile.handees"
+                    :options="['left', 'right']"
+                    @update-target="updateHandees($event)"
                   />
                 </li>
               </ul>
