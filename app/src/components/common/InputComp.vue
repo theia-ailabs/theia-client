@@ -16,14 +16,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useStore from "@/services/store";
-import { programSupportsExtensions } from "@solana/spl-token";
-import { ProgressPlugin } from "webpack";
 
 export default defineComponent({
   props: {
     target: String,
   },
-  setup(props, {emit}) {
+  setup(props, { emit }) {
     const store = useStore();
 
     function updateTarget(value: any) {
@@ -31,7 +29,7 @@ export default defineComponent({
     }
     return {
       store,
-      updateTarget
+      updateTarget,
     };
   },
 });

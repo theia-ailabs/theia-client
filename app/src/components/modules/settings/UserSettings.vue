@@ -1,15 +1,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import Color1Button from "../buttons/Color1Button.vue";
-import Color2Button from "../buttons/Color2Button.vue";
 import useStore from "../../../services/store";
 import InputComp from "@/components/common/InputComp.vue";
+import SelectComp from "@/components/common/SelectComp.vue";
 
 export default defineComponent({
   components: {
-    Color1Button,
-    Color2Button,
     InputComp,
+    SelectComp
   },
   setup() {
     const store = useStore();
@@ -26,18 +24,23 @@ export default defineComponent({
     function updateAge(value: number) {
       store.userProfile.age = value;
     }
+    function updateGender(value: any) {
+      store.userProfile.gender = value;
+    }
     const setupObject: {
       store: typeof store;
       updateUsername: (value: string) => void;
       updateFirstName: (value: string) => void;
       updateLastName: (value: string) => void;
       updateAge: (value: number) => void;
+      updateGender: (value: any) => void;
     } = {
       store,
       updateUsername,
       updateFirstName,
       updateLastName,
-      updateAge
+      updateAge,
+      updateGender
     };
 
     return setupObject;
@@ -95,10 +98,10 @@ export default defineComponent({
                   >
                     First Name
                   </p>
-                  <InputComp 
+                  <InputComp
                     :target="store.userProfile.firstName"
                     @update-target="updateFirstName($event)"
-                   />
+                  />
                 </li>
                 <li>
                   <p
@@ -106,10 +109,10 @@ export default defineComponent({
                   >
                     Last Name
                   </p>
-                  <InputComp 
+                  <InputComp
                     :target="store.userProfile.lastName"
                     @update-target="updateLastName($event)"
-                   />
+                  />
                 </li>
                 <li>
                   <p
@@ -117,10 +120,10 @@ export default defineComponent({
                   >
                     Age
                   </p>
-                  <InputComp 
+                  <InputComp
                     :target="store.userProfile.age"
                     @update-target="updateAge($event)"
-                   />
+                  />
                 </li>
                 <li>
                   <p
@@ -128,10 +131,11 @@ export default defineComponent({
                   >
                     Gender
                   </p>
-                  <InputComp 
-                    :target="store.userProfile.age"
-                    @update-target="updateAge($event)"
-                   />
+                  <SelectComp
+                    :target="store.userProfile.gender"
+                    :options="['female', 'male', 'non-binary', '']"
+                    @update-target="updateGender($event)"
+                  />
                 </li>
               </ul>
             </div>
