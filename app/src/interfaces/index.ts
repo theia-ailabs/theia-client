@@ -65,6 +65,7 @@ export interface UserSettings {
 
 type Gender = "female" | "male" | "non-binary" | "";
 type Handees = "left" | "right";
+
 export interface Vector3 {
   x: number;
   y: number;
@@ -86,7 +87,7 @@ export interface AvatarConfig {
   vertex: Vector3;
   speed: number;
   transparent: boolean;
-  background: number;
+  background: number; // 0 black 1 white
 }
 
 export interface AvatarSettings {

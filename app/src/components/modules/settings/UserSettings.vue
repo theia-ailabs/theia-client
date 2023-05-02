@@ -41,25 +41,27 @@ export default defineComponent({
             ]"
           >
             <button
-              @click="store.settingsModal = false"
+              @click="store.userModal = false"
               class="absolute text-white/80 top-6 right-6 rounded-full border border-gray-600 px-[10px] pb-[4px] hover:text-white hover:bg-slate-900 hover:border-white/50"
             >
               x
             </button>
-            <h1 class="m-4 text-lg sm:text-base text-gray-400 animate-pulse">
-              CUSTOMIZE THEIA
+            <h1 class="mx-4 text-lg sm:text-base text-gray-400 animate-pulse">
+              CUSTOMIZE USER
             </h1>
-            <p class="mt-14 text-xs sm:text-sm text-gray-400 animate-pulse">
-              AI NAME
-            </p>
-            <div class="flex justify-center w-full px-4">
-              <input
+            <div class="flex justify-center w-full px-4 my-0">
+              <ul>
+                <li>
+                  <p class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse">
+                USERNAME
+                </p> 
+                  <input
                 type="text"
-                id="ainame"
-                key="ainame"
-                placeholder="Theia"
-                v-model="store.userProfile"
-                class="mt-4 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
+                id="username"
+                key="username"
+                placeholder="Change your username"
+                v-model="store.userProfile.username"
+                class="mt-1 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
                 :class="[
                   store.dark
                     ? 'bg-black/70 text-gray-100'
@@ -69,18 +71,29 @@ export default defineComponent({
                   `from-${store.primaryColor} to-${store.secondaryColor}`,
                 ]"
               />
-            </div>
-            <div
-              class="grid grid-cols-2 py-2 mx-2 sm:mx-4 md:mx-8 ml-2 sm:ml-4 md:ml-8 font-semibold text-gray-400 justify-center align-center align-middle"
-            >
-              <div class="flex mt-3 justify-center">Primary Color</div>
-              <div class="flex justify-center">
-                <Color1Button />
-              </div>
-              <div class="flex justify-center mt-3">Secondary Color</div>
-              <div class="flex justify-center">
-                <Color2Button />
-              </div>
+                </li>
+                <li>
+                  <p class="mt-3 text-xs sm:text-sm text-gray-400 animate-pulse">
+                First name
+                </p> 
+                  <input
+                type="text"
+                id="firstname"
+                key="firstname"
+                placeholder="Change your username"
+                v-model="store.userProfile.firstName"
+                class="mt-1 w-96 py-1 px-4 text-lg text-center tracking-widest rounded-3xl mx-22 border inner shadow-inner bg-transparent text-transparent bg-clip-text bg-gradient-to-r"
+                :class="[
+                  store.dark
+                    ? 'bg-black/70 text-gray-100'
+                    : 'bg-white/70 text-gray-900',
+                  `border-${store.primaryColor}`,
+                  `shadow-${store.secondaryColor}`,
+                  `from-${store.primaryColor} to-${store.secondaryColor}`,
+                ]"
+              />
+                </li>
+              </ul>
             </div>
             <div class="flex w-full justify-center">
               <button
@@ -93,7 +106,7 @@ export default defineComponent({
                   `hover:shadow-${store.secondaryColor}`,
                   `from-${store.primaryColor} to-${store.secondaryColor}`,
                 ]"
-                @click="store.settingsModal = false"
+                @click="store.userModal = false"
               >
                 CANCEL
               </button>
@@ -108,7 +121,7 @@ export default defineComponent({
                   `hover:shadow-${store.secondaryColor}`,
                   `from-${store.primaryColor} to-${store.secondaryColor}`,
                 ]"
-                @click="[store.reAvatar(), (store.settingsModal = false)]"
+                @click="[store.reAvatar(), (store.userModal = false)]"
               >
                 SAVE
               </router-link>
