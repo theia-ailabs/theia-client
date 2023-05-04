@@ -15,9 +15,18 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
-    return {
+    function updateMode(value: string) {
+      store.avatarMode = value;
+    }
+    const setupObject: {
+      store: typeof store;
+      updateMode: (value: string) => void;
+    } = {
       store,
+      updateMode,
     };
+
+    return setupObject;
   },
 });
 </script>
@@ -74,7 +83,10 @@ export default defineComponent({
               Avatar Style
             </p>
             <div class="mx-auto">
-              <ModeButton />
+              <ModeButton
+                :mode="store.avatarMode"
+                @update-mode="updateMode($event)"
+              />
             </div>
             <div class="flex w-full justify-center">
               <button
