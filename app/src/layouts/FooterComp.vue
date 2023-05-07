@@ -1,6 +1,6 @@
 <script lang="ts">
 import { ref } from "vue";
-import { getTime, getDate } from "../utils";
+import { getTime, getDate } from "../helpers";
 import FooterButtons from "./modules/buttons/FooterButtons.vue";
 import useStore from "../services/store";
 
