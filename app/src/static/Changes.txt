@@ -2,3 +2,4 @@ A día 7 del 5 de 2023, aquí especifico los cambios que he efectuado en la arqu
 
 - Creación de la carpeta "Static" donde se podrán compartir archivos .txt con los cuales se especificarán los cambios producidos.
 - Creación de la carpeta "i18n" para manejar los JSON de lenguajes (quizá debamos incluir la librería de vue-i18n)
+- Carpeta de Views movida al Src, de nuevo (carpeta Components queda sólo con Common y Modules).
