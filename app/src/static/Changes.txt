@@ -4,3 +4,5 @@ A día 7 del 5 de 2023, aquí especifico los cambios que he efectuado en la arqu
 - Creación de la carpeta "i18n" para manejar los JSON de lenguajes (quizá debamos incluir la librería de vue-i18n)
 - Carpeta de Views movida al Src, de nuevo (carpeta Components queda sólo con Common y Modules).
 - Carpeta "Utils" renombrada a "Helpers" para ser más reconovible.
+- Carpeta "Layouts" creada en el Src para tener una estructura más escalada de componentes desde más alto nivel a más bajo nivel:
+ => Views contienen Layouts que, a su vez, contienen Componentes, tanto reutilizables (Common) como raramente reutilizables (Modules/modals).
