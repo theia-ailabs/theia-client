@@ -1,0 +1,3 @@
+A día 7 del 5 de 2023, aquí especifico los cambios que he efectuado en la arquitectura de nuestro proyecto para garantizar que sea sólido:
+
+- Creación de la carpeta "Static" donde se podrán compartir archivos .txt con los cuales se especificarán los cambios producidos.

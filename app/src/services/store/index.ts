@@ -24,8 +24,7 @@ const useStore = defineStore("store", {
       chat: [],
       // ui config
       dark: true,
-      sound: false
-      ,
+      sound: false,
       recorder: new VoiceRec(),
       primaryColor: "purple-500",
       secondaryColor: "yellow-500",
