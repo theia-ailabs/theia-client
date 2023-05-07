@@ -12,3 +12,8 @@ A día 7 del 5 de 2023, aquí especifico los cambios que he efectuado en la arqu
 - He creado subcarpetas dentro de Modules para almacenar los componentes por tipo (solo el template está en la raíz).
 - He actualizado las rutas de los componentes movidos para que no presenten fallos.
 - He creado la carpeta "Test" en el Src para realizar las pruebas pertinentes.
+
+Cambios propuestos para refactorizar el proyecto:
+
+- Los archivos Navbar y Footer (actualmente en Layouts), me gustaría reestructurarlos y encapsular los botones, el title, el address, etc. en Modules. Creo que tienen demasiado código para ser Layouts en sí mismos.
+- A nivel general, concretar qué podemos considerar como Common actualmente y qué no.
