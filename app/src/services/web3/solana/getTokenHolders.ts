@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { PublicKey } from "@solana/web3.js";
-import { formatPercentage } from "../../../utils";
+import { formatPercentage } from "../../../helpers";
 import { BLOCKCHAIN_CONNECTION } from "@/config";
 
 export interface TokenHolder {

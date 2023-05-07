@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { State, ChatRecord, UserMessage, TheiaMessage } from "../../interfaces";
-import { getDate, getTime } from "../../utils";
+import { getDate, getTime } from "../../helpers";
 import { askTheia } from "../sockets/theia.socket";
 import { userSettings, avatarSettings, socialConnections } from "./default";
 import VoiceRec from "../utilities/voiceRec";

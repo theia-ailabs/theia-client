@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PublicKey } from "@solana/web3.js";
-import { getDateTime } from "../../../utils";
+import { getDateTime } from "../../../helpers";
 import { BLOCKCHAIN_CONNECTION } from "@/config";
 
 const TOKEN = "THEIA";
