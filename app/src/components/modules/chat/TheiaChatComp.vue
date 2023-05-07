@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 import AudioPlayer from "./AudioPlayerComp.vue";
 import ProgressBarComp from "./modules/loaders/ProgressBarComp.vue";
 import InputComp from "./modules/inputs/InputComp.vue";
-import useStore from "../services/store";
+import useStore from "@/services/store";
 import RealEstateComp from "./RealEstateComp.vue";
 
 export default defineComponent({

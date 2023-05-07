@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import WalletConnections from "./modules/wallets/solana/WalletConnections.vue";
-import useStore from "../services/store";
+import useStore from "@/services/store";
 
 export default defineComponent({
   components: {
