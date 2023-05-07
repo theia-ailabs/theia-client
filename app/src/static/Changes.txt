@@ -11,3 +11,4 @@ A día 7 del 5 de 2023, aquí especifico los cambios que he efectuado en la arqu
 - He reorganizado los componentes entre las carpetas de "Common", "Modules" y "Layouts".
 - He creado subcarpetas dentro de Modules para almacenar los componentes por tipo (solo el template está en la raíz).
 - He actualizado las rutas de los componentes movidos para que no presenten fallos.
+- He creado la carpeta "Test" en el Src para realizar las pruebas pertinentes.
