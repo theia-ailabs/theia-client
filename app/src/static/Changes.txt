@@ -6,5 +6,8 @@ A día 7 del 5 de 2023, aquí especifico los cambios que he efectuado en la arqu
 - Carpeta "Utils" renombrada a "Helpers" para ser más reconovible.
 - Carpeta "Layouts" creada en el Src para tener una estructura más escalada de componentes desde más alto nivel a más bajo nivel:
  => Views contienen Layouts que, a su vez, contienen Componentes, tanto reutilizables (Common) como raramente reutilizables (Modules/modals).
-- Carpeta "Middlewares" (o Guards) creada para almanezar todas las funciones intermedias que se requieren para la conexión entre Views o diferentes partes de la aplicación (por ejemplo, la autentificación).
+- Carpeta "Middlewares" (o "Guards") creada para almanezar todas las funciones intermedias que se requieren para la conexión entre Views o diferentes partes de la aplicación (por ejemplo, la autentificación).
 - Deberíamos considerar mover la carpeta "Store" al Src como buena práctica (aunque sea la única sin icono ): ).
+- He reorganizado los componentes entre las carpetas de "Common", "Modules" y "Layouts".
+- He creado subcarpetas dentro de Modules para almacenar los componentes por tipo (solo el template está en la raíz).
+- He actualizado las rutas de los componentes movidos para que no presenten fallos.
